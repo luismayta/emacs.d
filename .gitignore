@@ -1,17 +1,2 @@
 elpa/
 auto-save-list/
-*.dat
-*.eld
-*.cache
-url/
-el-get/
-.python-environments
-#*
-#*#
-*#*#
-var
-emms
-ido.last
-*.#*
-.godeps/
-bin
