@@ -21,6 +21,10 @@
   (unless (require depname nil t)
     (package-install depname)))
 
+;; bootstrap elpa repos
+(unless (require 'color-theme nil t)
+  (package-refresh-contents))
+
 ;; -- Dependencies
 
 ;; color-theme support
