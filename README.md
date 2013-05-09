@@ -12,4 +12,15 @@ To install:
     git clone git://github.com/d11wtq/emacs.d.git ~/.emacs.d
     ln -s ~/.emacs.d/.emacs ~/.emacs
 
-Packages are auto-installed using ELPA, via Marmalade.
+Packages are auto-installed using ELPA (built-in package manager), via
+Marmalade and MELPA.
+
+## Includes:
+
+  - Marmalade/MELPA automatic package management
+  - Molokai theme
+  - Erlang major mode
+  - 2 spaces for indentation most places (4 for Erlang)
+  - IDO Everywhere (auto-completion)
+  - find-file-in-project (Ctrl-P)
+  - Backup files turned off
