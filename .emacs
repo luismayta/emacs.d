@@ -66,6 +66,9 @@
 ;; bind ctrl-p to the file finder
 (global-set-key "\C-p" 'find-file-in-project)
 
+;; find-file-in-project should use entire paths
+(setq ffip-full-paths t)
+
 ;; use soft tabs by default
 (setq-default indent-tabs-mode nil)
 
