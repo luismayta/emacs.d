@@ -22,7 +22,7 @@
     (package-install depname)))
 
 ;; bootstrap elpa repos
-(unless (require 'color-theme nil t)
+(unless (file-exists-p "~/.emacs.d/elpa/archives")
   (package-refresh-contents))
 
 ;; -- Dependencies
@@ -42,8 +42,17 @@
 ;; ido mode stuff (auto-complete)
 (dep 'ido-ubiquitous)
 
+;; tab completion when editing
+(dep 'auto-complete)
+
 ;; markdown syntax highlighting etc
 (dep 'markdown-mode)
+
+;; syntax highlighting for php
+(dep 'php-mode)
+
+;; show the column number in the status bar
+(column-number-mode)
 
 ;; turn on ido mode everywhere
 (ido-mode)
@@ -72,3 +81,12 @@
 ;; .md files should use markdown-mode
 (add-to-list 'auto-mode-alist
   '("\\.md\\'" . markdown-mode))
+
+;; turn on auto-completion of function names etc
+(global-auto-complete-mode)
+
+;; require pressing TAB to auto-complete
+(setq ac-trigger-key "TAB")
+
+;; don't show the auto-complete menu unless asked
+(setq ac-auto-start nil)
