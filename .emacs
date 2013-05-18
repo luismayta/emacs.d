@@ -1,4 +1,4 @@
-;; Emacs User Configuration File
+;;; .emacs -- d11wtq's configuration file
 
 ;; elpa package management
 (require 'package)
@@ -49,13 +49,15 @@
 
 ;; -- Dependencies
 
-(dependencies '(color-theme
-                molokai-theme
+(dependencies '(molokai-theme
                 evil
                 erlang
                 auto-complete
                 markdown-mode
                 php-mode))
+
+;; make pretty colors
+(load-theme 'molokai t)
 
 ;; emacs is actually vim in disguise
 (evil-mode t)
@@ -80,6 +82,9 @@
 
 ;; show whitespace...
 (global-whitespace-mode t)
+
+;; reload changes from disk
+(global-auto-revert-mode t)
 
 ;; customize some global vars
 (custom-set-variables
