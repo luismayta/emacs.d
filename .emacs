@@ -1,4 +1,4 @@
-;; Emacs User Configuration File
+;;; .emacs -- d11wtq's configuration file
 
 ;; elpa package management
 (require 'package)
@@ -43,21 +43,24 @@
     (dep (car deps))
     (dependencies (cdr deps))))
 
+;; Macro to return an interactive lambda.
+(defmacro run (cmd)
+  `(lambda () (interactive) ,cmd))
+
 ;; -- Dependencies
 
-(dependencies '(color-theme
-                molokai-theme
+(dependencies '(molokai-theme
                 evil
                 erlang
                 auto-complete
                 markdown-mode
                 php-mode))
 
+;; make pretty colors
+(load-theme 'molokai t)
+
 ;; emacs is actually vim in disguise
 (evil-mode t)
-
-;; by default evil binds C-z, which is silly
-(evil-set-toggle-key (kbd "C-\\"))
 
 ;; show the column number in the status bar
 (column-number-mode t)
@@ -65,50 +68,58 @@
 ;; turn on ido mode everywhere
 (ido-mode t)
 
-;; fuck #auto-save# files
-(setq auto-save-default nil)
-
-;; fuck backup~ files
-(setq make-backup-files nil)
-
-;; bind ctrl-p to the file finder
-(global-set-key (kbd "C-p") 'find-file-in-project)
-
-;; use soft tabs by default
-(setq-default indent-tabs-mode nil)
-
-;; 2 spaces for soft tab stops
-(setq tab-stop-list (number-sequence 2 200 2))
-
-;; 4 spaces for actual tab sizing
-(setq-default tab-width 4)
-
 ;; show matching braces
 (show-paren-mode t)
-
-;; .md files should use markdown-mode
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ;; turn on auto-completion of function names etc
 (global-auto-complete-mode t)
 
-;; require pressing TAB to auto-complete
-(setq ac-trigger-key "TAB")
+;; move to the previous window
+(global-set-key (kbd "C-x p") (run (other-window -1)))
 
-;; don't show the auto-complete menu unless asked
-(setq ac-auto-start nil)
-
-;; move to the previous window with C-x p
-(global-set-key (kbd "C-x p") (lambda () (interactive) (other-window -1)))
+;; toggle line numbers on/off
+(global-set-key (kbd "C-x j") (run (linum-mode (or (not linum-mode) -1))))
 
 ;; show whitespace...
 (global-whitespace-mode t)
 
-;; but limit visual whitespace to trailing spaces
-(setq-default whitespace-style '(face trailing))
+;; reload changes from disk
+(global-auto-revert-mode t)
 
-;; ruby-mode's default indentation is hideous
-(setq ruby-deep-indent-paren nil)
+;; customize some global vars
+(custom-set-variables
+ ;; by default evil binds C-z
+ '(evil-toggle-key (kbd "C-\\"))
+ ;; fuck #autosave# files
+ '(auto-save-default nil)
+ ;; fuck backup~ files
+ '(make-backup-files nil)
+ ;; soft tabs in most places
+ '(indent-tabs-mode nil)
+ ;; 4 spaces is a nice true tab size
+ '(tab-width 4)
+ ;; 2 spaces is a nice indent amount
+ '(tab-stop-list (number-sequence 2 200 2))
+ ;; auto-complete on tab key
+ '(ac-trigger-key "TAB")
+ ;; only auto-complete when asked
+ '(ac-auto-start nil)
+ ;; only show trailing whitespace
+ '(whitespace-style '(face trailing))
+ ;; ruby-mode wants to add # -* coding: utf-8 -* everywhere: fuck off
+ '(ruby-insert-encoding-magic-comment nil)
+ ;; ruby-mode's default indentation is hideous
+ '(ruby-deep-indent-paren nil))
 
-;; ruby-mode wants to add # -* coding: utf-8 -* everywhere: fuck off
-(setq ruby-insert-encoding-magic-comment nil)
+;; .md files should use markdown-mode
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+;; php templates should just use html-mode
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . html-mode))
+
+;; make php-mode indentation vaguely sane
+(add-hook 'php-mode-hook
+  (lambda ()
+    (setq indent-tabs-mode t)
+    (setq tab-width 4)
+    (c-set-offset 'substatement-open 0)))
