@@ -6,7 +6,7 @@ This is my very minimal configuration for Emacs. I like to keep my emacs
 nice and lightweight, so there's not much in here. Actually, it's more like
 Vim-flavoured Emacs, since it has Evil installed.
 
-[Screenshot](http://i.imgur.com/MY0xe5I.png)
+![Screenshot](http://i.imgur.com/MY0xe5I.png)
 
 ## Included packages
 
@@ -16,7 +16,7 @@ built-in anyway.
 
   * Evil mode
     - this might not be to everybody's liking
-    - <kbd>C-\</kbd> switches between Emacs and Vim modes
+    - <kbd>C-\\</kbd> switches between Emacs and Vim modes
     - surprisingly, it doesn't get in the way of Emacs' common mappings
     - things like <kbd>C-x ...</kbd> still work, even in Vim mode
     - some surprisingly complex mappings from my .vimrc work too
@@ -75,7 +75,7 @@ Just wait; it's nothing to worry about.
 
 Once Emacs is finished installing packages, you can close the `*Compile-Log*`
 window with <kbd>C-x 1</kbd>. Don't forget you'll be in Evil mode, so you
-should use vi key bindings. Get back to Emacs regular mode with <kbd>C-\</kbd>.
+should use vi key bindings. Get back to Emacs regular mode with <kbd>C-\\</kbd>.
 
 ## Making changes
 
