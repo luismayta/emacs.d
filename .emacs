@@ -21,19 +21,27 @@
 
 ;; Specify a dependency (auto-install)
 (defun dep (depname)
+  "Require or install a dependency as needed."
   (interactive)
   (unless (require depname nil t)
-    (package-install depname)))
+    (install-dep depname nil)))
+
+;; Convenience around `package-install'.
+(defun install-dep (depname refresh)
+  "Runs `package-install', attempting `package-refresh-contents' on failure."
+  (when refresh (package-refresh-contents))
+  (condition-case err
+      (package-install depname)
+    (error (if refresh
+               (signal (car err) (cdr err))
+             (install-dep depname t)))))
 
 ;; Specify a list of dependencies
 (defun dependencies (deps)
+  "Convenience around `dep' to load multiple deps."
   (unless (eq '() deps)
     (dep (car deps))
     (dependencies (cdr deps))))
-
-;; bootstrap elpa repos
-(unless (file-exists-p "~/.emacs.d/elpa/archives")
-  (package-refresh-contents))
 
 ;; -- Dependencies
 
@@ -65,9 +73,6 @@
 
 ;; bind ctrl-p to the file finder
 (global-set-key (kbd "C-p") 'find-file-in-project)
-
-;; find-file-in-project should use entire paths
-(setq ffip-full-paths t)
 
 ;; use soft tabs by default
 (setq-default indent-tabs-mode nil)
