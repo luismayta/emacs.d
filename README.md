@@ -77,12 +77,15 @@ Once Emacs is finished installing packages, you can close the `*Compile-Log*`
 window with <kbd>C-x 1</kbd>. Don't forget you'll be in Evil mode, so you
 should use vi key bindings. Get back to Emacs regular mode with <kbd>C-\\</kbd>.
 
-## Making changes
+## Further customizations
 
-If you are going to edit the .emacs file, keep in mind that it may conflict
-should you decide to pull down changes from GitHub. I'll probably load a
-~/.emacs.d/custom.el file at some point instead, so changes can be made
-separately to this repository.
+You can just edit the .emacs file directly if you want to make changes, though
+if you're planning on pulling down updates from the git repositorym, you'll
+need to be prepared to deal with merge conflicts. Instead, you can create a
+new file at ~/.emacs.d/custom.el and add your customizations there. This file
+is automatically loaded at the end of of .emacs, if it exists.
+
+## Getting updates
 
 If new packages are added, they'll be installed when you open Emacs.
 
