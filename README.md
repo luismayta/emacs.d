@@ -52,6 +52,9 @@ built-in anyway.
     - completely disabled
   * Highlight matching braces
     - enabled, but no auto-insertion of them
+  * Find file in project
+    - <kbd>C-x f</kbd> to start searching
+    - <kbd>C-x c</kbd> to clear the cache
   * Cycle through windows in reverse
     - usually <kbd>C-x o</kbd> cycles windows, <kbd>C-x p</kbd> goes backwards
   * Line numbers
