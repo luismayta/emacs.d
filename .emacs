@@ -1,5 +1,7 @@
 ;;; .emacs -- d11wtq's configuration file
 
+;;; --- Bootstrap
+
 ;; elpa package management
 (require 'package)
 
@@ -47,7 +49,7 @@
 (defmacro run (cmd)
   `(lambda () (interactive) ,cmd))
 
-;; -- Dependencies
+;;; -- Dependencies
 
 (dependencies '(molokai-theme
                 evil
@@ -56,6 +58,14 @@
                 markdown-mode
                 fiplr
                 php-mode))
+
+;; no fucking latin-1, thank you
+(mapcar (lambda (fn) (apply fn '(utf-8)))
+        '(set-terminal-coding-system
+          set-keyboard-coding-system
+          prefer-coding-system))
+
+;;; -- Config
 
 ;; make pretty colors
 (load-theme 'molokai t)
@@ -101,6 +111,8 @@
  '(auto-save-default nil)
  ;; fuck backup~ files
  '(make-backup-files nil)
+ ;; put newlines at the end of files
+ '(require-final-newline t)
  ;; fuzzy searching in ido
  '(ido-enable-flex-matching t)
  ;; soft tabs in most places
@@ -132,3 +144,9 @@
     (setq indent-tabs-mode t)
     (setq tab-width 4)
     (c-set-offset 'substatement-open 0)))
+
+;;; -- User config
+
+(let ((custom-config "~/.emacs.d/custom.el"))
+  (when (file-exists-p custom-config)
+    (load custom-config)))
