@@ -1,5 +1,7 @@
 ;;; .emacs -- d11wtq's configuration file
 
+;;; --- Bootstrap
+
 ;; elpa package management
 (require 'package)
 
@@ -47,7 +49,7 @@
 (defmacro run (cmd)
   `(lambda () (interactive) ,cmd))
 
-;; -- Dependencies
+;;; -- Dependencies
 
 (dependencies '(molokai-theme
                 evil
@@ -62,6 +64,8 @@
         '(set-terminal-coding-system
           set-keyboard-coding-system
           prefer-coding-system))
+
+;;; -- Config
 
 ;; make pretty colors
 (load-theme 'molokai t)
@@ -140,3 +144,9 @@
     (setq indent-tabs-mode t)
     (setq tab-width 4)
     (c-set-offset 'substatement-open 0)))
+
+;;; -- User config
+
+(let ((custom-config "~/.emacs.d/custom.el"))
+  (when (file-exists-p custom-config)
+    (load custom-config)))
