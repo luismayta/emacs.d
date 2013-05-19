@@ -57,6 +57,12 @@
                 fiplr
                 php-mode))
 
+;; no fucking latin-1, thank you
+(mapcar (lambda (fn) (apply fn '(utf-8)))
+        '(set-terminal-coding-system
+          set-keyboard-coding-system
+          prefer-coding-system))
+
 ;; make pretty colors
 (load-theme 'molokai t)
 
@@ -101,6 +107,8 @@
  '(auto-save-default nil)
  ;; fuck backup~ files
  '(make-backup-files nil)
+ ;; put newlines at the end of files
+ '(require-final-newline t)
  ;; fuzzy searching in ido
  '(ido-enable-flex-matching t)
  ;; soft tabs in most places
