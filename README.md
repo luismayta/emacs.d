@@ -20,6 +20,8 @@ built-in anyway.
     - surprisingly, it doesn't get in the way of Emacs' common mappings
     - things like <kbd>C-x ...</kbd> still work, even in Vim mode
     - some surprisingly complex mappings from my .vimrc work too
+  * Fiplr
+    - fuzzy find in project, using ido
   * PHP-mode
     - this doesn't ship with Emacs and is a bit lacking really
     - mixed HTML/PHP doesn't work well at all; I use html-mode instead
