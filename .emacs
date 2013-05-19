@@ -103,6 +103,9 @@
 ;; reload changes from disk
 (global-auto-revert-mode t)
 
+;; automatically maintain indentation
+(electric-indent-mode t)
+
 ;; customize some global vars
 (custom-set-variables
  ;; by default evil binds C-z
