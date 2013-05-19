@@ -54,6 +54,7 @@
                 erlang
                 auto-complete
                 markdown-mode
+                fiplr
                 php-mode))
 
 ;; make pretty colors
@@ -80,6 +81,12 @@
 ;; toggle line numbers on/off
 (global-set-key (kbd "C-x j") (run (linum-mode (or (not linum-mode) -1))))
 
+;; fuzzy find file in project
+(global-set-key (kbd "C-x f") 'fiplr-find-file)
+
+;; clear the directory cache from fiplr
+(global-set-key (kbd "C-x c") 'fiplr-clear-cache)
+
 ;; show whitespace...
 (global-whitespace-mode t)
 
@@ -94,6 +101,8 @@
  '(auto-save-default nil)
  ;; fuck backup~ files
  '(make-backup-files nil)
+ ;; fuzzy searching in ido
+ '(ido-enable-flex-matching t)
  ;; soft tabs in most places
  '(indent-tabs-mode nil)
  ;; 4 spaces is a nice true tab size
