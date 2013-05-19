@@ -40,7 +40,7 @@ built-in anyway.
   * Trailing whitespace
     - electric-indent-mode is turned on, which helps remove trailing whitespace
     - trailing-whitespace is highlighted in red
-    - there is destructive removal of existing whitespace
+    - there is no destructive removal of existing whitespace
   * Indentation
     - Default: 2 spaces
     - Ruby: 2 spaces
