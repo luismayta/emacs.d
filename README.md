@@ -6,7 +6,7 @@ This is my very minimal configuration for Emacs. I like to keep my emacs
 nice and lightweight, so there's not much in here. Actually, it's more like
 Vim-flavoured Emacs, since it has Evil installed.
 
-![Screenshot](http://i.imgur.com/MY0xe5I.png)
+![Screenshot](http://i.imgur.com/aTGH1cs.png)
 
 ## Included packages
 
@@ -40,7 +40,6 @@ built-in anyway.
 ## Custom settings
 
   * Trailing whitespace
-    - electric-indent-mode is turned on, which helps remove trailing whitespace
     - trailing-whitespace is highlighted in red
     - there is no destructive removal of existing whitespace
   * Indentation
@@ -59,6 +58,17 @@ built-in anyway.
     - usually <kbd>C-x o</kbd> cycles windows, <kbd>C-x p</kbd> goes backwards
   * Line numbers
     - off by default, toggled with <kbd>C-x j</kbd>
+  * Mode line color coding
+    - the color of the modeline changes based on the following states:
+      * evil normal state, clean: default
+      * evil normal state, dirty: blue
+      * evil insert state: red
+      * emacs state: grey
+
+[Normal](http://i.imgur.com/aABlK53.png)
+[Insert](http://i.imgur.com/8CGwOmb.png)
+[Dirty](http://i.imgur.com/n4aVezX.png)
+[Emacs](http://i.imgur.com/XJzp4V9.png)
 
 ## Installation
 

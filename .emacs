@@ -18,7 +18,7 @@
   '("marmalade" .
       "http://marmalade-repo.org/packages/"))
 
-;; start the elpa system
+;; start the package system
 (package-initialize)
 
 ;; Specify a dependency (auto-install)
@@ -59,11 +59,11 @@
                 fiplr
                 php-mode))
 
-;; no fucking latin-1, thank you
-(mapcar (lambda (fn) (apply fn '(utf-8)))
-        '(set-terminal-coding-system
-          set-keyboard-coding-system
-          prefer-coding-system))
+;; no fucking latin-1, thank you very much
+(mapc (lambda (fn) (funcall fn 'utf-8))
+      '(set-terminal-coding-system
+        set-keyboard-coding-system
+        prefer-coding-system))
 
 ;;; -- Config
 
@@ -102,9 +102,6 @@
 
 ;; reload changes from disk
 (global-auto-revert-mode t)
-
-;; automatically maintain indentation
-(electric-indent-mode t)
 
 ;; customize some global vars
 (custom-set-variables
@@ -148,8 +145,22 @@
     (setq tab-width 4)
     (c-set-offset 'substatement-open 0)))
 
+;; magic to change the mode-line color according to state
+(lexical-let ((default-color (cons (face-background 'mode-line)
+                                   (face-foreground 'mode-line))))
+  (add-hook 'post-command-hook
+    (lambda ()
+      (let ((color (cond ((evil-insert-state-p) '("#e80000" . "#ffffff"))
+                         ((evil-emacs-state-p)  '("#444488" . "#ffffff"))
+                         ((buffer-modified-p)   '("#006fa0" . "#ffffff"))
+                         (t default-color))))
+        (set-face-background 'mode-line (car color))
+        (set-face-foreground 'mode-line (cdr color))))))
+
 ;;; -- User config
 
 (let ((custom-config "~/.emacs.d/custom.el"))
   (when (file-exists-p custom-config)
     (load custom-config)))
+
+;;; .emacs ends here
