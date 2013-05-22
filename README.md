@@ -65,10 +65,10 @@ built-in anyway.
       * evil insert state: red
       * emacs state: grey
 
-[Normal](http://i.imgur.com/aABlK53.png)
-[Insert](http://i.imgur.com/8CGwOmb.png)
-[Dirty](http://i.imgur.com/n4aVezX.png)
-[Emacs](http://i.imgur.com/XJzp4V9.png)
+![Normal](http://i.imgur.com/aABlK53.png)
+![Insert](http://i.imgur.com/8CGwOmb.png)
+![Dirty](http://i.imgur.com/n4aVezX.png)
+![Emacs](http://i.imgur.com/XJzp4V9.png)
 
 ## Installation
 
