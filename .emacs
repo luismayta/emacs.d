@@ -82,6 +82,9 @@
 ;; show matching braces
 (show-paren-mode t)
 
+;; don't show the tool bar when in a gui
+(tool-bar-mode -1)
+
 ;; turn on auto-completion of function names etc
 (global-auto-complete-mode t)
 
