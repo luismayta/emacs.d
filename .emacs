@@ -116,6 +116,10 @@
  '(make-backup-files nil)
  ;; put newlines at the end of files
  '(require-final-newline t)
+ ;; don't scroll by huge amounts near the edge of window
+ '(scroll-step 1)
+ ;; don't do anything if the point leaves the screen (it won't)
+ '(scroll-conservatively 1000)
  ;; fuzzy searching in ido
  '(ido-enable-flex-matching t)
  ;; soft tabs in most places
