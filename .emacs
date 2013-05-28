@@ -53,6 +53,7 @@
 
 (dependencies '(subatomic256-theme
                 evil
+                paredit
                 erlang
                 auto-complete
                 markdown-mode
