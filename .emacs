@@ -51,7 +51,7 @@
 
 ;;; -- Dependencies
 
-(dependencies '(molokai-theme
+(dependencies '(subatomic256-theme
                 evil
                 erlang
                 auto-complete
@@ -68,7 +68,7 @@
 ;;; -- Config
 
 ;; make pretty colors
-(load-theme 'molokai t)
+(load-theme 'subatomic256 t)
 
 ;; emacs is actually vim in disguise
 (evil-mode t)
