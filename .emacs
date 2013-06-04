@@ -83,6 +83,9 @@
 ;; show matching braces
 (show-paren-mode t)
 
+;; the menu bar is pointless in a terminal
+(menu-bar-mode -1)
+
 ;; don't show the tool bar when in a gui
 (tool-bar-mode -1)
 
@@ -160,7 +163,7 @@
     (lambda ()
       (let ((color (cond ((minibufferp) default-color)
                          ((evil-insert-state-p) '("#e80000" . "#ffffff"))
-                         ((evil-emacs-state-p)  '("#444488" . "#ffffff"))
+                         ((evil-emacs-state-p)  '("#af00d7" . "#ffffff"))
                          ((buffer-modified-p)   '("#006fa0" . "#ffffff"))
                          (t default-color))))
         (set-face-background 'mode-line (car color))
