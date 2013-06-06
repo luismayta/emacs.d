@@ -60,6 +60,25 @@
                 fiplr
                 php-mode))
 
+;; Do what I mean for the TAB key.
+(defun dwim-tab ()
+  "In most cases, performs the default action for the TAB key.
+If pressing TAB would do nothing, indents by one tab stop."
+  (interactive)
+  (when (or (eq last-command this-command)
+            (= (point) (progn
+                         (indent-for-tab-command)
+                         (point))))
+    (tab-to-tab-stop)))
+
+;; dwim-tab-mode for logical tab key behaviour
+(define-minor-mode dwim-tab-mode
+  "Toggle dwim-tab-mode on/off.
+Given a non-nil argument, enables dwim-tab.
+With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
+  :lighter " DWIM"
+  :keymap  `((,(kbd "TAB") . dwim-tab)))
+
 ;; no fucking latin-1, thank you very much
 (mapc (lambda (fn) (funcall fn 'utf-8))
       '(set-terminal-coding-system
@@ -88,6 +107,9 @@
 
 ;; don't show the tool bar when in a gui
 (tool-bar-mode -1)
+
+;; use reasonably sane tab settings
+(dwim-tab-mode t)
 
 ;; turn on auto-completion of function names etc
 (global-auto-complete-mode t)
