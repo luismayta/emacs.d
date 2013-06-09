@@ -35,7 +35,7 @@ built-in anyway.
     - purdy colors, easy to read
   * ELPA
     - the ELPA package manager is configured with Marmalade & MELPA
-    - some conveniences are in .emacs to make it almost like Bundler for Ruby
+    - some conveniences are in init.el to make it almost like Bundler for Ruby
 
 ## Custom settings
 
@@ -72,16 +72,13 @@ built-in anyway.
 
 ## Installation
 
-In theory you can just download the .emacs file to your home directory and
-start Emacs, though if you want to get changes from GitHub, you'll need to do
-things a bit differently.
+In theory you can just download the .emacs.d directory to your home directory
+and start Emacs, though if you want to get changes from GitHub, you'll need to
+do things a bit differently.
 
     # hope you know what you're doing
     rm -rf ~/.emacs.d ~/.emacs
-
-    # clone and symlink the .emacs file
     git clone git://github.com/d11wtq/emacs.d.git ~/.emacs.d
-    ln -s ~/.emacs.d/.emacs ~/.emacs
 
 Provided you have Emacs 24 installed, when you run it the first time, it will
 connect with the ELPA package repositories and install the custom packages.
@@ -94,11 +91,12 @@ should use vi key bindings. Get back to Emacs regular mode with <kbd>C-\\</kbd>.
 
 ## Further customizations
 
-You can just edit the .emacs file directly if you want to make changes, though
-if you're planning on pulling down updates from the git repositorym, you'll
-need to be prepared to deal with merge conflicts. Instead, you can create a
-new file at ~/.emacs.d/custom.el and add your customizations there. This file
-is automatically loaded at the end of of .emacs, if it exists.
+You can just edit the ~/.emacs.d/init.el file directly if you want to make
+changes, though if you're planning on pulling down updates from the git
+repository, you'll need to be prepared to deal with merge conflicts. Instead,
+you can create a new file at ~/.emacs.d/custom.el and add your customizations
+there. This file is automatically loaded at the end of of ~/.emacs.d/init.el,
+if it exists.
 
 ## Getting updates
 
