@@ -176,6 +176,7 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
   (lambda ()
     (setq indent-tabs-mode t)
     (setq tab-width 4)
+    (set (make-local-variable 'tab-stop-list) (number-sequence 4 200 4))
     (c-set-offset 'substatement-open 0)))
 
 ;; magic to change the mode-line color according to state
