@@ -126,6 +126,18 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 ;; clear the directory cache from fiplr
 (global-set-key (kbd "C-x c") 'fiplr-clear-cache)
 
+;; allow the arrow keys to be used for cycling windows
+(mapc (lambda (keys)
+        (let ((letter (format "C-w %s" (car keys)))
+              (arrow  (format "C-w %s" (cdr keys))))
+          (define-key evil-normal-state-map (kbd arrow) (kbd letter))
+          (define-key evil-motion-state-map (kbd arrow) (kbd letter))
+          (define-key evil-visual-state-map (kbd arrow) (kbd letter))))
+      '(("h" . "<left>")
+        ("j" . "<down>")
+        ("k" . "<up>")
+        ("l" . "<right>")))
+
 ;; show whitespace...
 (global-whitespace-mode t)
 
