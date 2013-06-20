@@ -120,6 +120,9 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 ;; toggle line numbers on/off
 (global-set-key (kbd "C-x j") (run (linum-mode (or (not linum-mode) -1))))
 
+;; alternative to M-x for running an Emacs command
+(global-set-key (kbd "C-x x") 'execute-extended-command)
+
 ;; fuzzy find file in project
 (global-set-key (kbd "C-x f") 'fiplr-find-file)
 
