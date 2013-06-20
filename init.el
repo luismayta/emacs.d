@@ -57,6 +57,7 @@
                 erlang
                 auto-complete
                 markdown-mode
+                slime
                 fiplr
                 php-mode))
 
@@ -77,6 +78,7 @@ If pressing TAB would do nothing, indents by one tab stop."
 Given a non-nil argument, enables dwim-tab.
 With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
   :lighter " DWIM"
+  :global  t
   :keymap  `((,(kbd "TAB") . dwim-tab)))
 
 ;; no fucking latin-1, thank you very much
