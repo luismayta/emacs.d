@@ -25,7 +25,7 @@
 (defun dep (depname)
   "Require or install a dependency as needed."
   (interactive)
-  (unless (require depname nil t)
+  (unless (package-installed-p depname)
     (install-dep depname nil)))
 
 ;; Convenience around `package-install'.
@@ -60,6 +60,8 @@
                 slime
                 fiplr
                 php-mode))
+
+(require 'auto-complete)
 
 ;; Do what I mean for the TAB key.
 (defun dwim-tab ()
@@ -108,7 +110,8 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 (menu-bar-mode -1)
 
 ;; don't show the tool bar when in a gui
-(tool-bar-mode -1)
+(when (featurep 'tool-bar)
+  (tool-bar-mode -1))
 
 ;; turn on auto-completion of function names etc
 (global-auto-complete-mode t)
