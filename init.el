@@ -110,26 +110,20 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 ;; don't show the tool bar when in a gui
 (tool-bar-mode -1)
 
-;; use reasonably sane tab settings
-(dwim-tab-mode t)
-
 ;; turn on auto-completion of function names etc
 (global-auto-complete-mode t)
-
-;; move to the previous window
-(global-set-key (kbd "C-x p") (run (other-window -1)))
 
 ;; toggle line numbers on/off
 (global-set-key (kbd "C-x j") (run (linum-mode (or (not linum-mode) -1))))
 
+;; quickly open this init file for editing
+(global-set-key (kbd "C-x /") (run (find-file user-init-file)))
+
 ;; alternative to M-x for running an Emacs command
-(global-set-key (kbd "C-x x") 'execute-extended-command)
+(global-set-key (kbd "C-x SPC") 'execute-extended-command)
 
 ;; fuzzy find file in project
 (global-set-key (kbd "C-x f") 'fiplr-find-file)
-
-;; clear the directory cache from fiplr
-(global-set-key (kbd "C-x c") 'fiplr-clear-cache)
 
 ;; allow the arrow keys to be used for cycling windows
 (mapc (lambda (keys)
