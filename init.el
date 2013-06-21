@@ -61,8 +61,6 @@
                 fiplr
                 php-mode))
 
-(require 'auto-complete)
-
 ;; Do what I mean for the TAB key.
 (defun dwim-tab ()
   "In most cases, performs the default action for the TAB key.
@@ -114,6 +112,7 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
   (tool-bar-mode -1))
 
 ;; turn on auto-completion of function names etc
+(require 'auto-complete)
 (global-auto-complete-mode t)
 
 ;; toggle line numbers on/off
