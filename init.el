@@ -53,6 +53,7 @@
 
 (dependencies '(subatomic256-theme
                 evil
+                evil-numbers
                 paredit
                 erlang
                 auto-complete
@@ -115,17 +116,27 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 (require 'auto-complete)
 (global-auto-complete-mode t)
 
-;; toggle line numbers on/off
-(global-set-key (kbd "C-x j") (run (linum-mode (or (not linum-mode) -1))))
+;; global key mappings
+(mapc (lambda (mapping)
+        (global-set-key (kbd (car mapping)) (cdr mapping)))
+      `(;; toggle line numbers
+        ("C-x j"   . ,(run (linum-mode (or (not linum-mode) -1))))
+        ;; open ~/.emacs.d/init.el
+        ("C-x /"   . ,(run (find-file user-init-file)))
+        ;; run an emacs command
+        ("C-x SPC" . execute-extended-command)
+        ;; run a lisp expression
+        ("C-x ,"   . eval-expression)
+        ;; find file in project
+        ("C-x f"   . fiplr-find-file)))
 
-;; quickly open this init file for editing
-(global-set-key (kbd "C-x /") (run (find-file user-init-file)))
-
-;; alternative to M-x for running an Emacs command
-(global-set-key (kbd "C-x SPC") 'execute-extended-command)
-
-;; fuzzy find file in project
-(global-set-key (kbd "C-x f") 'fiplr-find-file)
+;; evil normal mode key mappings
+(mapc (lambda (mapping)
+        (define-key evil-normal-state-map (kbd (car mapping)) (cdr mapping)))
+      `(;; increment number under point
+        ("C-k"   . evil-numbers/inc-at-pt)
+        ;; decrement number under point
+        ("C-j"   . evil-numbers/dec-at-pt)))
 
 ;; allow the arrow keys to be used for cycling windows
 (mapc (lambda (keys)
