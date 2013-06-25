@@ -178,6 +178,8 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
  '(tab-width 4)
  ;; 2 spaces is a nice indent amount
  '(tab-stop-list (number-sequence 2 200 2))
+ ;; evil-mode indent 2 spaces when shifting
+ '(evil-shift-width 2)
  ;; auto-complete on tab key
  '(ac-trigger-key "TAB")
  ;; only auto-complete when asked
@@ -200,6 +202,7 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
   (lambda ()
     (setq indent-tabs-mode t)
     (setq tab-width 4)
+    (setq evil-shift-width 4)
     (set (make-local-variable 'tab-stop-list) (number-sequence 4 200 4))
     (c-set-offset 'substatement-open 0)))
 
