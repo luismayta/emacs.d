@@ -58,6 +58,7 @@
                 erlang
                 auto-complete
                 markdown-mode
+                yaml-mode
                 slime
                 fiplr
                 php-mode))
@@ -190,6 +191,9 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
  '(ruby-insert-encoding-magic-comment nil)
  ;; ruby-mode's default indentation is hideous
  '(ruby-deep-indent-paren nil))
+
+;; treat underscores as word chars
+(modify-syntax-entry ?_ "w")
 
 ;; .md files should use markdown-mode
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
