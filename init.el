@@ -1,4 +1,3 @@
-;;; .emacs -- d11wtq's configuration file
 
 ;;; --- Bootstrap
 
@@ -11,12 +10,27 @@
 ;; melpa (github-based) source
 (add-to-list 'package-archives
   '("melpa" .
-      "http://melpa.milkbox.net/packages/"))
+   "http://melpa.milkbox.net/packages/"))
 
 ;; marmalade source
 (add-to-list 'package-archives
   '("marmalade" .
       "http://marmalade-repo.org/packages/"))
+
+;;;el get install
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+(unless (require 'el-get nil 'noerror)
+  (require 'package)
+  (add-to-list 'package-archives
+               '("melpa" . "http://melpa.org/packages/"))
+  (package-refresh-contents)
+  (package-initialize)
+  (package-install 'el-get)
+  (require 'el-get))
+
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(el-get 'sync)
 
 ;; start the package system
 (package-initialize)
@@ -59,6 +73,7 @@
                 auto-complete
                 markdown-mode
                 yaml-mode
+                web-mode
                 slime
                 fiplr
                 php-mode))
@@ -92,7 +107,7 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 ;;; -- Config
 
 ;; make pretty colors
-(load-theme 'subatomic256 t)
+(load-theme 'noctilux t)
 
 ;; emacs is actually vim in disguise
 (evil-mode t)
@@ -121,7 +136,7 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 (mapc (lambda (mapping)
         (global-set-key (kbd (car mapping)) (cdr mapping)))
       `(;; toggle line numbers
-        ("C-x j"   . ,(run (linum-mode (or (not linum-mode) -1))))
+        ("C-x j"   . ,(run (linum-mode (or (not linum-mode) 0))))
         ;; open ~/.emacs.d/init.el
         ("C-x /"   . ,(run (find-file user-init-file)))
         ;; run an emacs command
@@ -138,6 +153,20 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
         ("C-k"   . evil-numbers/inc-at-pt)
         ;; decrement number under point
         ("C-j"   . evil-numbers/dec-at-pt)))
+
+;; evil leader 
+(global-evil-leader-mode)
+
+;;set evil leader
+(evil-leader/set-leader ",")
+
+;; mapping keys evil leader
+(evil-leader/set-key
+  "e" 'find-file
+  "n" 'neotree-toggle
+  "f" 'fiplr-find-file
+  "b" 'switch-to-buffer
+  "k" 'kill-buffer)
 
 ;; allow the arrow keys to be used for cycling windows
 (mapc (lambda (keys)
@@ -159,38 +188,31 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 
 ;; customize some global vars
 (custom-set-variables
- ;; by default evil binds C-z
- '(evil-toggle-key (kbd "C-\\"))
- ;; fuck #autosave# files
- '(auto-save-default nil)
- ;; fuck backup~ files
- '(make-backup-files nil)
- ;; put newlines at the end of files
- '(require-final-newline t)
- ;; don't scroll by huge amounts near the edge of window
- '(scroll-step 1)
- ;; don't do anything if the point leaves the screen (it won't)
- '(scroll-conservatively 1000)
- ;; fuzzy searching in ido
- '(ido-enable-flex-matching t)
- ;; soft tabs in most places
- '(indent-tabs-mode nil)
- ;; 4 spaces is a nice true tab size
- '(tab-width 4)
- ;; 2 spaces is a nice indent amount
- '(tab-stop-list (number-sequence 2 200 2))
- ;; evil-mode indent 2 spaces when shifting
- '(evil-shift-width 2)
- ;; auto-complete on tab key
- '(ac-trigger-key "TAB")
- ;; only auto-complete when asked
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(ac-auto-start nil)
- ;; only show trailing whitespace
- '(whitespace-style '(face trailing))
- ;; ruby-mode wants to add # -* coding: utf-8 -* everywhere: fuck off
+ '(ac-trigger-key "TAB")
+ '(auto-save-default nil)
+ '(custom-safe-themes
+   (quote
+    ("a99e7c91236b2aba4cd374080c73f390c55173c5a1b4ac662eeb3172b60a9814" "64581032564feda2b5f2cf389018b4b9906d98293d84d84142d90d7986032d33" "0c311fb22e6197daba9123f43da98f273d2bfaeeaeb653007ad1ee77f0003037" "9dae95cdbed1505d45322ef8b5aa90ccb6cb59e0ff26fef0b8f411dfc416c552" default)))
+ '(evil-shift-width 2)
+ '(evil-toggle-key (kbd "C-\\"))
+ '(ido-enable-flex-matching t)
+ '(indent-tabs-mode nil)
+ '(make-backup-files nil)
+ '(require-final-newline t)
+ '(ruby-deep-indent-paren nil)
  '(ruby-insert-encoding-magic-comment nil)
- ;; ruby-mode's default indentation is hideous
- '(ruby-deep-indent-paren nil))
+ '(scroll-conservatively 1000)
+ '(scroll-step 1)
+ '(tab-stop-list (number-sequence 2 200 2))
+ '(tab-width 4)
+ '(global-linum-mode t)
+ '(column-number-mode t)
+ '(whitespace-style (quote (face trailing))))
 
 ;; treat underscores as word chars
 (modify-syntax-entry ?_ "w")
@@ -198,8 +220,24 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 ;; .md files should use markdown-mode
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
-;; php templates should just use html-mode
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . html-mode))
+;; templates web mode
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.jade\\'" . web-mode))
+
+;; complete parenthesis
+(setq skeleton-pair t)
+(global-set-key "[" 'skeleton-pair-insert-maybe)
+(global-set-key "(" 'skeleton-pair-insert-maybe)
+(global-set-key "{" 'skeleton-pair-insert-maybe)
+(global-set-key "'" 'skeleton-pair-insert-maybe)
+(global-set-key "\"" 'skeleton-pair-insert-maybe)
 
 ;; make php-mode indentation vaguely sane
 (add-hook 'php-mode-hook
@@ -209,6 +247,11 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
     (setq evil-shift-width 4)
     (set (make-local-variable 'tab-stop-list) (number-sequence 4 200 4))
     (c-set-offset 'substatement-open 0)))
+
+;; make jedi-mode 
+(autoload 'jedi:setup "jedi" nil t)
+(setq jedi:setup-keys t)
+(add-hook 'python-mode-hook 'jedi:setup)
 
 ;; magic to change the mode-line color according to state
 (lexical-let ((default-color (cons (face-background 'mode-line)
@@ -223,10 +266,20 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
         (set-face-background 'mode-line (car color))
         (set-face-foreground 'mode-line (cdr color))))))
 
+
 ;;; -- User config
 
 (let ((custom-config "~/.emacs.d/custom.el"))
   (when (file-exists-p custom-config)
     (load custom-config)))
 
+;; Don't move back the cursor one position when exiting insert mode' 
+(setq evil-move-cursor-back nil)
+
 ;;; .emacs ends here
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
