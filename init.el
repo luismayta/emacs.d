@@ -1,5 +1,24 @@
+;;; init.el --- Where all the magic begins
+;;
+;; Part of the oh-my-emacs
+;;
+;; This is the first thing to get loaded.
+;;
 
-;;; --- Bootstrap
+;; Enter debugger if an error is signaled during Emacs startup.
+;;
+;; This works the same as you boot emacs with "--debug-init" every time, except
+;; for errors in "init.el" itself, which means, if there's an error in
+;; "init.el", "emacs --debug-init" will entering the debugger, while "emacs"
+;; will not; however, if there's an error in other files loaded by init.el,
+;; both "emacs" and "emacs --debug-init" will entering the debugger. I don't
+;; know why.
+
+(setq debug-on-error t)
+
+;; believe me, you don't need menubar, toolbar nor scrollbar
+(dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
+  (when (fboundp mode) (funcall mode -1)))
 
 ;; elpa package management
 (require 'package)
@@ -30,9 +49,12 @@
   (require 'el-get))
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+
+;; enable git shallow clone to save time and bandwidth
+(setq el-get-git-shallow-clone t)
+
 (el-get 'sync)
 
-;; start the package system
 (package-initialize)
 
 ;; Specify a dependency (auto-install)
@@ -66,6 +88,7 @@
 ;;; -- Dependencies
 
 (dependencies '(subatomic256-theme
+                noctilux-theme
                 evil
                 evil-numbers
                 paredit
@@ -107,8 +130,12 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 ;;; -- Config
 
 ;; make pretty colors
+(add-to-list 'custom-theme-load-path "~/.emacs.d/lib/color-themes")
 (load-theme 'noctilux t)
 
+;; elpy install
+(require 'elpy)
+(elpy-enable)
 ;; emacs is actually vim in disguise
 (evil-mode t)
 
@@ -154,20 +181,6 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
         ;; decrement number under point
         ("C-j"   . evil-numbers/dec-at-pt)))
 
-;; evil leader 
-(global-evil-leader-mode)
-
-;;set evil leader
-(evil-leader/set-leader ",")
-
-;; mapping keys evil leader
-(evil-leader/set-key
-  "e" 'find-file
-  "n" 'neotree-toggle
-  "f" 'fiplr-find-file
-  "b" 'switch-to-buffer
-  "k" 'kill-buffer)
-
 ;; allow the arrow keys to be used for cycling windows
 (mapc (lambda (keys)
         (let ((letter (format "C-w %s" (car keys)))
@@ -180,12 +193,6 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
         ("k" . "<up>")
         ("l" . "<right>")))
 
-;; show whitespace...
-(global-whitespace-mode t)
-
-;; reload changes from disk
-(global-auto-revert-mode t)
-
 ;; customize some global vars
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -194,12 +201,20 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
  ;; If there is more than one, they won't work right.
  '(ac-auto-start nil)
  '(ac-trigger-key "TAB")
+ '(ansi-color-names-vector
+   ["black" "red" "green" "yellow" "blue" "magenta" "cyan" "yellow"])
  '(auto-save-default nil)
+ '(background-color nil)
+ '(background-mode dark)
+ '(column-number-mode t)
+ '(cursor-color nil)
  '(custom-safe-themes
    (quote
-    ("a99e7c91236b2aba4cd374080c73f390c55173c5a1b4ac662eeb3172b60a9814" "64581032564feda2b5f2cf389018b4b9906d98293d84d84142d90d7986032d33" "0c311fb22e6197daba9123f43da98f273d2bfaeeaeb653007ad1ee77f0003037" "9dae95cdbed1505d45322ef8b5aa90ccb6cb59e0ff26fef0b8f411dfc416c552" default)))
- '(evil-shift-width 2)
+    ("64581032564feda2b5f2cf389018b4b9906d98293d84d84142d90d7986032d33" "0c311fb22e6197daba9123f43da98f273d2bfaeeaeb653007ad1ee77f0003037" default)))
+ '(evil-shift-width 4)
  '(evil-toggle-key (kbd "C-\\"))
+ '(foreground-color nil)
+ '(global-linum-mode t)
  '(ido-enable-flex-matching t)
  '(indent-tabs-mode nil)
  '(make-backup-files nil)
@@ -210,8 +225,6 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
  '(scroll-step 1)
  '(tab-stop-list (number-sequence 2 200 2))
  '(tab-width 4)
- '(global-linum-mode t)
- '(column-number-mode t)
  '(whitespace-style (quote (face trailing))))
 
 ;; treat underscores as word chars
@@ -230,14 +243,7 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jade\\'" . web-mode))
-
-;; complete parenthesis
-(setq skeleton-pair t)
-(global-set-key "[" 'skeleton-pair-insert-maybe)
-(global-set-key "(" 'skeleton-pair-insert-maybe)
-(global-set-key "{" 'skeleton-pair-insert-maybe)
-(global-set-key "'" 'skeleton-pair-insert-maybe)
-(global-set-key "\"" 'skeleton-pair-insert-maybe)
+(add-to-list 'auto-mode-alist '("\\.json\\'" . web-mode))
 
 ;; make php-mode indentation vaguely sane
 (add-hook 'php-mode-hook
@@ -247,11 +253,6 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
     (setq evil-shift-width 4)
     (set (make-local-variable 'tab-stop-list) (number-sequence 4 200 4))
     (c-set-offset 'substatement-open 0)))
-
-;; make jedi-mode 
-(autoload 'jedi:setup "jedi" nil t)
-(setq jedi:setup-keys t)
-(add-hook 'python-mode-hook 'jedi:setup)
 
 ;; magic to change the mode-line color according to state
 (lexical-let ((default-color (cons (face-background 'mode-line)
@@ -266,15 +267,10 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
         (set-face-background 'mode-line (car color))
         (set-face-foreground 'mode-line (cdr color))))))
 
-
 ;;; -- User config
-
 (let ((custom-config "~/.emacs.d/custom.el"))
   (when (file-exists-p custom-config)
     (load custom-config)))
-
-;; Don't move back the cursor one position when exiting insert mode' 
-(setq evil-move-cursor-back nil)
 
 ;;; .emacs ends here
 (custom-set-faces
