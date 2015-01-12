@@ -3,3 +3,7 @@ auto-save-list/
 *.dat
 url/
 el-get/
+.python-environments
+#*
+#*#
+*#*#
