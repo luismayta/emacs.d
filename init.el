@@ -23,6 +23,10 @@
 ;; elpa package management
 (require 'package)
 
+;; elpy archives
+(add-to-list 'package-archives
+  '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+
 ;; common lispy things
 (require 'cl)
 
@@ -34,12 +38,7 @@
 ;; marmalade source
 (add-to-list 'package-archives
   '("marmalade" .
-      "http://marmalade-repo.org/packages/"))
-
-;; elpy archives
-(require 'package)
-(add-to-list 'package-archives
-  '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+    "http://marmalade-repo.org/packages/"))
 
 ;;;el get install
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
@@ -138,10 +137,7 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 (add-to-list 'custom-theme-load-path "~/.emacs.d/lib/color-themes")
 (load-theme 'noctilux t)
 
-;; elpy install
-(require 'elpy)
-(elpy-enable)
-(elpy-use-ipython)
+
 ;; emacs is actually vim in disguise
 (evil-mode t)
 
