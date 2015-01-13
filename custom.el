@@ -1,7 +1,7 @@
 ;; Don't move back the cursor one position when exiting insert mode' 
 (setq evil-move-cursor-back nil)
 
-;; evil leader 
+;; evil leader
 (global-evil-leader-mode)
 
 ;;set evil leader
@@ -29,7 +29,7 @@
 ;(global-set-key "'" 'skeleton-pair-insert-maybe)
 ;(global-set-key "\"" 'skeleton-pair-insert-maybe)
 
-;; make jedi-mode 
+;; make jedi-mode
 (autoload 'jedi:setup "jedi" nil t)
 (setq jedi:setup-keys t)
 
@@ -37,6 +37,6 @@
 (add-hook 'python-mode-hook
   (lambda ()
     (jedi:setup)
-    (elpy-enable)
-    (elpy-use-ipython)
+    ;(elpy-enable)
+    ;(elpy-use-ipython)
     (setq python-python-command "ipython")))
