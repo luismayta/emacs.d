@@ -94,6 +94,7 @@
 (dependencies '(subatomic256-theme
                 noctilux-theme
                 evil
+                evil-leader
                 evil-numbers
                 paredit
                 erlang
@@ -103,6 +104,7 @@
                 web-mode
                 slime
                 fiplr
+                python-mode
                 php-mode))
 
 ;; Do what I mean for the TAB key.
