@@ -237,6 +237,10 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 ;; .md files should use markdown-mode
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+(require 'puppet-mode)
+
+(require 'apache-mode)
+
 ;; templates web mode
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
