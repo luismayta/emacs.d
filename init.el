@@ -1,8 +1,5 @@
 ;; emacs configuration
 
-;(push "/usr/local/bin" exec-path)
-;(add-to-list 'load-path "~/.emacs.d")
-
 (setq debug-on-error t)
 
 ;; believe me, you don't need menubar, toolbar nor scrollbar
@@ -13,7 +10,7 @@
 
 (setq make-backup-files nil)
 (setq auto-save-default nil)
-(setq-default tab-width 2)
+(setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq inhibit-startup-message t)
 
@@ -26,7 +23,6 @@
 (tooltip-mode -1)
 
 (set-frame-font "Menlo-16")
-(load-theme 'tango)
 
 ;; Specify a dependency (auto-install)
 (defun dep (depname)
@@ -34,6 +30,13 @@
   (interactive)
   (unless (package-installed-p depname)
     (install-dep depname nil)))
+
+;; Specify a dependency (auto-install)
+(defun dep_el-get (depname)
+  "Require or install a dependency as needed."
+  (interactive)
+  (unless (package-installed-p depname)
+    (install-el-get depname nil)))
 
 ;; Convenience around `package-install'.
 (defun install-dep (depname refresh)
@@ -45,8 +48,24 @@
                (signal (car err) (cdr err))
              (install-dep depname t)))))
 
+;; Convenience around `package-install'.
+(defun install-el-get (depname refresh)
+  "Runs `el-get-install', attempting `package-refresh-contents' on failure."
+  (when refresh (package-refresh-contents))
+  (condition-case err
+      (el-get-install depname)
+    (error (if refresh
+               (signal (car err) (cdr err))
+             (install-el-get depname t)))))
 ;; Specify a list of dependencies
 (defun dependencies (deps)
+  "Convenience around `dep' to load multiple deps."
+  (unless (eq '() deps)
+    (dep (car deps))
+    (dependencies (cdr deps))))
+
+;; Specify a list of dependencies
+(defun dependencies_el-get (deps)
   "Convenience around `dep' to load multiple deps."
   (unless (eq '() deps)
     (dep (car deps))
@@ -101,40 +120,43 @@
 (require 'package)
 ;; elpy archives
 
+(add-to-list 'package-archives
+    '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+
+(add-to-list 'package-archives
+    '("marmalade" . "http://marmalade-repo.org/packages/"))
+
+(setq package-archives (cons '("tromey" . "http://tromey.com/elpa/") package-archives))
+
 (unless (require 'el-get nil 'noerror)
   (require 'package)
   (add-to-list 'package-archives
       '("melpa" . "http://melpa.org/packages/"))
-  (add-to-list 'package-archives
-      '("elpy" . "http://jorgenschaefer.github.io/packages/"))
   ;; melpa (github-based) source
   ;(add-to-list 'package-archives
       ;'("melpa" . "http://melpa.milkbox.net/packages/"))
-  (add-to-list 'package-archives
-      '("marmalade" . "http://marmalade-repo.org/packages/"))
-  (setq package-archives (cons '("tromey" . "http://tromey.com/elpa/") package-archives))
   (package-refresh-contents)
   (package-initialize)
-  (package-install 'el-get))
-  ;(require 'el-get))
+  (package-install 'el-get)
+  (require 'el-get))
 
 ;; common lispy things
 (require 'cl)
 
 (package-initialize)
 
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-(require 'el-get)
+;(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+;(require 'el-get)
 
 (setq el-get-sources
-      '((:name ruby-mode 
+      '((:name ruby-mode
                :type elpa
                :load "ruby-mode.el"
                :after (lambda () (ruby-mode-hook)))
         (:name inf-ruby  :type elpa)
         (:name ruby-compilation :type elpa)
-        (:name css-mode 
-               :type elpa 
+        (:name css-mode
+               :type elpa
                :after (lambda () (css-mode-hook)))
         (:name noctilux-theme
                :type git
@@ -155,7 +177,7 @@
                :url "https://github.com/crazycode/rhtml.git"
                :features rhtml-mode
                :after (lambda () (rhtml-mode-hook)))
-        (:name yaml-mode 
+        (:name yaml-mode
                :type git
                :url "http://github.com/yoshiki/yaml-mode.git"
                :features yaml-mode
@@ -184,6 +206,7 @@
                 python-mode
                 php-mode))
 
+(dependencies_el-get '(jedi))
 ;; Do what I mean for the TAB key.
 (defun dwim-tab ()
   "In most cases, performs the default action for the TAB key.
