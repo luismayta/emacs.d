@@ -1,65 +1,32 @@
-;;; init.el --- Where all the magic begins
-;;
-;; Part of the oh-my-emacs
-;;
-;; This is the first thing to get loaded.
-;;
+;; emacs configuration
 
-;; Enter debugger if an error is signaled during Emacs startup.
-;;
-;; This works the same as you boot emacs with "--debug-init" every time, except
-;; for errors in "init.el" itself, which means, if there's an error in
-;; "init.el", "emacs --debug-init" will entering the debugger, while "emacs"
-;; will not; however, if there's an error in other files loaded by init.el,
-;; both "emacs" and "emacs --debug-init" will entering the debugger. I don't
-;; know why.
+;(push "/usr/local/bin" exec-path)
+;(add-to-list 'load-path "~/.emacs.d")
 
 (setq debug-on-error t)
 
 ;; believe me, you don't need menubar, toolbar nor scrollbar
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
   (when (fboundp mode) (funcall mode -1)))
-
-;; elpa package management
-(require 'package)
-
-;; elpy archives
-(add-to-list 'package-archives
-  '("elpy" . "http://jorgenschaefer.github.io/packages/"))
-
-;; common lispy things
-(require 'cl)
-
-;; melpa (github-based) source
-(add-to-list 'package-archives
-  '("melpa" .
-   "http://melpa.milkbox.net/packages/"))
-
-;; marmalade source
-(add-to-list 'package-archives
-  '("marmalade" .
-    "http://marmalade-repo.org/packages/"))
-
-;;;el get install
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-
-(unless (require 'el-get nil 'noerror)
-  (require 'package)
-  (add-to-list 'package-archives
-               '("melpa" . "http://melpa.org/packages/"))
-  (package-refresh-contents)
-  (package-initialize)
-  (package-install 'el-get)
-  (require 'el-get))
-
-(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
-
 ;; enable git shallow clone to save time and bandwidth
 (setq el-get-git-shallow-clone t)
 
-(el-get 'sync)
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(setq-default tab-width 2)
+(setq-default indent-tabs-mode nil)
+(setq inhibit-startup-message t)
 
-(package-initialize)
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(delete-selection-mode t)
+(blink-cursor-mode t)
+(show-paren-mode t)
+(column-number-mode t)
+(tooltip-mode -1)
+
+(set-frame-font "Menlo-16")
+(load-theme 'tango)
 
 ;; Specify a dependency (auto-install)
 (defun dep (depname)
@@ -85,9 +52,117 @@
     (dep (car deps))
     (dependencies (cdr deps))))
 
-;; Macro to return an interactive lambda.
-(defmacro run (cmd)
-  `(lambda () (interactive) ,cmd))
+(defun ruby-mode-hook ()
+  (autoload 'ruby-mode "ruby-mode" nil t)
+  (add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
+  (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
+  (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
+  (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
+  (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
+  (add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
+  (add-hook 'ruby-mode-hook '(lambda ()
+                               (setq ruby-deep-arglist t)
+                               (setq ruby-deep-indent-paren nil)
+                               (setq c-tab-always-indent nil)
+                               (require 'inf-ruby)
+                               (require 'ruby-compilation)
+                               (define-key ruby-mode-map (kbd "M-r") 'run-rails-test-or-ruby-buffer))))
+(defun rhtml-mode-hook ()
+  (autoload 'rhtml-mode "rhtml-mode" nil t)
+  (add-to-list 'auto-mode-alist '("\\.erb\\'" . rhtml-mode))
+  (add-to-list 'auto-mode-alist '("\\.rjs\\'" . rhtml-mode))
+  (add-hook 'rhtml-mode '(lambda ()
+                           (define-key rhtml-mode-map (kbd "M-s") 'save-buffer))))
+
+(defun yaml-mode-hook ()
+  (autoload 'yaml-mode "yaml-mode" nil t)
+  (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+  (add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode)))
+
+(defun css-mode-hook ()
+  (autoload 'css-mode "css-mode" nil t)
+  (add-hook 'css-mode-hook '(lambda ()
+                              (setq css-indent-level 2)
+                              (setq css-indent-offset 2))))
+(defun is-rails-project ()
+  (when (textmate-project-root)
+    (file-exists-p (expand-file-name "config/environment.rb" (textmate-project-root)))))
+
+(defun run-rails-test-or-ruby-buffer ()
+  (interactive)
+  (if (is-rails-project)
+      (let* ((path (buffer-file-name))
+             (filename (file-name-nondirectory path))
+             (test-path (expand-file-name "test" (textmate-project-root)))
+             (command (list ruby-compilation-executable "-I" test-path path)))
+        (pop-to-buffer (ruby-compilation-do filename command)))
+    (ruby-compilation-this-buffer)))
+
+(require 'package)
+;; elpy archives
+
+(unless (require 'el-get nil 'noerror)
+  (require 'package)
+  (add-to-list 'package-archives
+      '("melpa" . "http://melpa.org/packages/"))
+  (add-to-list 'package-archives
+      '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+  ;; melpa (github-based) source
+  ;(add-to-list 'package-archives
+      ;'("melpa" . "http://melpa.milkbox.net/packages/"))
+  (add-to-list 'package-archives
+      '("marmalade" . "http://marmalade-repo.org/packages/"))
+  (setq package-archives (cons '("tromey" . "http://tromey.com/elpa/") package-archives))
+  (package-refresh-contents)
+  (package-initialize)
+  (package-install 'el-get))
+  ;(require 'el-get))
+
+;; common lispy things
+(require 'cl)
+
+(package-initialize)
+
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(require 'el-get)
+
+(setq el-get-sources
+      '((:name ruby-mode 
+               :type elpa
+               :load "ruby-mode.el"
+               :after (lambda () (ruby-mode-hook)))
+        (:name inf-ruby  :type elpa)
+        (:name ruby-compilation :type elpa)
+        (:name css-mode 
+               :type elpa 
+               :after (lambda () (css-mode-hook)))
+        (:name noctilux-theme
+               :type git
+               :url "https://github.com:stafu/noctilux-theme.git"
+               :load "noctilux-theme.el")
+        (:name textmate
+               :type git
+               :url "git://github.com/defunkt/textmate.el"
+               :load "textmate.el")
+        (:name rvm
+               :type git
+               :url "http://github.com/djwhitt/rvm.el.git"
+               :load "rvm.el"
+               :compile ("rvm.el")
+               :after (lambda() (rvm-use-default)))
+        (:name rhtml
+               :type git
+               :url "https://github.com/crazycode/rhtml.git"
+               :features rhtml-mode
+               :after (lambda () (rhtml-mode-hook)))
+        (:name yaml-mode 
+               :type git
+               :url "http://github.com/yoshiki/yaml-mode.git"
+               :features yaml-mode
+               :after (lambda () (yaml-mode-hook)))
+	))
+
+(el-get 'sync)
 
 ;;; -- Dependencies
 
@@ -97,6 +172,8 @@
                 evil-leader
                 evil-numbers
                 paredit
+                puppet-mode
+                apache-mode
                 erlang
                 auto-complete
                 markdown-mode
@@ -134,11 +211,10 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
         prefer-coding-system))
 
 ;;; -- Config
-
+(set-frame-font "Menlo-16")
 ;; make pretty colors
 (add-to-list 'custom-theme-load-path "~/.emacs.d/lib/color-themes")
 (load-theme 'noctilux t)
-
 
 ;; emacs is actually vim in disguise
 (evil-mode t)
@@ -163,19 +239,42 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 (require 'auto-complete)
 (global-auto-complete-mode t)
 
+;; Don't move back the cursor one position when exiting insert mode' 
+(setq evil-move-cursor-back nil)
+
+;; evil leader
+(global-evil-leader-mode t)
+
+;;set evil leader
+(evil-leader/set-leader ",")
+
+;; mapping keys evil leader
+(evil-leader/set-key
+  "e" 'find-file
+  "n" 'neotree-toggle
+  "f" 'fiplr-find-file
+  "b" 'switch-to-buffer
+  "k" 'kill-buffer)
+
+;; show whitespace...
+(global-whitespace-mode t)
+
+;; reload changes from disk
+(global-auto-revert-mode t)
+
 ;; global key mappings
-(mapc (lambda (mapping)
-        (global-set-key (kbd (car mapping)) (cdr mapping)))
-      `(;; toggle line numbers
-        ("C-x j"   . ,(run (linum-mode (or (not linum-mode) 0))))
-        ;; open ~/.emacs.d/init.el
-        ("C-x /"   . ,(run (find-file user-init-file)))
-        ;; run an emacs command
-        ("C-x SPC" . execute-extended-command)
-        ;; run a lisp expression
-        ("C-x ,"   . eval-expression)
-        ;; find file in project
-        ("C-x f"   . fiplr-find-file)))
+;(mapc (lambda (mapping)
+        ;(global-set-key (kbd (car mapping)) (cdr mapping)))
+      ;`(;; toggle line numbers
+        ;("C-x j"   . ,(run ('linum-mode (or (not 'linum-mode) 0))))
+        ;;; open ~/.emacs.d/init.el
+        ;("C-x /"   . ,(run (find-file user-init-file)))
+        ;;; run an emacs command
+        ;("C-x SPC" . execute-extended-command)
+        ;;; run a lisp expression
+        ;("C-x ,"   . eval-expression)
+        ;;; find file in project
+        ;("C-x f"   . fiplr-find-file)))
 
 ;; evil normal mode key mappings
 (mapc (lambda (mapping)
@@ -198,6 +297,7 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
         ("l" . "<right>")))
 
 ;; customize some global vars
+(fset 'yes-or-no-p 'y-or-n-p)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -209,6 +309,7 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
    ["black" "red" "green" "yellow" "blue" "magenta" "cyan" "yellow"])
  '(auto-save-default nil)
  '(background-color nil)
+ '(delete-selection-mode t)
  '(background-mode dark)
  '(column-number-mode t)
  '(cursor-color nil)
@@ -236,10 +337,6 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 
 ;; .md files should use markdown-mode
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
-(require 'puppet-mode)
-
-(require 'apache-mode)
 
 ;; templates web mode
 (require 'web-mode)
