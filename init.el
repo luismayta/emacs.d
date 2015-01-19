@@ -1,5 +1,33 @@
 ;; emacs configuration
 
+(require 'package)
+
+(require 'cl)
+
+;; elpy archives
+(add-to-list 'package-archives
+    '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+
+(add-to-list 'package-archives
+    '("marmalade" . "http://marmalade-repo.org/packages/"))
+
+;(setq package-archives (cons '("tromey" . "http://tromey.com/elpa/") package-archives))
+
+(unless (require 'el-get nil 'noerror)
+  (require 'package)
+  (add-to-list 'package-archives
+      '("melpa" . "http://melpa.org/packages/"))
+  ;; melpa (github-based) source
+  ;(add-to-list 'package-archives
+      ;'("melpa" . "http://melpa.milkbox.net/packages/"))
+  (package-refresh-contents)
+  (package-initialize)
+  (package-install 'el-get)
+  (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+  (require 'el-get))
+
+(package-initialize)
+
 (setq debug-on-error t)
 
 ;; believe me, you don't need menubar, toolbar nor scrollbar
@@ -86,6 +114,7 @@
                                (require 'inf-ruby)
                                (require 'ruby-compilation)
                                (define-key ruby-mode-map (kbd "M-r") 'run-rails-test-or-ruby-buffer))))
+
 (defun rhtml-mode-hook ()
   (autoload 'rhtml-mode "rhtml-mode" nil t)
   (add-to-list 'auto-mode-alist '("\\.erb\\'" . rhtml-mode))
@@ -103,6 +132,7 @@
   (add-hook 'css-mode-hook '(lambda ()
                               (setq css-indent-level 2)
                               (setq css-indent-offset 2))))
+
 (defun is-rails-project ()
   (when (textmate-project-root)
     (file-exists-p (expand-file-name "config/environment.rb" (textmate-project-root)))))
@@ -117,74 +147,43 @@
         (pop-to-buffer (ruby-compilation-do filename command)))
     (ruby-compilation-this-buffer)))
 
-(require 'package)
-;; elpy archives
+;(setq el-get-sources
+      ;'((:name ruby-mode
+               ;:type elpa
+               ;:load "ruby-mode.el"
+               ;:after (lambda () (ruby-mode-hook)))
+        ;(:name inf-ruby  :type elpa)
+        ;(:name ruby-compilation :type elpa)
+        ;(:name css-mode
+               ;:type elpa
+               ;:after (lambda () (css-mode-hook)))
+        ;(:name noctilux-theme
+               ;:type git
+               ;:url "https://github.com:stafu/noctilux-theme.git"
+               ;:load "noctilux-theme.el")
+        ;(:name textmate
+               ;:type git
+               ;:url "git://github.com/defunkt/textmate.el"
+               ;:load "textmate.el")
+        ;(:name rvm
+               ;:type git
+               ;:url "http://github.com/djwhitt/rvm.el.git"
+               ;:load "rvm.el"
+               ;:compile ("rvm.el")
+               ;:after (lambda() (rvm-use-default)))
+        ;(:name rhtml
+               ;:type git
+               ;:url "https://github.com/crazycode/rhtml.git"
+               ;:features rhtml-mode
+               ;:after (lambda () (rhtml-mode-hook)))
+        ;(:name yaml-mode
+               ;:type git
+               ;:url "http://github.com/yoshiki/yaml-mode.git"
+               ;:features yaml-mode
+               ;:after (lambda () (yaml-mode-hook)))
+	;))
 
-(add-to-list 'package-archives
-    '("elpy" . "http://jorgenschaefer.github.io/packages/"))
-
-(add-to-list 'package-archives
-    '("marmalade" . "http://marmalade-repo.org/packages/"))
-
-(setq package-archives (cons '("tromey" . "http://tromey.com/elpa/") package-archives))
-
-(unless (require 'el-get nil 'noerror)
-  (require 'package)
-  (add-to-list 'package-archives
-      '("melpa" . "http://melpa.org/packages/"))
-  ;; melpa (github-based) source
-  ;(add-to-list 'package-archives
-      ;'("melpa" . "http://melpa.milkbox.net/packages/"))
-  (package-refresh-contents)
-  (package-initialize)
-  (package-install 'el-get)
-  (require 'el-get))
-
-;; common lispy things
-(require 'cl)
-
-(package-initialize)
-
-;(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-;(require 'el-get)
-
-(setq el-get-sources
-      '((:name ruby-mode
-               :type elpa
-               :load "ruby-mode.el"
-               :after (lambda () (ruby-mode-hook)))
-        (:name inf-ruby  :type elpa)
-        (:name ruby-compilation :type elpa)
-        (:name css-mode
-               :type elpa
-               :after (lambda () (css-mode-hook)))
-        (:name noctilux-theme
-               :type git
-               :url "https://github.com:stafu/noctilux-theme.git"
-               :load "noctilux-theme.el")
-        (:name textmate
-               :type git
-               :url "git://github.com/defunkt/textmate.el"
-               :load "textmate.el")
-        (:name rvm
-               :type git
-               :url "http://github.com/djwhitt/rvm.el.git"
-               :load "rvm.el"
-               :compile ("rvm.el")
-               :after (lambda() (rvm-use-default)))
-        (:name rhtml
-               :type git
-               :url "https://github.com/crazycode/rhtml.git"
-               :features rhtml-mode
-               :after (lambda () (rhtml-mode-hook)))
-        (:name yaml-mode
-               :type git
-               :url "http://github.com/yoshiki/yaml-mode.git"
-               :features yaml-mode
-               :after (lambda () (yaml-mode-hook)))
-	))
-
-(el-get 'sync)
+;(el-get 'sync)
 
 ;;; -- Dependencies
 
@@ -197,16 +196,18 @@
                 puppet-mode
                 apache-mode
                 erlang
-                auto-complete
                 markdown-mode
                 yaml-mode
+                auto-complete
                 web-mode
                 slime
                 fiplr
                 python-mode
                 php-mode))
 
-(dependencies_el-get '(jedi))
+(dependencies_el-get '(jedi
+                       ))
+
 ;; Do what I mean for the TAB key.
 (defun dwim-tab ()
   "In most cases, performs the default action for the TAB key.
