@@ -11,20 +11,26 @@
 (add-to-list 'package-archives
     '("marmalade" . "http://marmalade-repo.org/packages/"))
 
+;;;el get install
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
 ;(setq package-archives (cons '("tromey" . "http://tromey.com/elpa/") package-archives))
 
 (unless (require 'el-get nil 'noerror)
   (require 'package)
   (add-to-list 'package-archives
-      '("melpa" . "http://melpa.org/packages/"))
-  ;; melpa (github-based) source
-  ;(add-to-list 'package-archives
-      ;'("melpa" . "http://melpa.milkbox.net/packages/"))
+               '("melpa" . "http://melpa.org/packages/"))
   (package-refresh-contents)
   (package-initialize)
   (package-install 'el-get)
-  (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
   (require 'el-get))
+
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+
+;; enable git shallow clone to save time and bandwidth
+(setq el-get-git-shallow-clone t)
+
+(el-get 'sync)
 
 (package-initialize)
 
