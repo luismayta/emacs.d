@@ -16,7 +16,8 @@
 ;;     I don't care too much about other dependecies that could be also
 ;;     installed, I'll get rid of them in the next clean install.
 
-                                        ; A package for line helps to mantain the list
+; A package for line helps to mantain the list
+
 (setq my-packages
       '(
         subatomic256-theme
@@ -123,8 +124,6 @@
 (show-paren-mode t)
 (column-number-mode t)
 (tooltip-mode -1)
-
-(set-frame-font "Menlo-16")
 
 ;; Specify a dependency (auto-install)
 (defun dep (depname)
