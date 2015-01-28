@@ -4,17 +4,109 @@
 
 (require 'cl)
 
+;; Packages list
+
+;; The list of packages to install in a fresh installation. The way to
+;; maintain clean and updated this list for me is the following:
+
+;; - Install a package from the =package.el= built-in interface via =M-x list-packages=
+;; - Test it
+;;   - If seems Ok and I want to use it regularly, add it to the list.
+;;   - If I don't like it, delete the plugin directory in the =~/.emacs.d/elpa= tree.
+;;     I don't care too much about other dependecies that could be also
+;;     installed, I'll get rid of them in the next clean install.
+
+                                        ; A package for line helps to mantain the list
+(setq my-packages
+      '(
+        ac-emmet
+        ag
+        async
+        auto-complete
+        buffer-move
+        calfw
+        charmap
+        csv-mode
+        diff-hl
+        dired+
+        elfeed
+        emms
+        emmet-mode
+        epresent
+        evil
+        evil-exchange
+        evil-indent-textobject
+        evil-leader
+        evil-matchit
+        evil-nerd-commenter
+        evil-surround
+        fill-column-indicator
+        flatland-theme
+        fixmee
+        git-commit-mode
+        git-rebase-mode
+        gitconfig-mode
+        gitignore-mode
+        google-maps
+        google-this
+        graphviz-dot-mode
+        guide-key-tip
+        helm
+        helm-descbinds
+        helm-emmet
+        helm-flycheck
+        helm-projectile
+        helm-themes
+        haskell-mode
+        ibuffer-vc
+        ido-ubiquitous
+        ido-vertical-mode
+        ipython
+        jedi
+        know-your-http-well
+        lua-mode
+        lorem-ipsum
+        magit
+        markdown-mode
+        monokai-theme
+        mu4e-maildirs-extension
+        multi-term
+        org-plus-contrib
+        paradox
+        password-store
+        pretty-mode
+        projectile
+        popwin
+        racket-mode
+        rw-ispell
+        rw-hunspell
+        rw-language-and-country-codes
+        smart-mode-line
+        smartparens
+        smex
+        sml-mode
+        sublime-themes
+        swoop
+        undo-tree
+        w3m
+        yasnippet
+        ))
+
+;; Repositories
+
+;; The ELPA repositories from where the packages are fetched.
+
 ;; elpy archives
 (add-to-list 'package-archives
     '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 
-(add-to-list 'package-archives
-    '("marmalade" . "http://marmalade-repo.org/packages/"))
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("melpa" . "http://melpa.org/packages/")
+                         ("org" . "http://orgmode.org/elpa/")
+                        ("marmalade" . "http://marmalade-repo.org/packages/")))
 
 ;;;el get install
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-
-;(setq package-archives (cons '("tromey" . "http://tromey.com/elpa/") package-archives))
 
 (unless (require 'el-get nil 'noerror)
   (require 'package)
@@ -24,6 +116,22 @@
   (package-initialize)
   (package-install 'el-get)
   (require 'el-get))
+
+;; Auto-installation
+
+;; The auto-installation process for all the packages that are not
+;; already installed. This is for bootstrap a fresh install.
+
+;;; initialize the packages and create the packages list if not exists
+(package-initialize)
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+;;; install packages if not exists
+(dolist (pkg my-packages)
+  (when (and (not (package-installed-p pkg))
+             (assoc pkg package-archive-contents))
+        (package-install pkg)))
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 
@@ -91,6 +199,7 @@
     (error (if refresh
                (signal (car err) (cdr err))
              (install-el-get depname t)))))
+
 ;; Specify a list of dependencies
 (defun dependencies (deps)
   "Convenience around `dep' to load multiple deps."
@@ -209,6 +318,14 @@
                 slime
                 fiplr
                 python-mode
+                yasnippet
+                smart-mode-line
+                sml-mode
+                magit
+                git-commit-mode
+                git-rebase-mode
+                gitconfig-mode
+                gitignore-mode
                 php-mode))
 
 (dependencies_el-get '(jedi
@@ -248,12 +365,19 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 
 ;; emacs is actually vim in disguise
 (evil-mode t)
-
+;;Show the current function
+(which-function-mode 1)
 ;; show the column number in the status bar
 (column-number-mode t)
 
 ;; turn on ido mode everywhere
 (ido-mode t)
+
+;Show empty lines
+(toggle-indicate-empty-lines)
+
+;Highlight the current line
+(global-hl-line-mode 1)
 
 ;; show matching braces
 (show-paren-mode t)
