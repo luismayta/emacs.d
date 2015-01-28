@@ -4,17 +4,70 @@
 
 (require 'cl)
 
+;; Packages list
+
+;; The list of packages to install in a fresh installation. The way to
+;; maintain clean and updated this list for me is the following:
+
+;; - Install a package from the =package.el= built-in interface via =M-x list-packages=
+;; - Test it
+;;   - If seems Ok and I want to use it regularly, add it to the list.
+;;   - If I don't like it, delete the plugin directory in the =~/.emacs.d/elpa= tree.
+;;     I don't care too much about other dependecies that could be also
+;;     installed, I'll get rid of them in the next clean install.
+
+; A package for line helps to mantain the list
+
+(setq my-packages
+      '(
+        subatomic256-theme
+        noctilux-theme
+        evil
+        evil-leader
+        evil-numbers
+        paredit
+        puppet-mode
+        apache-mode
+        erlang
+        markdown-mode
+        yaml-mode
+        auto-complete
+        web-mode
+        slime
+        fiplr
+        python-mode
+        yasnippet
+        smart-mode-line
+        sml-mode
+        magit
+        git-commit-mode
+        git-rebase-mode
+        gitconfig-mode
+        gitignore-mode
+        php-mode
+        auto-complete
+        buffer-move
+        fill-column-indicator
+        flatland-theme
+        lua-mode
+        lorem-ipsum
+        ))
+
+;; Repositories
+
+;; The ELPA repositories from where the packages are fetched.
+
 ;; elpy archives
 (add-to-list 'package-archives
     '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 
-(add-to-list 'package-archives
-    '("marmalade" . "http://marmalade-repo.org/packages/"))
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("melpa" . "http://melpa.org/packages/")
+                         ("org" . "http://orgmode.org/elpa/")
+                        ("marmalade" . "http://marmalade-repo.org/packages/")))
 
 ;;;el get install
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-
-;(setq package-archives (cons '("tromey" . "http://tromey.com/elpa/") package-archives))
 
 (unless (require 'el-get nil 'noerror)
   (require 'package)
@@ -24,6 +77,22 @@
   (package-initialize)
   (package-install 'el-get)
   (require 'el-get))
+
+;; Auto-installation
+
+;; The auto-installation process for all the packages that are not
+;; already installed. This is for bootstrap a fresh install.
+
+;;; initialize the packages and create the packages list if not exists
+(package-initialize)
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+;;; install packages if not exists
+(dolist (pkg my-packages)
+  (when (and (not (package-installed-p pkg))
+             (assoc pkg package-archive-contents))
+        (package-install pkg)))
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 
@@ -55,8 +124,6 @@
 (show-paren-mode t)
 (column-number-mode t)
 (tooltip-mode -1)
-
-(set-frame-font "Menlo-16")
 
 ;; Specify a dependency (auto-install)
 (defun dep (depname)
@@ -91,6 +158,7 @@
     (error (if refresh
                (signal (car err) (cdr err))
              (install-el-get depname t)))))
+
 ;; Specify a list of dependencies
 (defun dependencies (deps)
   "Convenience around `dep' to load multiple deps."
@@ -192,24 +260,6 @@
 ;(el-get 'sync)
 
 ;;; -- Dependencies
-
-(dependencies '(subatomic256-theme
-                noctilux-theme
-                evil
-                evil-leader
-                evil-numbers
-                paredit
-                puppet-mode
-                apache-mode
-                erlang
-                markdown-mode
-                yaml-mode
-                auto-complete
-                web-mode
-                slime
-                fiplr
-                python-mode
-                php-mode))
 
 (dependencies_el-get '(jedi
                        ))
