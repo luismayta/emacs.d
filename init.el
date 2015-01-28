@@ -19,77 +19,37 @@
                                         ; A package for line helps to mantain the list
 (setq my-packages
       '(
-        ac-emmet
-        ag
-        async
-        auto-complete
-        buffer-move
-        calfw
-        charmap
-        csv-mode
-        diff-hl
-        dired+
-        elfeed
-        emms
-        emmet-mode
-        epresent
+        subatomic256-theme
+        noctilux-theme
         evil
-        evil-exchange
-        evil-indent-textobject
         evil-leader
-        evil-matchit
-        evil-nerd-commenter
-        evil-surround
-        fill-column-indicator
-        flatland-theme
-        fixmee
+        evil-numbers
+        paredit
+        puppet-mode
+        apache-mode
+        erlang
+        markdown-mode
+        yaml-mode
+        auto-complete
+        web-mode
+        slime
+        fiplr
+        python-mode
+        yasnippet
+        smart-mode-line
+        sml-mode
+        magit
         git-commit-mode
         git-rebase-mode
         gitconfig-mode
         gitignore-mode
-        google-maps
-        google-this
-        graphviz-dot-mode
-        guide-key-tip
-        helm
-        helm-descbinds
-        helm-emmet
-        helm-flycheck
-        helm-projectile
-        helm-themes
-        haskell-mode
-        ibuffer-vc
-        ido-ubiquitous
-        ido-vertical-mode
-        ipython
-        jedi
-        know-your-http-well
+        php-mode
+        auto-complete
+        buffer-move
+        fill-column-indicator
+        flatland-theme
         lua-mode
         lorem-ipsum
-        magit
-        markdown-mode
-        monokai-theme
-        mu4e-maildirs-extension
-        multi-term
-        org-plus-contrib
-        paradox
-        password-store
-        pretty-mode
-        projectile
-        popwin
-        racket-mode
-        rw-ispell
-        rw-hunspell
-        rw-language-and-country-codes
-        smart-mode-line
-        smartparens
-        smex
-        sml-mode
-        sublime-themes
-        swoop
-        undo-tree
-        w3m
-        yasnippet
         ))
 
 ;; Repositories
