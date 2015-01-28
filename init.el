@@ -248,12 +248,19 @@ With dwim-tab-mode enabled, pressing TAB multiple times continues to indent."
 
 ;; emacs is actually vim in disguise
 (evil-mode t)
-
+;;Show the current function
+(which-function-mode 1)
 ;; show the column number in the status bar
 (column-number-mode t)
 
 ;; turn on ido mode everywhere
 (ido-mode t)
+
+;Show empty lines
+(toggle-indicate-empty-lines)
+
+;Highlight the current line
+(global-hl-line-mode 1)
 
 ;; show matching braces
 (show-paren-mode t)
