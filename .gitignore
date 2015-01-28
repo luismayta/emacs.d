@@ -1,8 +1,6 @@
 elpa/
 auto-save-list/
 *.dat
-*.eld
-*.cache
 url/
 el-get/
 .python-environments
@@ -10,24 +8,3 @@ el-get/
 #*#
 *#*#
 var
-emms
-ido.last
-*.#*
-.godeps/
-bin
-custom.el
-
-# Gtags
-
-GPATH
-GTAGS
-GRTAGS
-recentf
-*.before*
-srecode-map.el
-eshell
-.env
-
-# Generate
-docs/build
-places
