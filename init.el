@@ -262,32 +262,6 @@
 
 ;;; -- Dependencies
 
-(dependencies '(subatomic256-theme
-                noctilux-theme
-                evil
-                evil-leader
-                evil-numbers
-                paredit
-                puppet-mode
-                apache-mode
-                erlang
-                markdown-mode
-                yaml-mode
-                auto-complete
-                web-mode
-                slime
-                fiplr
-                python-mode
-                yasnippet
-                smart-mode-line
-                sml-mode
-                magit
-                git-commit-mode
-                git-rebase-mode
-                gitconfig-mode
-                gitignore-mode
-                php-mode))
-
 (dependencies_el-get '(jedi
                        ))
 
