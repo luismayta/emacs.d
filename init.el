@@ -28,6 +28,7 @@
         paredit
         puppet-mode
         apache-mode
+        dockerfile-mode
         erlang
         markdown-mode
         yaml-mode
