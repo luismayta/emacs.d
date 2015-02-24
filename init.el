@@ -34,6 +34,7 @@
         yaml-mode
         auto-complete
         web-mode
+        go-mode
         slime
         fiplr
         python-mode
