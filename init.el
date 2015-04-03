@@ -39,6 +39,7 @@
         fiplr
         python-mode
         yasnippet
+        yasnippet-bundle
         smart-mode-line
         sml-mode
         magit
