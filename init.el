@@ -25,6 +25,7 @@
         evil
         evil-leader
         evil-numbers
+        evil-nerd-commenter
         paredit
         puppet-mode
         apache-mode
@@ -301,6 +302,8 @@
 
 ;; the menu bar is pointless in a terminal
 (menu-bar-mode -1)
+;; hotkeys evil comment
+(evilnc-default-hotkeys)
 
 ;; don't show the tool bar when in a gui
 (when (featurep 'tool-bar)
