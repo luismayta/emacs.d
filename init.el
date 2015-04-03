@@ -425,15 +425,6 @@
 (add-to-list 'auto-mode-alist '("\\.jade\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.json\\'" . web-mode))
 
-;; make php-mode indentation vaguely sane
-(add-hook 'php-mode-hook
-  (lambda ()
-    (setq indent-tabs-mode t)
-    (setq tab-width 4)
-    (setq evil-shift-width 4)
-    (set (make-local-variable 'tab-stop-list) (number-sequence 4 200 4))
-    (c-set-offset 'substatement-open 0)))
-
 ;; magic to change the mode-line color according to state
 (lexical-let ((default-color (cons (face-background 'mode-line)
                                    (face-foreground 'mode-line))))
@@ -456,6 +447,7 @@
       '(
         "go.el"
         "python.el"
+        "php.el"
         "custom.el"
         ))
 
