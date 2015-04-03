@@ -268,8 +268,6 @@
 
 ;; the menu bar is pointless in a terminal
 (menu-bar-mode -1)
-;; hotkeys evil comment
-(evilnc-default-hotkeys)
 
 ;; don't show the tool bar when in a gui
 (when (featurep 'tool-bar)
@@ -278,23 +276,6 @@
 ;; turn on auto-completion of function names etc
 (require 'auto-complete)
 (global-auto-complete-mode t)
-
-;; Don't move back the cursor one position when exiting insert mode' 
-(setq evil-move-cursor-back nil)
-
-;; evil leader
-(global-evil-leader-mode t)
-
-;;set evil leader
-(evil-leader/set-leader ",")
-
-;; mapping keys evil leader
-(evil-leader/set-key
-  "e" 'find-file
-  "n" 'neotree-toggle
-  "f" 'fiplr-find-file
-  "b" 'switch-to-buffer
-  "k" 'kill-buffer)
 
 ;; show whitespace...
 (global-whitespace-mode t)
