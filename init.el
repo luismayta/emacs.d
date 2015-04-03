@@ -386,11 +386,12 @@
 
 (setq my-config
       '(
-        "go.el"
-        "python.el"
-        "php.el"
-        "ruby.el"
-        "custom.el"
+        "~/.emacs.d/config/evil.el"
+        "~/.emacs.d/config/go.el"
+        "~/.emacs.d/config/python.el"
+        "~/.emacs.d/config/php.el"
+        "~/.emacs.d/config/ruby.el"
+        "~/.emacs.d/config/custom.el"
         ))
 
 (dolist (config my-config)
