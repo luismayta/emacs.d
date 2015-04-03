@@ -36,6 +36,7 @@
         auto-complete
         web-mode
         go-mode
+        go-eldoc
         slime
         fiplr
         python-mode
@@ -450,6 +451,11 @@
 (let ((custom-config "~/.emacs.d/custom.el"))
   (when (file-exists-p custom-config)
     (load custom-config)))
+
+;;; -- go config
+(let ((go-config "~/.emacs.d/go.el"))
+  (when (file-exists-p go-config)
+    (load go-config)))
 
 ;;; .emacs ends here
 (custom-set-faces
