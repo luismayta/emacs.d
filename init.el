@@ -40,6 +40,8 @@
         slime
         fiplr
         python-mode
+        ruby-mode
+        rhtml-mode
         yasnippet
         yasnippet-bundle
         smart-mode-line
@@ -178,29 +180,6 @@
     (dep (car deps))
     (dependencies (cdr deps))))
 
-(defun ruby-mode-hook ()
-  (autoload 'ruby-mode "ruby-mode" nil t)
-  (add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
-  (add-hook 'ruby-mode-hook '(lambda ()
-                               (setq ruby-deep-arglist t)
-                               (setq ruby-deep-indent-paren nil)
-                               (setq c-tab-always-indent nil)
-                               (require 'inf-ruby)
-                               (require 'ruby-compilation)
-                               (define-key ruby-mode-map (kbd "M-r") 'run-rails-test-or-ruby-buffer))))
-
-(defun rhtml-mode-hook ()
-  (autoload 'rhtml-mode "rhtml-mode" nil t)
-  (add-to-list 'auto-mode-alist '("\\.erb\\'" . rhtml-mode))
-  (add-to-list 'auto-mode-alist '("\\.rjs\\'" . rhtml-mode))
-  (add-hook 'rhtml-mode '(lambda ()
-                           (define-key rhtml-mode-map (kbd "M-s") 'save-buffer))))
-
 (defun yaml-mode-hook ()
   (autoload 'yaml-mode "yaml-mode" nil t)
   (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
@@ -211,20 +190,6 @@
   (add-hook 'css-mode-hook '(lambda ()
                               (setq css-indent-level 2)
                               (setq css-indent-offset 2))))
-
-(defun is-rails-project ()
-  (when (textmate-project-root)
-    (file-exists-p (expand-file-name "config/environment.rb" (textmate-project-root)))))
-
-(defun run-rails-test-or-ruby-buffer ()
-  (interactive)
-  (if (is-rails-project)
-      (let* ((path (buffer-file-name))
-             (filename (file-name-nondirectory path))
-             (test-path (expand-file-name "test" (textmate-project-root)))
-             (command (list ruby-compilation-executable "-I" test-path path)))
-        (pop-to-buffer (ruby-compilation-do filename command)))
-    (ruby-compilation-this-buffer)))
 
 ;(setq el-get-sources
       ;'((:name ruby-mode
