@@ -1,6 +1,5 @@
 ;added dependences
 (require 'evil)
-(require 'evil-mode)
 (require 'evil-numbers)
 (require 'evil-leader)
 (require 'evil-nerd-commenter)
