@@ -408,6 +408,7 @@
         "go.el"
         "python.el"
         "php.el"
+        "ruby.el"
         "custom.el"
         ))
 
