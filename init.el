@@ -438,11 +438,6 @@
         (set-face-background 'mode-line (car color))
         (set-face-foreground 'mode-line (cdr color))))))
 
-;;; -- User config
-(let ((custom-config "~/.emacs.d/custom.el"))
-  (when (file-exists-p custom-config)
-    (load custom-config)))
-
 (setq my-config
       '(
         "go.el"
