@@ -40,6 +40,8 @@
         slime
         fiplr
         python-mode
+        ruby-mode
+        rhtml-mode
         yasnippet
         yasnippet-bundle
         smart-mode-line
@@ -178,29 +180,6 @@
     (dep (car deps))
     (dependencies (cdr deps))))
 
-(defun ruby-mode-hook ()
-  (autoload 'ruby-mode "ruby-mode" nil t)
-  (add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
-  (add-hook 'ruby-mode-hook '(lambda ()
-                               (setq ruby-deep-arglist t)
-                               (setq ruby-deep-indent-paren nil)
-                               (setq c-tab-always-indent nil)
-                               (require 'inf-ruby)
-                               (require 'ruby-compilation)
-                               (define-key ruby-mode-map (kbd "M-r") 'run-rails-test-or-ruby-buffer))))
-
-(defun rhtml-mode-hook ()
-  (autoload 'rhtml-mode "rhtml-mode" nil t)
-  (add-to-list 'auto-mode-alist '("\\.erb\\'" . rhtml-mode))
-  (add-to-list 'auto-mode-alist '("\\.rjs\\'" . rhtml-mode))
-  (add-hook 'rhtml-mode '(lambda ()
-                           (define-key rhtml-mode-map (kbd "M-s") 'save-buffer))))
-
 (defun yaml-mode-hook ()
   (autoload 'yaml-mode "yaml-mode" nil t)
   (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
@@ -211,20 +190,6 @@
   (add-hook 'css-mode-hook '(lambda ()
                               (setq css-indent-level 2)
                               (setq css-indent-offset 2))))
-
-(defun is-rails-project ()
-  (when (textmate-project-root)
-    (file-exists-p (expand-file-name "config/environment.rb" (textmate-project-root)))))
-
-(defun run-rails-test-or-ruby-buffer ()
-  (interactive)
-  (if (is-rails-project)
-      (let* ((path (buffer-file-name))
-             (filename (file-name-nondirectory path))
-             (test-path (expand-file-name "test" (textmate-project-root)))
-             (command (list ruby-compilation-executable "-I" test-path path)))
-        (pop-to-buffer (ruby-compilation-do filename command)))
-    (ruby-compilation-this-buffer)))
 
 ;(setq el-get-sources
       ;'((:name ruby-mode
@@ -303,8 +268,6 @@
 
 ;; the menu bar is pointless in a terminal
 (menu-bar-mode -1)
-;; hotkeys evil comment
-(evilnc-default-hotkeys)
 
 ;; don't show the tool bar when in a gui
 (when (featurep 'tool-bar)
@@ -313,23 +276,6 @@
 ;; turn on auto-completion of function names etc
 (require 'auto-complete)
 (global-auto-complete-mode t)
-
-;; Don't move back the cursor one position when exiting insert mode' 
-(setq evil-move-cursor-back nil)
-
-;; evil leader
-(global-evil-leader-mode t)
-
-;;set evil leader
-(evil-leader/set-leader ",")
-
-;; mapping keys evil leader
-(evil-leader/set-key
-  "e" 'find-file
-  "n" 'neotree-toggle
-  "f" 'fiplr-find-file
-  "b" 'switch-to-buffer
-  "k" 'kill-buffer)
 
 ;; show whitespace...
 (global-whitespace-mode t)
@@ -425,15 +371,6 @@
 (add-to-list 'auto-mode-alist '("\\.jade\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.json\\'" . web-mode))
 
-;; make php-mode indentation vaguely sane
-(add-hook 'php-mode-hook
-  (lambda ()
-    (setq indent-tabs-mode t)
-    (setq tab-width 4)
-    (setq evil-shift-width 4)
-    (set (make-local-variable 'tab-stop-list) (number-sequence 4 200 4))
-    (c-set-offset 'substatement-open 0)))
-
 ;; magic to change the mode-line color according to state
 (lexical-let ((default-color (cons (face-background 'mode-line)
                                    (face-foreground 'mode-line))))
@@ -447,15 +384,19 @@
         (set-face-background 'mode-line (car color))
         (set-face-foreground 'mode-line (cdr color))))))
 
-;;; -- User config
-(let ((custom-config "~/.emacs.d/custom.el"))
-  (when (file-exists-p custom-config)
-    (load custom-config)))
+(setq my-config
+      '(
+        "~/.emacs.d/config/evil.el"
+        "~/.emacs.d/config/go.el"
+        "~/.emacs.d/config/python.el"
+        "~/.emacs.d/config/php.el"
+        "~/.emacs.d/config/ruby.el"
+        "~/.emacs.d/config/custom.el"
+        ))
 
-;;; -- go config
-(let ((go-config "~/.emacs.d/go.el"))
-  (when (file-exists-p go-config)
-    (load go-config)))
+(dolist (config my-config)
+  (when (file-exists-p config)
+    (load config)))
 
 ;;; .emacs ends here
 (custom-set-faces
