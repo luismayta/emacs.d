@@ -41,6 +41,7 @@
         fiplr
         python-mode
         ruby-mode
+        emamux
         rhtml-mode
         yasnippet
         yasnippet-bundle
