@@ -6,8 +6,6 @@ This is my very minimal configuration for Emacs. I like to keep my emacs
 nice and lightweight, so there's not much in here. Actually, it's more like
 Vim-flavoured Emacs, since it has Evil installed.
 
-![Screenshot](http://i.imgur.com/aTGH1cs.png)
-
 ## Included packages
 
 I only add packages to my config file if I feel a significant benefit in
@@ -37,38 +35,6 @@ built-in anyway.
     - the ELPA package manager is configured with Marmalade & MELPA
     - some conveniences are in init.el to make it almost like Bundler for Ruby
 
-## Custom settings
-
-  * Trailing whitespace
-    - trailing-whitespace is highlighted in red
-    - there is no destructive removal of existing whitespace
-  * Indentation
-    - Default: 2 spaces
-    - Ruby: 2 spaces
-    - PHP: tabs
-    - Erlang: 4 spaces
-  * Backup files etc
-    - completely disabled
-  * Highlight matching braces
-    - enabled, but no auto-insertion of them
-  * Find file in project
-    - <kbd>C-x f</kbd> to start searching
-    - <kbd>C-x c</kbd> to clear the cache
-  * Cycle through windows in reverse
-    - usually <kbd>C-x o</kbd> cycles windows, <kbd>C-x p</kbd> goes backwards
-  * Line numbers
-    - off by default, toggled with <kbd>C-x j</kbd>
-  * Mode line color coding
-    - the color of the modeline changes based on the following states:
-      * evil normal state, clean: default
-      * evil normal state, dirty: blue
-      * evil insert state: red
-      * emacs state: grey
-
-![Normal](http://i.imgur.com/aABlK53.png)
-![Insert](http://i.imgur.com/8CGwOmb.png)
-![Dirty](http://i.imgur.com/n4aVezX.png)
-![Emacs](http://i.imgur.com/XJzp4V9.png)
 
 ## Installation
 
@@ -78,7 +44,7 @@ do things a bit differently.
 
     # hope you know what you're doing
     rm -rf ~/.emacs.d ~/.emacs
-    git clone git://github.com/d11wtq/emacs.d.git ~/.emacs.d
+    git clone git://github.com/luismayta/emacs.d.git ~/.emacs.d
 
 Provided you have Emacs 24 installed, when you run it the first time, it will
 connect with the ELPA package repositories and install the custom packages.
@@ -99,18 +65,6 @@ there. This file is automatically loaded at the end of of ~/.emacs.d/init.el,
 if it exists.
 
 ## Getting updates
-
-If new packages are added, they'll be installed when you open Emacs.
-
-You can add new dependencies yourself, if you know they exist in MELPA or
-Marmalade. In the .emacs file:
-
-    (dep 'some-package)
-
-Then place your cursor on the closing parenthesis and do <kbd>C-x C-e</kbd>
-to evauluate the lisp code immediately, or just restart Emacs.
-
-Or add it to the existing list of `(dependencies '(....))`.
 
 ## Disclaimer
 
