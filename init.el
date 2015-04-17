@@ -59,6 +59,7 @@
         flatland-theme
         lua-mode
         lorem-ipsum
+        editorconfig
         ))
 
 ;; Repositories
