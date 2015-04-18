@@ -31,9 +31,13 @@ built-in anyway.
     - does fuzzy-searching in various places
   * Molokai
     - purdy colors, easy to read
+  * Noctilux Theme
+    - Best Theme color Light Table, easy to read
   * ELPA
     - the ELPA package manager is configured with Marmalade & MELPA
     - some conveniences are in init.el to make it almost like Bundler for Ruby
+  * editorconfig
+    - config editor
 
 
 ## Installation
