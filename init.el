@@ -99,8 +99,7 @@
 
 ;;; install packages if not exists
 (dolist (pkg my-packages)
-  (when (and (not (package-installed-p pkg))
-             (assoc pkg package-archive-contents))
+  (when (and (not (package-installed-p pkg)))
         (package-install pkg)))
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
