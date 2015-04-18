@@ -1,3 +1,7 @@
+### v0.2.3 (DATE)
+
+- added editor config
+
 ### v0.2.2 (DATE)
 
 - texto1
