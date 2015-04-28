@@ -60,6 +60,7 @@
         lua-mode
         lorem-ipsum
         editorconfig
+        coffee-mode
         ))
 
 ;; Repositories
