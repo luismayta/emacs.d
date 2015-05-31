@@ -37,6 +37,7 @@
         web-mode
         go-mode
         go-eldoc
+        golint
         slime
         fiplr
         python-mode
