@@ -245,7 +245,7 @@
         prefer-coding-system))
 
 ;;; -- Config
-(set-frame-font "Menlo-16")
+(set-frame-font "Menlo:pixelsize=18")
 ;; make pretty colors
 (add-to-list 'custom-theme-load-path "~/.emacs.d/lib/color-themes")
 (load-theme 'noctilux t)
