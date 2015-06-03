@@ -1,6 +1,8 @@
 ;; python configuration
 (bundle 'python-mode nil)
 
+(bundle 'python-mode nil)
+
 (require 'python-mode)
 
 ;; (bundle 'jedi nil)
