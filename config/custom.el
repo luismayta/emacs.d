@@ -1,5 +1,20 @@
-;; emacs is actually vim in disguise
-(evil-mode t)
+;; enable git shallow clone to save time and bandwidth
+(setq el-get-git-shallow-clone t)
+
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)
+(setq inhibit-startup-message t)
+
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(delete-selection-mode t)
+(blink-cursor-mode t)
+(show-paren-mode t)
+(column-number-mode t)
+(tooltip-mode -1)
+
 ;;Show the current function
 (which-function-mode 1)
 ;; show the column number in the status bar
@@ -34,47 +49,9 @@
 ;; reload changes from disk
 (global-auto-revert-mode t)
 
-;; global key mappings
-;(mapc (lambda (mapping)
-        ;(global-set-key (kbd (car mapping)) (cdr mapping)))
-      ;`(;; toggle line numbers
-        ;("C-x j"   . ,(run ('linum-mode (or (not 'linum-mode) 0))))
-        ;;; open ~/.emacs.d/init.el
-        ;("C-x /"   . ,(run (find-file user-init-file)))
-        ;;; run an emacs command
-        ;("C-x SPC" . execute-extended-command)
-        ;;; run a lisp expression
-        ;("C-x ,"   . eval-expression)
-        ;;; find file in project
-        ;("C-x f"   . fiplr-find-file)))
-
-;; evil normal mode key mappings
-(mapc (lambda (mapping)
-        (define-key evil-normal-state-map (kbd (car mapping)) (cdr mapping)))
-      `(;; increment number under point
-        ("C-k"   . evil-numbers/inc-at-pt)
-        ;; decrement number under point
-        ("C-j"   . evil-numbers/dec-at-pt)))
-
-;; allow the arrow keys to be used for cycling windows
-(mapc (lambda (keys)
-        (let ((letter (format "C-w %s" (car keys)))
-              (arrow  (format "C-w %s" (cdr keys))))
-          (define-key evil-normal-state-map (kbd arrow) (kbd letter))
-          (define-key evil-motion-state-map (kbd arrow) (kbd letter))
-          (define-key evil-visual-state-map (kbd arrow) (kbd letter))))
-      '(("h" . "<left>")
-        ("j" . "<down>")
-        ("k" . "<up>")
-        ("l" . "<right>")))
-
 ;; customize some global vars
-(fset 'yes-or-no-p 'y-or-n-p)
+
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(ac-auto-start nil)
  '(ac-trigger-key "TAB")
  '(ansi-color-names-vector
@@ -106,22 +83,6 @@
 
 ;; treat underscores as word chars
 (modify-syntax-entry ?_ "w")
-
-;; .md files should use markdown-mode
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
-;; templates web mode
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
-;(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.jade\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.json\\'" . web-mode))
 
 ;; magic to change the mode-line color according to state
 (lexical-let ((default-color (cons (face-background 'mode-line)
