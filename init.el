@@ -118,22 +118,6 @@
 ;; believe me, you don't need menubar, toolbar nor scrollbar
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
   (when (fboundp mode) (funcall mode -1)))
-;; enable git shallow clone to save time and bandwidth
-(setq el-get-git-shallow-clone t)
-
-(setq make-backup-files nil)
-(setq auto-save-default nil)
-(setq-default tab-width 4)
-(setq-default indent-tabs-mode nil)
-(setq inhibit-startup-message t)
-
-(fset 'yes-or-no-p 'y-or-n-p)
-
-(delete-selection-mode t)
-(blink-cursor-mode t)
-(show-paren-mode t)
-(column-number-mode t)
-(tooltip-mode -1)
 
 ;; Specify a dependency (auto-install)
 (defun dep (depname)
@@ -257,6 +241,8 @@
         "~/.emacs.d/config/python.el"
         "~/.emacs.d/config/php.el"
         "~/.emacs.d/config/ruby.el"
+        "~/.emacs.d/config/web-mode.el"
+        "~/.emacs.d/config/markdown.el"
         ))
 
 (dolist (config my-config)
