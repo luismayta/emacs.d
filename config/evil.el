@@ -15,7 +15,7 @@
 ;;set evil leader
 (evil-leader/set-leader ",")
 
-;; Don't move back the cursor one position when exiting insert mode' 
+;; Don't move back the cursor one position when exiting insert mode'
 (setq evil-move-cursor-back nil)
 
 ;; mapping keys evil leader
