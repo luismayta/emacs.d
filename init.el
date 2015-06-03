@@ -38,6 +38,7 @@
         go-mode
         go-eldoc
         golint
+        company-go
         slime
         fiplr
         python-mode
@@ -219,7 +220,7 @@
 ;;; -- Dependencies
 
 (dependencies_el-get '(jedi
-                       ))
+			))
 ;tab yasnippet
 (setq yas-trigger-key "TAB")
 ;; no fucking latin-1, thank you very much
