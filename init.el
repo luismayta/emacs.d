@@ -5,10 +5,8 @@
 (require 'cl)
 
 ;; Packages list
-
 ;; The list of packages to install in a fresh installation. The way to
 ;; maintain clean and updated this list for me is the following:
-
 ;; - Install a package from the =package.el= built-in interface via =M-x list-packages=
 ;; - Test it
 ;;   - If seems Ok and I want to use it regularly, add it to the list.
@@ -35,10 +33,6 @@
         yaml-mode
         auto-complete
         web-mode
-        go-mode
-        go-eldoc
-        golint
-        company-go
         slime
         fiplr
         python-mode
@@ -238,7 +232,6 @@
       '(
         "~/.emacs.d/config/custom.el"
         "~/.emacs.d/config/evil.el"
-        "~/.emacs.d/config/go.el"
         "~/.emacs.d/config/python.el"
         "~/.emacs.d/config/php.el"
         "~/.emacs.d/config/ruby.el"
