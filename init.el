@@ -39,11 +39,6 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-;;; install packages if not exists
-(dolist (pkg my-packages)
-  (when (and (not (package-installed-p pkg)))
-        (package-install pkg)))
-
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 
 ;; enable git shallow clone to save time and bandwidth
@@ -56,18 +51,13 @@
 (setq debug-on-error t)
 
 ;; Specify a dependency (auto-install)
-(defun dep (depname)
-  "Require or install a dependency as needed."
-  (interactive)
-  (unless (package-installed-p depname)
-    (install-dep depname nil)))
-
-;; Specify a dependency (auto-install)
 (defun dep_el-get (depname)
   "Require or install a dependency as needed."
   (interactive)
   (unless (package-installed-p depname)
     (install-el-get depname nil)))
+
+;; Specify a dependency (auto-install)
 
 ;; Convenience around `package-install'.
 (defun bundle (depname refresh)
@@ -91,15 +81,16 @@
 
 ;; Specify a list of dependencies
 (defun dependencies_el-get (deps)
-  "Convenience around `dep' to load multiple deps."
+  "Convenience around `dep_el-get' to load multiple deps."
   (unless (eq '() deps)
-    (dep (car deps))
-    (dependencies (cdr deps))))
+    (dep_el-get (car deps))
+    (dependencies_el-get (cdr deps))))
 
 ;;; -- Dependencies
 
 (dependencies_el-get '(jedi
 			))
+
 ;; no fucking latin-1, thank you very much
 (mapc (lambda (fn) (funcall fn 'utf-8))
       '(set-terminal-coding-system
@@ -109,9 +100,9 @@
 (setq my-config
       '(
         "~/.emacs.d/conf/custom.el"
+        "~/.emacs.d/conf/editorconfig.el"
         "~/.emacs.d/conf/theme.el"
         "~/.emacs.d/conf/autocomplete.el"
-        "~/.emacs.d/conf/editorconfig.el"
         "~/.emacs.d/conf/emamux.el"
         "~/.emacs.d/conf/yasnippet.el"
         "~/.emacs.d/conf/evil.el"
