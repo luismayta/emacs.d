@@ -1,3 +1,3 @@
-(bundle 'editorconfig nil)
+bundle 'editorconfig nil)
 
 (require 'editorconfig)
