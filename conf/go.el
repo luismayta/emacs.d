@@ -16,7 +16,7 @@
 (require 'go-eldoc)
 (require 'go-mode)
 (require 'golint)
-(require 'go-flymake)
+;;(require 'go-flymake)
 (require 'go-autocomplete)
 ;;(require 'company-mode)
 
