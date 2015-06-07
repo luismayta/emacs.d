@@ -32,7 +32,6 @@
         web-mode
         slime
         fiplr
-        python-mode
         emamux
         yasnippet
         yasnippet-bundle
