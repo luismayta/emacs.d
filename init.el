@@ -231,6 +231,7 @@
 (setq my-config
       '(
         "~/.emacs.d/conf/custom.el"
+        "~/.emacs.d/conf/theme.el"
         "~/.emacs.d/conf/evil.el"
         "~/.emacs.d/conf/go.el"
         "~/.emacs.d/conf/python.el"
