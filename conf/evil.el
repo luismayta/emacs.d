@@ -1,4 +1,9 @@
-;added dependences
+;; Install Packages
+(bundle 'evil nil)
+(bundle 'evil-leader nil)
+(bundle 'evil-numbers nil)
+(bundle 'evil-nerd-commenter nil)
+
 (require 'evil)
 (require 'evil-numbers)
 (require 'evil-leader)
