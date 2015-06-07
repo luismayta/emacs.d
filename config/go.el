@@ -10,7 +10,8 @@
 (require 'go-eldoc)
 (require 'go-mode)
 (require 'golint)
-;;(require 'go-flymake)
+(require 'go-flymake)
+(require 'go-autocomplete)
 ;;(require 'company-mode)
 
 (add-hook 'go-mode-hook 'go-eldoc-setup)
@@ -24,7 +25,7 @@
 (load "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
 (add-hook 'go-mode-hook 'go-oracle-mode)
 
-(add-to-list 'load-path "$GOPATH/src/github.com/dougm/goflymake")
+;;(add-to-list 'load-path "$GOPATH/src/github.com/dougm/goflymake")
 
 ;;(add-hook 'go-mode-hook 'company-mode)
 ;;(add-hook 'go-mode-hook (lambda ()
