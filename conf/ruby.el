@@ -1,3 +1,6 @@
+(bundle 'ruby-mode nil)
+(bundle 'rhtml-mode nil)
+
 (require 'ruby-mode)
 (require 'rhtml-mode)
 
