@@ -1,4 +1,25 @@
 ;; enable git shallow clone to save time and bandwidth
+
+;; Install Packages
+(bundle 'apache-mode nil)
+(bundle 'puppet-mode nil)
+(bundle 'dockerfile-mode nil)
+(bundle 'erlang nil)
+(bundle 'paredit nil)
+(bundle 'slime nil)
+(bundle 'fiplr nil)
+(bundle 'emamux nil)
+(bundle 'sml-mode nil)
+(bundle 'smart-mode-line nil)
+(bundle 'buffer-move nil)
+(bundle 'fill-column-indicator nil)
+(bundle 'flatland-theme nil)
+(bundle 'lorem-ipsum nil)
+(bundle 'lua-mode nil)
+(bundle 'coffee-mode nil)
+
+;; Config
+
 (setq el-get-git-shallow-clone t)
 
 (setq make-backup-files nil)
