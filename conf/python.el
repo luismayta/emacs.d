@@ -1,5 +1,7 @@
 ;; python configuration
 
+(bundle 'python-mode nil)
+
 (require 'python-mode)
 
 ;; make jedi-mode
