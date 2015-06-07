@@ -57,10 +57,6 @@
         lorem-ipsum
         editorconfig
         coffee-mode
-        go-eldoc
-        go-mode
-        golint
-        go-autocomplete
         ))
 
 ;; Repositories
@@ -141,6 +137,16 @@
     (error (if refresh
                (signal (car err) (cdr err))
              (install-dep depname t)))))
+
+;; Convenience around `package-install'.
+(defun bundle (depname refresh)
+  "Runs `package-install', attempting `package-refresh-contents' on failure."
+  (when refresh (package-refresh-contents))
+  (condition-case err
+      (package-install depname)
+    (error (if refresh
+               (signal (car err) (cdr err))
+             (bundle depname t)))))
 
 ;; Convenience around `package-install'.
 (defun install-el-get (depname refresh)
