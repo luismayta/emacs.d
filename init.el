@@ -57,6 +57,10 @@
         lorem-ipsum
         editorconfig
         coffee-mode
+        go-eldoc
+        go-mode
+        golint
+        go-autocomplete
         ))
 
 ;; Repositories
@@ -232,6 +236,7 @@
       '(
         "~/.emacs.d/config/custom.el"
         "~/.emacs.d/config/evil.el"
+        "~/.emacs.d/config/go.el"
         "~/.emacs.d/config/python.el"
         "~/.emacs.d/config/php.el"
         "~/.emacs.d/config/ruby.el"
