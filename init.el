@@ -18,8 +18,6 @@
 
 (setq my-packages
       '(
-        subatomic256-theme
-        noctilux-theme
         evil
         evil-leader
         evil-numbers
@@ -31,14 +29,11 @@
         erlang
         markdown-mode
         yaml-mode
-        auto-complete
         web-mode
         slime
         fiplr
         python-mode
-        ruby-mode
         emamux
-        rhtml-mode
         yasnippet
         yasnippet-bundle
         smart-mode-line
@@ -232,11 +227,6 @@
       '(set-terminal-coding-system
         set-keyboard-coding-system
         prefer-coding-system))
-
-;;; -- Config
-;; make pretty colors
-(add-to-list 'custom-theme-load-path "~/.emacs.d/lib/color-themes")
-(load-theme 'noctilux t)
 
 (setq my-config
       '(
