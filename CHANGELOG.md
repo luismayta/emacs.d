@@ -1,3 +1,7 @@
+### v0.2.6 (DATE)
+
+- added conf go mode
+
 ### v0.2.3 (DATE)
 
 - added editor config
