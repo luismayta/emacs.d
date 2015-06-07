@@ -240,14 +240,14 @@
 
 (setq my-config
       '(
-        "~/.emacs.d/config/custom.el"
-        "~/.emacs.d/config/evil.el"
-        "~/.emacs.d/config/go.el"
-        "~/.emacs.d/config/python.el"
-        "~/.emacs.d/config/php.el"
-        "~/.emacs.d/config/ruby.el"
-        "~/.emacs.d/config/web-mode.el"
-        "~/.emacs.d/config/markdown.el"
+        "~/.emacs.d/conf/custom.el"
+        "~/.emacs.d/conf/evil.el"
+        "~/.emacs.d/conf/go.el"
+        "~/.emacs.d/conf/python.el"
+        "~/.emacs.d/conf/php.el"
+        "~/.emacs.d/conf/ruby.el"
+        "~/.emacs.d/conf/web-mode.el"
+        "~/.emacs.d/conf/markdown.el"
         ))
 
 (dolist (config my-config)
