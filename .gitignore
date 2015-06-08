@@ -12,3 +12,4 @@ emms
 ido.last
 *.#*
 .godeps/
+bin
