@@ -50,15 +50,6 @@
 
 (setq debug-on-error t)
 
-;; Specify a dependency (auto-install)
-(defun dep_el-get (depname)
-  "Require or install a dependency as needed."
-  (interactive)
-  (unless (package-installed-p depname)
-    (install-el-get depname nil)))
-
-;; Specify a dependency (auto-install)
-
 ;; Convenience around `package-install'.
 (defun bundle (depname refresh)
   "Runs `package-install', attempting `package-refresh-contents' on failure."
@@ -68,28 +59,6 @@
     (error (if refresh
                (signal (car err) (cdr err))
              (bundle depname t)))))
-
-;; Convenience around `package-install'.
-(defun install-el-get (depname refresh)
-  "Runs `el-get-install', attempting `package-refresh-contents' on failure."
-  (when refresh (package-refresh-contents))
-  (condition-case err
-      (el-get-install depname)
-    (error (if refresh
-               (signal (car err) (cdr err))
-             (install-el-get depname t)))))
-
-;; Specify a list of dependencies
-(defun dependencies_el-get (deps)
-  "Convenience around `dep_el-get' to load multiple deps."
-  (unless (eq '() deps)
-    (dep_el-get (car deps))
-    (dependencies_el-get (cdr deps))))
-
-;;; -- Dependencies
-
-(dependencies_el-get '(jedi
-			))
 
 ;; no fucking latin-1, thank you very much
 (mapc (lambda (fn) (funcall fn 'utf-8))
