@@ -1,5 +1,4 @@
 ;; emacs configuration
-
 (require 'package)
 
 (require 'cl)
