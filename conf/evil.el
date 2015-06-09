@@ -5,11 +5,16 @@
 (bundle 'evil-nerd-commenter nil)
 (bundle 'neotree nil)
 
+(el-get-install 'undo-tree)
+
 (require 'evil)
 (require 'evil-numbers)
 (require 'evil-leader)
 (require 'evil-nerd-commenter)
 (require 'neotree)
+
+(require 'undo-tree)
+
 
 ;; emacs is actually vim in disguise
 (evil-mode t)
@@ -29,6 +34,7 @@
 (evil-leader/set-key
   "e" 'find-file
   "n" 'neotree-toggle
+  "u" 'undo-tree-visualize
   "f" 'fiplr-find-file
   "b" 'switch-to-buffer
   "k" 'kill-buffer)
