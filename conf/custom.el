@@ -17,6 +17,7 @@
 (bundle 'lorem-ipsum nil)
 (bundle 'lua-mode nil)
 (bundle 'coffee-mode nil)
+(bundle 'emmet-mode nil)
 
 ;; Config
 
