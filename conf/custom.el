@@ -61,10 +61,6 @@
 (when (featurep 'tool-bar)
   (tool-bar-mode -1))
 
-;; turn on auto-completion of function names etc
-(require 'auto-complete)
-(global-auto-complete-mode t)
-
 ;; show whitespace...
 (global-whitespace-mode t)
 
