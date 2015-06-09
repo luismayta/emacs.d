@@ -35,6 +35,7 @@
   "e" 'find-file
   "n" 'neotree-toggle
   "u" 'undo-tree-visualize
+  "c" 'evilnc-comment-or-uncomment-lines
   "f" 'fiplr-find-file
   "b" 'switch-to-buffer
   "k" 'kill-buffer)
