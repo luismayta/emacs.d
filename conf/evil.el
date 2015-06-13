@@ -41,12 +41,12 @@
   "k" 'kill-buffer)
 
 ;; evil normal mode key mappings
-(mapc (lambda (mapping)
-        (define-key evil-normal-state-map (kbd (car mapping)) (cdr mapping)))
-      `(;; increment number under point
-        ("C-k"   . evil-numbers/inc-at-pt)
-        ;; decrement number under point
-        ("C-j"   . evil-numbers/dec-at-pt)))
+;; (mapc (lambda (mapping)
+;;         (define-key evil-normal-state-map (kbd (car mapping)) (cdr mapping)))
+;;       `(;; increment number under point
+;;         ("C-k"   . evil-numbers/inc-at-pt)
+;;         ;; decrement number under point
+;;         ("C-j"   . evil-numbers/dec-at-pt)))
 
 ;; allow the arrow keys to be used for cycling windows
 (mapc (lambda (keys)
