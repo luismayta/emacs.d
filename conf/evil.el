@@ -38,6 +38,7 @@
   "c" 'evilnc-comment-or-uncomment-lines
   "f" 'fiplr-find-file
   "b" 'switch-to-buffer
+  "s" 'save-buffer
   "k" 'kill-buffer)
 
 ;; evil normal mode key mappings
