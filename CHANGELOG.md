@@ -1,3 +1,7 @@
+### v1.0.0 (06-16-2015)
+
+- added test code
+
 ### v0.2.6 (DATE)
 
 - added conf go mode
