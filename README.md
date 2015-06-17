@@ -74,3 +74,7 @@ if it exists.
 ## Disclaimer
 
 If you use my .emacs, you are probably nuts ;)
+
+
+[![](http://api.coderwall.com/luismayta/endorsecount.png)](http://coderwall.com/luismayta)
+[![](http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.png)](http://pe.linkedin.com/in/luismayta)
