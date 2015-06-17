@@ -1,3 +1,9 @@
+;; Install Packages
+
+(bundle 'php-mode nil)
+
+;; Config
+
 (require 'php-mode)
 
 ;; make php-mode indentation vaguely sane

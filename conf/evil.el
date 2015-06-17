@@ -1,8 +1,20 @@
-;added dependences
+;; Install Packages
+(bundle 'evil nil)
+(bundle 'evil-leader nil)
+(bundle 'evil-numbers nil)
+(bundle 'evil-nerd-commenter nil)
+(bundle 'neotree nil)
+
+(el-get-install 'undo-tree)
+
 (require 'evil)
 (require 'evil-numbers)
 (require 'evil-leader)
 (require 'evil-nerd-commenter)
+(require 'neotree)
+
+(require 'undo-tree)
+
 
 ;; emacs is actually vim in disguise
 (evil-mode t)
@@ -15,15 +27,18 @@
 ;;set evil leader
 (evil-leader/set-leader ",")
 
-;; Don't move back the cursor one position when exiting insert mode' 
+;; Don't move back the cursor one position when exiting insert mode'
 (setq evil-move-cursor-back nil)
 
 ;; mapping keys evil leader
 (evil-leader/set-key
   "e" 'find-file
   "n" 'neotree-toggle
+  "u" 'undo-tree-visualize
+  "c" 'evilnc-comment-or-uncomment-lines
   "f" 'fiplr-find-file
   "b" 'switch-to-buffer
+  "s" 'save-buffer
   "k" 'kill-buffer)
 
 ;; evil normal mode key mappings
