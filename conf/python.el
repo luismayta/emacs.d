@@ -1,6 +1,10 @@
 ;; python configuration
+(bundle 'python-mode nil)
 
 (require 'python-mode)
+
+(el-get-install 'jedi)
+(require 'jedi)
 
 ;; make jedi-mode
 (autoload 'jedi:setup "jedi" nil t)
