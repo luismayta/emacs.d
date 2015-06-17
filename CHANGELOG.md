@@ -1,3 +1,7 @@
+### v1.0.1 (06-16-2015)
+
+- fixed load test code
+
 ### v1.0.0 (06-16-2015)
 
 - added test code
