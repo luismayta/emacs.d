@@ -1,4 +1,5 @@
 (bundle 'noctilux-theme nil)
+(bundle 'solarized-theme nil)
 (bundle 'subatomic256-theme nil)
 
 ;;; -- Config

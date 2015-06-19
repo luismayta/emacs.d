@@ -67,38 +67,6 @@
 ;; reload changes from disk
 (global-auto-revert-mode t)
 
-;; customize some global vars
-
-(custom-set-variables
- '(ac-auto-start nil)
- '(ac-trigger-key "TAB")
- '(ansi-color-names-vector
-   ["black" "red" "green" "yellow" "blue" "magenta" "cyan" "yellow"])
- '(auto-save-default nil)
- '(background-color nil)
- '(delete-selection-mode t)
- '(background-mode dark)
- '(column-number-mode t)
- '(cursor-color nil)
- '(custom-safe-themes
-   (quote
-    ("64581032564feda2b5f2cf389018b4b9906d98293d84d84142d90d7986032d33" "0c311fb22e6197daba9123f43da98f273d2bfaeeaeb653007ad1ee77f0003037" default)))
- '(evil-shift-width 4)
- '(evil-toggle-key (kbd "C-\\"))
- '(foreground-color nil)
- '(global-linum-mode t)
- '(ido-enable-flex-matching t)
- '(indent-tabs-mode nil)
- '(make-backup-files nil)
- '(require-final-newline t)
- '(ruby-deep-indent-paren nil)
- '(ruby-insert-encoding-magic-comment nil)
- '(scroll-conservatively 1000)
- '(scroll-step 1)
- '(tab-stop-list (number-sequence 2 200 2))
- '(tab-width 4)
- '(whitespace-style (quote (face trailing))))
-
 ;; treat underscores as word chars
 (modify-syntax-entry ?_ "w")
 
