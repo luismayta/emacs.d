@@ -90,3 +90,42 @@
     (load config)))
 
 ;;; .emacs ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ac-auto-start nil)
+ '(ac-trigger-key "TAB")
+ '(ansi-color-names-vector
+   ["black" "red" "green" "yellow" "blue" "magenta" "cyan" "yellow"])
+ '(auto-save-default nil)
+ '(background-color nil)
+ '(background-mode dark)
+ '(column-number-mode t)
+ '(cursor-color nil)
+ '(custom-safe-themes
+   (quote
+    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "64581032564feda2b5f2cf389018b4b9906d98293d84d84142d90d7986032d33" "0c311fb22e6197daba9123f43da98f273d2bfaeeaeb653007ad1ee77f0003037" default)))
+ '(delete-selection-mode t)
+ '(evil-shift-width 4)
+ '(evil-toggle-key (kbd "C-\\"))
+ '(foreground-color nil)
+ '(global-linum-mode t)
+ '(ido-enable-flex-matching t)
+ '(indent-tabs-mode nil)
+ '(make-backup-files nil)
+ '(require-final-newline t)
+ '(ruby-deep-indent-paren nil)
+ '(ruby-insert-encoding-magic-comment nil)
+ '(scroll-conservatively 1000)
+ '(scroll-step 1)
+ '(tab-stop-list (number-sequence 2 200 2))
+ '(tab-width 4)
+ '(whitespace-style (quote (face trailing))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
