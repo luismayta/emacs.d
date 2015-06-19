@@ -4,4 +4,5 @@
 ;;; -- Config
 ;; make pretty colors
 (add-to-list 'custom-theme-load-path "~/.emacs.d/lib/color-themes")
-(load-theme 'noctilux t)
+(load-theme 'noctilux)
+(load-theme 'wombat)
