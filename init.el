@@ -65,30 +65,6 @@
         set-keyboard-coding-system
         prefer-coding-system))
 
-(setq my-config
-      '(
-        "~/.emacs.d/conf/custom.el"
-        "~/.emacs.d/conf/editorconfig.el"
-        "~/.emacs.d/conf/theme.el"
-        "~/.emacs.d/conf/autocomplete.el"
-        "~/.emacs.d/conf/emamux.el"
-        "~/.emacs.d/conf/yasnippet.el"
-        "~/.emacs.d/conf/evil.el"
-        "~/.emacs.d/conf/git.el"
-        "~/.emacs.d/conf/go.el"
-        "~/.emacs.d/conf/python.el"
-        "~/.emacs.d/conf/php.el"
-        "~/.emacs.d/conf/ruby.el"
-        "~/.emacs.d/conf/web-mode.el"
-        "~/.emacs.d/conf/css.el"
-        "~/.emacs.d/conf/yaml.el"
-        "~/.emacs.d/conf/markdown.el"
-        ))
-
-(dolist (config my-config)
-  (when (file-exists-p config)
-    (load config)))
-
 ;;; .emacs ends here
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -129,3 +105,27 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(setq my-config
+      '(
+        "~/.emacs.d/conf/custom.el"
+        "~/.emacs.d/conf/editorconfig.el"
+        "~/.emacs.d/conf/theme.el"
+        "~/.emacs.d/conf/autocomplete.el"
+        "~/.emacs.d/conf/emamux.el"
+        "~/.emacs.d/conf/yasnippet.el"
+        "~/.emacs.d/conf/evil.el"
+        "~/.emacs.d/conf/git.el"
+        "~/.emacs.d/conf/go.el"
+        "~/.emacs.d/conf/python.el"
+        "~/.emacs.d/conf/php.el"
+        "~/.emacs.d/conf/ruby.el"
+        "~/.emacs.d/conf/web-mode.el"
+        "~/.emacs.d/conf/css.el"
+        "~/.emacs.d/conf/yaml.el"
+        "~/.emacs.d/conf/markdown.el"
+        ))
+
+(dolist (config my-config)
+  (when (file-exists-p config)
+    (load config)))
