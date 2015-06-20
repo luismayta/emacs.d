@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/luismayta/emacs.d.png?branch=master)](https://travis-ci.org/luismayta/emacs.d)
+[[https://github.com/luismayta/emacs.d/blob/master/LICENSE][file:https://img.shields.io/badge/license-MIT-green.svg]]
 
 
 # My Emacs Configuration
