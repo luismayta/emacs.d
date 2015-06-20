@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/luismayta/emacs.d.png?branch=master)](https://travis-ci.org/luismayta/emacs.d)
+
+
 # My Emacs Configuration
 
 Works only with Emacs 24 and later.
@@ -5,6 +8,11 @@ Works only with Emacs 24 and later.
 This is my very minimal configuration for Emacs. I like to keep my emacs
 nice and lightweight, so there's not much in here. Actually, it's more like
 Vim-flavoured Emacs, since it has Evil installed.
+
+## Help/Support
+
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/luismayta/emacs.d?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 
 ## Included packages
 
@@ -73,3 +81,7 @@ if it exists.
 ## Disclaimer
 
 If you use my .emacs, you are probably nuts ;)
+
+
+[![](http://api.coderwall.com/luismayta/endorsecount.png)](http://coderwall.com/luismayta)
+[![](http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.png)](http://pe.linkedin.com/in/luismayta)
