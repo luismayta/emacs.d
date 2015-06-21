@@ -1,6 +1,8 @@
 ;; enable git shallow clone to save time and bandwidth
 
 ;; Install Packages
+(bundle 'github-clone nil)
+
 (bundle 'apache-mode nil)
 (bundle 'puppet-mode nil)
 (bundle 'dockerfile-mode nil)
