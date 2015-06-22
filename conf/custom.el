@@ -20,6 +20,7 @@
 (bundle 'lua-mode nil)
 (bundle 'coffee-mode nil)
 (bundle 'emmet-mode nil)
+(bundle 'password-generator nil)
 
 ;; Config
 
