@@ -1,8 +1,6 @@
 ;; enable git shallow clone to save time and bandwidth
 
 ;; Install Packages
-(bundle 'github-clone nil)
-
 (bundle 'apache-mode nil)
 (bundle 'puppet-mode nil)
 (bundle 'dockerfile-mode nil)
@@ -15,7 +13,6 @@
 (bundle 'smart-mode-line nil)
 (bundle 'buffer-move nil)
 (bundle 'fill-column-indicator nil)
-(bundle 'flatland-theme nil)
 (bundle 'lorem-ipsum nil)
 (bundle 'lua-mode nil)
 (bundle 'coffee-mode nil)
