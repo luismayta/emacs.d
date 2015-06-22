@@ -118,13 +118,13 @@
         "~/.emacs.d/conf/evil.el"
         "~/.emacs.d/conf/git.el"
         "~/.emacs.d/conf/go.el"
-        "~/.emacs.d/conf/python.el"
         "~/.emacs.d/conf/php.el"
         "~/.emacs.d/conf/ruby.el"
         "~/.emacs.d/conf/web-mode.el"
         "~/.emacs.d/conf/css.el"
         "~/.emacs.d/conf/yaml.el"
         "~/.emacs.d/conf/markdown.el"
+        "~/.emacs.d/conf/python.el"
         ))
 
 (dolist (config my-config)
