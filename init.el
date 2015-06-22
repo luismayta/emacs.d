@@ -4,6 +4,7 @@
 (require 'cl)
 
 ;; Repositories
+
 ;; The ELPA repositories from where the packages are fetched.
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -11,33 +12,35 @@
                          ("org" . "http://orgmode.org/elpa/")
                         ("marmalade" . "http://marmalade-repo.org/packages/")))
 
+;;;el get install
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
 ;; Convenience around `package-install'.
 (defun bundle (depname refresh)
   "Runs `package-install', attempting `package-refresh-contents' on failure."
   (when refresh (package-refresh-contents))
-    (package-install depname))
-
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-    (url-retrieve-synchronously
-      "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
-
-(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
-(el-get 'sync)
+  (condition-case err
+      (package-install depname)
+    (error (if refresh
+               (signal (car err) (cdr err))
+             (bundle depname t)))))
 
 ;;; initialize the packages and create the packages list if not exists
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
 
+(unless (require 'el-get nil 'noerror)
+  (bundle 'el-get t))
+
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+
 ;; enable git shallow clone to save time and bandwidth
 (setq el-get-git-shallow-clone t)
 
-(setq debug-on-error nil)
+(el-get 'sync)
+
+(setq debug-on-error t)
 
 ;; no fucking latin-1, thank you very much
 (mapc (lambda (fn) (funcall fn 'utf-8))
@@ -90,18 +93,13 @@
       '(
         "~/.emacs.d/conf/custom.el"
         "~/.emacs.d/conf/editorconfig.el"
-        "~/.emacs.d/conf/evil.el"
-        "~/.emacs.d/conf/projectile.el"
-        "~/.emacs.d/conf/fixmee.el"
         "~/.emacs.d/conf/theme.el"
-        "~/.emacs.d/conf/feature.el"
-        "~/.emacs.d/conf/google-translate.el"
         "~/.emacs.d/conf/skeletor.el"
         "~/.emacs.d/conf/autocomplete.el"
         "~/.emacs.d/conf/emamux.el"
         "~/.emacs.d/conf/yasnippet.el"
+        "~/.emacs.d/conf/evil.el"
         "~/.emacs.d/conf/git.el"
-        "~/.emacs.d/conf/gist.el"
         "~/.emacs.d/conf/go.el"
         "~/.emacs.d/conf/php.el"
         "~/.emacs.d/conf/ruby.el"
@@ -115,13 +113,3 @@
 (dolist (config my-config)
   (when (file-exists-p config)
     (load config)))
-
-(setq my-files
-      '(
-        "~/.emacs.d/functions.el"
-        "~/.emacs.d/hooks.el"
-        ))
-
-(dolist (file my-files)
-  (when (file-exists-p file)
-    (load file)))
