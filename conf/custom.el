@@ -13,7 +13,6 @@
 (bundle 'smart-mode-line nil)
 (bundle 'buffer-move nil)
 (bundle 'fill-column-indicator nil)
-(bundle 'flatland-theme nil)
 (bundle 'lorem-ipsum nil)
 (bundle 'lua-mode nil)
 (bundle 'coffee-mode nil)
