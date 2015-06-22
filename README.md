@@ -29,10 +29,14 @@ built-in anyway.
     - some surprisingly complex mappings from my .vimrc work too
   * Fiplr
     - fuzzy find in project, using ido
-  * PHP-mode
+  * go-mode
+  * python-mode
+  * ruby-mode
+  * php-mode
     - this doesn't ship with Emacs and is a bit lacking really
     - mixed HTML/PHP doesn't work well at all; I use html-mode instead
   * Erlang
+  * Skeletor
   * Auto-complete
     - use <kbd>TAB</kbd> to auto-complete while typing
   * IDO-mode
@@ -42,6 +46,8 @@ built-in anyway.
     - purdy colors, easy to read
   * Noctilux Theme
     - Best Theme color Light Table, easy to read
+  * Material Theme
+    - Best Theme color, easy to read
   * ELPA
     - the ELPA package manager is configured with Marmalade & MELPA
     - some conveniences are in init.el to make it almost like Bundler for Ruby
