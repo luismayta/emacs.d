@@ -53,7 +53,7 @@ built-in anyway.
     - some conveniences are in init.el to make it almost like Bundler for Ruby
   * editorconfig
     - config editor
-
+  * [Google-translate](https://github.com/atykhonov/google-translate)
 
 ## Installation
 
