@@ -7,10 +7,6 @@
 
 ;; The ELPA repositories from where the packages are fetched.
 
-;; elpy archives
-(add-to-list 'package-archives
-    '("elpy" . "http://jorgenschaefer.github.io/packages/"))
-
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "http://melpa.org/packages/")
                          ("org" . "http://orgmode.org/elpa/")
@@ -20,9 +16,6 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
 (unless (require 'el-get nil 'noerror)
-  (require 'package)
-  (add-to-list 'package-archives
-               '("melpa" . "http://melpa.org/packages/"))
   (package-refresh-contents)
   (package-initialize)
   (package-install 'el-get)
