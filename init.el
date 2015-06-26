@@ -7,10 +7,6 @@
 
 ;; The ELPA repositories from where the packages are fetched.
 
-;; elpy archives
-(add-to-list 'package-archives
-    '("elpy" . "http://jorgenschaefer.github.io/packages/"))
-
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "http://melpa.org/packages/")
                          ("org" . "http://orgmode.org/elpa/")
@@ -18,36 +14,6 @@
 
 ;;;el get install
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-
-(unless (require 'el-get nil 'noerror)
-  (require 'package)
-  (add-to-list 'package-archives
-               '("melpa" . "http://melpa.org/packages/"))
-  (package-refresh-contents)
-  (package-initialize)
-  (package-install 'el-get)
-  (require 'el-get))
-
-;; Auto-installation
-
-;; The auto-installation process for all the packages that are not
-;; already installed. This is for bootstrap a fresh install.
-
-;;; initialize the packages and create the packages list if not exists
-(package-initialize)
-(when (not package-archive-contents)
-  (package-refresh-contents))
-
-(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
-
-;; enable git shallow clone to save time and bandwidth
-(setq el-get-git-shallow-clone t)
-
-(el-get 'sync)
-
-(package-initialize)
-
-(setq debug-on-error t)
 
 ;; Convenience around `package-install'.
 (defun bundle (depname refresh)
@@ -58,6 +24,23 @@
     (error (if refresh
                (signal (car err) (cdr err))
              (bundle depname t)))))
+
+;;; initialize the packages and create the packages list if not exists
+(package-initialize)
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+(unless (require 'el-get nil 'noerror)
+  (bundle 'el-get t))
+
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+
+;; enable git shallow clone to save time and bandwidth
+(setq el-get-git-shallow-clone t)
+
+(el-get 'sync)
+
+(setq debug-on-error t)
 
 ;; no fucking latin-1, thank you very much
 (mapc (lambda (fn) (funcall fn 'utf-8))
