@@ -8,6 +8,4 @@
 ;; mapping keys evil leader
 (evil-leader/set-key
   "ct" 'google-translate-smooth-translate
-  "gt" 'kill-buffer)
-;; google-translate-default-source-language
-;; google-translate-default-target-language
+  "gt" 'google-translate-at-point)
