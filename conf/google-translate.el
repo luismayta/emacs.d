@@ -7,5 +7,5 @@
 
 ;; mapping keys evil leader
 (evil-leader/set-key
-  "ct" 'google-translate-smooth-translate
-  "gt" 'google-translate-at-point)
+  "gt" 'google-translate-smooth-translate
+  "gp" 'google-translate-at-point)
