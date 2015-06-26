@@ -94,6 +94,8 @@
         "~/.emacs.d/conf/custom.el"
         "~/.emacs.d/conf/editorconfig.el"
         "~/.emacs.d/conf/theme.el"
+        "~/.emacs.d/conf/orgmode.el"
+        "~/.emacs.d/conf/google-translate.el"
         "~/.emacs.d/conf/skeletor.el"
         "~/.emacs.d/conf/autocomplete.el"
         "~/.emacs.d/conf/emamux.el"
