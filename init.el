@@ -20,13 +20,13 @@
   "Runs `package-install', attempting `package-refresh-contents' on failure."
   (when refresh (package-refresh-contents))
   (condition-case err
-      (package-install depname)
+    (package-install depname)
     (error (if refresh
-               (signal (car err) (cdr err))
+             (signal (car err) (cdr err))
              (bundle depname t)))))
 
 ;;; initialize the packages and create the packages list if not exists
-(package-initialize)
+(package-initialize) 
 (when (not package-archive-contents)
   (package-refresh-contents))
 
