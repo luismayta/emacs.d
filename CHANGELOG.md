@@ -1,3 +1,15 @@
+### v1.0.2 (07-03-2015)
+
+-  fixed order load conf google translate
+
+### v1.0.1 (06-16-2015)
+
+- fixed load test code
+
+### v1.0.0 (06-16-2015)
+
+- added test code
+
 ### v0.2.6 (DATE)
 
 - added conf go mode
