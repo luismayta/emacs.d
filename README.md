@@ -12,7 +12,7 @@ Vim-flavoured Emacs, since it has Evil installed.
 
 ## Help/Support
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/luismayta/emacs.d?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/luismayta/emacs.d?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 
 
 ## Included packages
