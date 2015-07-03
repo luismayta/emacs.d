@@ -7,10 +7,16 @@
 ;;http://yousefourabi.com/blog/2014/05/emacs-for-go/
 ;;http://dominik.honnef.co/posts/2013/03/writing_go_in_emacs/
 
+(bundle 'go-mode nil)
+(bundle 'go-eldoc nil)
+(bundle 'golint nil)
+;;(bundle 'go-flymake nil)
+(bundle 'go-autocomplete nil)
+
 (require 'go-eldoc)
 (require 'go-mode)
 (require 'golint)
-(require 'go-flymake)
+;;(require 'go-flymake)
 (require 'go-autocomplete)
 ;;(require 'company-mode)
 
@@ -22,8 +28,8 @@
 
 (add-hook 'before-save-hook 'gofmt-before-save)
 
-(load "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
-(add-hook 'go-mode-hook 'go-oracle-mode)
+;; (load "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
+;; (add-hook 'go-mode-hook 'go-oracle-mode)
 
 ;;(add-to-list 'load-path "$GOPATH/src/github.com/dougm/goflymake")
 

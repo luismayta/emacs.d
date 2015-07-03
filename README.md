@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/luismayta/emacs.d.png?branch=master)](https://travis-ci.org/luismayta/emacs.d)
+[[https://github.com/luismayta/emacs.d/blob/master/LICENSE][file:https://img.shields.io/badge/license-MIT-green.svg]]
+
+
 # My Emacs Configuration
 
 Works only with Emacs 24 and later.
@@ -5,6 +9,11 @@ Works only with Emacs 24 and later.
 This is my very minimal configuration for Emacs. I like to keep my emacs
 nice and lightweight, so there's not much in here. Actually, it's more like
 Vim-flavoured Emacs, since it has Evil installed.
+
+## Help/Support
+
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/luismayta/emacs.d?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
+
 
 ## Included packages
 
@@ -20,10 +29,14 @@ built-in anyway.
     - some surprisingly complex mappings from my .vimrc work too
   * Fiplr
     - fuzzy find in project, using ido
-  * PHP-mode
+  * go-mode
+  * python-mode
+  * ruby-mode
+  * php-mode
     - this doesn't ship with Emacs and is a bit lacking really
     - mixed HTML/PHP doesn't work well at all; I use html-mode instead
   * Erlang
+  * Skeletor
   * Auto-complete
     - use <kbd>TAB</kbd> to auto-complete while typing
   * IDO-mode
@@ -33,12 +46,14 @@ built-in anyway.
     - purdy colors, easy to read
   * Noctilux Theme
     - Best Theme color Light Table, easy to read
+  * Material Theme
+    - Best Theme color, easy to read
   * ELPA
     - the ELPA package manager is configured with Marmalade & MELPA
     - some conveniences are in init.el to make it almost like Bundler for Ruby
   * editorconfig
     - config editor
-
+  * [Google-translate](https://github.com/atykhonov/google-translate)
 
 ## Installation
 
@@ -73,3 +88,7 @@ if it exists.
 ## Disclaimer
 
 If you use my .emacs, you are probably nuts ;)
+
+
+[![](http://api.coderwall.com/luismayta/endorsecount.png)](http://coderwall.com/luismayta)
+[![](http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.png)](http://pe.linkedin.com/in/luismayta)

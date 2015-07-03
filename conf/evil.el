@@ -1,8 +1,20 @@
-;added dependences
+;; Install Packages
+(bundle 'evil nil)
+(bundle 'evil-leader nil)
+(bundle 'evil-numbers nil)
+(bundle 'evil-nerd-commenter nil)
+(bundle 'neotree nil)
+
+(el-get-install 'undo-tree)
+
 (require 'evil)
 (require 'evil-numbers)
 (require 'evil-leader)
 (require 'evil-nerd-commenter)
+(require 'neotree)
+
+(require 'undo-tree)
+
 
 ;; emacs is actually vim in disguise
 (evil-mode t)
@@ -22,17 +34,20 @@
 (evil-leader/set-key
   "e" 'find-file
   "n" 'neotree-toggle
+  "u" 'undo-tree-visualize
+  "c" 'evilnc-comment-or-uncomment-lines
   "f" 'fiplr-find-file
   "b" 'switch-to-buffer
+  "s" 'save-buffer
   "k" 'kill-buffer)
 
 ;; evil normal mode key mappings
-(mapc (lambda (mapping)
-        (define-key evil-normal-state-map (kbd (car mapping)) (cdr mapping)))
-      `(;; increment number under point
-        ("C-k"   . evil-numbers/inc-at-pt)
-        ;; decrement number under point
-        ("C-j"   . evil-numbers/dec-at-pt)))
+;; (mapc (lambda (mapping)
+;;         (define-key evil-normal-state-map (kbd (car mapping)) (cdr mapping)))
+;;       `(;; increment number under point
+;;         ("C-k"   . evil-numbers/inc-at-pt)
+;;         ;; decrement number under point
+;;         ("C-j"   . evil-numbers/dec-at-pt)))
 
 ;; allow the arrow keys to be used for cycling windows
 (mapc (lambda (keys)
