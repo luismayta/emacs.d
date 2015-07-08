@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/luismayta/emacs.d.png?branch=master)](https://travis-ci.org/luismayta/emacs.d)
-[![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/luismayta/emacs.d)
-
+[![Build Status](https://travis-ci.org/luismayta/emacs.d.png?branch=master)](https://travis-ci.org/luismayta/emacs.d)[![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](LICENSE)
 
 # My Emacs Configuration
 
