@@ -27,7 +27,9 @@
 (setq auto-save-default nil)
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
-(setq inhibit-startup-message t)
+;; change level warnings buffer
+(setq inhibit-startup-message nil)
+(setq display-warning-minimum-level 'error)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -85,3 +87,18 @@
 
 (set-frame-font "DejaVuSansMono:pixelsize=12")
 (set-default-font "DejaVuSansMono 12")
+
+(defun bury-compile-buffer-if-successful (buffer string)
+  "Bury a compilation buffer if succeeded without warnings"
+  (if (and
+        (string-match "compilation" (buffer-name buffer))
+        (string-match "finished" string)
+        (not
+          (with-current-buffer buffer
+            (search-forward "warning" nil t))))
+    (run-with-timer 1 nil
+      (lambda (buf)
+        (bury-buffer buf)
+        (switch-to-prev-buffer (get-buffer-window buf) 'kill))
+      buffer)))
+(add-hook 'compilation-finish-functions 'bury-compile-buffer-if-successful)
