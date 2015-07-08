@@ -1,6 +1,11 @@
+### v1.0.3 (07-08-2015)
+
+- disabled bug jedi
+- hide message warning
+
 ### v1.0.2 (07-03-2015)
 
--  fixed order load conf google translate
+- fixed order load conf google translate
 
 ### v1.0.1 (06-16-2015)
 
