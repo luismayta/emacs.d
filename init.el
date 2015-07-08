@@ -12,35 +12,33 @@
                          ("org" . "http://orgmode.org/elpa/")
                         ("marmalade" . "http://marmalade-repo.org/packages/")))
 
-;;;el get install
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-
 ;; Convenience around `package-install'.
 (defun bundle (depname refresh)
   "Runs `package-install', attempting `package-refresh-contents' on failure."
   (when refresh (package-refresh-contents))
-  (condition-case err
-    (package-install depname)
-    (error (if refresh
-             (signal (car err) (cdr err))
-             (bundle depname t)))))
+    (package-install depname))
 
-;;; initialize the packages and create the packages list if not exists
-(package-initialize) 
-(when (not package-archive-contents)
-  (package-refresh-contents))
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
 (unless (require 'el-get nil 'noerror)
-  (bundle 'el-get t))
+  (with-current-buffer
+    (url-retrieve-synchronously
+      "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(el-get 'sync)
+
+;;; initialize the packages and create the packages list if not exists
+(package-initialize)
+(when (not package-archive-contents)
+  (package-refresh-contents))
 
 ;; enable git shallow clone to save time and bandwidth
 (setq el-get-git-shallow-clone t)
 
-(el-get 'sync)
-
-(setq debug-on-error t)
+(setq debug-on-error nil)
 
 ;; no fucking latin-1, thank you very much
 (mapc (lambda (fn) (funcall fn 'utf-8))

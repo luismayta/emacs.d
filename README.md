@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/luismayta/emacs.d.png?branch=master)](https://travis-ci.org/luismayta/emacs.d)
-[[https://github.com/luismayta/emacs.d/blob/master/LICENSE][file:https://img.shields.io/badge/license-MIT-green.svg]]
-
+[![Build Status](https://travis-ci.org/luismayta/emacs.d.png?branch=master)](https://travis-ci.org/luismayta/emacs.d) [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](LICENSE) [![Stories in Ready](https://badge.waffle.io/luismayta/emacs.d.svg?label=ready&title=Ready)](http://waffle.io/luismayta/emacs.d)
 
 # My Emacs Configuration
 
