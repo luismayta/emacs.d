@@ -40,7 +40,7 @@
 
 (el-get 'sync)
 
-(setq debug-on-error t)
+(setq debug-on-error nil)
 
 ;; no fucking latin-1, thank you very much
 (mapc (lambda (fn) (funcall fn 'utf-8))
