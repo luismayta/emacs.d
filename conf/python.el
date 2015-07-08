@@ -3,14 +3,13 @@
 
 (require 'python-mode)
 
-(bundle 'jedi nil)
-(require 'jedi)
+;; (bundle 'jedi nil)
+;; (require 'jedi)
 
-;;python mode
-(add-hook 'python-mode-hook
-  (lambda ()
-    (jedi:setup)
-    (setq jedi:setup-keys t)
-    ;(elpy-enable)
-    ;(elpy-use-ipython)
-    (setq python-python-command "ipython")))
+;; (add-hook 'python-mode-hook
+;;   (lambda ()
+;;     (jedi:setup)
+;;     (setq jedi:setup-keys t)
+;;     ;(elpy-enable)
+;;     ;(elpy-use-ipython)
+;;     (setq python-python-command "ipython")))
