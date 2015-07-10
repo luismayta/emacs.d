@@ -56,13 +56,16 @@ built-in anyway.
 
 ## Installation
 
-In theory you can just download the .emacs.d directory to your home directory
-and start Emacs, though if you want to get changes from GitHub, you'll need to
-do things a bit differently.
+Emacs is installed by running one of the following commands in your terminal.
+You can install this via the command-line with either `curl` or `wget`.
 
-    # hope you know what you're doing
-    rm -rf ~/.emacs.d ~/.emacs
-    git clone git://github.com/luismayta/emacs.d.git ~/.emacs.d
+#### via curl
+
+`sh -c "$(curl -fsSL https://raw.github.com/luismayta/emacs.d/master/install.sh)"`
+
+#### via wget
+
+`sh -c "$(wget https://raw.github.com/luismayta/emacs.d/master/install.sh -O -)"`
 
 Provided you have Emacs 24 installed, when you run it the first time, it will
 connect with the ELPA package repositories and install the custom packages.
@@ -87,7 +90,6 @@ if it exists.
 ## Disclaimer
 
 If you use my .emacs, you are probably nuts ;)
-
 
 [![](http://api.coderwall.com/luismayta/endorsecount.png)](http://coderwall.com/luismayta)
 [![](http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.png)](http://pe.linkedin.com/in/luismayta)
