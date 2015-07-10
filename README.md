@@ -52,6 +52,7 @@ built-in anyway.
   * editorconfig
     - config editor
   * [Google-translate](https://github.com/atykhonov/google-translate)
+  * [feature-mode](https://github.com/michaelklishin/cucumber.el)
 
 ## Installation
 
