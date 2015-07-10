@@ -100,6 +100,7 @@
         "~/.emacs.d/conf/emamux.el"
         "~/.emacs.d/conf/yasnippet.el"
         "~/.emacs.d/conf/git.el"
+        "~/.emacs.d/conf/gist.el"
         "~/.emacs.d/conf/go.el"
         "~/.emacs.d/conf/php.el"
         "~/.emacs.d/conf/ruby.el"

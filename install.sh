@@ -1,38 +1,40 @@
 #!/usr/bin/env bash
-# -*- coding: utf-8 -*-
 
 ############################  SETUP PARAMETERS
-HOME=~
 APP_NAME='emacs.d'
-APP_NAME_PATH="$HOME/.emacs.d"
+APP_NAME_PATH='.emacs.d'
 GIT_URI='https://github.com/luismayta/emacs.d.git'
 GIT_BRANCH='master'
 DEBUG_MODE='0'
 PATH_REPO="$HOME/$APP_NAME"
+PATH_BACKUP="$HOME/backup"
 
-msg() {
+function msg() {
     printf '%b\n' "$1" >&2
 }
 
-success() {
-    msg "\e[32m[✔]\e[0m ${1}${2}"
+function success() {
+    if [ "$ret" -eq '0' ]; then
+        msg "\e[32m[✔]\e[0m ${1}${2}"
+    fi
 }
 
-error() {
+function error() {
     msg "\e[31m[✘]\e[0m ${1}${2}"
     exit 1
 }
 
-debug() {
+function debug() {
     if [ "$DEBUG_MODE" -eq '1' ] && [ "$ret" -gt '1' ]; then
       msg "An error occured in function \"${FUNCNAME[$i+1]}\" on line ${BASH_LINENO[$i+1]}, we're sorry for that."
     fi
 }
 
 ############################  BASIC SETUP TOOLS
-program_exists() {
+function program_exists() {
+    local message="To install $APP_NAME you first need to install $1"
     local ret='0'
-    type "${1}" >/dev/null 2>&1 || { local ret='1'; }
+    type $1 >/dev/null 2>&1 || { local ret='1'; }
 
     # throw error on non-zero return value
     if [ ! "$ret" -eq '0' ]; then
@@ -40,18 +42,19 @@ program_exists() {
    fi
 }
 
-clone_repo() {
-    if [[ ! -d "${PATH_REPO}/.git" ]]; then
-        git clone --recursive -b "${GIT_BRANCH}" "${GIT_URI}" "${APP_NAME_PATH}"
+function clone_repo() {
+    if [ ! -e "$PATH_REPO/.git" ]; then
+        git clone --recursive -b "$GIT_BRANCH" "$GIT_URI" "$PATH_REPO"
+        ret="$?"
         success "$1"
         debug
     else
-        msg "The application is installed, please remove the directory ${APP_NAME_PATH}"
+        msg "The application is installed, please remove the directory $PATH_REPO"
         exit 1
     fi
 }
 
-thanks() {
+function thanks() {
 cat <<EOF
 
 ---------------------------
@@ -60,16 +63,16 @@ Thanks for installing Emacs
 
 EOF
 
-    msg "© $(date +%Y) ${APP_NAME}"
+    msg "© `date +%Y` $APP_NAME"
 }
 
-initialize() {
+function do_it() {
     for app in {emacs,git}; do
         program_exists "$app"
     done
     unset app
-    clone_repo      "Successfully cloned ${APP_NAME}"
+    clone_repo      "Successfully cloned $APP_NAME"
     thanks
 }
 
-initialize
+do_it
