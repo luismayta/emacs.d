@@ -4,7 +4,6 @@
 (require 'cl)
 
 ;; Repositories
-
 ;; The ELPA repositories from where the packages are fetched.
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -114,3 +113,13 @@
 (dolist (config my-config)
   (when (file-exists-p config)
     (load config)))
+
+(setq my-files
+      '(
+        "~/.emacs.d/functions.el"
+        "~/.emacs.d/hooks.el"
+        ))
+
+(dolist (file my-files)
+  (when (file-exists-p file)
+    (load file)))
