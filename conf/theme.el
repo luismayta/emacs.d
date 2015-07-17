@@ -6,4 +6,5 @@
 (bundle 'flatland-theme nil)
 ;;; -- Config
 
-(load-theme 'solarized-light)
+(load-theme 'noctilux)
+(load-theme 'wombat)
