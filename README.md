@@ -1,4 +1,8 @@
-[![Build Status](https://travis-ci.org/luismayta/emacs.d.png?branch=master)](https://travis-ci.org/luismayta/emacs.d) [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](LICENSE) [![Stories in Ready](https://badge.waffle.io/luismayta/emacs.d.svg?label=ready&title=Ready)](http://waffle.io/luismayta/emacs.d)
+<span class="badges">
+[![Build Status](https://travis-ci.org/luismayta/emacs.d.png?branch=master)](https://travis-ci.org/luismayta/emacs.d)
+[![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](LICENSE)
+[![Stories in Ready](https://badge.waffle.io/luismayta/emacs.d.svg?label=ready&title=Ready)](http://waffle.io/luismayta/emacs.d)
+</span>
 
 # My Emacs Configuration
 
@@ -92,6 +96,8 @@ if it exists.
 
 If you use my .emacs, you are probably nuts ;)
 
+<span class="badges">
 [![](http://api.coderwall.com/luismayta/endorsecount.png)](http://coderwall.com/luismayta)
 [![](http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.png)](http://pe.linkedin.com/in/luismayta)
 [![Analytics](https://ga-beacon.appspot.com/UA-65019326-1/emacs.d/readme)](https://github.com/luismayta/emacs.d)
+</span>
