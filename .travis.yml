@@ -14,21 +14,20 @@ matrix:
 
 install:
   - sudo apt-get install wget
+  - sudo apt-get install build-essential
   - if [ "$EMACS" = "emacs24.4" ]; then
-        sudo apt-get install build-essential
-        wget http://ftp.gnu.org/gnu/emacs/emacs-24.4.tar.gz
-        tar -xf emacs-24.4.tar.gz && cd emacs-24.4
-        ./configure
-        make
-        sudo make install
+        wget http://ftp.gnu.org/gnu/emacs/emacs-24.4.tar.gz &&
+        tar -xf emacs-24.4.tar.gz && cd emacs-24.4 &&
+        ./configure &&
+        make &&
+        sudo make install;
     fi
   - if [ "$EMACS" = "emacs24.5" ]; then
-        sudo apt-get install build-essential
-        wget http://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.gz
-        tar -xf emacs-24.5.tar.gz && cd emacs-24.5
-        ./configure
-        make
-        sudo make install
+        wget http://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.gz &&
+        tar -xf emacs-24.5.tar.gz && cd emacs-24.5 &&
+        ./configure &&
+        make &&
+        sudo make install;
     fi
   - if [ "$EMACS" = "emacs-snapshot" ]; then
         sudo add-apt-repository -y ppa:ubuntu-elisp/ppa &&
