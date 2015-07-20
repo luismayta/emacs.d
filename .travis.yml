@@ -38,7 +38,7 @@ install:
     fi
 
 script:
-  lsb_release -a && EMACS=$EMACS ./script/test
+  lsb_release -a && EMACS=emacs ./script/test
 
 notifications:
   email: false
