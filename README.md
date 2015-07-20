@@ -15,6 +15,13 @@ This is my very minimal configuration for Emacs. I like to keep my emacs
 nice and lightweight, so there's not much in here. Actually, it's more like
 Vim-flavoured Emacs, since it has Evil installed.
 
+# Prerequisites
+
+This is a list of applications that need to be installed previously to enjoy all the goodies of this configuration.
+
+* [Git](http://git-scm.com/)
+* [editorconfig](http://editorconfig.org)
+
 ## Help/Support
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/luismayta/emacs.d?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
@@ -61,6 +68,18 @@ built-in anyway.
   * [Google-translate](https://github.com/atykhonov/google-translate)
   * [feature-mode](https://github.com/michaelklishin/cucumber.el)
   * [gist-mode](https://github.com/defunkt/gist.el)
+
+### Projectile
+
+[Porjectile](https://github.com/bbatsov/projectile) is a project interaction library for Emacs.
+Its goal is to provide a nice set of features operating on a project level without
+introducing external dependencies(when feasible). For instance - finding project files
+has a portable implementation written in pure Emacs Lisp without the use of GNU
+find (but for performance sake an indexing mechanism backed by external commands exists as well).
+
+| Binding        | Call                 | Do           |
+| -------------- |:--------------------:| ------------:|
+| fp             | projectile-find-file | search files |
 
 ## Installation
 
