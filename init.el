@@ -92,6 +92,7 @@
         "~/.emacs.d/conf/editorconfig.el"
         "~/.emacs.d/conf/evil.el"
         "~/.emacs.d/conf/projectile.el"
+        "~/.emacs.d/conf/fixmee.el"
         "~/.emacs.d/conf/theme.el"
         "~/.emacs.d/conf/feature.el"
         "~/.emacs.d/conf/google-translate.el"
