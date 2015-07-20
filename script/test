@@ -5,7 +5,9 @@ if [ -n "$TRAVIS" ]; then
     export HOME=$PWD/..
     ln -s emacs.d ../.emacs.d
 fi
+
 echo "Attempting startup..."
+
 ${EMACS:=emacs} -nw --batch \
                 --eval '(let ((debug-on-error t)
                               (url-show-status nil)
