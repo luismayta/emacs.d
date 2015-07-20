@@ -26,6 +26,27 @@ This is a list of applications that need to be installed previously to enjoy all
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/luismayta/emacs.d?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 
+## Installation
+
+Emacs is installed by running one of the following commands in your terminal.
+You can install this via the command-line with either `curl` or `wget`.
+
+#### via curl
+
+`sh -c "$(curl -fsSL https://raw.github.com/luismayta/emacs.d/master/install.sh)"`
+
+#### via wget
+
+`sh -c "$(wget https://raw.github.com/luismayta/emacs.d/master/install.sh -O -)"`
+
+Provided you have Emacs 24 installed, when you run it the first time, it will
+connect with the ELPA package repositories and install the custom packages.
+You'll see some warnings being logged to a split window while this happens.
+Just wait; it's nothing to worry about.
+
+Once Emacs is finished installing packages, you can close the `*Compile-Log*`
+window with <kbd>C-x 1</kbd>. Don't forget you'll be in Evil mode, so you
+should use vi key bindings. Get back to Emacs regular mode with <kbd>C-\\</kbd>.
 
 ## Included packages
 
@@ -47,6 +68,7 @@ built-in anyway.
   * php-mode
     - this doesn't ship with Emacs and is a bit lacking really
     - mixed HTML/PHP doesn't work well at all; I use html-mode instead
+;; turn on auto-completion of function names etc
   * Erlang
   * Skeletor
   * Auto-complete
@@ -80,28 +102,6 @@ find (but for performance sake an indexing mechanism backed by external commands
 | Binding        | Call                 | Do           |
 | -------------- |:--------------------:| ------------:|
 | fp             | projectile-find-file | search files |
-
-## Installation
-
-Emacs is installed by running one of the following commands in your terminal.
-You can install this via the command-line with either `curl` or `wget`.
-
-#### via curl
-
-`sh -c "$(curl -fsSL https://raw.github.com/luismayta/emacs.d/master/install.sh)"`
-
-#### via wget
-
-`sh -c "$(wget https://raw.github.com/luismayta/emacs.d/master/install.sh -O -)"`
-
-Provided you have Emacs 24 installed, when you run it the first time, it will
-connect with the ELPA package repositories and install the custom packages.
-You'll see some warnings being logged to a split window while this happens.
-Just wait; it's nothing to worry about.
-
-Once Emacs is finished installing packages, you can close the `*Compile-Log*`
-window with <kbd>C-x 1</kbd>. Don't forget you'll be in Evil mode, so you
-should use vi key bindings. Get back to Emacs regular mode with <kbd>C-\\</kbd>.
 
 ## Further customizations
 
