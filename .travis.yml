@@ -15,6 +15,7 @@ matrix:
 install:
   - sudo apt-get install wget
   - sudo apt-get install build-essential
+  - sudo apt-get install libxpm-dev libjpeg-dev libgif-dev libtiff4-dev
   - if [ "$EMACS" = "emacs24.4" ]; then
         wget http://ftp.gnu.org/gnu/emacs/emacs-24.4.tar.gz &&
         tar -xf emacs-24.4.tar.gz && cd emacs-24.4 &&
