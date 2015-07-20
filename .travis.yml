@@ -1,8 +1,10 @@
-language: emacs-lisp
+# language: emacs-lisp
+language: ruby
 
 env:
   matrix:
-    - EMACS=emacs24
+    - EMACS=emacs24.4
+    - EMACS=emacs24.5
     - EMACS=emacs-snapshot
 
 matrix:
@@ -11,10 +13,22 @@ matrix:
         - EMACS=emacs-snapshot
 
 install:
-  - if [ "$EMACS" = "emacs24" ]; then
-        sudo add-apt-repository -y ppa:cassou/emacs &&
-        sudo apt-get update -qq &&
-        sudo apt-get install -qq emacs24 emacs24-el;
+  - sudo apt-get install wget
+  - sudo apt-get install build-essential
+  - sudo apt-get install libxpm-dev libjpeg-dev libgif-dev libtiff4-dev
+  - if [ "$EMACS" = "emacs24.4" ]; then
+        wget http://ftp.gnu.org/gnu/emacs/emacs-24.4.tar.gz &&
+        tar -xf emacs-24.4.tar.gz && cd emacs-24.4 &&
+        ./configure &&
+        make &&
+        sudo make install;
+    fi
+  - if [ "$EMACS" = "emacs24.5" ]; then
+        wget http://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.gz &&
+        tar -xf emacs-24.5.tar.gz && cd emacs-24.5 &&
+        ./configure &&
+        make &&
+        sudo make install;
     fi
   - if [ "$EMACS" = "emacs-snapshot" ]; then
         sudo add-apt-repository -y ppa:ubuntu-elisp/ppa &&
@@ -24,7 +38,7 @@ install:
     fi
 
 script:
-  lsb_release -a && EMACS=$EMACS ./script/test
+  lsb_release -a && cd /home/travis/build/luismayta/emacs.d && EMACS=emacs ./script/test
 
 notifications:
   email: false
