@@ -19,7 +19,7 @@ indent_style = space
 indent_size = 2
 
 # 4 space indentation
-[*.py]
+[*.{py,yml}]
 indent_style = space
 indent_size = 4
 
@@ -28,11 +28,6 @@ indent_size = 4
 indent_style = tab
 
 # Indentation override for all JS under lib directory
-[lib/**.js]
-indent_style = space
-indent_size = 2
-
-# Matches the exact files either package.json or .travis.yml
-[{package.json,.travis.yml}]
+[*.{js,json}]
 indent_style = space
 indent_size = 2
