@@ -4,7 +4,6 @@
 (require 'cl)
 
 ;; Repositories
-
 ;; The ELPA repositories from where the packages are fetched.
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -92,13 +91,17 @@
         "~/.emacs.d/conf/custom.el"
         "~/.emacs.d/conf/editorconfig.el"
         "~/.emacs.d/conf/evil.el"
+        "~/.emacs.d/conf/projectile.el"
+        "~/.emacs.d/conf/fixmee.el"
         "~/.emacs.d/conf/theme.el"
+        "~/.emacs.d/conf/feature.el"
         "~/.emacs.d/conf/google-translate.el"
         "~/.emacs.d/conf/skeletor.el"
         "~/.emacs.d/conf/autocomplete.el"
         "~/.emacs.d/conf/emamux.el"
         "~/.emacs.d/conf/yasnippet.el"
         "~/.emacs.d/conf/git.el"
+        "~/.emacs.d/conf/gist.el"
         "~/.emacs.d/conf/go.el"
         "~/.emacs.d/conf/php.el"
         "~/.emacs.d/conf/ruby.el"
@@ -112,3 +115,13 @@
 (dolist (config my-config)
   (when (file-exists-p config)
     (load config)))
+
+(setq my-files
+      '(
+        "~/.emacs.d/functions.el"
+        "~/.emacs.d/hooks.el"
+        ))
+
+(dolist (file my-files)
+  (when (file-exists-p file)
+    (load file)))
