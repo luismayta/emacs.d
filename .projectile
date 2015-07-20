@@ -1,0 +1,9 @@
+-/log
+-/tmp
+-/vendor
+-/elpa
+-/el-get
+-/.git
+-/auto-save-list
+-*.cache
+-projectile-bookmarks.eld
