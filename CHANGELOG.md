@@ -1,3 +1,9 @@
+### v1.0.4 (07-20-2015)
+
+- #16 Implement Package Fixmee
+- #15 Implement Package Projectile
+- #14 use theme Wombat
+
 ### v1.0.3 (07-08-2015)
 
 - disabled bug jedi
