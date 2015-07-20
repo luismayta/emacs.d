@@ -32,11 +32,11 @@
 
 ;; mapping keys evil leader
 (evil-leader/set-key
-  "e" 'find-file
+  "fe" 'find-file
   "n" 'neotree-toggle
   "u" 'undo-tree-visualize
   "c" 'evilnc-comment-or-uncomment-lines
-  "f" 'fiplr-find-file
+  "ff" 'fiplr-find-file
   "b" 'switch-to-buffer
   "s" 'save-buffer
   "k" 'kill-buffer)
