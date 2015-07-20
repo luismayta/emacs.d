@@ -103,6 +103,14 @@ find (but for performance sake an indexing mechanism backed by external commands
 | -------------- |:--------------------:| ------------:|
 | fp             | projectile-find-file | search files |
 
+### Fixmee
+
+[Fixmee](https://github.com/rolandwalker/fixmee) tracks fixme notices in code comments, highlights them, ranks them by urgency, and lets you navigate to them quickly.
+
+| Binding        | Call                 | Do                |
+| -------------- |:--------------------:| -----------------:|
+| fm             | fixmee-view-listing  | show words fixmee |
+
 ## Further customizations
 
 You can just edit the ~/.emacs.d/init.el file directly if you want to make
