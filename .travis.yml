@@ -3,6 +3,7 @@ language: ruby
 
 env:
   matrix:
+    - EMACS=emacs24.3
     - EMACS=emacs24.4
     - EMACS=emacs24.5
     - EMACS=emacs-snapshot
@@ -16,6 +17,13 @@ install:
   - sudo apt-get install wget
   - sudo apt-get install build-essential
   - sudo apt-get install libxpm-dev libjpeg-dev libgif-dev libtiff4-dev
+  - if [ "$EMACS" = "emacs24.3" ]; then
+        wget http://ftp.gnu.org/gnu/emacs/emacs-24.3.tar.gz &&
+        tar -xf emacs-24.3.tar.gz && cd emacs-24.3 &&
+        ./configure &&
+        make &&
+        sudo make install;
+    fi
   - if [ "$EMACS" = "emacs24.4" ]; then
         wget http://ftp.gnu.org/gnu/emacs/emacs-24.4.tar.gz &&
         tar -xf emacs-24.4.tar.gz && cd emacs-24.4 &&
