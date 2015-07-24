@@ -3,7 +3,7 @@
 ############################  SETUP PARAMETERS
 HOME=~
 APP_NAME='emacs.d'
-APP_NAME_PATH='$HOME/.emacs.d'
+APP_NAME_PATH="$HOME/.emacs.d"
 GIT_URI='https://github.com/luismayta/emacs.d.git'
 GIT_BRANCH='master'
 DEBUG_MODE='0'
