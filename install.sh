@@ -66,7 +66,7 @@ EOF
     msg "© `date +%Y` $APP_NAME"
 }
 
-do_it() {
+initialize() {
     for app in {emacs,git}; do
         program_exists "$app"
     done
@@ -75,4 +75,4 @@ do_it() {
     thanks
 }
 
-do_it
+initialize
