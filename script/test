@@ -1,5 +1,49 @@
 #!/usr/bin/env bash
 
+ROOT="`pwd`"
+HOME=~
+
+msg() {
+    printf '%b\n' "$1" >&2
+}
+
+success() {
+    if [ "$ret" -eq '0' ]; then
+        msg "\e[32m[✔]\e[0m ${1}${2}"
+    fi
+}
+
+error() {
+    msg "\e[31m[✘]\e[0m ${1}${2}"
+    exit 1
+}
+
+cat <<EOF
+
+--------------------------
+ Test Install
+--------------------------
+
+EOF
+
+"$ROOT/install.sh"
+
+ret="0"
+if [ ! -e "$HOME/.emacs.d/.git" ]; then
+    ret="1"
+    error "Error in Install"
+else
+    success "Yeah Install Done"
+fi
+
+cat <<EOF
+
+--------------------------
+ Test Emacs
+--------------------------
+
+EOF
+
 if [ -n "$TRAVIS" ]; then
     # Make it look like this is ~/.emacs.d (needed for Emacs 24.4, at least)
     export HOME=$PWD/..
@@ -16,4 +60,11 @@ ${EMACS:=emacs} -nw --batch \
                               (load-path (delq default-directory load-path)))
                            (load-file user-init-file)
                            (run-hooks (quote after-init-hook)))'
-echo "Startup successful"
+
+cat <<EOF
+
+--------------------------
+ Startup successful
+--------------------------
+
+EOF
