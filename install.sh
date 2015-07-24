@@ -44,12 +44,12 @@ program_exists() {
 
 clone_repo() {
     if [ ! -e "$PATH_REPO/.git" ]; then
-        git clone --recursive -b "$GIT_BRANCH" "$GIT_URI" "$PATH_REPO"
+        git clone --recursive -b "$GIT_BRANCH" "$GIT_URI" "$APP_NAME_PATH"
         ret="$?"
         success "$1"
         debug
     else
-        msg "The application is installed, please remove the directory $PATH_REPO"
+        msg "The application is installed, please remove the directory $APP_NAME_PATH"
         exit 1
     fi
 }
