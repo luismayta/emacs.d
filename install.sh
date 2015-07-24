@@ -9,29 +9,29 @@ DEBUG_MODE='0'
 PATH_REPO="$HOME/$APP_NAME"
 PATH_BACKUP="$HOME/backup"
 
-function msg() {
+msg() {
     printf '%b\n' "$1" >&2
 }
 
-function success() {
+success() {
     if [ "$ret" -eq '0' ]; then
         msg "\e[32m[✔]\e[0m ${1}${2}"
     fi
 }
 
-function error() {
+error() {
     msg "\e[31m[✘]\e[0m ${1}${2}"
     exit 1
 }
 
-function debug() {
+debug() {
     if [ "$DEBUG_MODE" -eq '1' ] && [ "$ret" -gt '1' ]; then
       msg "An error occured in function \"${FUNCNAME[$i+1]}\" on line ${BASH_LINENO[$i+1]}, we're sorry for that."
     fi
 }
 
 ############################  BASIC SETUP TOOLS
-function program_exists() {
+program_exists() {
     local message="To install $APP_NAME you first need to install $1"
     local ret='0'
     type $1 >/dev/null 2>&1 || { local ret='1'; }
@@ -42,7 +42,7 @@ function program_exists() {
    fi
 }
 
-function clone_repo() {
+clone_repo() {
     if [ ! -e "$PATH_REPO/.git" ]; then
         git clone --recursive -b "$GIT_BRANCH" "$GIT_URI" "$PATH_REPO"
         ret="$?"
@@ -54,7 +54,7 @@ function clone_repo() {
     fi
 }
 
-function thanks() {
+thanks() {
 cat <<EOF
 
 ---------------------------
@@ -66,7 +66,7 @@ EOF
     msg "© `date +%Y` $APP_NAME"
 }
 
-function do_it() {
+do_it() {
     for app in {emacs,git}; do
         program_exists "$app"
     done
