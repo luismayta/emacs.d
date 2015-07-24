@@ -28,9 +28,6 @@ EOF
 
 "$ROOT/install.sh"
 
-echo $ROOT
-echo $HOME
-
 ret="0"
 if [ ! -e "$HOME/.emacs.d/.git" ]; then
     ret="1"
