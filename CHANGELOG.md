@@ -1,3 +1,7 @@
+### v1.0.5 (07-24-2015)
+
+- #20 Fixed install curl emacs
+
 ### v1.0.4 (07-20-2015)
 
 - #16 Implement Package Fixmee
