@@ -38,7 +38,6 @@ before_install:
     fi
 
 install:
-  - echo $TRAVIS_BUILD_DIR
   - if [ "$EMACS" = "emacs24.3" ]; then
         wget http://ftp.gnu.org/gnu/emacs/emacs-24.3.tar.gz &&
         tar -xf emacs-24.3.tar.gz && cd emacs-24.3 &&
@@ -62,7 +61,7 @@ install:
     fi
 
 script:
-  lsb_release -a && cd /home/travis/build/luismayta/emacs.d && EMACS=emacs ./script/test
+  uname -a && cd /home/travis/build/luismayta/emacs.d && EMACS=emacs ./script/test
 
 notifications:
   email: false
