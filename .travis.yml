@@ -5,15 +5,6 @@ os:
   - linux
   - osx
 
-env:
-  matrix:
-    - EMACS=emacs24.3
-    - EMACS=emacs24.4
-    - EMACS=emacs24.5
-    - EMACS=emacs-snapshot
-
-sudo: true
-
 addons:
   apt:
     packages:
@@ -23,6 +14,15 @@ addons:
     - libjpeg-dev
     - libgif-dev
     - libtiff4-dev
+
+env:
+  matrix:
+    - EMACS=emacs24.3
+    - EMACS=emacs24.4
+    - EMACS=emacs24.5
+    - EMACS=emacs-snapshot
+
+sudo: true
 
 matrix:
   allow_failures:
@@ -58,15 +58,8 @@ install:
         sudo apt-get install -qq emacs-snapshot-el;
     fi
 
-before_script:
-  - echo "build-no: ${TRAVIS_BUILD_NUMBER}\nrepo: ${TRAVIS_REPO_SLUG}\nbranch: ${TRAVIS_BRANCH}\ncommit: ${TRAVIS_COMMIT}\npull-request: ${TRAVIS_PULL_REQUEST}"
-  - tree -h
-
 script:
   lsb_release -a && cd /home/travis/build/luismayta/emacs.d && EMACS=emacs ./script/test
-
-after_script:
-  - [ -r ~/.emacs.d ] && echo  "\e[32m[✔]\e[0m Yeah .emacs"
 
 notifications:
   email: false
