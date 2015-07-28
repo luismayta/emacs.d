@@ -27,7 +27,7 @@ before_install:
       sudo apt-get install -y libxpm-dev &&
       sudo apt-get install -y libjpeg-dev &&
       sudo apt-get install -y libgif-dev &&
-      sudo apt-get install -y libtiff4-dev
+      sudo apt-get install -y libtiff4-dev;
     fi
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then
       brew update &&
@@ -36,7 +36,7 @@ before_install:
       brew install libxpm-dev &&
       brew install libjpeg-dev &&
       brew install libgif-dev &&
-      brew install libtiff4-dev
+      brew install libtiff4-dev;
     fi
 
 install:
