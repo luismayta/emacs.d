@@ -5,16 +5,6 @@ os:
   - linux
   - osx
 
-addons:
-  apt:
-    packages:
-    - tree
-    - wget
-    - libxpm-dev
-    - libjpeg-dev
-    - libgif-dev
-    - libtiff4-dev
-
 env:
   matrix:
     - EMACS=emacs24.3
@@ -28,6 +18,26 @@ matrix:
   allow_failures:
     - env:
         - EMACS=emacs-snapshot
+
+before_install:
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then
+      sudo apt-get update -qq &&
+      sudo apt-get install -y tree &&
+      sudo apt-get install -y wget &&
+      sudo apt-get install -y libxpm-dev &&
+      sudo apt-get install -y libjpeg-dev &&
+      sudo apt-get install -y libgif-dev &&
+      sudo apt-get install -y libtiff4-dev
+    fi
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then
+      brew update &&
+      brew install tree &&
+      brew install wget &&
+      brew install libxpm-dev &&
+      brew install libjpeg-dev &&
+      brew install libgif-dev &&
+      brew install libtiff4-dev
+    fi
 
 install:
   - if [ "$EMACS" = "emacs24.3" ]; then
