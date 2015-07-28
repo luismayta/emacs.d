@@ -1,6 +1,10 @@
 # language: emacs-lisp
 language: ruby
 
+os:
+  - linux
+  - osx
+
 env:
   matrix:
     - EMACS=emacs24.3
@@ -8,15 +12,24 @@ env:
     - EMACS=emacs24.5
     - EMACS=emacs-snapshot
 
+sudo: true
+
+addons:
+  apt:
+    packages:
+    - tree
+    - wget
+    - libxpm-dev
+    - libjpeg-dev
+    - libgif-dev
+    - libtiff4-dev
+
 matrix:
   allow_failures:
     - env:
         - EMACS=emacs-snapshot
 
 install:
-  - sudo apt-get install wget
-  - sudo apt-get install build-essential
-  - sudo apt-get install libxpm-dev libjpeg-dev libgif-dev libtiff4-dev
   - if [ "$EMACS" = "emacs24.3" ]; then
         wget http://ftp.gnu.org/gnu/emacs/emacs-24.3.tar.gz &&
         tar -xf emacs-24.3.tar.gz && cd emacs-24.3 &&
@@ -45,8 +58,15 @@ install:
         sudo apt-get install -qq emacs-snapshot-el;
     fi
 
+before_script:
+  - echo "build-no: ${TRAVIS_BUILD_NUMBER}\nrepo: ${TRAVIS_REPO_SLUG}\nbranch: ${TRAVIS_BRANCH}\ncommit: ${TRAVIS_COMMIT}\npull-request: ${TRAVIS_PULL_REQUEST}"
+  - tree -h
+
 script:
   lsb_release -a && cd /home/travis/build/luismayta/emacs.d && EMACS=emacs ./script/test
+
+after_script:
+  - [ -r ~/.emacs.d ] && echo  "\e[32m[✔]\e[0m Yeah .emacs"
 
 notifications:
   email: false
