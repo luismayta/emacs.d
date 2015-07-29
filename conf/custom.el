@@ -87,3 +87,4 @@
 
 (set-frame-font "DejaVuSansMono:pixelsize=12")
 (set-default-font "DejaVuSansMono 12")
+(prefer-coding-system 'utf-8)
