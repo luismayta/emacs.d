@@ -110,7 +110,7 @@
         "~/.emacs.d/conf/yaml.el"
         "~/.emacs.d/conf/markdown.el"
         "~/.emacs.d/conf/python.el"
-        "~/.emacs.d/conf/custom.el"
+        "~/.emacs.d/custom.el"
         ))
 
 (dolist (config my-config)
