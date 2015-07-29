@@ -88,7 +88,7 @@
 
 (setq my-config
       '(
-        "~/.emacs.d/conf/custom.el"
+        "~/.emacs.d/conf/default.el"
         "~/.emacs.d/conf/editorconfig.el"
         "~/.emacs.d/conf/evil.el"
         "~/.emacs.d/conf/projectile.el"
@@ -110,6 +110,7 @@
         "~/.emacs.d/conf/yaml.el"
         "~/.emacs.d/conf/markdown.el"
         "~/.emacs.d/conf/python.el"
+        "~/.emacs.d/custom.el"
         ))
 
 (dolist (config my-config)
