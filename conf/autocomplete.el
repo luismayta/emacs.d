@@ -5,3 +5,4 @@
 ;; turn on auto-completion of function names etc
 (require 'auto-complete)
 (global-auto-complete-mode t)
+(auto-complete-mode t)
