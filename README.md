@@ -11,13 +11,14 @@
 
 Works only with Emacs 24 and later.
 
-This is my very minimal configuration for Emacs. I like to keep my emacs
+This is my configuration for Emacs. I like to keep my emacs
 nice and lightweight, so there's not much in here. Actually, it's more like
-Vim-flavoured Emacs, since it has Evil installed.
+Vim-flavoured Emacs, since it has Evil installed, the encoding of files is in utf-8.
 
 # Prerequisites
 
-This is a list of applications that need to be installed previously to enjoy all the goodies of this configuration.
+This is a list of applications that need to be installed previously to enjoy
+all the goodies of this configuration.
 
 * [Git](http://git-scm.com/)
 * [editorconfig](http://editorconfig.org)
@@ -31,11 +32,11 @@ This is a list of applications that need to be installed previously to enjoy all
 Emacs is installed by running one of the following commands in your terminal.
 You can install this via the command-line with either `curl` or `wget`.
 
-#### via curl
+### via curl
 
 `sh -c "$(curl -fsSL https://raw.github.com/luismayta/emacs.d/master/install.sh)"`
 
-#### via wget
+### via wget
 
 `sh -c "$(wget https://raw.github.com/luismayta/emacs.d/master/install.sh -O -)"`
 
