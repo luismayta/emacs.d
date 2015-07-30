@@ -7,15 +7,15 @@
 ;; The ELPA repositories from where the packages are fetched.
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("melpa" . "http://melpa.org/packages/")
-                         ("org" . "http://orgmode.org/elpa/")
-                        ("marmalade" . "http://marmalade-repo.org/packages/")))
+                          ("melpa" . "http://melpa.org/packages/")
+                          ("org" . "http://orgmode.org/elpa/")
+                          ("marmalade" . "http://marmalade-repo.org/packages/")))
 
 ;; Convenience around `package-install'.
 (defun bundle (depname refresh)
   "Runs `package-install', attempting `package-refresh-contents' on failure."
   (when refresh (package-refresh-contents))
-    (package-install depname))
+  (package-install depname))
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
@@ -97,6 +97,7 @@
         "~/.emacs.d/conf/feature.el"
         "~/.emacs.d/conf/google-translate.el"
         "~/.emacs.d/conf/skeletor.el"
+        "~/.emacs.d/conf/aggressive-indent.el"
         "~/.emacs.d/conf/autocomplete.el"
         "~/.emacs.d/conf/emamux.el"
         "~/.emacs.d/conf/yasnippet.el"
