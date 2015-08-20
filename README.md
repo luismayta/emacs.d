@@ -122,6 +122,26 @@ it more reliable than electric-indent-mode.
   (global-aggressive-indent-mode 1)
   (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
 ```
+### Helm-gtags
+
+[Helm-gtags](https://github.com/syohex/emacs-helm-gtags) helm-gtags-mode
+
+| Binding        | Call                   | Do           |
+| -------------- |:----------------------:| ------------:|
+| tc             | helm-gtags-create-tags | create tags  |
+| tt             | helm-gtags-find-tag    | find tag     |
+
+#### Install
+
+```bash
+brew update
+brew install ctags
+brew install global --with-exuberant-ctags --with-pygments
+```
+
+```bash
+gtags --gtagslabel=ctags
+```
 
 ## Further customizations
 
@@ -139,8 +159,10 @@ if it exists.
 If you use my .emacs, you are probably nuts ;)
 
 <span class="badges">
+
 [![](http://api.coderwall.com/luismayta/endorsecount.png)](http://coderwall.com/luismayta)
 [![](http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.png)](http://pe.linkedin.com/in/luismayta)
 [![](https://ga-beacon.appspot.com/UA-65019326-1/emacs.d/readme)](https://github.com/luismayta/emacs.d)
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/luismayta/emacs.d/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
 </span>
