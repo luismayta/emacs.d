@@ -126,6 +126,11 @@ it more reliable than electric-indent-mode.
 
 [Helm-gtags](https://github.com/syohex/emacs-helm-gtags) helm-gtags-mode
 
+| Binding        | Call                   | Do           |
+| -------------- |:----------------------:| ------------:|
+| tc             | helm-gtags-create-tags | create tags  |
+| tt             | helm-gtags-find-tag    | find tag     |
+
 #### Install
 
 ```bash
