@@ -6,4 +6,7 @@
 -/.git
 -/auto-save-list
 -*.cache
+-GPATH
+-GRTAGS
+-GTAGS
 -projectile-bookmarks.eld
