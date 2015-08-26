@@ -8,4 +8,4 @@
 
 (add-hook 'before-save-hook 'hook-save-buffer)
 
-(provide 'custom-hooks)
+(provide 'custom-hook)
