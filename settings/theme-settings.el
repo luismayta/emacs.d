@@ -1,3 +1,7 @@
+;--------------------------------;
+;;; Theme Settings             ;;;
+;--------------------------------;
+
 ;; Install Package
 (bundle 'noctilux-theme nil)
 (bundle 'solarized-theme nil)
@@ -8,3 +12,5 @@
 
 (load-theme 'noctilux)
 (load-theme 'wombat)
+
+(provide 'theme-settings)

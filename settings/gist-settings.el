@@ -9,3 +9,5 @@
 (evil-leader/set-key
   "gl" 'gist-list
   "gb" 'gist-buffer)
+
+(provide 'gist-settings)
