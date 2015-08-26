@@ -86,38 +86,38 @@
  ;; If there is more than one, they won't work right.
  )
 
-(setq my-config
+(setq my-settings
   '(
-     "~/.emacs.d/conf/default.el"
-     "~/.emacs.d/conf/editorconfig.el"
-     "~/.emacs.d/conf/evil.el"
-     "~/.emacs.d/conf/projectile.el"
-     "~/.emacs.d/conf/fixmee.el"
-     "~/.emacs.d/conf/theme.el"
-     "~/.emacs.d/conf/feature.el"
-     "~/.emacs.d/conf/helm-gtags.el"
-     "~/.emacs.d/conf/google-translate.el"
-     "~/.emacs.d/conf/skeletor.el"
-     "~/.emacs.d/conf/aggressive-indent.el"
-     "~/.emacs.d/conf/autocomplete.el"
-     "~/.emacs.d/conf/emamux.el"
-     "~/.emacs.d/conf/yasnippet.el"
-     "~/.emacs.d/conf/git.el"
-     "~/.emacs.d/conf/gist.el"
-     "~/.emacs.d/conf/go.el"
-     "~/.emacs.d/conf/php.el"
-     "~/.emacs.d/conf/ruby.el"
-     "~/.emacs.d/conf/web-mode.el"
-     "~/.emacs.d/conf/css.el"
-     "~/.emacs.d/conf/yaml.el"
-     "~/.emacs.d/conf/markdown.el"
-     "~/.emacs.d/conf/python.el"
+     "~/.emacs.d/settings/default.el"
+     "~/.emacs.d/settings/editorconfig.el"
+     "~/.emacs.d/settings/evil.el"
+     "~/.emacs.d/settings/projectile.el"
+     "~/.emacs.d/settings/fixmee.el"
+     "~/.emacs.d/settings/theme.el"
+     "~/.emacs.d/settings/feature.el"
+     "~/.emacs.d/settings/helm-gtags.el"
+     "~/.emacs.d/settings/google-translate.el"
+     "~/.emacs.d/settings/skeletor.el"
+     "~/.emacs.d/settings/aggressive-indent.el"
+     "~/.emacs.d/settings/autocomplete.el"
+     "~/.emacs.d/settings/emamux.el"
+     "~/.emacs.d/settings/yasnippet.el"
+     "~/.emacs.d/settings/git.el"
+     "~/.emacs.d/settings/gist.el"
+     "~/.emacs.d/settings/go.el"
+     "~/.emacs.d/settings/php.el"
+     "~/.emacs.d/settings/ruby.el"
+     "~/.emacs.d/settings/web-mode.el"
+     "~/.emacs.d/settings/css.el"
+     "~/.emacs.d/settings/yaml.el"
+     "~/.emacs.d/settings/markdown.el"
+     "~/.emacs.d/settings/python.el"
      "~/.emacs.d/custom.el"
      ))
 
-(dolist (config my-config)
-  (when (file-exists-p config)
-    (load config)))
+(dolist (setting my-settings)
+  (when (file-exists-p setting)
+    (load setting)))
 
 (setq my-files
       '(
