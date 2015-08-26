@@ -10,3 +10,5 @@
   "gs" 'magit-status
   "gc" 'magit-commit
   "gd" 'magit-diff)
+
+(provide 'git-settings)

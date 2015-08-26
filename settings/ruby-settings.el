@@ -40,3 +40,5 @@
              (command (list ruby-compilation-executable "-I" test-path path)))
         (pop-to-buffer (ruby-compilation-do filename command)))
     (ruby-compilation-this-buffer)))
+
+(provide 'ruby-settings)

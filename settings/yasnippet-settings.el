@@ -8,3 +8,5 @@
 
 ;tab yasnippet
 (setq yas-trigger-key "TAB")
+
+(provide 'yasnippet-settings)

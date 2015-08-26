@@ -14,3 +14,5 @@
     (setq evil-shift-width 4)
     (set (make-local-variable 'tab-stop-list) (number-sequence 4 200 4))
     (c-set-offset 'substatement-open 0)))
+
+(provide 'php-settings)
