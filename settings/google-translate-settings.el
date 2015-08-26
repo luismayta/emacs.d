@@ -1,3 +1,7 @@
+;--------------------------------;
+;;; google translate Settings  ;;;
+;--------------------------------;
+
 ;; Install packages Google Translate
 
 (bundle 'google-translate nil)
@@ -9,3 +13,5 @@
 (evil-leader/set-key
   "gt" 'google-translate-smooth-translate
   "gp" 'google-translate-at-point)
+
+(provide 'google-translate-settings)

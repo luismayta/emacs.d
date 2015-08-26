@@ -1,7 +1,12 @@
+;; path where settings files are kept
+(add-to-list 'load-path "~/.emacs.d/settings")
+
 ;; emacs configuration
 (require 'package)
-
 (require 'cl)
+
+;; define various custom functions
+(require 'custom-functions)
 
 ;; Repositories
 ;; The ELPA repositories from where the packages are fetched.
@@ -10,12 +15,6 @@
                           ("melpa" . "http://melpa.org/packages/")
                           ("org" . "http://orgmode.org/elpa/")
                           ("marmalade" . "http://marmalade-repo.org/packages/")))
-
-;; Convenience around `package-install'.
-(defun bundle (depname refresh)
-  "Runs `package-install', attempting `package-refresh-contents' on failure."
-  (when refresh (package-refresh-contents))
-  (package-install depname))
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
@@ -33,6 +32,9 @@
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
+
+;; define various custom hooks
+(require 'custom-hook)
 
 ;; enable git shallow clone to save time and bandwidth
 (setq el-get-git-shallow-clone t)
@@ -86,45 +88,37 @@
  ;; If there is more than one, they won't work right.
  )
 
-(setq my-config
+;; configure general settings
+(require 'default-settings)
+(require 'editorconfig-settings)
+(require 'evil-settings)
+(require 'fixmee-settings)
+(require 'projectile-settings)
+(require 'theme-settings)
+(require 'feature-settings)
+(require 'helm-gtags-settings)
+(require 'google-translate-settings)
+(require 'skeletor-settings)
+(require 'autocomplete-settings)
+(require 'emamux-settings)
+(require 'yasnippet-settings)
+(require 'git-settings)
+(require 'gist-settings)
+(require 'go-settings)
+(require 'ruby-settings)
+(require 'php-settings)
+(require 'webmode-settings)
+(require 'css-settings)
+(require 'yaml-settings)
+(require 'markdown-settings)
+(require 'python-settings)
+(require 'nginx-settings)
+
+(setq my-settings
   '(
-     "~/.emacs.d/conf/default.el"
-     "~/.emacs.d/conf/editorconfig.el"
-     "~/.emacs.d/conf/evil.el"
-     "~/.emacs.d/conf/projectile.el"
-     "~/.emacs.d/conf/fixmee.el"
-     "~/.emacs.d/conf/theme.el"
-     "~/.emacs.d/conf/feature.el"
-     "~/.emacs.d/conf/helm-gtags.el"
-     "~/.emacs.d/conf/google-translate.el"
-     "~/.emacs.d/conf/skeletor.el"
-     "~/.emacs.d/conf/aggressive-indent.el"
-     "~/.emacs.d/conf/autocomplete.el"
-     "~/.emacs.d/conf/emamux.el"
-     "~/.emacs.d/conf/yasnippet.el"
-     "~/.emacs.d/conf/git.el"
-     "~/.emacs.d/conf/gist.el"
-     "~/.emacs.d/conf/go.el"
-     "~/.emacs.d/conf/php.el"
-     "~/.emacs.d/conf/ruby.el"
-     "~/.emacs.d/conf/web-mode.el"
-     "~/.emacs.d/conf/css.el"
-     "~/.emacs.d/conf/yaml.el"
-     "~/.emacs.d/conf/markdown.el"
-     "~/.emacs.d/conf/python.el"
      "~/.emacs.d/custom.el"
      ))
 
-(dolist (config my-config)
-  (when (file-exists-p config)
-    (load config)))
-
-(setq my-files
-      '(
-        "~/.emacs.d/functions.el"
-        "~/.emacs.d/hooks.el"
-        ))
-
-(dolist (file my-files)
-  (when (file-exists-p file)
-    (load file)))
+(dolist (setting my-settings)
+  (when (file-exists-p setting)
+    (load setting)))

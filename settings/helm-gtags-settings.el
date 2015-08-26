@@ -1,3 +1,7 @@
+;--------------------------------;
+;;; feature Settings           ;;;
+;--------------------------------;
+
 ;; Install Packages
 (bundle 'helm-gtags nil)
 
@@ -24,3 +28,5 @@
   "tt" 'helm-gtags-find-tag
   "tc" 'helm-gtags-create-tags
   )
+
+(provide 'helm-gtags-settings)

@@ -60,3 +60,5 @@
         ("j" . "<down>")
         ("k" . "<up>")
         ("l" . "<right>")))
+
+(provide 'evil-settings)
