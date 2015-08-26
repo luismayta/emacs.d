@@ -14,4 +14,4 @@
      ("BLOCKED" . "red")
      ("REVIEW" . "orange")
      ("DONE" . "green")
-        ("ARCHIVED" .  "blue")))
+      ("ARCHIVED" .  "blue")))
