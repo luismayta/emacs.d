@@ -52,3 +52,5 @@
 
 (add-hook 'go-mode-hook '(lambda ()
                              (local-set-key (kbd "C-c C-k") 'godoc)))
+
+(provide 'go-settings)

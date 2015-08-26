@@ -13,3 +13,5 @@
 ;;     ;(elpy-enable)
 ;;     ;(elpy-use-ipython)
 ;;     (setq python-python-command "ipython")))
+
+(provide 'python-settings)

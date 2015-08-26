@@ -1,3 +1,7 @@
+;--------------------------------;
+;;; Projectile Settings        ;;;
+;--------------------------------;
+
 ;; Install Packages
 (bundle 'projectile nil)
 (bundle 'helm-projectile nil)
@@ -12,3 +16,5 @@
 ;; mapping keys evil leader
 (evil-leader/set-key
   "fp" 'helm-projectile-find-file)
+
+(provide 'projectile-settings)

@@ -14,3 +14,5 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jade\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.json\\'" . web-mode))
+
+(provide 'webmode-settings)

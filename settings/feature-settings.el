@@ -1,3 +1,7 @@
+;--------------------------------;
+;;; feature Settings           ;;;
+;--------------------------------;
+
 ;; Install Packages
 (bundle 'feature-mode nil)
 
@@ -5,3 +9,5 @@
 (require 'feature-mode)
 
 (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
+
+(provide 'feature-settings)
