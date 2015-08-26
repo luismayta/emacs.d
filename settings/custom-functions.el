@@ -38,4 +38,11 @@
 (defun include-elget-plugin (plugin)
   (add-to-list 'load-path (make-elget-path plugin)))
 
+;; Functions install Package
+
+(defun bundle (depname refresh)
+  "Runs `package-install', attempting `package-refresh-contents' on failure."
+  (when refresh (package-refresh-contents))
+  (package-install depname))
+
 (provide 'custom-functions)
