@@ -96,6 +96,7 @@
 (require 'projectile-settings)
 (require 'theme-settings)
 (require 'feature-settings)
+(require 'helm-settings)
 (require 'helm-gtags-settings)
 (require 'google-translate-settings)
 (require 'skeletor-settings)
