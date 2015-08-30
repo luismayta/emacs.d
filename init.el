@@ -91,6 +91,7 @@
 ;; configure general settings
 (require 'default-settings)
 (require 'editorconfig-settings)
+(require 'clipboard-settings)
 (require 'evil-settings)
 (require 'fixmee-settings)
 (require 'projectile-settings)
