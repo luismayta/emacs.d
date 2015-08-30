@@ -14,9 +14,4 @@
 
 (global-set-key (kbd "C-c h") 'helm-mini)
 
-;; mapping keys evil leader
-(evil-leader/set-key
-  "h" 'helm-mini
-  )
-
 (provide 'helm-settings)
