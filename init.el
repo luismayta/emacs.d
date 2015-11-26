@@ -90,7 +90,6 @@
 
 ;; configure general settings
 (require 'default-settings)
-(require 'editorconfig-settings)
 (require 'clipboard-settings)
 (require 'evil-settings)
 (require 'fixmee-settings)
@@ -115,6 +114,7 @@
 (require 'markdown-settings)
 (require 'python-settings)
 (require 'nginx-settings)
+(require 'editorconfig-settings)
 
 (setq my-settings
   '(
