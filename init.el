@@ -95,6 +95,7 @@
 (require 'fixmee-settings)
 (require 'projectile-settings)
 (require 'theme-settings)
+(require 'terraform-settings)
 (require 'feature-settings)
 (require 'helm-settings)
 (require 'helm-gtags-settings)
