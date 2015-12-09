@@ -70,6 +70,7 @@ built-in anyway.
     - this doesn't ship with Emacs and is a bit lacking really
     - mixed HTML/PHP doesn't work well at all; I use html-mode instead
 ;; turn on auto-completion of function names etc
+  * terraform-mode
   * Erlang
   * Skeletor
   * Auto-complete
