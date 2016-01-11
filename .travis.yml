@@ -30,7 +30,7 @@ before_install:
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then
       brew update &&
       brew install tree &&
-      brew install wget &&
+      # brew install wget &&
       brew install libxpm-dev &&
       brew install libjpeg-dev &&
       brew install libgif-dev &&
