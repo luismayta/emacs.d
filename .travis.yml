@@ -56,7 +56,7 @@ install:
     fi
 
 script:
-  uname -a && EMACS=emacs ./script/test
+  pwd && uname -a && EMACS=emacs ./script/test
 
 notifications:
   email: false
