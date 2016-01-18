@@ -92,6 +92,7 @@
 (require 'default-settings)
 (require 'clipboard-settings)
 (require 'confmode-settings)
+(require 'editorconfig-settings)
 (require 'evil-settings)
 (require 'fixmee-settings)
 (require 'projectile-settings)
@@ -116,7 +117,7 @@
 (require 'markdown-settings)
 (require 'python-settings)
 (require 'nginx-settings)
-(require 'editorconfig-settings)
+(require 'sml-modeline-mode-settings)
 
 (setq my-settings
   '(
