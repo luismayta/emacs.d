@@ -117,7 +117,7 @@
 (require 'markdown-settings)
 (require 'python-settings)
 (require 'nginx-settings)
-(require 'sml-modeline-mode-settings)
+(require 'sml-modeline-settings)
 
 (setq my-settings
   '(
