@@ -92,6 +92,7 @@
 (require 'default-settings)
 (require 'clipboard-settings)
 (require 'confmode-settings)
+(require 'environments-settings)
 (require 'editorconfig-settings)
 (require 'evil-settings)
 (require 'fixmee-settings)
