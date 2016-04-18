@@ -18,9 +18,6 @@
 (require 'golint)
 (require 'go-autocomplete)
 (require 'gocode-settings)
-;; (require 'dw-functionals)
-
-;; (add-hook 'before-save-hook 'go-remove-unused-imports nil)
 
 (defun go-remove-unused-imports-before-save ()
   "Add this to .emacs to run `go-remove-unused-imports' on buffer saving:
