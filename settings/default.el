@@ -20,6 +20,7 @@
 (bundle 'coffee-mode nil)
 (bundle 'emmet-mode nil)
 (bundle 'password-generator nil)
+(bundle 'use-package nil)
 
 ; set PATH, because we don't load .bashrc
 ; function from https://gist.github.com/jakemcc/3887459
@@ -28,7 +29,7 @@
   (let ((path-from-shell (shell-command-to-string "$SHELL -i -c 'echo -n $PATH'")))
     (setenv "PATH" path-from-shell)
     (setq exec-path (split-string path-from-shell path-separator))))
- 
+
 (if window-system (set-exec-path-from-shell-PATH))
 
 ;; enable git shallow clone to save time and bandwidth
@@ -122,7 +123,7 @@
 (if (system-is-mac)
     (setq ns-command-modifier 'meta))
 
-; number of characters until the fill column 
+; number of characters until the fill column
 (setq-default fill-column 80)
 
 ; each line of text gets one line on the screen (i.e., text will run
@@ -180,9 +181,3 @@
 (setq auto-save-default nil)
 
 (provide 'custom-settings)
-
-
-
-
-
-
