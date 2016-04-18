@@ -1,3 +1,5 @@
+;; -*- Emacs-Lisp -*-
+;; Settings for `go-mode'.
 ;;requires modules
 ;;install packages go
 ;;go get -u github.com/nsf/gocode
@@ -11,34 +13,53 @@
 (bundle 'golint nil)
 (bundle 'go-autocomplete nil)
 
-(require 'auto-complete-config)
 (require 'go-eldoc)
 (require 'go-mode)
 (require 'golint)
 (require 'go-autocomplete)
-(ac-config-default)
+(require 'gocode-settings)
+;; (require 'dw-functionals)
 
-(defun go-mode-setup ()
-  (setq compile-command "go build -v && go test -v && go vet")
-  (define-key (current-local-map) "\C-c\C-c" 'compile)
-  (go-eldoc-setup)
-  (setq gofmt-command "goimports")
+;; (add-hook 'before-save-hook 'go-remove-unused-imports nil)
+
+(defun go-remove-unused-imports-before-save ()
+  "Add this to .emacs to run `go-remove-unused-imports' on buffer saving:
+ (add-hook 'before-save-hook 'go-remove-unused-imports)."
+
+  (interactive)
+  (when (eq major-mode 'go-mode)
+    (go-remove-unused-imports nil)))
+
+
+(defun go-mode-settings ()
+  "Settings for `go-mode'."
+
+  ;; run gofmt on the current buffer when saving
+  ;; non `go-mode' buffer would be intact
   (add-hook 'before-save-hook 'gofmt-before-save)
-  (add-hook 'before-save-hook 'go-remove-unused-imports)
-  (local-set-key (kbd "M-.") 'godef-jump))
 
-(add-hook 'go-mode-hook 'go-mode-setup)
+  ;; TODO not working now, fix it
+  ;; run `go-remove-unused-imports' on the current buffer when saving
+  (add-hook 'before-save-hook 'go-remove-unused-imports-before-save)
 
+  ;; add fonts color editor
 
-(set-face-attribute 'eldoc-highlight-function-argument nil
+  (set-face-attribute 'eldoc-highlight-function-argument nil
                     :underline t :foreground "green"
                                         :weight 'bold)
 
-;; (add-hook 'go-mode-hook '(lambda ()
-;;                              (local-set-key (kbd "C-c C-g") 'go-goto-imports)))
+  ;; key bindings
+  ;; (dw-hungry-delete-on-mode-map go-mode-map)
+  ;; (dw-commet-dwin-on-mode-map go-mode-map)
 
+  ;; Enable `subword-mode' since go is Camel style.
+  (add-hook 'go-mode-hook
+            '(lambda ()
+               (subword-mode)))
+  )
 
-;; (add-hook 'go-mode-hook '(lambda ()
-;;                              (local-set-key (kbd "C-c C-k") 'godoc)))
+(eval-after-load "go-mode"
+  `(go-mode-settings))
+
 
 (provide 'go-settings)
