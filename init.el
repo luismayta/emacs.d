@@ -119,6 +119,7 @@
 (require 'python-settings)
 (require 'nginx-settings)
 (require 'sml-modeline-settings)
+(require 'git-gutter-plus-settings)
 
 (setq my-settings
   '(
