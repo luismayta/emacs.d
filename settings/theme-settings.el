@@ -3,7 +3,6 @@
 ;--------------------------------;
 
 ;; Install Package
-(bundle 'noctilux-theme nil)
 (bundle 'solarized-theme nil)
 (bundle 'subatomic256-theme nil)
 (bundle 'flatland-theme nil)
@@ -11,7 +10,7 @@
 (bundle 'material-theme nil)
 ;;; -- Config
 
-;; (load-theme 'noctilux)
-(load-theme 'leuven)
+(load-theme 'noctilux t)
+;; (load-theme 'leuven)
 
 (provide 'theme-settings)
