@@ -1,3 +1,7 @@
+### v1.0.6 (05-27-2016)
+
+- #47 Added theme noctilux
+
 ### v1.0.5 (07-24-2015)
 
 - #20 Fixed install curl emacs
