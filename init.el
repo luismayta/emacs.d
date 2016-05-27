@@ -88,6 +88,8 @@
  ;; If there is more than one, they won't work right.
  )
 
+(add-to-list 'custom-theme-load-path "~/.emacs.d/lib/color-themes"))
+
 ;; configure general settings
 (require 'default-settings)
 (require 'clipboard-settings)
