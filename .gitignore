@@ -15,3 +15,11 @@ ido.last
 *.#*
 .godeps/
 bin
+custom.el
+
+# Gtags
+
+GPATH
+GTAGS
+GRTAGS
+recentf
