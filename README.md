@@ -11,13 +11,14 @@
 
 Works only with Emacs 24 and later.
 
-This is my very minimal configuration for Emacs. I like to keep my emacs
+This is my configuration for Emacs. I like to keep my emacs
 nice and lightweight, so there's not much in here. Actually, it's more like
-Vim-flavoured Emacs, since it has Evil installed.
+Vim-flavoured Emacs, since it has Evil installed, the encoding of files is in utf-8.
 
 # Prerequisites
 
-This is a list of applications that need to be installed previously to enjoy all the goodies of this configuration.
+This is a list of applications that need to be installed previously to enjoy
+all the goodies of this configuration.
 
 * [Git](http://git-scm.com/)
 * [editorconfig](http://editorconfig.org)
@@ -31,11 +32,11 @@ This is a list of applications that need to be installed previously to enjoy all
 Emacs is installed by running one of the following commands in your terminal.
 You can install this via the command-line with either `curl` or `wget`.
 
-#### via curl
+### via curl
 
 `sh -c "$(curl -fsSL https://raw.github.com/luismayta/emacs.d/master/install.sh)"`
 
-#### via wget
+### via wget
 
 `sh -c "$(wget https://raw.github.com/luismayta/emacs.d/master/install.sh -O -)"`
 
@@ -69,6 +70,7 @@ built-in anyway.
     - this doesn't ship with Emacs and is a bit lacking really
     - mixed HTML/PHP doesn't work well at all; I use html-mode instead
 ;; turn on auto-completion of function names etc
+  * terraform-mode
   * Erlang
   * Skeletor
   * Auto-complete
@@ -111,6 +113,37 @@ find (but for performance sake an indexing mechanism backed by external commands
 | -------------- |:--------------------:| -----------------:|
 | fm             | fixmee-view-listing  | show words fixmee |
 
+### Aggressive-indent
+
+[Aggressive-indent](https://github.com/Malabarba/aggressive-indent-mode) aggressive-indent-mode
+is a minor mode that keeps your code always indented. It reindents after every change, making
+it more reliable than electric-indent-mode.
+
+```bash
+  (global-aggressive-indent-mode 1)
+  (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
+```
+### Helm-gtags
+
+[Helm-gtags](https://github.com/syohex/emacs-helm-gtags) helm-gtags-mode
+
+| Binding        | Call                   | Do           |
+| -------------- |:----------------------:| ------------:|
+| tc             | helm-gtags-create-tags | create tags  |
+| tt             | helm-gtags-find-tag    | find tag     |
+
+#### Install
+
+```bash
+brew update
+brew install ctags
+brew install global --with-exuberant-ctags --with-pygments
+```
+
+```bash
+gtags --gtagslabel=ctags
+```
+
 ## Further customizations
 
 You can just edit the ~/.emacs.d/init.el file directly if you want to make
@@ -127,8 +160,10 @@ if it exists.
 If you use my .emacs, you are probably nuts ;)
 
 <span class="badges">
+
 [![](http://api.coderwall.com/luismayta/endorsecount.png)](http://coderwall.com/luismayta)
 [![](http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.png)](http://pe.linkedin.com/in/luismayta)
 [![](https://ga-beacon.appspot.com/UA-65019326-1/emacs.d/readme)](https://github.com/luismayta/emacs.d)
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/luismayta/emacs.d/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
 </span>

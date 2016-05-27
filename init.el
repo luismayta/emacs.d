@@ -1,21 +1,20 @@
+;; path where settings files are kept
+(add-to-list 'load-path "~/.emacs.d/settings")
+
 ;; emacs configuration
 (require 'package)
-
 (require 'cl)
+
+;; define various custom functions
+(require 'custom-functions)
 
 ;; Repositories
 ;; The ELPA repositories from where the packages are fetched.
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("melpa" . "http://melpa.org/packages/")
-                         ("org" . "http://orgmode.org/elpa/")
-                        ("marmalade" . "http://marmalade-repo.org/packages/")))
-
-;; Convenience around `package-install'.
-(defun bundle (depname refresh)
-  "Runs `package-install', attempting `package-refresh-contents' on failure."
-  (when refresh (package-refresh-contents))
-    (package-install depname))
+                          ("melpa" . "http://melpa.org/packages/")
+                          ("org" . "http://orgmode.org/elpa/")
+                          ("marmalade" . "http://marmalade-repo.org/packages/")))
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
@@ -33,6 +32,9 @@
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
+
+;; define various custom hooks
+(require 'custom-hook)
 
 ;; enable git shallow clone to save time and bandwidth
 (setq el-get-git-shallow-clone t)
@@ -53,21 +55,21 @@
  ;; If there is more than one, they won't work right.
  '(ac-auto-start nil)
  '(ac-trigger-key "TAB")
- '(ansi-color-names-vector
-   ["black" "red" "green" "yellow" "blue" "magenta" "cyan" "yellow"])
  '(auto-save-default nil)
  '(background-color nil)
- '(background-mode dark)
  '(column-number-mode t)
  '(cursor-color nil)
- '(custom-safe-themes
-   (quote
-    ("f11b028f78c8934c4dea255d94c491f7ced8720db594f9454dbec55938af3934" "1c57936ffb459ad3de4f2abbc39ef29bfb109eade28405fa72734df1bc252c13" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "64581032564feda2b5f2cf389018b4b9906d98293d84d84142d90d7986032d33" "0c311fb22e6197daba9123f43da98f273d2bfaeeaeb653007ad1ee77f0003037" default)))
+  '(custom-safe-themes
+     (quote
+       ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(delete-selection-mode t)
  '(evil-shift-width 4)
  '(evil-toggle-key (kbd "C-\\"))
  '(foreground-color nil)
  '(global-linum-mode t)
+ '(helm-gtags-auto-update t)
+ '(helm-gtags-ignore-case t)
+ '(helm-gtags-path-style (quote relative))
  '(ido-enable-flex-matching t)
  '(indent-tabs-mode nil)
  '(make-backup-files nil)
@@ -86,42 +88,46 @@
  ;; If there is more than one, they won't work right.
  )
 
-(setq my-config
-      '(
-        "~/.emacs.d/conf/custom.el"
-        "~/.emacs.d/conf/editorconfig.el"
-        "~/.emacs.d/conf/evil.el"
-        "~/.emacs.d/conf/projectile.el"
-        "~/.emacs.d/conf/fixmee.el"
-        "~/.emacs.d/conf/theme.el"
-        "~/.emacs.d/conf/feature.el"
-        "~/.emacs.d/conf/google-translate.el"
-        "~/.emacs.d/conf/skeletor.el"
-        "~/.emacs.d/conf/autocomplete.el"
-        "~/.emacs.d/conf/emamux.el"
-        "~/.emacs.d/conf/yasnippet.el"
-        "~/.emacs.d/conf/git.el"
-        "~/.emacs.d/conf/gist.el"
-        "~/.emacs.d/conf/go.el"
-        "~/.emacs.d/conf/php.el"
-        "~/.emacs.d/conf/ruby.el"
-        "~/.emacs.d/conf/web-mode.el"
-        "~/.emacs.d/conf/css.el"
-        "~/.emacs.d/conf/yaml.el"
-        "~/.emacs.d/conf/markdown.el"
-        "~/.emacs.d/conf/python.el"
-        ))
+(add-to-list 'custom-theme-load-path "~/.emacs.d/lib/color-themes"))
 
-(dolist (config my-config)
-  (when (file-exists-p config)
-    (load config)))
+;; configure general settings
+(require 'default-settings)
+(require 'clipboard-settings)
+(require 'confmode-settings)
+(require 'environments-settings)
+(require 'editorconfig-settings)
+(require 'evil-settings)
+(require 'fixmee-settings)
+(require 'projectile-settings)
+(require 'theme-settings)
+(require 'terraform-settings)
+(require 'feature-settings)
+(require 'helm-settings)
+(require 'helm-gtags-settings)
+(require 'google-translate-settings)
+(require 'skeletor-settings)
+(require 'autocomplete-settings)
+(require 'emamux-settings)
+;; (require 'yasnippet-settings)
+(require 'git-settings)
+(require 'gist-settings)
+(require 'go-settings)
+(require 'ruby-settings)
+(require 'php-settings)
+(require 'webmode-settings)
+(require 'css-settings)
+(require 'yaml-settings)
+(require 'markdown-settings)
+(require 'python-settings)
+(require 'nginx-settings)
+(require 'sml-modeline-settings)
+(require 'git-gutter-plus-settings)
 
-(setq my-files
-      '(
-        "~/.emacs.d/functions.el"
-        "~/.emacs.d/hooks.el"
-        ))
+(setq my-settings
+  '(
+     "~/.emacs.d/custom.el"
+     ))
 
-(dolist (file my-files)
-  (when (file-exists-p file)
-    (load file)))
+(dolist (setting my-settings)
+  (when (file-exists-p setting)
+    (load setting)))
