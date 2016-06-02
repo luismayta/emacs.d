@@ -8,6 +8,7 @@
 (bundle 'flatland-theme nil)
 (bundle 'lenlen-theme nil)
 (bundle 'material-theme nil)
+(bundle 'darkokai-theme nil)
 ;;; -- Config
 
 (load-theme 'noctilux t)
