@@ -1,12 +1,26 @@
-;; path where settings files are kept
-(add-to-list 'load-path "~/.emacs.d/settings")
+;;; init.el --- Start of the Emacs initialisation process.
+
+;; Increase the GC threshold as soon as possible.
+(setq gc-cons-threshold 50000000)
 
 ;; emacs configuration
 (require 'package)
 (require 'cl)
 
+;; Prepare paths.
+(add-to-list 'load-path (expand-file-name "settings/" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "core/" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "modules/" user-emacs-directory))
+(add-to-list 'custom-theme-load-path (expand-file-name "lib/color-themes" user-emacs-directory))
+(add-to-list 'exec-path "/usr/local/bin")
+
 ;; define various custom functions
 (require 'custom-functions)
+
+(require 'exec-path-from-shell)
+
+;; Load PATH from environment
+(exec-path-from-shell-initialize)
 
 ;; Repositories
 ;; The ELPA repositories from where the packages are fetched.
@@ -88,7 +102,13 @@
  ;; If there is more than one, they won't work right.
  )
 
-(add-to-list 'custom-theme-load-path "~/.emacs.d/lib/color-themes"))
+; highlight lines over 100 long
+(require 'whitespace)
+(setq whitespace-line-column 100) ;; limit line length
+(setq whitespace-style '(face lines-tail))
+(add-hook 'prog-mode-hook 'whitespace-mode)
+
+(add-to-list 'custom-theme-load-path "~/.emacs.d/lib/color-themes")
 
 ;; configure general settings
 (require 'default-settings)
@@ -122,6 +142,7 @@
 (require 'nginx-settings)
 (require 'sml-modeline-settings)
 (require 'git-gutter-plus-settings)
+(require 'wakatime-settings)
 
 (setq my-settings
   '(
