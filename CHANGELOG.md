@@ -1,3 +1,7 @@
+### v1.0.7 (06-03-2016)
+
+- #50 Added plugin wakatime
+
 ### v1.0.6 (05-27-2016)
 
 - #47 Added theme noctilux
