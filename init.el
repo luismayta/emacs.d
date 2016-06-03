@@ -142,6 +142,7 @@
 (require 'nginx-settings)
 (require 'sml-modeline-settings)
 (require 'git-gutter-plus-settings)
+(require 'wakatime-settings)
 
 (setq my-settings
   '(
