@@ -12,51 +12,20 @@
 (bundle 'go-eldoc nil)
 (bundle 'golint nil)
 (bundle 'go-autocomplete nil)
+(bundle 'go-errcheck nil)
 
-(require 'go-eldoc)
 (require 'go-mode)
-(require 'golint)
 (require 'go-autocomplete)
-(require 'gocode-settings)
+(require 'auto-complete-config)
+(require 'go-errcheck)
+(require 'go-eldoc)
+(require 'golint)
 
-(defun go-remove-unused-imports-before-save ()
-  "Add this to .emacs to run `go-remove-unused-imports' on buffer saving:
- (add-hook 'before-save-hook 'go-remove-unused-imports)."
+;; Load GOPATH from shell - OSX related
+(exec-path-from-shell-copy-env "GOPATH")
 
-  (interactive)
-  (when (eq major-mode 'go-mode)
-    (go-remove-unused-imports nil)))
+(add-hook 'before-save-hook 'gofmt-before-save)
 
-
-(defun go-mode-settings ()
-  "Settings for `go-mode'."
-
-  ;; run gofmt on the current buffer when saving
-  ;; non `go-mode' buffer would be intact
-  (add-hook 'before-save-hook 'gofmt-before-save)
-
-  ;; TODO not working now, fix it
-  ;; run `go-remove-unused-imports' on the current buffer when saving
-  (add-hook 'before-save-hook 'go-remove-unused-imports-before-save)
-
-  ;; add fonts color editor
-
-  (set-face-attribute 'eldoc-highlight-function-argument nil
-                    :underline t :foreground "green"
-                                        :weight 'bold)
-
-  ;; key bindings
-  ;; (dw-hungry-delete-on-mode-map go-mode-map)
-  ;; (dw-commet-dwin-on-mode-map go-mode-map)
-
-  ;; Enable `subword-mode' since go is Camel style.
-  (add-hook 'go-mode-hook
-            '(lambda ()
-               (subword-mode)))
-  )
-
-(eval-after-load "go-mode"
-  `(go-mode-settings))
-
+(ac-config-default)
 
 (provide 'go-settings)
