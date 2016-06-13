@@ -1,3 +1,7 @@
+### v1.0.8 (06-13-2016)
+
+- #51 Fixed Configuration wakatime
+
 ### v1.0.7 (06-03-2016)
 
 - #50 Added plugin wakatime
