@@ -30,7 +30,7 @@
                           ("org" . "http://orgmode.org/elpa/")
                           ("marmalade" . "http://marmalade-repo.org/packages/")))
 
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(add-to-list 'load-path (expand-file-name "el-get/el-get/" user-emacs-directory))
 
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
@@ -39,7 +39,7 @@
     (goto-char (point-max))
     (eval-print-last-sexp)))
 
-(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(add-to-list 'el-get-recipe-path (expand-file-name "emacs.d/el-get-user/recipes" user-emacs-directory))
 (el-get 'sync)
 
 ;;; initialize the packages and create the packages list if not exists
@@ -70,31 +70,22 @@
  '(ac-auto-start nil)
  '(ac-trigger-key "TAB")
  '(auto-save-default nil)
- '(background-color nil)
  '(column-number-mode t)
- '(cursor-color nil)
-  '(custom-safe-themes
-     (quote
-       ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(delete-selection-mode t)
  '(evil-shift-width 4)
  '(evil-toggle-key (kbd "C-\\"))
- '(foreground-color nil)
  '(global-linum-mode t)
  '(helm-gtags-auto-update t)
  '(helm-gtags-ignore-case t)
  '(helm-gtags-path-style (quote relative))
  '(ido-enable-flex-matching t)
- '(indent-tabs-mode nil)
  '(make-backup-files nil)
  '(require-final-newline t)
  '(ruby-deep-indent-paren nil)
  '(ruby-insert-encoding-magic-comment nil)
  '(scroll-conservatively 1000)
- '(scroll-step 1)
- '(tab-stop-list (number-sequence 2 200 2))
- '(tab-width 4)
- '(whitespace-style (quote (face trailing))))
+ '(scroll-step 1))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -102,13 +93,7 @@
  ;; If there is more than one, they won't work right.
  )
 
-; highlight lines over 100 long
-(require 'whitespace)
-(setq whitespace-line-column 100) ;; limit line length
-(setq whitespace-style '(face lines-tail))
-(add-hook 'prog-mode-hook 'whitespace-mode)
-
-(add-to-list 'custom-theme-load-path "~/.emacs.d/lib/color-themes")
+(require 'mywhitespace)
 
 ;; configure general settings
 (require 'default-settings)
