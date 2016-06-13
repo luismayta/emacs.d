@@ -1,7 +1,5 @@
 (require 'whitespace)
-
-(setq-default show-trailing-whitespace t)
-
-(setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
-
+(setq whitespace-line-column 80) ;; limit line length
+(setq whitespace-style '(face lines-tail))
+(add-hook 'prog-mode-hook 'whitespace-mode)
 (provide 'mywhitespace)
