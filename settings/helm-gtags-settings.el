@@ -23,10 +23,4 @@
   '(helm-gtags-ignore-case t)
   '(helm-gtags-auto-update t))
 
-;; mapping keys evil leader
-(evil-leader/set-key
-  "tt" 'helm-gtags-find-tag
-  "tc" 'helm-gtags-create-tags
-  )
-
 (provide 'helm-gtags-settings)
