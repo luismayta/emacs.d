@@ -1,5 +1,6 @@
 -r test.txt
 
+ansible==1.9.6
 grip==3.3.0
 ipdb==0.8.1
 ipython==4.0.0
