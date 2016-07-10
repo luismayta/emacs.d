@@ -13,8 +13,4 @@
 (helm-projectile-on)
 (setq projectile-file-exists-local-cache-expire (* 5 60))
 
-;; mapping keys evil leader
-(evil-leader/set-key
-  "fp" 'helm-projectile-find-file)
-
 (provide 'projectile-settings)
