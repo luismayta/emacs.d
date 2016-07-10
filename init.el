@@ -101,14 +101,13 @@
 (require 'confmode-settings)
 (require 'environments-settings)
 (require 'editorconfig-settings)
-(require 'evil-settings)
+(require 'helm-settings)
+(require 'helm-gtags-settings)
 (require 'fixmee-settings)
 (require 'projectile-settings)
 (require 'theme-settings)
 (require 'terraform-settings)
 (require 'feature-settings)
-(require 'helm-settings)
-(require 'helm-gtags-settings)
 (require 'google-translate-settings)
 (require 'skeletor-settings)
 (require 'autocomplete-settings)
@@ -128,6 +127,7 @@
 (require 'sml-modeline-settings)
 (require 'git-gutter-plus-settings)
 (require 'wakatime-settings)
+(require 'evil-settings)
 
 (setq my-settings
   '(
