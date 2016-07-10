@@ -9,7 +9,6 @@
     -   id: end-of-file-fixer
         files: ^tf|-|\.(py|tfvars|tf|tfenv|env|yml|yaml|pem|key|mock)$
     -   id: check-added-large-files
-        files: ^tf|-|\.(py|env|yml|yaml)$
     -   id: check-case-conflict
     -   id: check-json
     -   id: check-xml
@@ -21,38 +20,42 @@
         args:
         - -i
         - --ignore=E501
-        language_version: python
     -   id: double-quote-string-fixer
     -   id: check-docstring-first
     -   id: pretty-format-json
+    -   id: debug-statements
     -   id: requirements-txt-fixer
     -   id: name-tests-test
-
 -   repo: git://github.com/dgnest/mirrors-pylint
     sha: eb20a4b9bbfe24ec8641f63214e2a7de25399796
     hooks:
     -   id: pylint
-        language_version: python
         args:
         - --rcfile=.pylintrc
-        exclude: setup.py
-
 -   repo: git://github.com/pre-commit/mirrors-scss-lint
     sha: master
     hooks:
     -   id: scss-lint
         files: \.(scss)$
-
+# -   repo: git://github.com/FalconSocial/pre-commit-mirrors-pep257
+#     sha: v0.3.2
+#     hooks:
+#     -   id: pep257
+#         args:
+#         - --ignore=migrations
 -   repo: git@github.com:pre-commit/pre-commit
     sha: 3d90b094fccf0ba5d811a0fdc876e987c2437b1c
     hooks:
     -   id: validate_config
     -   id: validate_manifest
-
 -   repo: git://github.com/FalconSocial/pre-commit-python-sorter
     sha: 934072fb29303aaa64bead610be042049e9db488
     hooks:
     -   id: python-import-sorter
         args:
         - --silent-overwrite
-        language_version: python
+# -   repo: git://github.com/pre-commit/mirrors-eslint
+#     sha: 'master'  # Use the sha you want to point at
+#     hooks:
+#     -   id: eslint
+#         language_version: 4.2.1
