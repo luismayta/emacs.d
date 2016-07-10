@@ -9,8 +9,4 @@
 (fixmee-mode)
 (global-fixmee-mode t)
 
-(evil-leader/set-key
-  "fm" 'fixmee-view-listing
-  )
-
 (provide 'fixmee-settings)
