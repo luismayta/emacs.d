@@ -3,7 +3,7 @@
 ;--------------------------;
 
 ;; Install Packages
-(bundle 'ecb nil)
+(el-get-install 'ecb nil)
 
 (require 'ecb)
 
