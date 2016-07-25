@@ -5,6 +5,7 @@
 ;; Install Packages
 (bundle 'markdown-mode nil)
 ;; Config
+(require 'cl)
 (require 'markdown-mode)
 
 (defun markdown-mode-hook ()
