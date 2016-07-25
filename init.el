@@ -128,6 +128,7 @@
 (require 'git-gutter-plus-settings)
 (require 'wakatime-settings)
 (require 'rainbow-delimiters-settings)
+(require 'undo-tree-settings)
 (require 'evil-settings)
 
 (setq my-settings
