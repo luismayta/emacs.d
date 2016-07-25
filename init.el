@@ -97,6 +97,7 @@
 
 ;; configure general settings
 (require 'default-settings)
+(require 'dash-settings)
 (require 'clipboard-settings)
 (require 'confmode-settings)
 (require 'environments-settings)
