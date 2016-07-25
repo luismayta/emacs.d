@@ -5,6 +5,7 @@
 (bundle 'evil-nerd-commenter nil)
 (bundle 'neotree nil)
 
+(require 'dash-at-point)
 (require 'evil)
 (require 'evil-numbers)
 (require 'evil-leader)
@@ -31,6 +32,7 @@
   "n" 'neotree-toggle
   "u" 'undo-tree-visualize
   "c" 'evilnc-comment-or-uncomment-lines
+  "dp" 'dash-at-point
   "fe" 'find-file
   "ff" 'fiplr-find-file
   "fp" 'helm-projectile-find-file
