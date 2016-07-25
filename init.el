@@ -127,6 +127,7 @@
 (require 'sml-modeline-settings)
 (require 'git-gutter-plus-settings)
 (require 'wakatime-settings)
+(require 'rainbow-delimiters-settings)
 (require 'evil-settings)
 
 (setq my-settings
