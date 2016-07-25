@@ -5,15 +5,11 @@
 (bundle 'evil-nerd-commenter nil)
 (bundle 'neotree nil)
 
-(el-get-install 'undo-tree)
-
 (require 'evil)
 (require 'evil-numbers)
 (require 'evil-leader)
 (require 'evil-nerd-commenter)
 (require 'neotree)
-
-(require 'undo-tree)
 
 
 ;; emacs is actually vim in disguise
