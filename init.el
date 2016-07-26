@@ -105,6 +105,7 @@
 (require 'editorconfig-settings)
 (require 'helm-settings)
 (require 'helm-gtags-settings)
+(require 'haskell-settings)
 (require 'fixmee-settings)
 (require 'projectile-settings)
 (require 'theme-settings)
