@@ -11,6 +11,7 @@
 (add-to-list 'load-path (expand-file-name "settings/" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "core/" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "modules/" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "lib/elisp" user-emacs-directory))
 (add-to-list 'custom-theme-load-path (expand-file-name "lib/color-themes" user-emacs-directory))
 (add-to-list 'exec-path "/usr/local/bin")
 
