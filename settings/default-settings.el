@@ -48,8 +48,6 @@
 
 (delete-selection-mode t)
 (blink-cursor-mode t)
-(show-paren-mode t)
-(column-number-mode t)
 (tooltip-mode -1)
 
 ;;Show the current function
@@ -65,9 +63,6 @@
 
 ;Highlight the current line
 (global-hl-line-mode 1)
-
-;; show matching braces
-(show-paren-mode t)
 
 ;; the menu bar is pointless in a terminal
 (menu-bar-mode -1)
