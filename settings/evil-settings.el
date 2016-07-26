@@ -5,15 +5,12 @@
 (bundle 'evil-nerd-commenter nil)
 (bundle 'neotree nil)
 
-(el-get-install 'undo-tree)
-
+(require 'dash-at-point)
 (require 'evil)
 (require 'evil-numbers)
 (require 'evil-leader)
 (require 'evil-nerd-commenter)
 (require 'neotree)
-
-(require 'undo-tree)
 
 
 ;; emacs is actually vim in disguise
@@ -32,14 +29,27 @@
 
 ;; mapping keys evil leader
 (evil-leader/set-key
-  "fe" 'find-file
   "n" 'neotree-toggle
   "u" 'undo-tree-visualize
   "c" 'evilnc-comment-or-uncomment-lines
+  "dp" 'dash-at-point
+  "fe" 'find-file
   "ff" 'fiplr-find-file
-  "b" 'switch-to-buffer
+  "fp" 'helm-projectile-find-file
+  "fm" 'fixmee-view-listing
+  "gs" 'magit-status
+  "gc" 'magit-commit
+  "gd" 'magit-diff
+  "gl" 'gist-list
+  "gb" 'gist-buffer
+  "gt" 'google-translate-smooth-translate
+  "gp" 'google-translate-at-point
+  "b" 'helm-mini
   "s" 'save-buffer
-  "k" 'kill-buffer)
+  "tt" 'helm-gtags-find-tag
+  "tc" 'helm-gtags-create-tags
+  "k" 'kill-buffer
+  )
 
 ;; evil normal mode key mappings
 ;; (mapc (lambda (mapping)

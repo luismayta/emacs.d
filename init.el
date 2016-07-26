@@ -11,6 +11,7 @@
 (add-to-list 'load-path (expand-file-name "settings/" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "core/" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "modules/" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "lib/elisp" user-emacs-directory))
 (add-to-list 'custom-theme-load-path (expand-file-name "lib/color-themes" user-emacs-directory))
 (add-to-list 'exec-path "/usr/local/bin")
 
@@ -24,9 +25,9 @@
 
 ;; Repositories
 ;; The ELPA repositories from where the packages are fetched.
-
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                           ("melpa" . "http://melpa.org/packages/")
+                          ("melpa-stable" . "http://stable.melpa.org/packages/")
                           ("org" . "http://orgmode.org/elpa/")
                           ("marmalade" . "http://marmalade-repo.org/packages/")))
 
@@ -97,23 +98,25 @@
 
 ;; configure general settings
 (require 'default-settings)
+(require 'dash-settings)
 (require 'clipboard-settings)
 (require 'confmode-settings)
 (require 'environments-settings)
 (require 'editorconfig-settings)
-(require 'evil-settings)
+(require 'helm-settings)
+(require 'helm-gtags-settings)
+(require 'haskell-settings)
 (require 'fixmee-settings)
 (require 'projectile-settings)
 (require 'theme-settings)
 (require 'terraform-settings)
 (require 'feature-settings)
-(require 'helm-settings)
-(require 'helm-gtags-settings)
 (require 'google-translate-settings)
 (require 'skeletor-settings)
 (require 'autocomplete-settings)
 (require 'emamux-settings)
 ;; (require 'yasnippet-settings)
+(require 'ecb-settings)
 (require 'git-settings)
 (require 'gist-settings)
 (require 'go-settings)
@@ -124,10 +127,15 @@
 (require 'yaml-settings)
 (require 'markdown-settings)
 (require 'python-settings)
+(require 'smartparens-settings)
 (require 'nginx-settings)
 (require 'sml-modeline-settings)
 (require 'git-gutter-plus-settings)
 (require 'wakatime-settings)
+(require 'smartparens-settings)
+(require 'rainbow-delimiters-settings)
+(require 'undo-tree-settings)
+(require 'evil-settings)
 
 (setq my-settings
   '(
