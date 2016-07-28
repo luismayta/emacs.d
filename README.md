@@ -113,16 +113,6 @@ find (but for performance sake an indexing mechanism backed by external commands
 | -------------- |:--------------------:| -----------------:|
 | fm             | fixmee-view-listing  | show words fixmee |
 
-### Aggressive-indent
-
-[Aggressive-indent](https://github.com/Malabarba/aggressive-indent-mode) aggressive-indent-mode
-is a minor mode that keeps your code always indented. It reindents after every change, making
-it more reliable than electric-indent-mode.
-
-```bash
-  (global-aggressive-indent-mode 1)
-  (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
-```
 ### Helm-gtags
 
 [Helm-gtags](https://github.com/syohex/emacs-helm-gtags) helm-gtags-mode
