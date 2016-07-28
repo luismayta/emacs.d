@@ -67,17 +67,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ac-auto-start nil)
- '(ac-trigger-key "TAB")
  '(auto-save-default nil)
  '(column-number-mode t)
  '(delete-selection-mode t)
  '(evil-shift-width 4)
  '(evil-toggle-key (kbd "C-\\"))
  '(global-linum-mode t)
- '(helm-gtags-auto-update t)
- '(helm-gtags-ignore-case t)
- '(helm-gtags-path-style (quote relative))
  '(ido-enable-flex-matching t)
  '(make-backup-files nil)
  '(require-final-newline t)
@@ -85,13 +80,6 @@
  '(ruby-insert-encoding-magic-comment nil)
  '(scroll-conservatively 1000)
  '(scroll-step 1))
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
 (require 'mywhitespace)
 
@@ -103,6 +91,7 @@
 (require 'environments-settings)
 (require 'editorconfig-settings)
 (require 'helm-settings)
+(require 'helm-ag-settings)
 (require 'helm-gtags-settings)
 (require 'haskell-settings)
 (require 'fixmee-settings)
