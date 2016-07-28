@@ -7,9 +7,9 @@
 
 (require 'helm-gtags)
 
-(helm-gtags-auto-update t)
-(helm-gtags-ignore-case t)
-(helm-gtags-path-style (quote relative))
+(setq helm-gtags-auto-update t)
+(setq helm-gtags-ignore-case t)
+(setq helm-gtags-path-style (quote relative))
 
 ;;; Enable helm-gtags-mode
 (add-hook 'c-mode-hook 'helm-gtags-mode)
