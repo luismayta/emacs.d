@@ -30,18 +30,6 @@
                           ("org" . "http://orgmode.org/elpa/")
                           ("marmalade" . "http://marmalade-repo.org/packages/")))
 
-(add-to-list 'load-path (expand-file-name "el-get/el-get/" user-emacs-directory))
-
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-    (url-retrieve-synchronously
-      "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
-
-(add-to-list 'el-get-recipe-path (expand-file-name "emacs.d/el-get-user/recipes" user-emacs-directory))
-(el-get 'sync)
-
 ;;; initialize the packages and create the packages list if not exists
 (package-initialize)
 (when (not package-archive-contents)
@@ -49,9 +37,6 @@
 
 ;; define various custom hooks
 (require 'custom-hook)
-
-;; enable git shallow clone to save time and bandwidth
-(setq el-get-git-shallow-clone t)
 
 (setq debug-on-error nil)
 
