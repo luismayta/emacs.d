@@ -27,7 +27,6 @@
 ;; The ELPA repositories from where the packages are fetched.
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                           ("melpa" . "http://melpa.org/packages/")
-                          ("melpa-stable" . "http://stable.melpa.org/packages/")
                           ("org" . "http://orgmode.org/elpa/")
                           ("marmalade" . "http://marmalade-repo.org/packages/")))
 
