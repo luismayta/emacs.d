@@ -27,21 +27,8 @@
 ;; The ELPA repositories from where the packages are fetched.
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                           ("melpa" . "http://melpa.org/packages/")
-                          ("melpa-stable" . "http://stable.melpa.org/packages/")
                           ("org" . "http://orgmode.org/elpa/")
                           ("marmalade" . "http://marmalade-repo.org/packages/")))
-
-(add-to-list 'load-path (expand-file-name "el-get/el-get/" user-emacs-directory))
-
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-    (url-retrieve-synchronously
-      "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
-
-(add-to-list 'el-get-recipe-path (expand-file-name "emacs.d/el-get-user/recipes" user-emacs-directory))
-(el-get 'sync)
 
 ;;; initialize the packages and create the packages list if not exists
 (package-initialize)
@@ -50,9 +37,6 @@
 
 ;; define various custom hooks
 (require 'custom-hook)
-
-;; enable git shallow clone to save time and bandwidth
-(setq el-get-git-shallow-clone t)
 
 (setq debug-on-error nil)
 
@@ -68,17 +52,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ac-auto-start nil)
- '(ac-trigger-key "TAB")
  '(auto-save-default nil)
  '(column-number-mode t)
  '(delete-selection-mode t)
  '(evil-shift-width 4)
  '(evil-toggle-key (kbd "C-\\"))
  '(global-linum-mode t)
- '(helm-gtags-auto-update t)
- '(helm-gtags-ignore-case t)
- '(helm-gtags-path-style (quote relative))
  '(ido-enable-flex-matching t)
  '(make-backup-files nil)
  '(require-final-newline t)
@@ -86,13 +65,6 @@
  '(ruby-insert-encoding-magic-comment nil)
  '(scroll-conservatively 1000)
  '(scroll-step 1))
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
 (require 'mywhitespace)
 
@@ -104,6 +76,7 @@
 (require 'environments-settings)
 (require 'editorconfig-settings)
 (require 'helm-settings)
+(require 'helm-ag-settings)
 (require 'helm-gtags-settings)
 (require 'haskell-settings)
 (require 'fixmee-settings)
