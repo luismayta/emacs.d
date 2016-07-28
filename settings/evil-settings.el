@@ -47,7 +47,7 @@
   "tt" 'helm-gtags-find-tag
   "tc" 'helm-gtags-create-tags
   "k" 'kill-buffer
-  "/" helm-ag-this-file
+  "/" 'helm-ag-this-file
   )
 
 ;; evil normal mode key mappings
@@ -69,5 +69,7 @@
         ("j" . "<down>")
         ("k" . "<up>")
         ("l" . "<right>")))
+
+(evil-mode t)
 
 (provide 'evil-settings)
