@@ -5,13 +5,11 @@
 (bundle 'evil-nerd-commenter nil)
 (bundle 'neotree nil)
 
-(require 'dash-at-point)
 (require 'evil)
 (require 'evil-numbers)
 (require 'evil-leader)
 (require 'evil-nerd-commenter)
 (require 'neotree)
-
 
 ;; emacs is actually vim in disguise
 (evil-mode t)
@@ -27,14 +25,14 @@
 ;; Don't move back the cursor one position when exiting insert mode'
 (setq evil-move-cursor-back nil)
 
-;; mapping keys evil leader
+; mapping keys evil leader
 (evil-leader/set-key
   "n" 'neotree-toggle
   "u" 'undo-tree-visualize
   "c" 'evilnc-comment-or-uncomment-lines
   "dp" 'dash-at-point
   "fe" 'find-file
-  "ff" 'fiplr-find-file
+  "ff" 'helm-ag-project-root
   "fp" 'helm-projectile-find-file
   "fm" 'fixmee-view-listing
   "gs" 'magit-status
@@ -49,6 +47,7 @@
   "tt" 'helm-gtags-find-tag
   "tc" 'helm-gtags-create-tags
   "k" 'kill-buffer
+  "/" helm-ag-this-file
   )
 
 ;; evil normal mode key mappings
