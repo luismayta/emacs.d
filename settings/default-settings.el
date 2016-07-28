@@ -32,9 +32,6 @@
 
 (if window-system (set-exec-path-from-shell-PATH))
 
-;; enable git shallow clone to save time and bandwidth
-(setq el-get-git-shallow-clone t)
-
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (setq-default tab-width 4)
