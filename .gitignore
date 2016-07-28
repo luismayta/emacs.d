@@ -24,3 +24,5 @@ GTAGS
 GRTAGS
 recentf
 *.before*
+srecode-map.el
+eshell
