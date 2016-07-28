@@ -6,7 +6,6 @@
 (bundle 'rainbow-delimiters nil)
 
 (require 'rainbow-delimiters)
-
-(global-rainbow-delimiters-mode)
+(rainbow-delimiters-mode  t)
 
 (provide 'rainbow-delimiters-settings)
