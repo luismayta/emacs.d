@@ -3,12 +3,10 @@
 ;----------------------------------;
 
 ;; Install Packages
-(el-get-install 'smartparens nil)
+(bundle 'smartparens nil)
 
 (require 'smartparens)
 
-(require 'smartparens-config)
-(require 'smartparens-ruby)
 (smartparens-global-mode)
 (show-smartparens-global-mode t)
 
