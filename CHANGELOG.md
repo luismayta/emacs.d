@@ -4,6 +4,13 @@ This file uses change log convention from [Keep a CHANGELOG](http://keepachangel
 
 ## [Unreleased][unreleased]
 
+## [1.1.0] - 2016-07-28
+
+- #27
+- #35
+- #63
+- #46
+
 ## [1.0.9] - 2016-07-26
 
 - #59 Dash at point
@@ -74,7 +81,8 @@ This file uses change log convention from [Keep a CHANGELOG](http://keepachangel
 
 - texto1
 
-[unreleased]: https://github.com/luismayta/emacs.d/compare/1.0.9...HEAD
+[unreleased]: https://github.com/luismayta/emacs.d/compare/1.1.0...HEAD
+[1.1.0]: https://github.com/luismayta/emacs.d/compare/v1.0.9...1.1.0
 [1.0.9]: https://github.com/luismayta/emacs.d/compare/v1.0.8...1.0.9
 
 [CHANGELOG.md]: CHANGELOG.md
