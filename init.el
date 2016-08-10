@@ -89,7 +89,7 @@
 (require 'autocomplete-settings)
 (require 'emamux-settings)
 ;; (require 'yasnippet-settings)
-(require 'ecb-settings)
+(require 'indent-guide-settings)
 (require 'git-settings)
 (require 'gist-settings)
 (require 'go-settings)
