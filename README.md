@@ -22,6 +22,7 @@ all the goodies of this configuration.
 
 * [Git](http://git-scm.com/)
 * [editorconfig](http://editorconfig.org)
+* [ctags](http://ctags.sourceforge.net)
 
 ## Help/Support
 
@@ -87,11 +88,15 @@ built-in anyway.
   * ELPA
     - the ELPA package manager is configured with Marmalade & MELPA
     - some conveniences are in init.el to make it almost like Bundler for Ruby
-  * editorconfig
+  * [editorconfig](http://editorconfig.org/)
     - config editor
   * [Google-translate](https://github.com/atykhonov/google-translate)
   * [feature-mode](https://github.com/michaelklishin/cucumber.el)
   * [gist-mode](https://github.com/defunkt/gist.el)
+
+### Indent-Guide
+
+[Indent-guide](https://github.com/zk-phi/indent-guide) show vertical lines to guide indentation
 
 ### Projectile
 
