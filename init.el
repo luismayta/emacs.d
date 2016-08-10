@@ -81,7 +81,6 @@
 (require 'haskell-settings)
 (require 'fixmee-settings)
 (require 'projectile-settings)
-(require 'projectile-settings)
 (require 'theme-settings)
 (require 'terraform-settings)
 (require 'feature-settings)
