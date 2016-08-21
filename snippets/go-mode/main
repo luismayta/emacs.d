@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: func main
+# key: main
+# contributor : @slovacus
+# --
+func main() {
+	$0
+}
