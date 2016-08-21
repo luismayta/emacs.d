@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: for
+# key: for
+# contributor : @slovacus
+# --
+for {
+	$0
+}
