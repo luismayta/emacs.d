@@ -3,13 +3,11 @@
 (bundle 'evil-leader nil)
 (bundle 'evil-numbers nil)
 (bundle 'evil-nerd-commenter nil)
-(bundle 'neotree nil)
 
 (require 'evil)
 (require 'evil-numbers)
 (require 'evil-leader)
 (require 'evil-nerd-commenter)
-(require 'neotree)
 
 ;; emacs is actually vim in disguise
 (evil-mode t)
@@ -27,7 +25,6 @@
 
 ; mapping keys evil leader
 (evil-leader/set-key
-  "n" 'neotree-toggle
   "u" 'undo-tree-visualize
   "c" 'evilnc-comment-or-uncomment-lines
   "dp" 'dash-at-point
