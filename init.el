@@ -88,7 +88,7 @@
 (require 'skeletor-settings)
 (require 'autocomplete-settings)
 (require 'emamux-settings)
-;; (require 'yasnippet-settings)
+(require 'yasnippet-settings)
 (require 'indent-guide-settings)
 (require 'git-settings)
 (require 'gist-settings)
