@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: print
+# key: printf
+# contributor : @slovacus
+# --
+fmt.Printf("%+v$0\n",$1)
