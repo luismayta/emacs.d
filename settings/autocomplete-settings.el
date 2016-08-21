@@ -2,11 +2,9 @@
 (bundle 'auto-complete nil)
 (require 'auto-complete)
 
-;; turn on auto-completion of function names etc
-(setq ac-auto-start nil)
-(setq ac-trigger-key "TAB")
-
+(ac-config-default)
 (global-auto-complete-mode t)
-(auto-complete-mode t)
+(ac-set-trigger-key "TAB")
+(ac-set-trigger-key "<tab>")
 
 (provide 'autocomplete-settings)
