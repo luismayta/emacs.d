@@ -87,7 +87,7 @@
 (require 'google-translate-settings)
 (require 'skeletor-settings)
 (require 'yasnippet-settings)
-(require 'autocomplete-settings)
+(require 'company-settings)
 (require 'emamux-settings)
 (require 'indent-guide-settings)
 (require 'git-settings)
