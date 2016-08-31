@@ -28,6 +28,7 @@
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                           ("melpa" . "http://melpa.org/packages/")
                           ("org" . "http://orgmode.org/elpa/")
+                          ("elpy" . "https://jorgenschaefer.github.io/packages/"))
                           ("marmalade" . "http://marmalade-repo.org/packages/")))
 
 ;;; initialize the packages and create the packages list if not exists
