@@ -75,6 +75,7 @@
 (require 'confmode-settings)
 (require 'environments-settings)
 (require 'editorconfig-settings)
+(require 'flycheck-settings)
 (require 'helm-settings)
 (require 'helm-ag-settings)
 (require 'helm-gtags-settings)
