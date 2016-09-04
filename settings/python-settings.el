@@ -1,17 +1,15 @@
-;; python configuration
-(bundle 'python-mode nil)
+;;; python configuration
+(bundle 'elpy nil)
+(bundle 'pyvenv nil)
 
-(require 'python-mode)
+(require 'elpy)
+(require 'pyvenv)
+(require 'flycheck)
 
-;; (bundle 'jedi nil)
-;; (require 'jedi)
+(elpy-enable)
 
-;; (add-hook 'python-mode-hook
-;;   (lambda ()
-;;     (jedi:setup)
-;;     (setq jedi:setup-keys t)
-;;     ;(elpy-enable)
-;;     ;(elpy-use-ipython)
-;;     (setq python-python-command "ipython")))
+(when (require 'flycheck nil t)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 (provide 'python-settings)
