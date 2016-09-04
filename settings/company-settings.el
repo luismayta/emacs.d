@@ -1,6 +1,6 @@
 ;; Install Packages
-(bundle 'company-mode nil)
-(require 'company-mode)
+(bundle 'company nil)
+(require 'company)
 
 (company-mode t)
 (add-hook 'after-init-hook 'global-company-mode)
