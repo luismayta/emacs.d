@@ -15,6 +15,9 @@ indent_style = space
 [*.{js,py,el}]
 charset = utf-8
 
+[*.{el}]
+insert_final_newline = false
+
 [*.{el,md}]
 indent_style = space
 indent_size = 2
