@@ -1,5 +1,5 @@
-;;; init.el --- Start of the Emacs initialisation process.
-
+;;; emacs -- Description
+;; Start of the Emacs initialisation process.
 ;; Increase the GC threshold as soon as possible.
 (setq gc-cons-threshold 50000000)
 
@@ -28,6 +28,7 @@
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                           ("melpa" . "http://melpa.org/packages/")
                           ("org" . "http://orgmode.org/elpa/")
+                          ("elpy" . "https://jorgenschaefer.github.io/packages/")
                           ("marmalade" . "http://marmalade-repo.org/packages/")))
 
 ;;; initialize the packages and create the packages list if not exists
@@ -75,6 +76,7 @@
 (require 'confmode-settings)
 (require 'environments-settings)
 (require 'editorconfig-settings)
+(require 'flycheck-settings)
 (require 'helm-settings)
 (require 'helm-ag-settings)
 (require 'helm-gtags-settings)
@@ -87,7 +89,7 @@
 (require 'google-translate-settings)
 (require 'skeletor-settings)
 (require 'yasnippet-settings)
-(require 'autocomplete-settings)
+(require 'company-settings)
 (require 'emamux-settings)
 (require 'indent-guide-settings)
 (require 'git-settings)
