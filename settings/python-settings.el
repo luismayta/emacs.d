@@ -1,10 +1,8 @@
-;; python configuration
-(bundle 'python-mode nil)
+;;; python configuration
 (bundle 'elpy nil)
 (bundle 'pyvenv nil)
 
 (require 'elpy)
-(require 'python-mode)
 (require 'pyvenv)
 (require 'flycheck)
 
