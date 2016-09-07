@@ -45,7 +45,7 @@
   "tc" 'helm-gtags-create-tags
   "k" 'kill-buffer
   "/" 'helm-ag-this-file
-  "n" 'neotree
+  "n" 'neotree-toggle
   )
 
 ;; evil normal mode key mappings

@@ -1,4 +1,5 @@
 ;;; neotree info ;;;
+;;; code:
 (bundle 'evil nil)
 (bundle 'neotree nil)
 
