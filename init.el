@@ -110,6 +110,7 @@
 (require 'smartparens-settings)
 (require 'rainbow-delimiters-settings)
 (require 'undo-tree-settings)
+(require 'neotree-settings)
 (require 'evil-settings)
 
 (setq my-settings
