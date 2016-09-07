@@ -3,6 +3,7 @@
 ;--------------------------------;
 
 ;; Install Packages
+;;; code:
 (bundle 'apache-mode nil)
 (bundle 'coffee-mode nil)
 (bundle 'buffer-move nil)
@@ -21,6 +22,7 @@
 (bundle 'sml-mode nil)
 (bundle 'smart-mode-line nil)
 (bundle 'use-package nil)
+(bundle 'whitespace-cleanup-mode nil)
 
 ; set PATH, because we don't load .bashrc
 ; function from https://gist.github.com/jakemcc/3887459
@@ -69,6 +71,7 @@
   (tool-bar-mode -1))
 
 ;; show whitespace...
+(whitespace-cleanup-mode t)
 (global-whitespace-mode t)
 
 ;; reload changes from disk
