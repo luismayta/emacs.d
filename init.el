@@ -99,6 +99,7 @@
 (require 'php-settings)
 (require 'webmode-settings)
 (require 'css-settings)
+(require 'csv-settings)
 (require 'yaml-settings)
 (require 'markdown-settings)
 (require 'python-settings)
