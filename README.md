@@ -83,6 +83,8 @@ built-in anyway.
     - purdy colors, easy to read
   * Noctilux Theme
     - Best Theme color Light Table, easy to read
+  * [Neotree](https://github.com/jaypei/emacs-neotree)
+    - A Emacs tree plugin like NerdTree for Vim.
   * Material Theme
     - Best Theme color, easy to read
   * ELPA
