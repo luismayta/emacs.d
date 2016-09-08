@@ -1,5 +1,5 @@
-;;; emacs -- Description
-;; Start of the Emacs initialisation process.
+;;; init.el --- Start of the Emacs initialisation process.
+
 ;; Increase the GC threshold as soon as possible.
 (setq gc-cons-threshold 50000000)
 
@@ -99,6 +99,7 @@
 (require 'php-settings)
 (require 'webmode-settings)
 (require 'css-settings)
+(require 'csv-settings)
 (require 'yaml-settings)
 (require 'markdown-settings)
 (require 'python-settings)
