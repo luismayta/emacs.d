@@ -1,8 +1,7 @@
 ;--------------------------------;
 ;;; Theme Settings             ;;;
 ;--------------------------------;
-
-;; Install Package
+;;; code:
 (bundle 'solarized-theme nil)
 (bundle 'subatomic256-theme nil)
 (bundle 'flatland-theme nil)
