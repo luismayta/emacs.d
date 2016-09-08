@@ -11,7 +11,7 @@
 (bundle 'darkokai-theme nil)
 ;;; -- Config
 
-(load-theme 'noctilux t)
+(load-theme 'bubbleberry t)
 ;; (load-theme 'leuven)
 
 (provide 'theme-settings)
