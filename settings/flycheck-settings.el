@@ -25,5 +25,4 @@
      (set-face-foreground 'flycheck-color-mode-line-warning-face nil)
      (set-face-foreground 'flycheck-color-mode-line-info-face nil)))
 
-
 (provide 'flycheck-settings)
