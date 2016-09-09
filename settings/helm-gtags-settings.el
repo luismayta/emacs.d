@@ -1,9 +1,8 @@
 ;--------------------------------;
 ;;; feature Settings           ;;;
 ;--------------------------------;
-
-;; Install Packages
-(bundle 'helm-gtags nil)
+;;; code:
+(package-require 'helm-gtags)
 
 (require 'helm-gtags)
 

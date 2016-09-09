@@ -1,5 +1,6 @@
 ;; Install and config packages for Nginx
+;;; code:
 
-(bundle 'nginx-mode nil)
+(package-require 'nginx-mode)
 
 (provide 'nginx-settings)

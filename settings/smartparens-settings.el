@@ -2,8 +2,8 @@
 ;;;    Smartparens Settings      ;;;
 ;----------------------------------;
 
-;; Install Packages
-(bundle 'smartparens nil)
+;;; code:
+(package-require 'smartparens)
 
 (require 'smartparens)
 

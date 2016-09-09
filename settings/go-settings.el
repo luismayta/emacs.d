@@ -1,4 +1,5 @@
-;; -*- Emacs-Lisp -*-
+;;; -*- Emacs-Lisp -*-
+;;; code:
 ;; Settings for `go-mode'.
 ;;requires modules
 ;;install packages go
@@ -8,11 +9,11 @@
 ;;install package company-go
 ;;http://yousefourabi.com/blog/2014/05/emacs-for-go/
 
-(bundle 'go-mode nil)
-(bundle 'go-eldoc nil)
-(bundle 'golint nil)
-(bundle 'go-autocomplete nil)
-(bundle 'go-errcheck nil)
+(package-require 'go-mode)
+(package-require 'go-eldoc)
+(package-require 'golint)
+(package-require 'go-autocomplete)
+(package-require 'go-errcheck)
 
 (require 'go-mode)
 (require 'go-autocomplete)
