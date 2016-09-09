@@ -1,9 +1,6 @@
-;--------------------------------;
-;;;    Clipboard Settings      ;;;
-;--------------------------------;
-
-;; Install Packages
-(bundle 'osx-clipboard nil)
+;; clipboard settings
+;;; code:
+(package-require 'osx-clipboard)
 
 (require 'osx-clipboard)
 

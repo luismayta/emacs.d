@@ -1,5 +1,7 @@
 ;;; init.el --- Start of the Emacs initialisation process.
 
+;;; code:
+
 ;; Increase the GC threshold as soon as possible.
 (setq gc-cons-threshold 50000000)
 
@@ -17,7 +19,6 @@
 
 ;; define various custom functions
 (require 'custom-functions)
-
 (require 'exec-path-from-shell)
 
 ;; Load PATH from environment

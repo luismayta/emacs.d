@@ -1,5 +1,6 @@
 ;; Install Packages
-(bundle 'auto-complete nil)
+;;; code:
+(package-require 'auto-complete)
 (require 'auto-complete)
 
 (ac-config-default)

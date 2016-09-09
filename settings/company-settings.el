@@ -1,5 +1,6 @@
 ;; Install Packages
-(bundle 'company nil)
+;;; code:
+(package-require 'company)
 (require 'company)
 
 (company-mode t)

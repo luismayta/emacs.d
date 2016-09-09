@@ -2,8 +2,8 @@
 ;;;    Ecb Settings      ;;;
 ;--------------------------;
 
-;; Install Packages
-(bundle 'ecb nil)
+;;; code:
+(package-require 'ecb)
 
 (require 'ecb)
 

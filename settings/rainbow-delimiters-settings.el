@@ -2,8 +2,8 @@
 ;;;    Rainbow-Delimiters Settings      ;;;
 ;-----------------------------------------;
 
-;; Install Packages
-(bundle 'rainbow-delimiters nil)
+;;; code:
+(package-require 'rainbow-delimiters)
 
 (require 'rainbow-delimiters)
 (rainbow-delimiters-mode  t)

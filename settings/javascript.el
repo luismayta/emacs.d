@@ -1,4 +1,5 @@
 ;; Install Packages
-(bundle 'js2-mode nil)
+;;; code:
+(package-require 'js2-mode)
 
-setq 'js2-highlight-level 3)
+(setq 'js2-highlight-level 3)

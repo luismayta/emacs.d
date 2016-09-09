@@ -1,9 +1,9 @@
 ;; Install Packages
 
 ;;; code:
-(bundle 'flycheck nil)
-(bundle 'flycheck-color-mode-line nil)
-(bundle 'flycheck-pos-tip nil)
+(package-require 'flycheck)
+(package-require 'flycheck-color-mode-line)
+(package-require 'flycheck-pos-tip)
 (require 'flycheck)
 
 (global-flycheck-mode)

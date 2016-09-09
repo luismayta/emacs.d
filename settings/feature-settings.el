@@ -1,9 +1,8 @@
 ;--------------------------------;
 ;;; feature Settings           ;;;
 ;--------------------------------;
-
-;; Install Packages
-(bundle 'feature-mode nil)
+;;; code:
+(package-require 'feature-mode)
 
 ;; Add Hook
 (require 'feature-mode)
