@@ -1,5 +1,6 @@
 ;; Install Packages
-(bundle 'skeletor  nil)
+;;; code:
+(package-require 'skeletor)
 
 (require 'skeletor)
 

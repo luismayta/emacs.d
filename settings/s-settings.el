@@ -1,5 +1,6 @@
 ;; Install Packages
-(bundle 's  nil)
+;;; code:
+(package-require 's  nil)
 
 (require 's)
 

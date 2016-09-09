@@ -1,9 +1,10 @@
 ;--------------------------;
 ;;;    Dash Settings     ;;;
 ;--------------------------;
+;;; code:
 
 ;; Install Packages
-(bundle 'dash-at-point nil)
+(package-require 'dash-at-point)
 
 (require 'dash-at-point)
 

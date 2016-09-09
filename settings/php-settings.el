@@ -1,8 +1,7 @@
 ;; Install Packages
+;;; code:
 
-(bundle 'php-mode nil)
-
-;; Config
+(package-require 'php-mode)
 
 (require 'php-mode)
 

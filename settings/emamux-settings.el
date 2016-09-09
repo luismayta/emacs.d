@@ -1,5 +1,6 @@
 ;; config emamux
-(bundle 'emamux nil)
+;;; code:
+(package-require 'emamux)
 
 (require 'emamux)
 

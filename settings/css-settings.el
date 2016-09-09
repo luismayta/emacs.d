@@ -1,5 +1,6 @@
 ;; Install Packages
-(bundle 'css-mode nil)
+;;; code:
+(package-require 'css-mode)
 
 (require 'css-mode)
 
