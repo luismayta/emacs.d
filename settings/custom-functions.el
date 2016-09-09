@@ -2,6 +2,7 @@
 ;;; Custom Functions ;;;
 ;----------------------;
 
+;;; code:
 ; unfill a paragraph, i.e., make it so the text does not wrap in the
 ; paragraph where the cursor is
 (defun unfill-paragraph ()
