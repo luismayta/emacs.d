@@ -2,8 +2,8 @@
 ;;;    Haskell Settings      ;;;
 ;------------------------------;
 
-;; Install Packages
-(bundle 'haskell-mode nil)
+;;; code:
+(package-require 'haskell-mode)
 
 (require 'haskell-mode)
 (require 'hindent)

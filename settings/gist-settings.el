@@ -1,6 +1,7 @@
 ;; Install Packages
-(bundle 'git nil)
-(bundle 'gist nil)
+;;; code:
+(package-require 'git)
+(package-require 'gist)
 
 (require 'git)
 (require 'gist)

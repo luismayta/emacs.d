@@ -1,7 +1,7 @@
 ;;; neotree info ;;;
 ;;; code:
-(bundle 'evil nil)
-(bundle 'neotree nil)
+(package-require 'evil)
+(package-require 'neotree)
 
 (require 'neotree)
 (require 'evil)

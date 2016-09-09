@@ -1,6 +1,7 @@
 ;; Install and config packages for sml-modeline
+;;; code:
 
-(bundle 'sml-modeline nil)
+(package-require 'sml-modeline)
 
 (sml-modeline-mode 1)
 
