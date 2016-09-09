@@ -1,6 +1,7 @@
 ;; Install Packages
+;;; code:
 
-(bundle 'undo-tree nil)
+(package-require 'undo-tree)
 
 (require 'undo-tree)
 

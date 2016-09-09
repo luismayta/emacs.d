@@ -1,10 +1,11 @@
 ;--------------------------------;
 ;;; Projectile Settings        ;;;
 ;--------------------------------;
+;;; code:
 
 ;; Install Packages
-(bundle 'projectile nil)
-(bundle 'helm-projectile nil)
+(package-require 'projectile)
+(package-require 'helm-projectile)
 
 (require 'projectile)
 

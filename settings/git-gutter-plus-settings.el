@@ -1,6 +1,7 @@
 ;; Install Packages
-(bundle 'git-gutter+ nil)
-(bundle 'git-gutter-fringe+ nil)
+;;; code:
+(package-require 'git-gutter+)
+(package-require 'git-gutter-fringe+)
 
 (require 'git-gutter+)
 (require 'git-gutter-fringe+)

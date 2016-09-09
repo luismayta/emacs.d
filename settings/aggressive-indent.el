@@ -1,5 +1,6 @@
 ;; Install Packages
-(bundle 'aggressive-indent nil)
+;;; code:
+(package-require 'aggressive-indent)
 (require 'aggressive-indent)
 
 (global-aggressive-indent-mode 1)
