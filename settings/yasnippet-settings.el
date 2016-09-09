@@ -1,10 +1,9 @@
 ;; Install packages
+;;; code:
 
-(bundle 'yasnippet nil)
-;; (bundle 'yasnippet-bundle nil)
+(package-require 'yasnippet)
 
 (require 'yasnippet)
-;; (require 'yasnippet-bundle)
 
 (setq yas-snippet-dirs '(
         "~/.emacs.d/snippets" ;personal snippets

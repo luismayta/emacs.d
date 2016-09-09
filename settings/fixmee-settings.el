@@ -1,9 +1,8 @@
 ;--------------------------------;
 ;;; Fixmee Settings            ;;;
 ;--------------------------------;
-
-;; Install Packages
-(bundle 'fixmee nil)
+;;; code:
+(package-require 'fixmee)
 (require 'fixmee)
 
 (fixmee-mode)

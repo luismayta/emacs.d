@@ -1,5 +1,6 @@
 ;; Install Packages
-(bundle 'web-mode nil)
+;;; code:
+(package-require 'web-mode)
 
 ;; Config
 

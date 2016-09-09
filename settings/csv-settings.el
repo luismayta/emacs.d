@@ -1,7 +1,7 @@
 ;;; -*- Emacs-Lisp -*-
 
 ;;; code:
-(bundle 'csv-mode nil)
+(package-require 'csv-mode)
 
 (require 'csv-mode)
 

@@ -1,4 +1,6 @@
-(bundle 'editorconfig nil)
+;;; editorconfig-settings
+;;; code:
+(package-require 'editorconfig)
 
 (require 'editorconfig)
 

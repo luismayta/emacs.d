@@ -1,8 +1,9 @@
 ;; Install Packages
-(bundle 'evil nil)
-(bundle 'evil-leader nil)
-(bundle 'evil-numbers nil)
-(bundle 'evil-nerd-commenter nil)
+;;; code:
+(package-require 'evil)
+(package-require 'evil-leader)
+(package-require 'evil-numbers)
+(package-require 'evil-nerd-commenter)
 
 (require 'evil)
 (require 'evil-numbers)

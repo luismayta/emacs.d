@@ -2,9 +2,9 @@
 ;;;    Helm Settings           ;;;
 ;--------------------------------;
 
-;; Install Packages
-(bundle 'helm nil)
-(bundle 'helm-descbinds nil)
+;;; code:
+(package-require 'helm)
+(package-require 'helm-descbinds)
 
 (require 'helm)
 (require 'helm-descbinds)
