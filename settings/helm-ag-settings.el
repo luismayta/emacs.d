@@ -2,8 +2,8 @@
 ;;;    Helm ag Settings           ;;;
 ;-----------------------------------;
 
-;; Install Packages
-(bundle 'helm-ag nil)
+;;; code:
+(package-require 'helm-ag)
 
 (require 'helm-ag)
 

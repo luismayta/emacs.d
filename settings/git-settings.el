@@ -1,7 +1,8 @@
 ;; Install Packages
-(bundle 'magit nil)
-(bundle 'gitconfig-mode nil)
-(bundle 'gitignore-mode nil)
+;;; code:
+(package-require 'magit)
+(package-require 'gitconfig-mode)
+(package-require 'gitignore-mode)
 
 (require 'magit)
 

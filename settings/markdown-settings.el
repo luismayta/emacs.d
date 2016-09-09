@@ -1,11 +1,9 @@
 ;-------------------;
 ;;; Markdown mode ;;;
 ;-------------------;
-
-;; Install Packages
-(bundle 'markdown-mode nil)
+;;; code:
+(package-require 'markdown-mode)
 ;; Config
-(require 'cl)
 (require 'markdown-mode)
 
 (defun markdown-mode-hook ()

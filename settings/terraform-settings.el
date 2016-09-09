@@ -2,8 +2,8 @@
 ;;; Terraform Settings         ;;;
 ;--------------------------------;
 
-;; Install Packages
-(bundle 'terraform-mode nil)
+;;; code:
+(package-require 'terraform-mode)
 (require 'terraform-mode)
 
 (terraform-mode)
