@@ -2,15 +2,14 @@
 ;;; Theme Settings             ;;;
 ;--------------------------------;
 ;;; code:
-(bundle 'solarized-theme nil)
-(bundle 'subatomic256-theme nil)
-(bundle 'flatland-theme nil)
-(bundle 'lenlen-theme nil)
-(bundle 'material-theme nil)
-(bundle 'darkokai-theme nil)
+(package-require 'solarized-theme)
+(package-require 'subatomic256-theme)
+(package-require 'flatland-theme)
+(package-require 'lenlen-theme)
+(package-require 'material-theme)
+(package-require 'darkokai-theme)
 ;;; -- Config
 
-(load-theme 'bubbleberry t)
-;; (load-theme 'leuven)
+(load-theme 'noctilux t)
 
 (provide 'theme-settings)
