@@ -1,6 +1,7 @@
 ;;; python configuration
-(bundle 'elpy nil)
-(bundle 'pyvenv nil)
+;;; code:
+(package-require 'elpy)
+(package-require 'pyvenv)
 
 (require 'elpy)
 (require 'pyvenv)

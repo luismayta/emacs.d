@@ -1,7 +1,8 @@
 ;; -*- Emacs-Lisp -*-
 ;; Settings for `wakatime-mode'.
+;;; code:
 
-(bundle 'wakatime-mode nil)
+(package-require 'wakatime-mode)
 
 (setq wakatime-api-key (getenv "WAKATIME_API_KEY"))
 (setq wakatime-cli-path (getenv "WAKATIME_CLI_PATH"))

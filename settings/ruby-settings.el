@@ -1,5 +1,7 @@
-(bundle 'ruby-mode nil)
-(bundle 'rhtml-mode nil)
+;; Comment
+;;; code:
+(package-require 'ruby-mode)
+(package-require 'rhtml-mode)
 
 (require 'ruby-mode)
 (require 'rhtml-mode)

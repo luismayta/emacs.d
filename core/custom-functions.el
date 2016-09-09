@@ -2,6 +2,7 @@
 ;;; Custom Functions ;;;
 ;----------------------;
 
+;;; code:
 ; unfill a paragraph, i.e., make it so the text does not wrap in the
 ; paragraph where the cursor is
 (defun unfill-paragraph ()
@@ -39,10 +40,9 @@
   (add-to-list 'load-path (make-elget-path plugin)))
 
 ;; Functions install Package
-
-(defun bundle (depname refresh)
+(defun package-require (pkg)
   "Runs `package-install', attempting `package-refresh-contents' on failure."
-  (when refresh (package-refresh-contents))
-  (package-install depname))
+  (when (not (package-installed-p pkg))
+    (package-install pkg)))
 
 (provide 'custom-functions)

@@ -2,9 +2,8 @@
 ;;; google translate Settings  ;;;
 ;--------------------------------;
 
-;; Install packages Google Translate
-
-(bundle 'google-translate nil)
+;;; code:
+(package-require 'google-translate)
 
 (require 'google-translate)
 (require 'google-translate-smooth-ui)

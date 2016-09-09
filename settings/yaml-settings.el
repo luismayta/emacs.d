@@ -1,5 +1,6 @@
 ;; Install Packages
-(bundle 'yaml-mode nil)
+;;; code:
+(package-require 'yaml-mode)
 
 (require 'yaml-mode)
 
