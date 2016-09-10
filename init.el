@@ -21,8 +21,6 @@
 ;; Set up some defaults settings
 (require 'lm-defaults)
 
-(require 'exec-path-from-shell)
-
 ;; Custom functions
 (require 'lm-defuns)
 
