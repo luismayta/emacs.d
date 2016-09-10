@@ -44,4 +44,4 @@
   (when (not (package-installed-p pkg))
     (package-install pkg)))
 
-(provide 'sm-defuns)
+(provide 'lm-defuns)
