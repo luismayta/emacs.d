@@ -20,8 +20,14 @@
 
 ;; Set up some defaults settings
 (require 'lm-defaults)
+
 (require 'exec-path-from-shell)
+
+;; Custom functions
 (require 'lm-defuns)
 
 ;; Set up available modules and the load-modules function
 (require 'lm-modules)
+
+;; Load configured modules.
+(lm/load-modules)
