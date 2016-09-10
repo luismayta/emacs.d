@@ -26,6 +26,23 @@
 ;; Show column numbers in mode line.
 (setq column-number-mode t)
 
+;; the menu bar is pointless in a terminal
+(menu-bar-mode -1)
+
+;; don't show the tool bar when in a gui
+(when (featurep 'tool-bar)
+  (tool-bar-mode -1))
+
+;Highlight the current line
+(global-hl-line-mode 1)
+
+;; show whitespace...
+(whitespace-cleanup-mode t)
+(global-whitespace-mode t)
+
+;; reload changes from disk
+(global-auto-revert-mode t)
+
 ;; Never ring the bell. Never.
 (setq ring-bell-function (lambda()))
 
@@ -73,5 +90,6 @@
 ;; Misc.
 (setq inhibit-startup-message t)
 (global-font-lock-mode t)
+
 
 (provide 'lm-defaults)
