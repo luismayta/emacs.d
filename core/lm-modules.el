@@ -26,48 +26,21 @@
       lm-editing
       lm-ui
       lm-appearance
+      lm-snippets
+      lm-searching
+      lm-navigation
+      lm-company
+      lm-writing
+      lm-projects
+      lm-source-control
       lm-coding-general
-      dash-settings
-      clipboard-settings
-      confmode-settings
-      environments-settings
-      editorconfig-settings
-      flycheck-settings
-      helm-settings
-      helm-ag-settings
-      helm-gtags-settings
-      haskell-settings
-      fixmee-settings
-      projectile-settings
-      theme-settings
-      terraform-settings
-      feature-settings
-      google-translate-settings
-      skeletor-settings
-      yasnippet-settings
-      company-settings
-      emamux-settings
-      indent-guide-settings
-      git-settings
-      gist-settings
-      go-settings
-      ruby-settings
-      php-settings
-      webmode-settings
-      css-settings
-      csv-settings
-      yaml-settings
-      markdown-settings
-      python-settings
-      smartparens-settings
-      nginx-settings
-      sml-modeline-settings
-      git-gutter-plus-settings
-      wakatime-settings
-      smartparens-settings
-      rainbow-delimiters-settings
-      undo-tree-settings
-      neotree-settings
+      lm-coding-elixir
+      lm-coding-java
+      lm-coding-js
+      lm-coding-python
+      lm-coding-ruby
+      lm-coding-swift
+      lm-company
       evil-settings
      )
   )
