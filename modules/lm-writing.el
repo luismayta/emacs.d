@@ -17,9 +17,11 @@
 
 ;; markdown
 (use-package markdown-mode
-  :mode "\\.md\\'")
+  :mode (("\\.md$" . markdown-mode)
+         ("\\.text$" . markdown-mode))
+         ("\\.markdown$" . markdown-mode)))
 
 ;; Double spaces at the end of sentences is a bit outdated.
 (setq sentence-end-double-space nil)
 
-(provide 'sm-writing)
+(provide 'lm-writing)
