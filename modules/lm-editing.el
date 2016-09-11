@@ -7,6 +7,9 @@
 ;; Require newline at end of file.
 (setq require-final-newline t)
 
+(use-package osx-clipboard
+  :commands aggressive-indent-mode)
+
 ;; Revert buffers automatically when underlying files are changed externally.
 (use-package autorevert
   :diminish auto-revert-mode
@@ -64,7 +67,7 @@
 
 ;; multiple-cursors
 (use-package multiple-cursors
-  :init (setq mc/list-file (sm/emacs.d "etc/.mc-lists.el"))
+  :init (setq mc/list-file (lm/emacs.d "etc/.mc-lists.el"))
   :bind (("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this)
          ("C-c C->" . mc/mark-all-like-this)))
