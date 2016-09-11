@@ -1,7 +1,15 @@
-;;; lm-defaults ;;;
+;;; lm-defaults.
 ;;; code:
-
 (require 'lm-defuns)
+
+;; Ignore customisation by putting it in the cache dir.
+(setq custom-file (lm/cache-for "custom.el"))
+
+;; Set default directory.
+(setq default-directory "~")
+
+;; Set home dir.
+(cd (expand-file-name "~/"))
 
 ;; Fix mac-port defaults.
 (when (equal system-type 'darwin)
