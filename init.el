@@ -11,7 +11,6 @@
 (package-initialize)
 
 ;; Prepare paths.
-(add-to-list 'load-path (expand-file-name "settings/" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "core/" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "modules/" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "lib/elisp" user-emacs-directory))
