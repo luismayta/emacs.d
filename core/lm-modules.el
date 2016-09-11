@@ -14,8 +14,20 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
+;; Ensure `use-package' is installed.
+(when (not (package-installed-p 'use-package))
+  (package-install 'use-package))
+
+(require 'use-package)
+(setq use-package-always-ensure t)
+
 (setq lm/modules
-  '(dash-settings
+    '(lm-path
+      lm-editing
+      lm-ui
+      lm-appearance
+      lm-coding-general
+      dash-settings
       clipboard-settings
       confmode-settings
       environments-settings
