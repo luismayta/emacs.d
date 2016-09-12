@@ -1,4 +1,4 @@
-;;; sm-source-control.el --- Source control and related configuration.
+;;; lm-source-control.el --- Source control and related configuration.
 
 ;; Disable since I use magit for everything.
 (setq vc-handled-backends '())
@@ -18,7 +18,7 @@
     (list (apply 'call-process program nil (current-buffer) nil args)
           (buffer-string))))
 
-(defun sm/magit-or-monky-status ()
+(defun lm/magit-or-monky-status ()
   "Call `magit-status' or `monky-status' depending on whether a
 git or hg repository is found in the buffer-local working dir."
   (interactive)
@@ -33,7 +33,7 @@ git or hg repository is found in the buffer-local working dir."
 ;; Modes for git and mercurial.
 (use-package magit
   :commands magit-status
-  :bind ("C-x g" . sm/magit-or-monky-status)
+  :bind ("C-x g" . lm/magit-or-monky-status)
   :config
   ;; Full-screen magit status with restore.
   (defadvice magit-status (around magit-fullscreen activate)
@@ -70,4 +70,4 @@ git or hg repository is found in the buffer-local working dir."
   (setq git-gutter:handled-backends '(git hg))
   (global-git-gutter-mode t))
 
-(provide 'sm-source-control)
+(provide 'lm-source-control)

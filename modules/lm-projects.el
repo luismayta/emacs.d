@@ -1,22 +1,19 @@
 ;;; lm-projects.el --- Configuration for working with projects.
+;;; code:
 
 ;; projectile
+(use-package helm-projectile
+  :commands (helm-projectile-on))
+
 (use-package projectile
   :diminish projectile-mode
   :commands (projectile-mode projectile-global-mode)
   :bind ("C-c p a" . projectile-ag)
-  :init (add-hook 'after-init-hook 'projectile-global-mode)
+  :init
+  (add-hook 'after-init-hook 'projectile-global-mode)
   :config
-  ;; Ensure projectile dir exists.
-  (defvar my-projectile-dir (lm/cache-for "projectile"))
-  (lm/mkdir-p my-projectile-dir)
-  ;; Use projectile dir for cache and bookmarks.
-  (let* ((prj-dir (file-name-as-directory my-projectile-dir))
-         (prj-cache-file (concat prj-dir "projectile.cache"))
-         (prj-bookmarks-file (concat prj-dir "projectile-bkmrks.eld")))
-    (setq projectile-cache-file          prj-cache-file
-          projectile-known-projects-file prj-bookmarks-file
-          projectile-indexing-method     'alien)))
+  (setq projectile-completion-system 'helm)
+  (setq projectile-file-exists-local-cache-expire (* 5 60)))
 
 ;; perspective
 (use-package perspective
