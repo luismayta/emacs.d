@@ -1,4 +1,5 @@
 ;; company-mode
+;;; code:
 ;; Auto-completion backend.
 (use-package company
   :diminish " ©"
@@ -23,6 +24,6 @@
   (define-key company-active-map (kbd "C-p") 'company-select-previous)
   (setq company-backends (remove 'company-clang company-backends))
   (setq company-backends
-        (mapcar #'lm/backend-with-yas company-backends)))
+    (mapcar #'lm/backend-with-yas company-backends)))
 
 (provide 'lm-company)
