@@ -9,6 +9,7 @@
                           ("org" . "http://orgmode.org/elpa/")
                           ("elpy" . "https://jorgenschaefer.github.io/packages/")
                           ("marmalade" . "http://marmalade-repo.org/packages/")))
+
 ;; Refresh the archive if we have no local cache.
 (unless package-archive-contents
   (package-refresh-contents))
