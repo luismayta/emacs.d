@@ -1,14 +1,12 @@
 ;;; lm-coding-general.el --- General coding-related config.
 ;;; code:
-;; wakatime for developer
-(use-package wakatime-mode
-  :config
-  (setq wakatime-api-key (getenv "WAKATIME_API_KEY"))
-  (setq wakatime-cli-path (getenv "WAKATIME_CLI_PATH"))
-  (setq wakatime-python-bin (getenv "WAKATIME_PYTHON_BIN"))
+(use-package feature-mode
+  :mode (("\\.feature$" . feature-mode)))
+
+(use-package fixmee
   :init
-  (setq inhibit-startup-screen t)
-  (global-wakatime-mode t))
+  (fixmee-mode)
+  (global-fixmee-mode t))
 
 ;; EditorConfig.org -- project-local coding style definitions.
 (use-package editorconfig
@@ -17,7 +15,7 @@
   :config
   (progn
     (add-to-list 'editorconfig-indentation-alist
-                 '(swift-mode swift-indent-offset))))
+      '(swift-mode swift-indent-offset))))
 
 ;; highlight-numbers
 ;; Highlights magic numbers in programming modes.
@@ -48,7 +46,17 @@
 
 ;; yaml
 (use-package yaml-mode
-  :mode (("\\.yml$" . restclient-mode)
-         ("\\.yml$" . restclient-mode)))
+  :mode (("\\.yml$" . yaml-mode)
+          ("\\.yml$" . yaml-mode)))
+
+;; wakatime for developer
+(use-package wakatime-mode
+  :config
+  (setq wakatime-api-key (getenv "WAKATIME_API_KEY"))
+  (setq wakatime-cli-path (getenv "WAKATIME_CLI_PATH"))
+  (setq wakatime-python-bin (getenv "WAKATIME_PYTHON_BIN"))
+  :init
+  (setq inhibit-startup-screen t)
+  (global-wakatime-mode t))
 
 (provide 'lm-coding-general)
