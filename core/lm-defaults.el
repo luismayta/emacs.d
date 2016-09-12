@@ -38,10 +38,6 @@
 ;Highlight the current line
 (global-hl-line-mode 1)
 
-;; show whitespace...
-(whitespace-cleanup-mode t)
-(global-whitespace-mode t)
-
 ;; reload changes from disk
 (global-auto-revert-mode t)
 
@@ -66,8 +62,35 @@
 ;; Automatically scroll compilation window.
 (setq compilation-scroll-output 1)
 
+(lm/mkdir-p (lm/emacs.d "var/cache"))
+(lm/mkdir-p (lm/emacs.d "etc"))
+(lm/mkdir-p (lm/cache-for "backups"))
+
+;; Keep backups in a separate directory.
+(defun make-backup-file-name (file)
+  (concat (lm/cache-for "backups/") (file-name-nondirectory file) "~"))
+
+;; Keep autosave files in /tmp.
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
+;; Change auto-save-list directory.
+(setq auto-save-list-file-prefix (lm/cache-for "auto-save-list/.saves-"))
+
+;; Change eshell directory.
+(setq eshell-directory-name (lm/cache-for "eshell"))
+
 ;; Disable annoying lock files.
 (setq create-lockfiles nil)
+
+;; Change bookmarks file location.
+(setq bookmark-file (lm/emacs.d "etc/bookmarks"))
+
+;; Change save-places file location.
+(setq save-place-file (lm/cache-for "places"))
+
+;; Ido history.
+(setq ido-save-directory-list-file (lm/cache-for "ido.last"))
 
 ;; Allow pasting selection outside of Emacs.
 (setq x-select-enable-clipboard t)
@@ -92,6 +115,5 @@
 ;; Misc.
 (setq inhibit-startup-message t)
 (global-font-lock-mode t)
-
 
 (provide 'lm-defaults)
