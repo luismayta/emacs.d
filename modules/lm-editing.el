@@ -8,7 +8,8 @@
 (setq require-final-newline t)
 
 (use-package osx-clipboard
-  :commands aggressive-indent-mode)
+  :config
+  (osx-clipboard-mode t))
 
 ;; Revert buffers automatically when underlying files are changed externally.
 (use-package autorevert
