@@ -8,14 +8,14 @@
 
 (bind-key "C-c n" 'create-new-buffer)
 
-(defun lm/lmart-find-file ()
+(defun lm/smart-find-file ()
   "Find files using projectile if within a project, or fall-back to ido."
   (interactive)
   (if (projectile-project-p)
       (projectile-find-file)
     (ido-find-file)))
 
-(bind-key "C-x f" 'lm/lmart-find-file)
+(bind-key "C-x f" 'lm/smart-find-file)
 
 (defun lm/kill-default-buffer ()
   "Kill the currently active buffer."
@@ -65,10 +65,10 @@
   :bind (("C-o" . avy-goto-char)
          ("M-g" . avy-goto-line)))
 
-;; lmooth-scrolling
+;; smooth-scrolling
 ;; Avoids annoying behaviour when scrolling past the edges of a buffer.
-(use-package lmooth-scrolling
-  :init (lmooth-scrolling-mode t))
+(use-package smooth-scrolling
+  :init (smooth-scrolling-mode t))
 
 ;; recentf
 ;; Open/view recent files.
