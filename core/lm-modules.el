@@ -20,26 +20,27 @@
 (setq use-package-always-ensure t)
 
 (setq lm/modules
-    '(lm-path
-      lm-editing
-      lm-ui
-      lm-appearance
-      lm-snippets
-      lm-searching
-      lm-navigation
-      lm-company
-      lm-writing
-      lm-projects
-      lm-source-control
-      lm-coding-general
-      lm-coding-elixir
-      lm-coding-java
-      lm-coding-js
-      lm-coding-python
-      lm-coding-ruby
-      lm-coding-swift
-      lm-company
-      lm-coding-evil
+  '(lm-path
+     lm-editing
+     lm-ui
+     lm-appearance
+     lm-snippets
+     lm-searching
+     lm-navigation
+     lm-company
+     lm-writing
+     lm-projects
+     projectile-settings
+     lm-source-control
+     lm-coding-general
+     lm-coding-elixir
+     lm-coding-java
+     lm-coding-js
+     lm-coding-python
+     lm-coding-ruby
+     lm-coding-swift
+     lm-company
+     lm-coding-evil
      )
   )
 
