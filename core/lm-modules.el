@@ -41,6 +41,7 @@
      lm-coding-python
      lm-coding-ruby
      lm-coding-swift
+     lm-coding-haskell
      lm-company
      lm-coding-evil
      )
