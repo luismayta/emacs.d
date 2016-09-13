@@ -60,14 +60,4 @@ git or hg repository is found in the buffer-local working dir."
   ;; Flyspell during commits.
   (add-hook 'monky-log-edit-mode-hook '(lambda () (flyspell-mode t))))
 
-;; git-gutter
-(use-package git-gutter
-  :defer 2
-  :diminish git-gutter-mode
-  :ensure git-gutter-fringe
-  :config
-  (require 'git-gutter-fringe)
-  (setq git-gutter:handled-backends '(git hg))
-  (global-git-gutter-mode t))
-
 (provide 'lm-source-control)
