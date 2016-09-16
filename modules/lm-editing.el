@@ -1,4 +1,5 @@
 ;; Delete marked text on typing
+;;; code:
 (delete-selection-mode t)
 
 ;; Soft-wrap lines
@@ -6,7 +7,10 @@
 
 ;; Require newline at end of file.
 (setq require-final-newline t)
+;; skeletor package
+(use-package skeletor)
 
+;; osx clipboard
 (use-package osx-clipboard
   :config
   (osx-clipboard-mode t))
