@@ -42,6 +42,7 @@
      lm-coding-ruby
      lm-coding-swift
      lm-coding-haskell
+     lm-coding-rust
      lm-company
      lm-coding-evil
      )
