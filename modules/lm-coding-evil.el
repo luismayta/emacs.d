@@ -9,7 +9,7 @@
   (progn
     ;; if we don't have this evil overwrites the cursor color
     (setq evil-default-cursor t)
-
+    (setq expand-region-contract-fast-key "z")
     ;; leader shortcuts
 
     ;; This has to be before we invoke evil-mode due to:
@@ -40,6 +40,7 @@
           "tt" 'helm-gtags-find-tag
           "tc" 'helm-gtags-create-tags
           "k" 'kill-buffer
+          "xx" 'er/expand-region
           "/" 'helm-ag-this-file
           "n" 'neotree-toggle)))
     ;; boot evil by default
