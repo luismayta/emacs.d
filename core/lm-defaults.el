@@ -27,6 +27,8 @@
 
 ;; Show column numbers in mode line.
 (setq column-number-mode t)
+;; Show linum mode
+(global-linum-mode t)
 
 ;; the menu bar is pointless in a terminal
 (menu-bar-mode -1)
@@ -106,7 +108,9 @@
 (setq save-interprogram-paste-before-kill t)
 
 ;; Dired defaults.
-(setq-default insert-directory-program "gls")
+;; Prefer g-prefixed coreutils version of standard utilities when available
+(let ((gls (executable-find "gls")))
+  (when gls (setq insert-directory-program gls)))
 (setq-default dired-listing-switches "-lhva")
 (setq-default dired-clean-up-buffers-too t)
 (setq-default dired-recursive-copies 'always)

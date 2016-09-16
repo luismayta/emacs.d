@@ -1,5 +1,7 @@
 ;;; lm-projects.el --- Configuration for working with projects.
 ;;; code:
+;; Add: info helm-ag
+(use-package helm-ag)
 
 ;; projectile
 (use-package helm-projectile
