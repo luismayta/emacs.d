@@ -43,6 +43,7 @@
      lm-coding-swift
      lm-coding-haskell
      lm-coding-rust
+     lm-coding-go
      lm-company
      lm-coding-evil
      )
