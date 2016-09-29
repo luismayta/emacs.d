@@ -35,6 +35,7 @@
      projectile-settings
      lm-source-control
      lm-coding-general
+     lm-coding-docker
      lm-coding-elixir
      lm-coding-java
      lm-coding-js
