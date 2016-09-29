@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # -*- coding: utf-8 -*-
 
+[ -r "script/bootstrap.sh" ] && source "script/bootstrap.sh"
+
 git filter-branch --force --commit-filter '
     if [ "$GIT_COMMITTER_NAME" = "itachi uchiha" ];
     then
