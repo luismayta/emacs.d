@@ -42,7 +42,8 @@
           "k" 'kill-buffer
           "xx" 'er/expand-region
           "/" 'helm-ag-this-file
-          "n" 'neotree-toggle)))
+          "n" 'neotree-toggle
+          "p" 'puml-preview)))
     ;; boot evil by default
     (evil-mode 1)))
 

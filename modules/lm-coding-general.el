@@ -59,4 +59,11 @@
   (setq inhibit-startup-screen t)
   (global-wakatime-mode t))
 
+(use-package puml-mode
+  :config
+  (setq puml-plantuml-jar-path (getenv "PLANTUML_JAR_PATH"))
+  :mode
+  ("\\.puml$" . puml-mode)
+  ("\\.plantuml$" . puml-mode))
+
 (provide 'lm-coding-general)
