@@ -2,6 +2,7 @@
 
 ;;; code:
 (use-package dockerfile-mode
+  :mode (("\\Dockerfile\\'" . dockerfile-mode))
   :commands
   (dockerfile-mode t))
 
