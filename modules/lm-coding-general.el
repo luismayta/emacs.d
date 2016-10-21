@@ -1,5 +1,15 @@
 ;;; lm-coding-general.el --- General coding-related config.
 ;;; code:
+;; EditorConfig.org -- project-local coding style definitions.
+
+(use-package editorconfig
+  :commands editorconfig-mode
+  :init (add-hook 'prog-mode-hook #'editorconfig-mode)
+  :config
+  (progn
+    (add-to-list 'editorconfig-indentation-alist
+      '(swift-mode swift-indent-offset))))
+
 (use-package feature-mode
   :mode (("\\.feature$" . feature-mode)))
 
@@ -8,14 +18,7 @@
   (fixmee-mode)
   (global-fixmee-mode t))
 
-;; EditorConfig.org -- project-local coding style definitions.
-(use-package editorconfig
-  :commands editorconfig-mode
-  :init (add-hook 'prog-mode-hook #'editorconfig-mode)
-  :config
-  (progn
-    (add-to-list 'editorconfig-indentation-alist
-      '(swift-mode swift-indent-offset))))
+(use-package goto-last-change)
 
 ;; highlight-numbers
 ;; Highlights magic numbers in programming modes.
@@ -42,12 +45,14 @@
 ;; Runs REST queries from a query sheet and pretty-prints responses.
 (use-package restclient
   :commands restclient-mode
-  :mode ("\\.http$" . restclient-mode))
+  :mode
+  (("\\.http$" . restclient-mode)))
 
 ;; yaml
 (use-package yaml-mode
-  :mode (("\\.yml$" . yaml-mode)
-          ("\\.yml$" . yaml-mode)))
+  :mode
+  (("\\.yml$" . yaml-mode)
+    ("\\.yaml$" . yaml-mode)))
 
 ;; wakatime for developer
 (use-package wakatime-mode
