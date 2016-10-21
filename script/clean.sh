@@ -8,10 +8,17 @@ find $ROOT_DIR/ -name "*.swp" -delete
 find $ROOT_DIR/ -name "__pycache__" -delete
 
 # Directory
-rm -rf el-get/
-rm -rf elpa/
-rm -rf auto-save-list/
-# Files
 
-rm -rf ido.last
-rm -rf ac-comphist.dat
+{
+    rm -rf el-get/
+    rm -rf elpa/
+    rm -rf auto-save-list/
+    rm -rf var/
+} >> /dev/null 2>&1
+
+
+# Files
+{
+    rm -rf ido.last
+    rm -rf ac-comphist.dat
+} >> /dev/null 2>&1
