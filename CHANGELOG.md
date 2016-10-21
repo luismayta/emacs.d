@@ -4,6 +4,13 @@ This file uses change log convention from [Keep a CHANGELOG](http://keepachangel
 
 ## [Unreleased][unreleased]
 
+## [1.1.9] - 2016-10-21
+
+- #89
+- #87
+- #40
+- #37
+
 ## [1.1.8] - 2016-09-16
 
 - #84
@@ -125,7 +132,8 @@ This file uses change log convention from [Keep a CHANGELOG](http://keepachangel
 
 - texto1
 
-[unreleased]: https://github.com/luismayta/emacs.d/compare/1.1.8...HEAD
+[unreleased]: https://github.com/luismayta/emacs.d/compare/1.1.9...HEAD
+[1.1.9]: https://github.com/luismayta/emacs.d/compare/1.1.8...1.1.9
 [1.1.8]: https://github.com/luismayta/emacs.d/compare/1.1.7...1.1.8
 [1.1.7]: https://github.com/luismayta/emacs.d/compare/1.1.6...1.1.7
 [1.1.6]: https://github.com/luismayta/emacs.d/compare/1.1.5...1.1.6
