@@ -35,6 +35,7 @@
      projectile-settings
      lm-source-control
      lm-coding-general
+     lm-coding-docker
      lm-coding-elixir
      lm-coding-java
      lm-coding-js
@@ -43,6 +44,7 @@
      lm-coding-swift
      lm-coding-haskell
      lm-coding-rust
+     lm-coding-go
      lm-company
      lm-coding-evil
      )

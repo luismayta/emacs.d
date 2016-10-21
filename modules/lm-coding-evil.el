@@ -42,7 +42,8 @@
           "k" 'kill-buffer
           "xx" 'er/expand-region
           "/" 'helm-ag-this-file
-          "n" 'neotree-toggle)))
+          "n" 'neotree-toggle
+          "p" 'plantuml-preview)))
     ;; boot evil by default
     (evil-mode 1)))
 
