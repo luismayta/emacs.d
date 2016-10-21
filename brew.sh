@@ -12,5 +12,7 @@ brew install aspell --with-lang-en
 
 # for the GNU global tag system. Used by ggtags.
 brew install global
+# program used for plantuml
+brew install graphviz
 
 brew install markdown
