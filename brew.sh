@@ -11,7 +11,8 @@ brew install editorconfig
 brew install aspell --with-lang-en
 
 # for the GNU global tag system. Used by ggtags.
-brew install global
+brew install ctags
+brew install global --with-exuberant-ctags --with-pygments
 # program used for plantuml
 brew install graphviz
 
