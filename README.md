@@ -142,6 +142,22 @@ brew install global --with-exuberant-ctags --with-pygments
 gtags --gtagslabel=ctags
 ```
 
+### [Plant-Uml](http://plantuml.com/)
+
+[plantuml-mode](https://github.com/skuro/plantuml-mode)
+
+| Binding        | Call                   | Do           |
+| -------------- |:----------------------:| ------------:|
+| p              | plantuml-viewer        | render view  |
+
+#### configuration
+
+set variable `plantuml-jar-path` of environment
+
+```bash
+export PLANTUML_JAR_PATH='~/plantuml.jar'
+```
+
 ## Further customizations
 
 You can just edit the ~/.emacs.d/init.el file directly if you want to make
