@@ -43,7 +43,7 @@
           "xx" 'er/expand-region
           "/" 'helm-ag-this-file
           "n" 'neotree-toggle
-          "p" 'puml-preview)))
+          "p" 'plantuml-preview)))
     ;; boot evil by default
     (evil-mode 1)))
 
