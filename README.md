@@ -150,6 +150,18 @@ gtags --gtagslabel=ctags
 | -------------- |:----------------------:| ------------:|
 | p              | plantuml-viewer        | render view  |
 
+#### [Origami](https://github.com/gregsexton/origami.el)
+
+A text folding minor mode for Emacs.
+
+With this minor mode enabled, you can collapse and expand regions of text.
+
+| Binding        | Call                            | Do           |
+| -------------- |:------------------------------: | ------------:|
+| fa             | origami-toggle-all-nodes        |   |
+| fr             | origami-recursively-toggle-node |   |
+
+
 #### configuration
 
 set variable `plantuml-jar-path` of environment
