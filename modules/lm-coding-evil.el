@@ -24,6 +24,8 @@
         (evil-leader/set-key
           "u" 'undo-tree-visualize
           "c" 'evilnc-comment-or-uncomment-lines
+          "fa" 'origami-toggle-all-nodes
+          "fr" 'origami-recursively-toggle-node
           "fe" 'find-file
           "ff" 'helm-ag-project-root
           "fp" 'helm-projectile-find-file
