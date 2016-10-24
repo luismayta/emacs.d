@@ -6,9 +6,9 @@
 ;; Redraw without pause while processing input.
 (setq redisplay-dont-pause t)
 
-(defvar lm/fixed-font-name "SF Mono")
+(defvar lm/fixed-font-name "fira code")
 (defvar lm/fixed-font-weight 'light)
-(defvar lm/var-font-name "SF UI Text")
+(defvar lm/var-font-name "fira code")
 (defvar lm/font-height 120)
 
 (add-hook 'emacs-startup-hook ;; 'window-setup-hook
@@ -36,5 +36,9 @@
 
 (use-package rainbow-mode
   :commands rainbow-mode)
+
+(use-package origami
+  :init
+  (global-origami-mode 1))
 
 (provide 'lm-appearance)

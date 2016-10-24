@@ -158,6 +158,18 @@ set variable `plantuml-jar-path` of environment
 export PLANTUML_JAR_PATH='~/plantuml.jar'
 ```
 
+#### [Origami](https://github.com/gregsexton/origami.el)
+
+A text folding minor mode for Emacs.
+
+With this minor mode enabled, you can collapse and expand regions of text.
+
+| Binding        | Call                            | Do           |
+| -------------- |:------------------------------: | ------------:|
+| fa             | origami-toggle-all-nodes        |   |
+| fr             | origami-recursively-toggle-node |   |
+
+
 ## Further customizations
 
 You can just edit the ~/.emacs.d/init.el file directly if you want to make
