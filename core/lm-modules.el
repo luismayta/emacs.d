@@ -29,7 +29,6 @@
      lm-snippets
      lm-searching
      lm-navigation
-     lm-company
      lm-writing
      lm-projects
      projectile-settings
