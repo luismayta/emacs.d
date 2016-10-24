@@ -139,7 +139,8 @@ This file uses change log convention from [Keep a CHANGELOG](http://keepachangel
 
 - texto1
 
-[unreleased]: https://github.com/luismayta/emacs.d/compare/1.1.9...HEAD
+[unreleased]: https://github.com/luismayta/emacs.d/compare/1.2.0...HEAD
+[1.2.0]: https://github.com/luismayta/emacs.d/compare/1.2.9...1.2.0
 [1.1.9]: https://github.com/luismayta/emacs.d/compare/1.1.8...1.1.9
 [1.1.8]: https://github.com/luismayta/emacs.d/compare/1.1.7...1.1.8
 [1.1.7]: https://github.com/luismayta/emacs.d/compare/1.1.6...1.1.7
