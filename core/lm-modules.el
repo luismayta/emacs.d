@@ -38,6 +38,7 @@
      lm-coding-elixir
      lm-coding-java
      lm-coding-js
+     lm-coding-php
      lm-coding-python
      lm-coding-ruby
      lm-coding-swift
