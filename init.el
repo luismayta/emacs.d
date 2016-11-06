@@ -17,6 +17,9 @@
 (add-to-list 'custom-theme-load-path (expand-file-name "lib/color-themes" user-emacs-directory))
 (add-to-list 'exec-path "/usr/local/bin")
 
+;; Set up aliases.
+(require 'lm-aliases)
+
 ;; Set up some defaults settings
 (require 'lm-defaults)
 
