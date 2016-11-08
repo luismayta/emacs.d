@@ -1,9 +1,11 @@
 ;; Install Packages
 ;;; code:
 (use-package evil-numbers)
+
 (use-package evil-nerd-commenter
   :config
   (evilnc-default-hotkeys))
+
 (use-package evil
   :init
   (progn
