@@ -12,11 +12,13 @@ WGET = wget
 # Bin scripts
 CLEAN = $(shell) $(SCRIPT_DIR)/clean.sh
 GVM = $(shell) $(SCRIPT_DIR)/gvm.sh
+GRIP = $(shell) $(SCRIPT_DIR)/grip.sh
 PYENV = $(shell) $(SCRIPT_DIR)/pyenv.sh
 SETUP = $(shell) $(SCRIPT_DIR)/setup.sh
 INSTALL = $(shell) $(SCRIPT_DIR)/install.sh
 TEST = $(shell) $(SCRIPT_DIR)/test.sh
 FIX_GIT = $(shell) $(SCRIPT_DIR)/fix-git.sh
+WATCH = $(shell) $(SCRIPT_DIR)/watch.sh
 
 install:
 	$(INSTALL)
@@ -34,6 +36,7 @@ distclean: clean
 
 environment:
 	$(PYENV)
+	$(GVM)
 
 
 maintainer-clean: distclean
@@ -43,3 +46,19 @@ maintainer-clean: distclean
 
 fix-git:
 	$(FIX_GIT)
+
+
+grip:
+	$(GRIP)
+
+
+test:
+	$(TEST)
+
+
+sync:
+	$(SYNC)
+
+
+watch:
+	$(WATCH)
