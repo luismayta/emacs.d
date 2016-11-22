@@ -1,6 +1,14 @@
-;; company-mode
-;;; code:
-;; Auto-completion backend.
+;;; lm-company.el --- Company config               -*- lexical-binding: t; -*-
+
+;; Copyright (C) 2016  Luis Mayta
+
+;; Keywords: autocomplete
+
+;;; Commentary:
+
+;;
+
+;;; Code:
 (use-package company
   :diminish " ©"
   :commands (company-mode global-company-mode)
@@ -27,3 +35,4 @@
     (mapcar #'lm/backend-with-yas company-backends)))
 
 (provide 'lm-company)
+;;; lm-company.el ends here
