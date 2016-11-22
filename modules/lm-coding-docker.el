@@ -1,9 +1,21 @@
-;;; lm-coding-docker.el --- Docker configuration.
+;;; lm-coding-docker.el --- Docker config               -*- lexical-binding: t; -*-
 
-;;; code:
+;; Copyright (C) 2016  Luis Mayta
+
+;; Keywords: processes, tools, unix, abbrev
+
+;;; Commentary:
+
+;;
+
+;;; Code:
 (use-package dockerfile-mode
-  :mode (("\\Dockerfile\\'" . dockerfile-mode))
-  :commands
-  (dockerfile-mode t))
+  :ensure t
+  :defer t)
+
+(use-package docker
+  :ensure t
+  :defer t)
 
 (provide 'lm-coding-docker)
+;;; lm-coding-docker.el ends here
