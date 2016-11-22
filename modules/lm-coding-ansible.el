@@ -10,8 +10,6 @@
 
 ;;; Code:
 
-(require 'use-config)
-
 (use-package ansible
   :ensure t
   :defer t
