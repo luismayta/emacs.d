@@ -1,4 +1,4 @@
-;;; lm-projects.el --- Configuration for working with projects.
+;;; lm-projects.el --- Project management         -*- lexical-binding: t; -*-
 ;;; code:
 ;; Add: info helm-ag
 (use-package helm-ag)
@@ -9,7 +9,8 @@
 
 (use-package projectile
   :diminish projectile-mode
-  :commands (projectile-mode projectile-global-mode)
+  :commands
+  (projectile-mode projectile-global-mode)
   :bind ("C-c p a" . projectile-ag)
   :init
   (add-hook 'after-init-hook 'projectile-global-mode)
@@ -29,3 +30,4 @@
       (persp-switch (nth (1+ (persp-curr-position)) (persp-all-names))))))
 
 (provide 'lm-projects)
+;;; lm-projects.el ends here
