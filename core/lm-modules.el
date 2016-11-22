@@ -31,7 +31,6 @@
      lm-navigation
      lm-writing
      lm-projects
-     projectile-settings
      lm-source-control
      lm-coding-general
      lm-coding-ansible
