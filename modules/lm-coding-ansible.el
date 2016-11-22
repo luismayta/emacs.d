@@ -13,15 +13,11 @@
 (use-package ansible
   :ensure t
   :defer t
-  :after yaml-mode
   :mode
   (("ansible/group_vars/.*" . yaml-mode)
     ("ansible/host_vars/.*"  . yaml-mode))
   :init
-  (after 'yaml-mode
-    (add-hook 'yaml-mode-hook #'ansible))
-  (after (yaml-mode yasnippet)
-    (ansible::snippets-initialize)))
+  (add-hook 'yaml-mode-hook #'ansible))
 
 (use-package jinja2-mode
   :ensure t
@@ -29,17 +25,11 @@
 
 (use-package ansible-doc
   :ensure t
-  :after ansible
-  :init (add-hook 'ansible::hook #'ansible-doc-mode))
+  :init
+  (add-hook 'ansible::hook #'ansible-doc-mode))
 
 (use-package company-ansible
-  :ensure t
-  :after ansible
-  :init
-  (after config-completion
-    (config-completion-add-backends
-     'yaml-mode
-     (config-completion-backend-with-yasnippet #'company-ansible))))
+  :ensure t)
 
 (provide 'lm-coding-ansible)
 ;;; lm-coding-ansible.el ends here
