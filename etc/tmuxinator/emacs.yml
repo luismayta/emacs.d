@@ -7,6 +7,8 @@ tmux_options: -2
 
 # Runs before everything. Use it to start daemons etc.
 # pre: sudo /etc/rc.d/mysqld start
+pre:
+    - make environment
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 # pre_window: rbenv shell 2.0.0-p247
@@ -32,24 +34,44 @@ windows:
       panes:
         - editor:
             - pyenv activate emacs
+            - gvm pkgset use emacs
             - <%= ENV["EDITOR"] %>
-        - vagrant:
+        - docker:
             - pyenv activate emacs
+            - gvm pkgset use emacs
   - python:
       layout: main-vertical
       panes:
         - python:
             - pyenv activate emacs
+            - gvm pkgset use emacs
             - ipython
   - databases:
       layout: main-vertical
       panes:
         - postgresql:
             - pyenv activate emacs
-        - mysql:
+            - gvm pkgset use emacs
+        - shell:
             - pyenv activate emacs
-  - vagrant:
+            - gvm pkgset use emacs
+  - docker:
       layout: main-vertical
       panes:
-        - postgresql:
+        - docker:
             - pyenv activate emacs
+            - gvm pkgset use emacs
+        - shell:
+            - pyenv activate emacs
+            - gvm pkgset use emacs
+  - tools:
+      layout: main-vertical
+      panes:
+        - watch:
+            - pyenv activate emacs
+            - gvm pkgset use emacs
+            - make watch
+        - grip:
+            - pyenv activate emacs
+            - gvm pkgset use emacs
+            - make grip
