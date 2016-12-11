@@ -66,9 +66,11 @@
 ;; Use conf-mode where appropriate.
 (use-package conf-mode
   :mode (("\\.editorconfig$" . conf-mode)
-         ("\\.conf" . conf-mode)
-         ("\\.cfg" . conf-mode)
-         ("\\.ini" . conf-mode)))
+          ("\\.conf" . conf-mode)
+          ("\\.cnf" . conf-mode)
+          ("\\.cfg" . conf-mode)
+          ("\\.env" . conf-mode)
+          ("\\.ini" . conf-mode)))
 
 ;; multiple-cursors
 (use-package multiple-cursors
