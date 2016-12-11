@@ -1,4 +1,4 @@
-;;; lm-coding-haskell.el --- Code haskell.
+;;; module-coding-haskell.el --- Code haskell.
 ;;; code:
 
 (use-package haskell-mode
@@ -7,4 +7,4 @@
   :init
   (add-hook 'haskell-mode-hook #'hindent-mode))
 
-(provide 'lm-coding-haskell)
+(provide 'module-coding-haskell)

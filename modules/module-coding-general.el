@@ -1,4 +1,4 @@
-;;; lm-coding-general.el --- General coding-related config.
+;;; module-coding-general.el --- General coding-related config.
 ;;; code:
 ;; EditorConfig.org -- project-local coding style definitions.
 
@@ -71,4 +71,4 @@
   (("\\.puml$" . plantuml-mode)
     ("\\.plantuml$" . plantuml-mode)))
 
-(provide 'lm-coding-general)
+(provide 'module-coding-general)

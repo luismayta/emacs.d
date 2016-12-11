@@ -1,4 +1,4 @@
-;;; lm-ansible.el --- Ansible -*- lexical-binding: t; -*-
+;;; module-ansible.el --- Ansible -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2016  Luis Mayta
 
@@ -31,5 +31,5 @@
 (use-package company-ansible
   :ensure t)
 
-(provide 'lm-coding-ansible)
-;;; lm-coding-ansible.el ends here
+(provide 'module-coding-ansible)
+;;; module-coding-ansible.el ends here
