@@ -51,4 +51,4 @@
     ;; boot evil by default
     (evil-mode 1)))
 
-(provide 'lm-coding-evil)
+(provide 'module-coding-evil)
