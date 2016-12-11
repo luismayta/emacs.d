@@ -1,5 +1,6 @@
-;;; core-defaults.
+;;; core-defaults --- defaults.
 ;;; code:
+
 (require 'core-defuns)
 
 ;; Ignore customisation by putting it in the cache dir.

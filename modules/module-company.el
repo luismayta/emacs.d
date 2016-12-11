@@ -32,7 +32,7 @@
   (define-key company-active-map (kbd "C-p") 'company-select-previous)
   (setq company-backends (remove 'company-clang company-backends))
   (setq company-backends
-    (mapcar #'lm/backend-with-yas company-backends)))
+    (mapcar #'core/backend-with-yas company-backends)))
 
 (provide 'lm-company)
 ;;; lm-company.el ends here
