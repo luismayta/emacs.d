@@ -1,4 +1,4 @@
-;;; lm-coding-elixir.el --- Elixir configuration.
+;;; module-coding-elixir.el --- Elixir configuration.
 
 ;;; code:
 (use-package elixir-mode
@@ -9,4 +9,4 @@
   (use-package alchemist
     :diminish alchemist-mode))
 
-(provide 'lm-coding-elixir)
+(provide 'module-coding-elixir)

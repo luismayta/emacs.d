@@ -1,4 +1,4 @@
-;;; lm-appearance.el --- Display and appearance related settings.
+;;; module-appearance.el --- Display and appearance related settings.
 
 ;; Disable cursor display in inactive windows.
 (setq-default cursor-in-non-selected-windows nil)
@@ -41,4 +41,4 @@
   :init
   (global-origami-mode 1))
 
-(provide 'lm-appearance)
+(provide 'module-appearance)
