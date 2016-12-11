@@ -37,6 +37,7 @@ distclean: clean
 environment:
 	$(PYENV)
 	$(GVM)
+	$(INSTALL)
 
 
 maintainer-clean: distclean
