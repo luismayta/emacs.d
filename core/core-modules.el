@@ -21,7 +21,7 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(setq core/modules
+(setq modules
   '(module-path
      module-editing
      module-ui
@@ -50,8 +50,8 @@
      )
   )
 
-(defun module/load-modules ()
+(defun load-modules ()
   (interactive)
-  (dolist (module core/modules) (require module)))
+  (dolist (module modules) (require module)))
 
 (provide 'core-modules)
