@@ -74,10 +74,10 @@
 
 ;; multiple-cursors
 (use-package multiple-cursors
-  :init (setq mc/list-file (lm/emacs.d "etc/.mc-lists.el"))
+  :init (setq mc/list-file (core/emacs.d "etc/.mc-lists.el"))
   :bind (("C->" . mc/mark-next-like-this)
-         ("C-<" . mc/mark-previous-like-this)
-         ("C-c C->" . mc/mark-all-like-this)))
+          ("C-<" . mc/mark-previous-like-this)
+          ("C-c C->" . mc/mark-all-like-this)))
 
 ;; expand-region
 (use-package expand-region
@@ -150,4 +150,4 @@
   (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
   (add-hook 'lisp-mode-hook #'aggressive-indent-mode))
 
-(provide 'lm-editing)
+(provide 'module-editing)
