@@ -31,10 +31,10 @@
 ;; smex
 (use-package smex
   :bind (("M-x" . smex)
-         ("M-X" . smex-major-mode-commands)
-         ("C-x C-m" . smex)
-         ("C-c C-m" . smex))
-  :init (setq smex-save-file (lm/cache-for "smex-items"))
+          ("M-X" . smex-major-mode-commands)
+          ("C-x C-m" . smex)
+          ("C-c C-m" . smex))
+  :init (setq smex-save-file (core/cache-for "smex-items"))
   :config (smex-initialize))
 
 ;; diminish some modes.

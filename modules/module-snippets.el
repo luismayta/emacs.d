@@ -4,11 +4,11 @@
   :defer 2
   :init
   ;; Ensure custom snippets dir exists.
-  (defvar custom-snippets-dir (lm/emacs.d "snippets/"))
-  (lm/mkdir-p custom-snippets-dir)
+  (defvar custom-snippets-dir (core/emacs.d "snippets/"))
+  (core/mkdir-p custom-snippets-dir)
   ;; Replace default custom dir with our own.
   (setq yas-snippet-dirs '(custom-snippets-dir
-                           yas-installed-snippets-dir))
+                            yas-installed-snippets-dir))
   ;; Suppress excessive log messages
   (setq yas-verbosity 1)
   :config
