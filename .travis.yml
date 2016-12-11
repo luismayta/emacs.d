@@ -6,9 +6,8 @@ os:
 
 env:
   matrix:
-    - EMACS=emacs24.3
-    - EMACS=emacs24.4
     - EMACS=emacs24.5
+    - EMACS=emacs25.1
 
 sudo: true
 
@@ -33,23 +32,16 @@ before_install:
     fi
 
 install:
-  - if [ "$EMACS" = "emacs24.3" ]; then
-        wget http://ftp.gnu.org/gnu/emacs/emacs-24.3.tar.gz &&
-        tar -xf emacs-24.3.tar.gz && cd emacs-24.3 &&
-        ./configure &&
-        make &&
-        sudo make install;
-    fi
-  - if [ "$EMACS" = "emacs24.4" ]; then
-        wget http://ftp.gnu.org/gnu/emacs/emacs-24.4.tar.gz &&
-        tar -xf emacs-24.4.tar.gz && cd emacs-24.4 &&
-        ./configure &&
-        make &&
-        sudo make install;
-    fi
   - if [ "$EMACS" = "emacs24.5" ]; then
         wget http://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.gz &&
         tar -xf emacs-24.5.tar.gz && cd emacs-24.5 &&
+        ./configure &&
+        make &&
+        sudo make install;
+    fi
+  - if [ "$EMACS" = "emacs25.1" ]; then
+        wget http://ftp.gnu.org/gnu/emacs/emacs-25.1.tar.gz &&
+        tar -xf emacs-25.1.tar.gz && cd emacs-25.1 &&
         ./configure &&
         make &&
         sudo make install;
