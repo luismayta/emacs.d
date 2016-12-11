@@ -18,16 +18,16 @@
 (add-to-list 'exec-path "/usr/local/bin")
 
 ;; Set up aliases.
-(require 'lm-aliases)
+(require 'core-aliases)
 
 ;; Set up some defaults settings
-(require 'lm-defaults)
+(require 'core-defaults)
 
 ;; Custom functions
-(require 'lm-defuns)
+(require 'core-defuns)
 
 ;; Set up available modules and the load-modules function
-(require 'lm-modules)
+(require 'core-modules)
 
 ;; Load configured modules.
-(lm/load-modules)
+(core-modules/load-modules)
