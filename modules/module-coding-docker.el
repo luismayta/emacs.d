@@ -1,4 +1,4 @@
-;;; lm-coding-docker.el --- Docker config               -*- lexical-binding: t; -*-
+;;; module-coding-docker.el --- Docker config               -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2016  Luis Mayta
 
@@ -17,5 +17,5 @@
   :ensure t
   :defer t)
 
-(provide 'lm-coding-docker)
-;;; lm-coding-docker.el ends here
+(provide 'module-coding-docker)
+;;; module-coding-docker.el ends here

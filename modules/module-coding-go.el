@@ -1,4 +1,4 @@
-;;; lm-coding-go.el --- Golang config.
+;;; module-coding-go.el --- Golang config.
 ;;; code:
 
 (use-package golint)
@@ -36,4 +36,4 @@
   :config
   (add-hook 'go-mode-hook 'go-eldoc-setup))
 
-(provide 'lm-coding-go)
+(provide 'module-coding-go)
