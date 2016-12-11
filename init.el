@@ -20,6 +20,9 @@
 ;; Set up aliases.
 (require 'core-aliases)
 
+;; Set up vars.
+(require 'core-vars)
+
 ;; Set up some defaults settings
 (require 'core-defaults)
 
