@@ -28,4 +28,4 @@
   (add-hook 'comint-mode-hook #'yas-disable-hook)
   (add-hook 'erc-mode-hook #'yas-disable-hook))
 
-(provide 'lm-snippets)
+(provide 'module-snippets)

@@ -1,4 +1,4 @@
-;;; lm-source-control.el --- Source control and related configuration.
+;;; module-source-control.el --- Source control and related configuration.
 
 ;; Disable since I use magit for everything.
 (setq vc-handled-backends '())
@@ -60,4 +60,4 @@ git or hg repository is found in the buffer-local working dir."
   ;; Flyspell during commits.
   (add-hook 'monky-log-edit-mode-hook '(lambda () (flyspell-mode t))))
 
-(provide 'lm-source-control)
+(provide 'module-source-control)

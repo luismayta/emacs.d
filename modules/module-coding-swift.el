@@ -1,4 +1,4 @@
-;;; lm-coding-swift.el --- Swift configuration.
+;;; module-coding-swift.el --- Swift configuration.
 
 ;; swift
 (use-package swift-mode
@@ -9,4 +9,4 @@
     :config
     (add-to-list 'company-backends 'company-sourcekit)))
 
-(provide 'lm-coding-swift)
+(provide 'module-coding-swift)
