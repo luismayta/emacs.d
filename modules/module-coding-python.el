@@ -1,4 +1,4 @@
-;;; lm-coding-python.el --- Python settings.
+;;; module-coding-python.el --- Python settings.
 ;;; code:
 (use-package elpy
   :commands
@@ -16,4 +16,4 @@
 ;;   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
 ;;   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
-(provide 'lm-coding-python)
+(provide 'module-coding-python)
