@@ -1,4 +1,4 @@
-;;; lm-ui.el --- UI niceties.
+;;; module-ui.el --- UI niceties.
 
 ;; Bind for toggling fullscreen.
 (bind-key "C-c M-f" 'toggle-frame-fullscreen)
@@ -52,4 +52,4 @@
   :config
   (mouse-avoidance-mode 'exile))
 
-(provide 'lm-ui)
+(provide 'module-ui)

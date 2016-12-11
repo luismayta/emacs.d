@@ -87,4 +87,4 @@
   (setq recentf-save-file (core/cache-for "recentf"))
   (recentf-mode))
 
-(provide 'lm-navigation)
+(provide 'module-navigation)
