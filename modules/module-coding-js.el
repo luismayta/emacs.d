@@ -1,4 +1,4 @@
-;; lm-coding-js.el --- JavaScript and json configuration.
+;; module-coding-js.el --- JavaScript and json configuration.
 
 (use-package javascript-mode
   :ensure nil
@@ -15,4 +15,4 @@
             (lambda ()
               (setq js2-basic-offset 2))))
 
-(provide 'lm-coding-js)
+(provide 'module-coding-js)
