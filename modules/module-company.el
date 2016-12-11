@@ -1,12 +1,10 @@
-;;; lm-company.el --- Company config               -*- lexical-binding: t; -*-
+;;; module-company.el --- Company config               -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2016  Luis Mayta
 
 ;; Keywords: autocomplete
 
 ;;; Commentary:
-
-;;
 
 ;;; Code:
 (use-package company
@@ -34,5 +32,5 @@
   (setq company-backends
     (mapcar #'core/backend-with-yas company-backends)))
 
-(provide 'lm-company)
-;;; lm-company.el ends here
+(provide 'module-company)
+;;; module-company.el ends here

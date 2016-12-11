@@ -26,4 +26,4 @@
     "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
     :keybinding "g"))
 
-(provide 'lm-searching)
+(provide 'module-searching)

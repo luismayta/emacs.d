@@ -24,4 +24,4 @@
 ;; Double spaces at the end of sentences is a bit outdated.
 (setq sentence-end-double-space nil)
 
-(provide 'lm-writing)
+(provide 'module-writing)
