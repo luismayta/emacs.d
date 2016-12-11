@@ -1,4 +1,4 @@
-;;; lm-aliases.
+;;; core-aliases.
 ;;; code:
 
 (defalias 'eb 'eval-buffer)
@@ -7,4 +7,4 @@
 
 (defalias 'rg 'rgrep)
 
-(provide 'lm-aliases)
+(provide 'core-aliases)
