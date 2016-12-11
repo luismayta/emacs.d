@@ -1,4 +1,4 @@
-;;; lm-modules.el --- Configures available modules and the package manager.
+;;; core-modules.el --- Configures available modules and the package manager.
 
 ;;; code:
 
@@ -21,37 +21,37 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(setq lm/modules
-  '(lm-path
-     lm-editing
-     lm-ui
-     lm-appearance
-     lm-snippets
-     lm-searching
-     lm-navigation
-     lm-writing
-     lm-projects
-     lm-source-control
-     lm-coding-general
-     lm-coding-ansible
-     lm-coding-docker
-     lm-coding-elixir
-     lm-coding-java
-     lm-coding-js
-     lm-coding-php
-     lm-coding-python
-     lm-coding-ruby
-     lm-coding-swift
-     lm-coding-haskell
-     lm-coding-rust
-     lm-coding-go
-     lm-company
-     lm-coding-evil
+(setq core/modules
+  '(module-path
+     module-editing
+     module-ui
+     module-appearance
+     module-snippets
+     module-searching
+     module-navigation
+     module-writing
+     module-projects
+     module-source-control
+     module-coding-general
+     module-coding-ansible
+     module-coding-docker
+     module-coding-elixir
+     module-coding-java
+     module-coding-js
+     module-coding-php
+     module-coding-python
+     module-coding-ruby
+     module-coding-swift
+     module-coding-haskell
+     module-coding-rust
+     module-coding-go
+     module-company
+     module-coding-evil
      )
   )
 
-(defun lm/load-modules ()
+(defun module/load-modules ()
   (interactive)
-  (dolist (module lm/modules) (require module)))
+  (dolist (module core/modules) (require module)))
 
-(provide 'lm-modules)
+(provide 'core-modules)
