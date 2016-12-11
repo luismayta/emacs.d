@@ -1,4 +1,5 @@
-;;; core-aliases.
+;;; core-aliases.el --- def vars.
+
 ;;; code:
 
 (defalias 'eb 'eval-buffer)
