@@ -1,9 +1,9 @@
-;;; lm-defaults.
+;;; core-defaults.
 ;;; code:
-(require 'lm-defuns)
+(require 'core-defuns)
 
 ;; Ignore customisation by putting it in the cache dir.
-(setq custom-file (lm/cache-for "custom.el"))
+(setq custom-file (core/cache-for "custom.el"))
 
 ;; Fix mac-port defaults.
 (when (equal system-type 'darwin)
@@ -64,35 +64,35 @@
 ;; Automatically scroll compilation window.
 (setq compilation-scroll-output 1)
 
-(lm/mkdir-p (lm/emacs.d "var/cache"))
-(lm/mkdir-p (lm/emacs.d "etc"))
-(lm/mkdir-p (lm/cache-for "backups"))
+(core/mkdir-p (core/emacs.d "var/cache"))
+(core/mkdir-p (core/emacs.d "etc"))
+(core/mkdir-p (core/cache-for "backups"))
 
 ;; Keep backups in a separate directory.
 (defun make-backup-file-name (file)
-  (concat (lm/cache-for "backups/") (file-name-nondirectory file) "~"))
+  (concat (core/cache-for "backups/") (file-name-nondirectory file) "~"))
 
 ;; Keep autosave files in /tmp.
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
 ;; Change auto-save-list directory.
-(setq auto-save-list-file-prefix (lm/cache-for "auto-save-list/.saves-"))
+(setq auto-save-list-file-prefix (core/cache-for "auto-save-list/.saves-"))
 
 ;; Change eshell directory.
-(setq eshell-directory-name (lm/cache-for "eshell"))
+(setq eshell-directory-name (core/cache-for "eshell"))
 
 ;; Disable annoying lock files.
 (setq create-lockfiles nil)
 
 ;; Change bookmarks file location.
-(setq bookmark-file (lm/emacs.d "etc/bookmarks"))
+(setq bookmark-file (core/emacs.d "etc/bookmarks"))
 
 ;; Change save-places file location.
-(setq save-place-file (lm/cache-for "places"))
+(setq save-place-file (core/cache-for "places"))
 
 ;; Ido history.
-(setq ido-save-directory-list-file (lm/cache-for "ido.last"))
+(setq ido-save-directory-list-file (core/cache-for "ido.last"))
 
 ;; Allow pasting selection outside of Emacs.
 (setq x-select-enable-clipboard t)
@@ -120,4 +120,4 @@
 (setq inhibit-startup-message t)
 (global-font-lock-mode t)
 
-(provide 'lm-defaults)
+(provide 'core-defaults)

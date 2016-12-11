@@ -44,38 +44,38 @@
     (package-install pkg)))
 
 ;; Function for determining emacs dir paths.
-(defun lm/emacs.d (path)
+(defun core/emacs.d (path)
   "Return path inside user's `.emacs.d'."
   (expand-file-name path user-emacs-directory))
 
-(defun lm/cache-for (identifier)
+(defun core/cache-for (identifier)
   "Return cache directory for given identifier."
-  (expand-file-name identifier (lm/emacs.d "var/cache")))
+  (expand-file-name identifier (core/emacs.d "var/cache")))
 
-(defun lm/mkdir-p (dir-path)
+(defun core/mkdir-p (dir-path)
   "Make directory if it doesn't exist."
   (unless (file-exists-p dir-path)
     (make-directory dir-path t)))
 
-(defun lm/load-directory (directory)
+(defun core/load-directory (directory)
   "Load recursively all `.el' files in DIRECTORY."
   (dolist (element (directory-files-and-attributes directory nil nil nil))
     (let* ((path (car element))
-           (fullpath (concat directory "/" path))
-           (isdir (car (cdr element)))
-           (ignore-dir (or (string= path ".") (string= path ".."))))
+            (fullpath (concat directory "/" path))
+            (isdir (car (cdr element)))
+            (ignore-dir (or (string= path ".") (string= path ".."))))
       (cond
-       ((and (eq isdir t) (not ignore-dir))
-        (lm/load-directory fullpath))
-       ((and (eq isdir nil)
-             (string= (substring path -3) ".el")
-             (not (string-match "^\\." path)))
-        (load (file-name-sans-extension fullpath)))))))
+        ((and (eq isdir t) (not ignore-dir))
+          (core/load-directory fullpath))
+        ((and (eq isdir nil)
+           (string= (substring path -3) ".el")
+           (not (string-match "^\\." path)))
+          (load (file-name-sans-extension fullpath)))))))
 
 ;; Add yasnippet support for company backends
 ;; https://github.com/syl20bnr/spacemacs/pull/179
-(defun lm/backend-with-yas (backend)
+(defun core/backend-with-yas (backend)
   (append (if (consp backend) backend (list backend))
-          '(:with company-yasnippet)))
+    '(:with company-yasnippet)))
 
-(provide 'lm-defuns)
+(provide 'core-defuns)
