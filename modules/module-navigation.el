@@ -55,7 +55,7 @@
 ;; Remebers your location in a file when saving files.
 (use-package saveplace
   :init
-  (setq save-place-file (lm/cache-for "saveplace"))
+  (setq save-place-file (core/cache-for "saveplace"))
   (setq-default save-place t))
 
 ;; avy
@@ -76,15 +76,15 @@
   :commands recentf-mode
   :config
   (setq recentf-auto-cleanup 'never
-        recentf-max-saved-items 200
-        recentf-auto-cleanup 300
-        recentf-exclude '("/TAGS$"
-                          "/tmp/"
-                          "/var/tmp/"
-                          ".recentf"
-                          "ido.last"
-                          "/elpa/.*\\'"))
-  (setq recentf-save-file (lm/cache-for "recentf"))
+    recentf-max-saved-items 200
+    recentf-auto-cleanup 300
+    recentf-exclude '("/TAGS$"
+                       "/tmp/"
+                       "/var/tmp/"
+                       ".recentf"
+                       "ido.last"
+                       "/elpa/.*\\'"))
+  (setq recentf-save-file (core/cache-for "recentf"))
   (recentf-mode))
 
-(provide 'lm-navigation)
+(provide 'module-navigation)

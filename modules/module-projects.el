@@ -1,4 +1,4 @@
-;;; lm-projects.el --- Project management         -*- lexical-binding: t; -*-
+;;; module-projects.el --- Project management         -*- lexical-binding: t; -*-
 ;;; code:
 ;; Add: info helm-ag
 (use-package helm-ag)
@@ -29,5 +29,5 @@
     (when (< (+ 1 (persp-curr-position)) (length (persp-all-names)))
       (persp-switch (nth (1+ (persp-curr-position)) (persp-all-names))))))
 
-(provide 'lm-projects)
-;;; lm-projects.el ends here
+(provide 'module-project)
+;;; module-projects.el ends here
