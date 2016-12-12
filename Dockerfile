@@ -3,7 +3,7 @@ MAINTAINER Luis Mayta <@slovacus>
 
 # Install.
 RUN apt-get update
-RUN apt-get install -y bash editorconfig curl git-core wget zsh ctags
+RUN apt-get install -y bash cmake editorconfig curl git-core wget zsh ctags
 RUN apt-get install -y emacs
 
 # Set environment variables.
