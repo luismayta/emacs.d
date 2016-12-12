@@ -11,7 +11,7 @@
   (progn
     ;; if we don't have this evil overwrites the cursor color
     (setq evil-default-cursor t)
-    (setq expand-region-contract-fast-key "z")
+    ;; (setq expand-region-contract-fast-key "z")
     ;; leader shortcuts
 
     ;; This has to be before we invoke evil-mode due to:
