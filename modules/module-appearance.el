@@ -1,6 +1,6 @@
 ;;; module-appearance.el --- Display and appearance related settings.
 
-(require core-vars)
+(require 'core-vars)
 
 ;; Disable cursor display in inactive windows.
 (setq-default cursor-in-non-selected-windows nil)
