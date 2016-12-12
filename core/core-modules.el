@@ -4,11 +4,12 @@
 
 ;; Repositories
 ;; The ELPA repositories from where the packages are fetched.
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                          ("melpa" . "http://melpa.org/packages/")
-                          ("org" . "http://orgmode.org/elpa/")
-                          ("elpy" . "https://jorgenschaefer.github.io/packages/")
-                          ("marmalade" . "http://marmalade-repo.org/packages/")))
+(setq
+  package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                      ("melpa" . "http://melpa.org/packages/")
+                      ("org" . "http://orgmode.org/elpa/")
+                      ("elpy" . "https://jorgenschaefer.github.io/packages/")
+                      ("marmalade" . "http://marmalade-repo.org/packages/")))
 
 ;; Refresh the archive if we have no local cache.
 (unless package-archive-contents
@@ -30,13 +31,13 @@
      module-searching
      module-navigation
      module-writing
-     module-projects
-     module-source-control
+     ;; module-projects
+     ;; module-source-control
      module-coding-general
-     module-coding-ansible
-     module-coding-docker
+     ;; module-coding-ansible
+     ;; module-coding-docker
      module-coding-elixir
-     module-coding-java
+     ;; module-coding-java
      module-coding-js
      module-coding-php
      module-coding-python
@@ -50,7 +51,7 @@
      )
   )
 
-(defun load-modules ()
+(defun core/load-modules ()
   (interactive)
   (dolist (module modules) (require module)))
 
