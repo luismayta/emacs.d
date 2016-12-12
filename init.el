@@ -33,4 +33,4 @@
 (require 'core-modules)
 
 ;; Load configured modules.
-(core-modules/load-modules)
+(core/load-modules)
