@@ -15,9 +15,12 @@
 
 ;; Frame title formatting.
 (setq-default frame-title-format
-              '((:eval (if (buffer-file-name)
-                           (abbreviate-file-name (buffer-file-name))
-                         "%b"))))
+  '((:eval (if (buffer-file-name)
+             (abbreviate-file-name (buffer-file-name))
+             "%b"))))
+
+(setq-default word-wrap t)
+(toggle-truncate-lines -1)
 
 ;; Character encodings default to utf-8.
 (prefer-coding-system 'utf-8)
@@ -122,3 +125,4 @@
 (global-font-lock-mode t)
 
 (provide 'core-defaults)
+;;; core-defaults ends here
