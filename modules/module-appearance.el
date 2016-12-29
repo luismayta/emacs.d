@@ -38,3 +38,4 @@
   (global-origami-mode 1))
 
 (provide 'module-appearance)
+;;; module-appearance.el ends here
