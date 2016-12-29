@@ -9,3 +9,4 @@
 (defalias 'rg 'rgrep)
 
 (provide 'core-aliases)
+;;; core-aliases ends here
