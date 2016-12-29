@@ -80,3 +80,4 @@
     '(:with company-yasnippet)))
 
 (provide 'core-defuns)
+;;; core-defuns ends here
