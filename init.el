@@ -34,3 +34,6 @@
 
 ;; Load configured modules.
 (core/load-modules)
+(message "instalación de paquetes terminada!")
+(provide 'init)
+;;; init.el ends here
