@@ -14,7 +14,6 @@
     (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
     (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
     (run-with-idle-timer 0.1 nil (lambda nil (toggle-frame-maximized)))
-    (set-fringe-mode '(8 . 0))
     (set-face-attribute
       'default nil
       :family core/fixed-font-name
