@@ -38,12 +38,6 @@
 (defun include-elget-plugin (plugin)
   (add-to-list 'load-path (make-elget-path plugin)))
 
-;; Functions install Package
-(defun package-require (pkg)
-  "Runs `package-install', attempting `package-refresh-contents' on failure."
-  (when (not (package-installed-p pkg))
-    (package-install pkg)))
-
 ;; Function for determining emacs dir paths.
 (defun core/emacs.d (path)
   "Return path inside user's `.emacs.d'."
