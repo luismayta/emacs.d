@@ -31,13 +31,13 @@
      module-searching
      module-navigation
      module-writing
-     ;; module-projects
-     ;; module-source-control
+     module-projects
+     module-source-control
      module-coding-general
-     ;; module-coding-ansible
-     ;; module-coding-docker
+     module-coding-ansible
+     module-coding-docker
      module-coding-elixir
-     ;; module-coding-java
+     module-coding-java
      module-coding-js
      module-coding-php
      module-coding-python
@@ -56,3 +56,4 @@
   (dolist (module modules) (require module)))
 
 (provide 'core-modules)
+;;; core-modules.el ends here
