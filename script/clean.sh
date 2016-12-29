@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 # -*- coding: utf-8 -*-
 
+# shellcheck source=/dev/null
 [ -r "script/bootstrap.sh" ] && source "script/bootstrap.sh"
 
 # Directory
 
 {
-    rm -rf el-get/
-    rm -rf elpa/
-    rm -rf auto-save-list/
-    rm -rf var/
+    rm -rf -- el-get/
+    rm -rf -- elpa/
+    rm -rf -- auto-save-list/
+    rm -rf -- var/
 } >> /dev/null 2>&1
 
 
