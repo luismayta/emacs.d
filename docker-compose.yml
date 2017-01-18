@@ -3,6 +3,6 @@ services:
   emacs:
     restart: always
     build: .
-    image: ubuntu:14.04
+    image: luismayta/ubuntu-emacs:emacs24.5
     volumes:
     - ./:/home/.emacs.d
