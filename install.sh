@@ -15,9 +15,7 @@ msg() {
 }
 
 success() {
-    if [ "$ret" -eq '0' ]; then
-        msg "\e[32m[✔]\e[0m ${1}${2}"
-    fi
+    msg "\e[32m[✔]\e[0m ${1}${2}"
 }
 
 error() {
@@ -44,13 +42,12 @@ program_exists() {
 }
 
 clone_repo() {
-    if [ ! -e "$PATH_REPO/.git" ]; then
-        git clone --recursive -b "$GIT_BRANCH" "$GIT_URI" "$APP_NAME_PATH"
-        ret="$?"
+    if [[ ! -d "${PATH_REPO}/.git" ]]; then
+        git clone --recursive -b "${GIT_BRANCH}" "${GIT_URI}" "${APP_NAME_PATH}"
         success "$1"
         debug
     else
-        msg "The application is installed, please remove the directory $APP_NAME_PATH"
+        msg "The application is installed, please remove the directory ${APP_NAME_PATH}"
         exit 1
     fi
 }
@@ -72,7 +69,7 @@ initialize() {
         program_exists "$app"
     done
     unset app
-    clone_repo      "Successfully cloned $APP_NAME"
+    clone_repo      "Successfully cloned ${APP_NAME}"
     thanks
 }
 
