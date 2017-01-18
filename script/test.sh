@@ -4,6 +4,7 @@
 # shellcheck source=/dev/null
 [ -r "script/bootstrap.sh" ] && source "script/bootstrap.sh"
 
+
 cat <<EOF
 
 --------------------------
@@ -12,11 +13,10 @@ cat <<EOF
 
 EOF
 
-"$ROOT/install.sh"
+# shellcheck source=/dev/null
+[ -r "${SOURCE_DIR}/install.sh" ] && "${SOURCE_DIR}/install.sh"
 
-ret="0"
-if [ ! -e "$HOME/.emacs.d/.git" ]; then
-    ret="1"
+if [ ! -e "${HOME}/.emacs.d/.git" ]; then
     error "Error in Install"
 else
     success "Yeah Install Done"
