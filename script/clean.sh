@@ -7,8 +7,8 @@
 # Files
 
 {
-    rm -rf ido.last
-    rm -rf ac-comphist.dat
+    rm -rf ido.last;
+    rm -rf ac-comphist.dat;
 } >> /dev/null 2>&1
 
 # Directory
