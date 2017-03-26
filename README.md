@@ -1,10 +1,8 @@
-<span class="badges">
 [![Build Status](https://travis-ci.org/luismayta/emacs.d.png?branch=master)](https://travis-ci.org/luismayta/emacs.d)
 [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/luismayta/emacs.d.svg)](https://github.com/luismayta/emacs.d/issues)
 [![GitHub forks](https://img.shields.io/github/forks/luismayta/emacs.d.svg)](https://github.com/luismayta/emacs.d)
 [![GitHub stars](https://img.shields.io/github/stars/luismayta/emacs.d.svg)](https://github.com/luismayta/emacs.d)
-</span>
 
 # My Emacs Configuration
 
@@ -187,19 +185,14 @@ If you use my .emacs, you are probably nuts ;)
 
 ## Credits
 
-Made with :heart: ️:coffee:️ and :pizza: by [luismayta][link-author].
+Made with :heart: ️:coffee: and :pizza: [luismayta][link-author]
 
 - [All Contributors][link-contributors]
-
-<span class="badges">
 
 [![](http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.png)][link-linkedin-luismayta]
 [![](https://ga-beacon.appspot.com/UA-65019326-1/emacs.d/readme)](https://github.com/luismayta/emacs.d)
 [wakatime][link-wakatime-luismayta]
 
-</span>
-
-<!-- links -->
 [link-wakatime-luismayta]: https://wakatime.com/@luismayta
 [link-linkedin-luismayta]: http://pe.linkedin.com/in/luismayta
 [link-grip]: https://github.com/joeyespo/grip
