@@ -1,6 +1,6 @@
 -r test.txt
 
-ansible==1.9.6
+ansible>=2.0.0
 autopep8==1.2.4
 bumpversion==0.5.2
 elpy==1.12.0
