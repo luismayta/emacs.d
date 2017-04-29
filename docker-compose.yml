@@ -1,8 +1,10 @@
-version: '2'
+version: '3'
 services:
   emacs:
     restart: always
-    build: .
     image: luismayta/ubuntu-emacs:emacs24.5
+    build:
+      context: .
+      dockerfiles: docker/emacs/Dockerfile
     volumes:
     - ./:/home/.emacs.d
