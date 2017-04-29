@@ -2,17 +2,16 @@
 ;;; code:
 (use-package evil-numbers)
 
-(use-package evil-nerd-commenter
+(use-package evil-commentary
   :config
-  (evilnc-default-hotkeys))
+  (evil-commentary-mode))
 
 (use-package evil
   :init
   (progn
     ;; if we don't have this evil overwrites the cursor color
     (setq evil-default-cursor t)
-    ;; (setq expand-region-contract-fast-key "z")
-    ;; leader shortcuts
+    ;; (setq expand-region-contract-fast-key "z") leader shortcuts
 
     ;; This has to be before we invoke evil-mode due to:
     ;; https://github.com/cofi/evil-leader/issues/10
@@ -25,7 +24,7 @@
         ;; keyboard shortcuts
         (evil-leader/set-key
           "u" 'undo-tree-visualize
-          "c" 'evilnc-comment-or-uncomment-lines
+          "c" 'evil-commentary-line
           "fa" 'origami-toggle-all-nodes
           "fr" 'origami-recursively-toggle-node
           "fe" 'find-file
