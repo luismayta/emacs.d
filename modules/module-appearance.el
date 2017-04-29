@@ -1,12 +1,11 @@
 ;;; module-appearance.el --- Display and appearance related settings.
 
+;;; code:
+
 (require 'core-vars)
 
 ;; Disable cursor display in inactive windows.
 (setq-default cursor-in-non-selected-windows nil)
-
-;; Redraw without pause while processing input.
-(setq redisplay-dont-pause t)
 
 (add-hook 'emacs-startup-hook ;; 'window-setup-hook
   (lambda nil
