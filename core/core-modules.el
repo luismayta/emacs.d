@@ -7,9 +7,7 @@
 (setq
   package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                       ("melpa" . "http://melpa.org/packages/")
-                      ("org" . "http://orgmode.org/elpa/")
-                      ("elpy" . "https://jorgenschaefer.github.io/packages/")
-                      ("marmalade" . "http://marmalade-repo.org/packages/")))
+                      ("org" . "http://orgmode.org/elpa/")))
 
 ;; Refresh the archive if we have no local cache.
 (unless package-archive-contents
