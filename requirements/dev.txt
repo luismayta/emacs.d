@@ -2,6 +2,7 @@
 
 ansible>=2.0.0
 autopep8==1.2.4
+bumplus==0.0.8
 bumpversion==0.5.2
 elpy==1.12.0
 epc==0.0.5
