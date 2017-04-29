@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This file uses change log convention from [Keep a CHANGELOG](http://keepachangelog.com).
 
-## [Unreleased][unreleased]
+## [Unreleased]
 
 ## [1.2.1] - 2016-12-29
 
@@ -150,7 +150,7 @@ This file uses change log convention from [Keep a CHANGELOG](http://keepachangel
 
 - texto1
 
-[unreleased]: https://github.com/luismayta/emacs.d/compare/1.2.1...HEAD
+[Unreleased]: https://github.com/luismayta/emacs.d/compare/1.2.1...HEAD
 [1.2.1]: https://github.com/luismayta/emacs.d/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/luismayta/emacs.d/compare/1.1.9...1.2.0
 [1.1.9]: https://github.com/luismayta/emacs.d/compare/1.1.8...1.1.9
