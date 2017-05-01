@@ -48,7 +48,7 @@ install:
     fi
 
 script:
-  pwd && uname -a &&  cd ~/build/luismayta/emacs.d && EMACS=emacs ./script/test
+  make test
 
 notifications:
   email: false
