@@ -8,3 +8,4 @@
   (exec-path-from-shell-copy-env "GOPATH"))
 
 (provide 'module-path)
+;;; module-path.el ends here
