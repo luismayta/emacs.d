@@ -38,14 +38,13 @@
           "gb" 'gist-buffer
           "gt" 'google-translate-smooth-translate
           "gp" 'google-translate-at-point
-          "b" 'helm-mini
+          "b" 'ido-switch-buffer
           "s" 'save-buffer
           "tt" 'helm-gtags-find-tag
           "tc" 'helm-gtags-create-tags
-          "k" 'kill-buffer
+          "k" 'ido-kill-buffer
           "xx" 'er/expand-region
           "/" 'helm-ag-this-file
-          "n" 'neotree-toggle
           "p" 'plantuml-preview)))
     ;; boot evil by default
     (evil-mode 1)))
