@@ -2,15 +2,20 @@
 ;;; code:
 
 (use-package golint)
+
 (use-package go-autocomplete)
+
 (use-package go-errcheck)
 
 (use-package go-mode
   :ensure t
+  :init
+  (global-auto-complete-mode t)
   :config
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save)
-  :commands go-mode)
+  :commands
+  (go-mode))
 
 (use-package flycheck-gometalinter
   :ensure t
