@@ -1,0 +1,20 @@
+version = '1.2.2'
+
+[[files."CHANGELOG.md"]]
+search = """
+## [Unreleased]
+"""
+replace = """
+## [Unreleased]
+
+## [{{new_version}}] - {{utcnow | strftime('%Y-%m-%d')}}
+"""
+
+[[files."CHANGELOG.md"]]
+search = """
+[Unreleased]: https://github.com/luismayta/emacs.d/compare/{{old_version}}...HEAD
+"""
+replace = """
+[Unreleased]: https://github.com/luismayta/emacs.d/compare/{{new_version}}...HEAD
+[{{new_version}}]: https://github.com/luismayta/emacs.d/compare/{{old_version}}...{{new_version}}
+"""
