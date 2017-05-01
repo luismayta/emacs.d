@@ -27,8 +27,8 @@
      module-appearance
      module-snippets
      module-searching
-     module-navigation
      module-writing
+     module-navigation
      module-projects
      module-source-control
      module-coding-general
