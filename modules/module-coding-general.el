@@ -41,6 +41,9 @@
   :init (add-hook 'prog-mode-hook #'flycheck-mode)
   :config (setq flycheck-emacs-lisp-load-path 'inherit))
 
+;; flycheck-plantuml
+(use-package flycheck-plantuml)
+
 ;; restclient
 ;; Runs REST queries from a query sheet and pretty-prints responses.
 (use-package restclient
@@ -72,3 +75,4 @@
     ("\\.plantuml$" . plantuml-mode)))
 
 (provide 'module-coding-general)
+;;; module-coding-general.el ends here
