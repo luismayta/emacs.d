@@ -12,6 +12,10 @@ This is my configuration for Emacs. I like to keep my emacs
 nice and lightweight, so there's not much in here. Actually, it's more like
 Vim-flavoured Emacs, since it has Evil installed, the encoding of files is in utf-8.
 
+<p align="center">
+ <img src="./docs/statics/sequences_init.png">
+</p>
+
 # Prerequisites
 
 This is a list of applications that need to be installed previously to enjoy
