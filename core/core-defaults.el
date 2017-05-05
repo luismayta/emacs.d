@@ -99,7 +99,7 @@
 (setq ido-save-directory-list-file (core/cache-for "ido.last"))
 
 ;; Allow pasting selection outside of Emacs.
-(setq x-select-enable-clipboard t)
+(setq select-enable-clipboard t)
 
 ;; Move files to trash when deleting
 (setq delete-by-moving-to-trash t)
