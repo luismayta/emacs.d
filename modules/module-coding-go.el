@@ -42,3 +42,4 @@
   (add-hook 'go-mode-hook 'go-eldoc-setup))
 
 (provide 'module-coding-go)
+;;; module-coding-go.el ends here
