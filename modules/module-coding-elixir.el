@@ -10,3 +10,4 @@
     :diminish alchemist-mode))
 
 (provide 'module-coding-elixir)
+;;; module-coding-elixir.el ends here
