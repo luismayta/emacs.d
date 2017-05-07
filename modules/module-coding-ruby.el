@@ -13,3 +13,4 @@
       (ruby-tools-mode t))))
 
 (provide 'module-coding-ruby)
+;;; module-coding-ruby.el ends here
