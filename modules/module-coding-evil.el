@@ -50,3 +50,4 @@
     (evil-mode 1)))
 
 (provide 'module-coding-evil)
+;;; module-coding-evil.el ends here

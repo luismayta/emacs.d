@@ -10,3 +10,4 @@
     (add-to-list 'company-backends 'company-sourcekit)))
 
 (provide 'module-coding-swift)
+;;; module-coding-swift.el ends here
