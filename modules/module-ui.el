@@ -53,3 +53,4 @@
   (mouse-avoidance-mode 'exile))
 
 (provide 'module-ui)
+;;; module-ui.el ends here
