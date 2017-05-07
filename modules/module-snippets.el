@@ -29,3 +29,4 @@
   (add-hook 'erc-mode-hook #'yas-disable-hook))
 
 (provide 'module-snippets)
+;;; module-snippets.el ends here

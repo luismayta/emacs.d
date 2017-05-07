@@ -17,3 +17,4 @@
 ;;   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 (provide 'module-coding-python)
+;;; module-coding-python.el ends here
