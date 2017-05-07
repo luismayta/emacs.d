@@ -4,13 +4,13 @@
 
 (use-package evil-commentary
   :config
-  (evil-commentary-mode))
+  (evil-commentary-mode 1))
 
 (use-package evil
   :init
   (progn
     ;; if we don't have this evil overwrites the cursor color
-    (setq evil-default-cursor t)
+    (setq evil-default-cursor 1)
     ;; (setq expand-region-contract-fast-key "z") leader shortcuts
 
     ;; This has to be before we invoke evil-mode due to:
@@ -20,7 +20,7 @@
       :config
       (progn
         (evil-leader/set-leader ",")
-        (setq evil-leader/in-all-states t)
+        (setq evil-leader/in-all-states 1)
         ;; keyboard shortcuts
         (evil-leader/set-key
           "u" 'undo-tree-visualize
@@ -50,3 +50,4 @@
     (evil-mode 1)))
 
 (provide 'module-coding-evil)
+;;; module-coding-evil.el ends here
