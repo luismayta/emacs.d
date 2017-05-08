@@ -19,8 +19,7 @@
              (abbreviate-file-name (buffer-file-name))
              "%b"))))
 
-(setq-default word-wrap t)
-(toggle-truncate-lines -1)
+(setq-default truncate-lines 1) ;; no wordwrap
 
 ;; Character encodings default to utf-8.
 (prefer-coding-system 'utf-8)
