@@ -52,10 +52,15 @@
   (("\\.http$" . restclient-mode)))
 
 ;; yaml
-(use-package yaml-mode
+(use-package 'yaml-mode
   :mode
   (("\\.yml$" . yaml-mode)
     ("\\.yaml$" . yaml-mode)))
+
+;; toml
+(use-package toml-mode
+  :mode
+  (("\\.toml$" . toml-mode)))
 
 ;; wakatime for developer
 (use-package wakatime-mode
