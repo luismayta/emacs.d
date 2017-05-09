@@ -5,4 +5,4 @@
   (rust-mode t))
 
 (provide 'module-coding-rust)
-;;; module-appearance.el ends here
+;;; module-coding-rust.el ends here
