@@ -16,3 +16,4 @@
               (setq js2-basic-offset 2))))
 
 (provide 'module-coding-js)
+;;; module-coding-js.el ends here
