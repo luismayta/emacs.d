@@ -146,3 +146,4 @@
   (add-hook 'lisp-mode-hook #'aggressive-indent-mode))
 
 (provide 'module-editing)
+;;; module-editing.el ends here
