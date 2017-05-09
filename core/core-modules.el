@@ -45,6 +45,7 @@
      module-coding-rust
      module-coding-go
      module-company
+     module-term
      module-coding-evil
      )
   )
