@@ -13,7 +13,9 @@
 ;; simpleclip
 (use-package simpleclip
   :config
-  (simpleclip-mode 1))
+  (simpleclip-mode 1)
+  (setq interprogram-cut-function   'simpleclip-set-contents)
+  (setq interprogram-paste-function 'simpleclip-get-contents))
 
 ;; Revert buffers automatically when underlying files are changed externally.
 (use-package autorevert
@@ -39,12 +41,12 @@
 
 ;; Cursor movement
 (defun lm/next-line-fast ()
-  "Faster `C-n'"
+  "Faster `C-n'."
   (interactive)
   (ignore-errors (next-line 5)))
 
 (defun lm/previous-line-fast ()
-  "Faster `C-p'"
+  "Faster `C-p'."
   (interactive)
   (ignore-errors (previous-line 5)))
 
