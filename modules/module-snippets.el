@@ -1,5 +1,6 @@
 ;; yasnippet configuration.
 ;; code:
+
 (use-package yasnippet
   :defer 2
   :init
@@ -23,9 +24,11 @@
 
   ;; Disable yasnippet in some modes.
   (defun yas-disable-hook ()
-    (setq yas-dont-activate t))
+    (setq yas-dont-activate 1))
+
   (add-hook 'term-mode-hook #'yas-disable-hook)
   (add-hook 'comint-mode-hook #'yas-disable-hook)
   (add-hook 'erc-mode-hook #'yas-disable-hook))
 
 (provide 'module-snippets)
+;;; module-snippets.el ends here
