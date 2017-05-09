@@ -6,4 +6,7 @@
 (defvar core/var-font-name "Fira Code")
 (defvar core/font-height 130)
 
+;; vars for terminals.
+(defvar my-term-shell "/bin/zsh")
+
 (provide 'core-vars)
