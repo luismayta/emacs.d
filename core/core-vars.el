@@ -16,5 +16,8 @@
 ;; vars for terminals.
 (defvar my-term-shell "/bin/zsh")
 
+;; vars for terminals.
+(defvar my-term-shell "/bin/zsh")
+
 (provide 'core-vars)
 ;;; core-vars.el ends here
