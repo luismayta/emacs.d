@@ -61,3 +61,4 @@ git or hg repository is found in the buffer-local working dir."
   (add-hook 'monky-log-edit-mode-hook '(lambda () (flyspell-mode t))))
 
 (provide 'module-source-control)
+;;; module-source-control.el ends here
