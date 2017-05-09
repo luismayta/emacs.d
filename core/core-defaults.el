@@ -102,6 +102,8 @@
 (setq select-active-regions t)
 (setq save-interprogram-paste-before-kill 1)
 (setq yank-pop-change-selection t)
+(fset 'evil-visual-update-x-selection 'ignore)
+
 
 ;; Move files to trash when deleting
 (setq delete-by-moving-to-trash t)
