@@ -27,3 +27,4 @@
   '(helm-gtags-auto-update t))
 
 (provide 'helm-gtags-settings)
+;;; helm-gtags-settings.el ends here

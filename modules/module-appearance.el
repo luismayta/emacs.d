@@ -8,7 +8,7 @@
 (setq-default cursor-in-non-selected-windows nil)
 
 ;; Redraw without pause while processing input.
-(setq redisplay-dont-pause t)
+(setq redisplay-dont-pause 1)
 
 (add-hook 'emacs-startup-hook ;; 'window-setup-hook
   (lambda nil
@@ -24,13 +24,13 @@
     (set-face-attribute
       'linum nil
       :family core/fixed-font-name
-      :height (- core/font-height 20)
+      :height (- core/font-height 13)
       :weight core/fixed-font-weight)
     (set-face-attribute
       'variable-pitch nil
       :family core/var-font-name))
   (use-package darkokai-theme
-    :config (load-theme 'noctilux t)))
+    :config (load-theme 'noctilux 1)))
 
 (use-package rainbow-mode
   :commands rainbow-mode)
