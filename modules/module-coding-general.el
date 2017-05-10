@@ -52,7 +52,7 @@
   (("\\.http$" . restclient-mode)))
 
 ;; yaml
-(use-package 'yaml-mode
+(use-package yaml-mode
   :mode
   (("\\.yml$" . yaml-mode)
     ("\\.yaml$" . yaml-mode)))
