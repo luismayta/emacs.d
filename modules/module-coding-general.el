@@ -79,5 +79,7 @@
   (("\\.puml$" . plantuml-mode)
     ("\\.plantuml$" . plantuml-mode)))
 
+(use-package restart-emacs)
+
 (provide 'module-coding-general)
 ;;; module-coding-general.el ends here
