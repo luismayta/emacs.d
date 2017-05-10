@@ -26,13 +26,13 @@
     (set-face-attribute
       'variable-pitch nil
       :family core/var-font-name))
-  (use-package 'darkokai-theme
+  (use-package darkokai-theme
     :config (load-theme 'noctilux 1)))
 
-(use-package 'rainbow-mode
-  :commands 'rainbow-mode)
+(use-package rainbow-mode
+  :commands rainbow-mode)
 
-(use-package 'origami
+(use-package origami
   :init
   (global-origami-mode 1))
 
