@@ -6,6 +6,11 @@
   :init
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
+;; Install pyenv-mode-auto package
+(use-package pyenv-mode-auto
+  :init
+  (pyenv-mode))
+
 ;; company-jedi
 (use-package company-jedi
   :ensure t)
