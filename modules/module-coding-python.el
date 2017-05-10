@@ -6,8 +6,6 @@
   :init
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
-(use-package pyvenv)
-
 ;; company-jedi
 (use-package company-jedi
   :ensure t)
