@@ -88,3 +88,4 @@
   (recentf-mode))
 
 (provide 'module-navigation)
+;;; module-navigation.el ends here

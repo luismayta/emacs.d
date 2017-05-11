@@ -13,3 +13,4 @@
           ("\\.json\\'" . web-mode)))
 
 (provide 'module-coding-web)
+;;; module-coding-web.el ends here
