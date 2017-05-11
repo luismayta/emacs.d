@@ -10,10 +10,12 @@
 ;; skeletor package
 (use-package skeletor)
 
-;; osx clipboard
-(use-package osx-clipboard
+;; simpleclip
+(use-package simpleclip
   :config
-  (osx-clipboard-mode t))
+  (simpleclip-mode 1)
+  (setq interprogram-cut-function   'simpleclip-set-contents)
+  (setq interprogram-paste-function 'simpleclip-get-contents))
 
 ;; Revert buffers automatically when underlying files are changed externally.
 (use-package autorevert
@@ -39,12 +41,12 @@
 
 ;; Cursor movement
 (defun lm/next-line-fast ()
-  "Faster `C-n'"
+  "Faster `C-n'."
   (interactive)
   (ignore-errors (next-line 5)))
 
 (defun lm/previous-line-fast ()
-  "Faster `C-p'"
+  "Faster `C-p'."
   (interactive)
   (ignore-errors (previous-line 5)))
 
@@ -55,12 +57,12 @@
 ;; Replaces a lot of my old defuns and bindings.
 (use-package crux
   :bind (("C-x C-r" . crux-recentf-ido-find-file)
-         ("C-a" . crux-move-beginning-of-line)
-         ("<S-return>" . crux-smart-open-line)
-         ("C-c R" . crux-rename-buffer-and-file)
-         ("C-c D" . crux-delete-buffer-and-file)
-         ("<f2>" . crux-visit-term-buffer)
-         ("s-j" . crux-top-join-line))
+          ("C-a" . crux-move-beginning-of-line)
+          ("<S-return>" . crux-smart-open-line)
+          ("C-c R" . crux-rename-buffer-and-file)
+          ("C-c D" . crux-delete-buffer-and-file)
+          ("<f2>" . crux-visit-term-buffer)
+          ("s-j" . crux-top-join-line))
   :config (recentf-mode t))
 
 ;; Use conf-mode where appropriate.
@@ -132,11 +134,6 @@
   (setq undo-tree-visualizer-timestamps t)
   (setq undo-tree-visualizer-diff t))
 
-;; smart-comment
-;; Better `comment-dwim' supporting uncommenting.
-(use-package smart-comment
-  :bind ("M-;" . smart-comment))
-
 ;; embrace
 ;; Add/Change/Delete pairs based on expand-region.
 (use-package embrace
@@ -151,3 +148,4 @@
   (add-hook 'lisp-mode-hook #'aggressive-indent-mode))
 
 (provide 'module-editing)
+;;; module-editing.el ends here

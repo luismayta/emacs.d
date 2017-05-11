@@ -27,3 +27,4 @@
     :keybinding "g"))
 
 (provide 'module-searching)
+;;; module-searching.el ends here

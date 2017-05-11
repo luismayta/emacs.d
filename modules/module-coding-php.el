@@ -14,3 +14,4 @@
 (use-package company-php)
 
 (provide 'module-coding-php)
+;;; module-coding-php.el ends here
