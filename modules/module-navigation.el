@@ -47,9 +47,12 @@
 (add-to-list 'find-file-not-found-functions #'lm/create-non-existent-directory)
 
 ;; switch-window
-;; Provides visual cues to instantly switch on C-x o.
 (use-package switch-window
-  :bind ("C-x o" . switch-window))
+  :bind (("C-x o" . switch-window)
+          ("C-x h". windmove-left)
+          ("C-x j". windmove-down)
+          ("C-x k". windmove-up)
+          ("C-x l". windmove-right)))
 
 ;; saveplace
 ;; Remebers your location in a file when saving files.
