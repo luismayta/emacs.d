@@ -29,6 +29,10 @@
   (use-package darkokai-theme
     :config (load-theme 'noctilux 1)))
 
+(use-package nyan-mode
+  :init
+  (nyan-mode))
+
 (use-package rainbow-mode
   :commands rainbow-mode)
 
