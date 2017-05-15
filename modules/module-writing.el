@@ -24,5 +24,12 @@
 ;; Double spaces at the end of sentences is a bit outdated.
 (setq sentence-end-double-space nil)
 
+(use-package super-save
+  :init
+  (super-save-mode +1)
+  :config
+  (setq super-save-auto-save-when-idle t)
+  (setq auto-save-default nil))
+
 (provide 'module-writing)
 ;;; module-writing.el ends here
