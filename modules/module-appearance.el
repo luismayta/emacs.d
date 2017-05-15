@@ -21,7 +21,7 @@
     (set-face-attribute
       'linum nil
       :family core/fixed-font-name
-      :height (- core/font-height 13)
+      :height core/font-height
       :weight core/fixed-font-weight)
     (set-face-attribute
       'variable-pitch nil
