@@ -73,14 +73,14 @@
   (append (if (consp backend) backend (list backend))
     '(:with company-yasnippet)))
 
-(bind-key "C-x C-b" 'ibuffer)
+;; (bind-key "C-x C-b" 'ibuffer)
 
 (defun create-new-buffer ()
   "Create a new buffer named *new*."
   (interactive)
   (switch-to-buffer (generate-new-buffer-name "*new*")))
 
-(bind-key "C-c n" 'create-new-buffer)
+;; (bind-key "C-c n" 'create-new-buffer)
 
 (defun lm/smart-find-file ()
   "Find files using projectile if within a project, or fall-back to ido."
@@ -89,14 +89,14 @@
     (projectile-find-file)
     (ido-find-file)))
 
-(bind-key "C-x f" 'lm/smart-find-file)
+;; (bind-key "C-x f" 'lm/smart-find-file)
 
 (defun lm/kill-default-buffer ()
   "Kill the currently active buffer."
   (interactive)
   (let (kill-buffer-query-functions) (kill-buffer)))
 
-(bind-key "C-x k" 'lm/kill-default-buffer)
+;; (bind-key "C-x k" 'lm/kill-default-buffer)
 
 (defun switch-to-irc nil
   "Switch to IRC buffer using ido to select from candidates."
