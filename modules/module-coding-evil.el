@@ -28,8 +28,8 @@
           "fa" 'origami-toggle-all-nodes
           "fr" 'origami-recursively-toggle-node
           "fe" 'find-file
-          "ff" 'helm-ag-project-root
-          "fp" 'helm-projectile-find-file
+          "ff" 'counsel-projectile-ag
+          "fp" 'counsel-projectile-find-file
           "fm" 'fixmee-view-listing
           "gs" 'magit-status
           "gc" 'magit-commit
@@ -40,11 +40,11 @@
           "gp" 'google-translate-at-point
           "b" 'ido-switch-buffer
           "s" 'save-buffer
-          "tt" 'helm-gtags-find-tag
-          "tc" 'helm-gtags-create-tags
+          ;; "tt" 'helm-gtags-find-tag
+          ;; "tc" 'helm-gtags-create-tags
           "k" 'ido-kill-buffer
           "xx" 'er/expand-region
-          "/" 'helm-ag-this-file
+          "/" 'counsel-grep
           "p" 'plantuml-preview)))
     ;; boot evil by default
     (evil-mode 1)))
