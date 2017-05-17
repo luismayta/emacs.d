@@ -7,9 +7,6 @@
 ;; Disable cursor display in inactive windows.
 (setq-default cursor-in-non-selected-windows nil)
 
-;; Redraw without pause while processing input.
-(setq redisplay-dont-pause t)
-
 (add-hook 'emacs-startup-hook ;; 'window-setup-hook
   (lambda nil
     (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
@@ -24,13 +21,17 @@
     (set-face-attribute
       'linum nil
       :family core/fixed-font-name
-      :height (- core/font-height 20)
+      :height core/font-height
       :weight core/fixed-font-weight)
     (set-face-attribute
       'variable-pitch nil
       :family core/var-font-name))
   (use-package darkokai-theme
-    :config (load-theme 'noctilux t)))
+    :config (load-theme 'noctilux 1)))
+
+(use-package nyan-mode
+  :init
+  (nyan-mode))
 
 (use-package rainbow-mode
   :commands rainbow-mode)
