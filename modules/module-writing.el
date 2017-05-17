@@ -25,3 +25,4 @@
 (setq sentence-end-double-space nil)
 
 (provide 'module-writing)
+;;; module-writing.el ends here

@@ -99,10 +99,6 @@ built-in anyway.
   * [feature-mode](https://github.com/michaelklishin/cucumber.el)
   * [gist-mode](https://github.com/defunkt/gist.el)
 
-### Indent-Guide
-
-[Indent-guide](https://github.com/zk-phi/indent-guide) show vertical lines to guide indentation
-
 ### Projectile
 
 [Porjectile](https://github.com/bbatsov/projectile) is a project interaction library for Emacs.
