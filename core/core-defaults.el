@@ -19,8 +19,7 @@
              (abbreviate-file-name (buffer-file-name))
              "%b"))))
 
-(setq-default word-wrap t)
-(toggle-truncate-lines -1)
+(setq-default truncate-lines 1) ;; no wordwrap
 
 ;; Character encodings default to utf-8.
 (prefer-coding-system 'utf-8)
@@ -99,7 +98,12 @@
 (setq ido-save-directory-list-file (core/cache-for "ido.last"))
 
 ;; Allow pasting selection outside of Emacs.
-(setq select-enable-clipboard t)
+(setq select-enable-clipboard 1)
+(setq select-active-regions t)
+(setq save-interprogram-paste-before-kill 1)
+(setq yank-pop-change-selection t)
+(fset 'evil-visual-update-x-selection 'ignore)
+
 
 ;; Move files to trash when deleting
 (setq delete-by-moving-to-trash t)

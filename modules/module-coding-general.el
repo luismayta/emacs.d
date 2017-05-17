@@ -57,6 +57,11 @@
   (("\\.yml$" . yaml-mode)
     ("\\.yaml$" . yaml-mode)))
 
+;; toml
+(use-package toml-mode
+  :mode
+  (("\\.toml$" . toml-mode)))
+
 ;; wakatime for developer
 (use-package wakatime-mode
   :config
@@ -73,6 +78,8 @@
   :mode
   (("\\.puml$" . plantuml-mode)
     ("\\.plantuml$" . plantuml-mode)))
+
+(use-package restart-emacs)
 
 (provide 'module-coding-general)
 ;;; module-coding-general.el ends here
