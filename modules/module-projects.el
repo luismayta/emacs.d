@@ -1,33 +1,22 @@
 ;;; module-projects.el --- Project management         -*- lexical-binding: t; -*-
 ;;; code:
-(use-package helm
-  :init
-  (helm-mode t)
+
+(use-package counsel
   :config
-  (global-set-key (kbd "C-c h") 'helm-mini))
+  (setq counsel-find-file-ignore-regexp ".*\.egg-info\\|__pycache__\\|.cache")
+  :bind
+  ("M-x" . counsel-M-x)
+  ("C-x C-m" . counsel-M-x)
+  ("C-x C-f" . counsel-find-file)
+  ("C-x c k" . counsel-yank-pop)
+  ("M-;" . counsel-imenu))
 
-(use-package helm-descbinds
+(use-package counsel-projectile
+  :bind
+  ("C-x v" . counsel-projectile)
+  ("C-x c p" . counsel-projectile-ag)
   :config
-  (fset 'describe-bindings 'helm-descbinds))
-
-;; Add: info helm-ag
-(use-package helm-ag)
-
-;; projectile
-(use-package helm-projectile
-  :commands (helm-projectile-on))
-
-(use-package projectile
-  :diminish projectile-mode
-  :commands  (projectile-mode
-               projectile-global-mode)
-  :bind ("C-c p a" . projectile-ag)
-  :init
-  (add-hook 'after-init-hook 'projectile-global-mode)
-  (add-hook 'after-init-hook 'helm-projectile-on)
-  :config
-  (setq projectile-completion-system 'helm)
-  (setq projectile-file-exists-local-cache-expire (* 5 60)))
+  (counsel-projectile-on))
 
 ;; perspective
 (use-package perspective
