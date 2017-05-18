@@ -4,8 +4,10 @@
   :if (memq window-system (quote (mac ns)))
   :defer 2
   :config
-  (exec-path-from-shell-initialize)
-  (exec-path-from-shell-copy-env "GOPATH"))
+  ;; Add GOPATH to shell
+  (exec-path-from-shell-copy-env "GOPATH")
+  (exec-path-from-shell-copy-env "PYTHONPATH")
+  (exec-path-from-shell-initialize))
 
 (provide 'module-path)
 ;;; module-path.el ends here
