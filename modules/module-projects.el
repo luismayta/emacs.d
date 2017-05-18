@@ -1,6 +1,25 @@
 ;;; module-projects.el --- Project management         -*- lexical-binding: t; -*-
 ;;; code:
 
+(use-package ivy
+  :bind
+  ("C-x s" . swiper)
+  ("C-x C-r" . ivy-resume)
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers nil)
+  (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
+
+(use-package projectile
+  :config
+  (setq projectile-enable-caching t
+    projectile-cache-file (expand-file-name "projectile.cache" temp-dir)
+    projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir))
+  (setq projectile-completion-system 'ivy)
+  (projectile-global-mode)
+  :bind
+  ("C-x c a" . projectile-ag))
+
 (use-package counsel
   :config
   (setq counsel-find-file-ignore-regexp ".*\.egg-info\\|__pycache__\\|.cache")
