@@ -40,5 +40,26 @@
   :init
   (global-origami-mode 1))
 
+(use-package hl-line
+  :config
+  ;; Doesn't seem to play nice in emacs 25+
+  (setq hl-line-sticky-flag nil
+    global-hl-line-sticky-flag nil)
+
+  (defvar-local current-hl-line-mode nil)
+  (defun hl-line-on ()  (if current-hl-line-mode (hl-line-mode +1)))
+  (defun hl-line-off () (if current-hl-line-mode (hl-line-mode -1)))
+  ;;(add-hook hl-line-mode (lambda () (if current-hl-line-mode (setq current-hl-line-mode t))))
+  (global-hl-line-mode))
+
+(use-package hlinum
+  :config
+  (hlinum-activate))
+
+(use-package linum
+  :config
+  (setq linum-format " %3d ")
+  (global-linum-mode nil))
+
 (provide 'module-appearance)
 ;;; module-appearance.el ends here
