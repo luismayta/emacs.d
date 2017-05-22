@@ -1,12 +1,16 @@
 ;; Use $PATH from user's shell in Emacs.
 ;; code:
+
 (use-package exec-path-from-shell
-  :if (memq window-system (quote (mac ns)))
-  :defer 2
   :config
-  ;; Add GOPATH to shell
+  (exec-path-from-shell-copy-env "PATH")
   (exec-path-from-shell-copy-env "GOPATH")
-  (exec-path-from-shell-copy-env "PYTHONPATH")
+  (exec-path-from-shell-copy-env "GOROOT")
+  (exec-path-from-shell-copy-env "GO_ENV")
+  (exec-path-from-shell-copy-env "DOCKER_HOST")
+  (exec-path-from-shell-copy-env "DOCKER_TLS_VERIFY")
+  (exec-path-from-shell-copy-env "DOCKER_CERT_PATH")
+  (exec-path-from-shell-copy-env "DOCKER_MACHINE_NAME")
   (exec-path-from-shell-initialize))
 
 (provide 'module-path)

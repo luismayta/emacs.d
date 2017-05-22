@@ -22,17 +22,12 @@
           ("\\.markdown$" . markdown-mode)))
 
 ;; rst-mode
-(use-package rst
-  :config
-  (add-hook 'rst-mode-hook
-    (lambda ()
-      (local-set-key (kbd "C-M-h") 'backward-kill-word)
-      (turn-on-auto-fill)))
+(use-package rst-mode
   :mode (("\\.rst$" . rst-mode)))
 
 ;; Install Apib-Mode
 (use-package apib-mode
-  :mode (("\\.apib$" . apib-mode)))
+  :mode (("\\.apib\\" . apib-mode)))
 
 ;; Double spaces at the end of sentences is a bit outdated.
 (setq sentence-end-double-space nil)
