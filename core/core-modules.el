@@ -43,8 +43,8 @@
      module-coding-swift
      module-coding-haskell
      module-coding-rust
-     module-coding-go
      module-company
+     module-coding-go
      module-term
      module-coding-evil
      )
