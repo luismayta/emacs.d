@@ -54,8 +54,8 @@
 ;; yaml
 (use-package yaml-mode
   :mode
-  (("\\.yml$" . yaml-mode)
-    ("\\.yaml$" . yaml-mode)))
+  ((("\\.yml$" . yaml-mode)
+     ("\\.yaml$" . yaml-mode))))
 
 ;; toml
 (use-package toml-mode
