@@ -73,10 +73,10 @@ built-in anyway.
   * php-mode
     - this doesn't ship with Emacs and is a bit lacking really
     - mixed HTML/PHP doesn't work well at all; I use html-mode instead
-;; turn on auto-completion of function names etc
   * terraform-mode
   * Erlang
   * Skeletor
+  * [apib-mode](https://github.com/w-vi/apib-mode)
   * Auto-complete
     - use <kbd>TAB</kbd> to auto-complete while typing
   * IDO-mode
