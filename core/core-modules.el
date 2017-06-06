@@ -30,21 +30,23 @@
      module-navigation
      module-writing
      module-projects
-     module-source-control
-     module-coding-general
      module-coding-ansible
+     module-source-control
      module-coding-docker
+     module-coding-haskell
+     module-coding-general
      module-coding-elixir
      module-coding-java
      module-coding-js
+     module-coding-lua
      module-coding-php
      module-coding-python
      module-coding-ruby
      module-coding-swift
-     module-coding-haskell
      module-coding-rust
-     module-coding-go
      module-company
+     module-coding-go
+     module-term
      module-coding-evil
      )
   )
