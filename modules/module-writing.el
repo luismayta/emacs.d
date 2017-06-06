@@ -18,8 +18,12 @@
 ;; markdown
 (use-package markdown-mode
   :mode (("\\.md$" . markdown-mode)
-         ("\\.text$" . markdown-mode))
-         ("\\.markdown$" . markdown-mode))
+          ("\\.text$" . markdown-mode)
+          ("\\.markdown$" . markdown-mode)))
+
+;; Install Apib-Mode
+(use-package apib-mode
+  :mode (("\\.apib\\" . apib-mode)))
 
 ;; Double spaces at the end of sentences is a bit outdated.
 (setq sentence-end-double-space nil)
