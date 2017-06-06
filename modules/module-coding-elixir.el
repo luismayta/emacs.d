@@ -1,6 +1,6 @@
-;;; module-coding-elixir.el --- Elixir configuration.
+;; module-coding-elixir.el --- Elixir configuration.
 
-;;; code:
+;; code:
 (use-package elixir-mode
   :mode (("\\.ex\\'" . elixir-mode)
           ("\\.exs\\'" . elixir-mode))
@@ -10,3 +10,4 @@
     :diminish alchemist-mode))
 
 (provide 'module-coding-elixir)
+;; module-coding-elixir.el ends here

@@ -15,3 +15,4 @@
         c-basic-offset 2))))
 
 (provide 'module-coding-java)
+;;; module-coding-java.el ends here

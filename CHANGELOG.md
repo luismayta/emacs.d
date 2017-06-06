@@ -4,6 +4,10 @@ This file uses change log convention from [Keep a CHANGELOG](http://keepachangel
 
 ## [Unreleased]
 
+## [1.2.4] - 2017-06-06
+
+## [1.2.3] - 2017-05-10
+
 ## [1.2.2] - 2017-05-01
 
 ## [1.2.1] - 2016-12-29
@@ -152,7 +156,9 @@ This file uses change log convention from [Keep a CHANGELOG](http://keepachangel
 
 - texto1
 
-[Unreleased]: https://github.com/luismayta/emacs.d/compare/1.2.2...HEAD
+[Unreleased]: https://github.com/luismayta/emacs.d/compare/1.2.4...HEAD
+[1.2.4]: https://github.com/luismayta/emacs.d/compare/1.2.3...1.2.4
+[1.2.3]: https://github.com/luismayta/emacs.d/compare/1.2.2...1.2.3
 [1.2.2]: https://github.com/luismayta/emacs.d/compare/1.2.1...1.2.2
 [1.2.1]: https://github.com/luismayta/emacs.d/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/luismayta/emacs.d/compare/1.1.9...1.2.0

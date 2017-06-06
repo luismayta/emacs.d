@@ -4,13 +4,13 @@
 
 (use-package evil-commentary
   :config
-  (evil-commentary-mode))
+  (evil-commentary-mode 1))
 
 (use-package evil
   :init
   (progn
     ;; if we don't have this evil overwrites the cursor color
-    (setq evil-default-cursor t)
+    (setq evil-default-cursor 1)
     ;; (setq expand-region-contract-fast-key "z") leader shortcuts
 
     ;; This has to be before we invoke evil-mode due to:
@@ -20,7 +20,7 @@
       :config
       (progn
         (evil-leader/set-leader ",")
-        (setq evil-leader/in-all-states t)
+        (setq evil-leader/in-all-states 1)
         ;; keyboard shortcuts
         (evil-leader/set-key
           "u" 'undo-tree-visualize
@@ -28,8 +28,8 @@
           "fa" 'origami-toggle-all-nodes
           "fr" 'origami-recursively-toggle-node
           "fe" 'find-file
-          "ff" 'helm-ag-project-root
-          "fp" 'helm-projectile-find-file
+          "ff" 'counsel-projectile-ag
+          "fp" 'counsel-projectile-find-file
           "fm" 'fixmee-view-listing
           "gs" 'magit-status
           "gc" 'magit-commit
@@ -38,16 +38,16 @@
           "gb" 'gist-buffer
           "gt" 'google-translate-smooth-translate
           "gp" 'google-translate-at-point
-          "b" 'helm-mini
+          "b" 'ido-switch-buffer
           "s" 'save-buffer
-          "tt" 'helm-gtags-find-tag
-          "tc" 'helm-gtags-create-tags
-          "k" 'kill-buffer
+          ;; "tt" 'helm-gtags-find-tag
+          ;; "tc" 'helm-gtags-create-tags
+          "k" 'ido-kill-buffer
           "xx" 'er/expand-region
-          "/" 'helm-ag-this-file
-          "n" 'neotree-toggle
+          "/" 'counsel-grep
           "p" 'plantuml-preview)))
     ;; boot evil by default
     (evil-mode 1)))
 
 (provide 'module-coding-evil)
+;;; module-coding-evil.el ends here

@@ -12,6 +12,10 @@ This is my configuration for Emacs. I like to keep my emacs
 nice and lightweight, so there's not much in here. Actually, it's more like
 Vim-flavoured Emacs, since it has Evil installed, the encoding of files is in utf-8.
 
+<p align="center">
+ <img src="./docs/statics/sequences_init.png">
+</p>
+
 # Prerequisites
 
 This is a list of applications that need to be installed previously to enjoy
@@ -69,10 +73,10 @@ built-in anyway.
   * php-mode
     - this doesn't ship with Emacs and is a bit lacking really
     - mixed HTML/PHP doesn't work well at all; I use html-mode instead
-;; turn on auto-completion of function names etc
   * terraform-mode
   * Erlang
   * Skeletor
+  * [apib-mode](https://github.com/w-vi/apib-mode)
   * Auto-complete
     - use <kbd>TAB</kbd> to auto-complete while typing
   * IDO-mode
@@ -94,10 +98,6 @@ built-in anyway.
   * [Google-translate](https://github.com/atykhonov/google-translate)
   * [feature-mode](https://github.com/michaelklishin/cucumber.el)
   * [gist-mode](https://github.com/defunkt/gist.el)
-
-### Indent-Guide
-
-[Indent-guide](https://github.com/zk-phi/indent-guide) show vertical lines to guide indentation
 
 ### Projectile
 
