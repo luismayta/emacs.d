@@ -39,6 +39,7 @@
      module-coding-java
      module-coding-js
      module-coding-lua
+     module-coding-lisp
      module-coding-php
      module-coding-python
      module-coding-ruby
