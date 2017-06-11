@@ -21,6 +21,10 @@
           ("\\.text$" . markdown-mode)
           ("\\.markdown$" . markdown-mode)))
 
+;; rst-mode
+(use-package rst-mode
+  :mode (("\\.rst$" . rst-mode)))
+
 ;; Install Apib-Mode
 (use-package apib-mode
   :mode (("\\.apib\\" . apib-mode)))
