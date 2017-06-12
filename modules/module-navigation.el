@@ -1,5 +1,7 @@
 ;; Navigation related settings and binds.
 
+(require 'core-defuns)
+
 ;; switch-window
 (use-package switch-window
   :bind (("C-x o" . switch-window)
