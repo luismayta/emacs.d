@@ -26,8 +26,8 @@
     (set-face-attribute
       'variable-pitch nil
       :family core/var-font-name))
-  (use-package darkokai-theme
-    :config (load-theme 'noctilux 1)))
+  (use-package zerodark-theme
+    :config (load-theme 'zerodark 1)))
 
 (use-package nyan-mode
   :init
