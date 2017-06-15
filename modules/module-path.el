@@ -11,6 +11,7 @@
   (exec-path-from-shell-copy-env "DOCKER_TLS_VERIFY")
   (exec-path-from-shell-copy-env "DOCKER_CERT_PATH")
   (exec-path-from-shell-copy-env "DOCKER_MACHINE_NAME")
+  (exec-path-from-shell-copy-env "PLANTUML_JAR_PATH")
   (exec-path-from-shell-initialize))
 
 (provide 'module-path)
