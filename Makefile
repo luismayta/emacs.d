@@ -11,7 +11,6 @@ WGET = wget
 
 # Bin scripts
 CLEAN = $(shell) $(SCRIPT_DIR)/clean.sh
-GVM = $(shell) $(SCRIPT_DIR)/gvm.sh
 GRIP = $(shell) $(SCRIPT_DIR)/grip.sh
 PYENV = $(shell) $(SCRIPT_DIR)/pyenv.sh
 SETUP = $(shell) $(SCRIPT_DIR)/setup.sh
@@ -30,7 +29,6 @@ clean:
 
 environment:
 	$(PYENV)
-	$(GVM)
 	$(INSTALL)
 
 
