@@ -16,6 +16,23 @@ Vim-flavoured Emacs, since it has Evil installed, the encoding of files is in ut
  <img src="./docs/statics/sequences_init.png">
 </p>
 
+## Commands Makefile
+
+```bash
+  λ make
+  Commands:
+    install              Make install packages
+    clean                Make clean files compilate
+    environment          Make create environment
+    fix-git              Fix commit user
+    grip                 Make grip documentation
+    test                 Make Test files
+    lint                 Make Lint Files
+    watch                Visualize files in realtime
+    help                 Show help text
+```
+
+
 # Prerequisites
 
 This is a list of applications that need to be installed previously to enjoy
