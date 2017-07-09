@@ -2,15 +2,8 @@
 # -*- coding: utf-8 -*-
 
 export PROJECT_NAME=emacs
-export PYTHON_VERSION=2.7.9
+export PYTHON_VERSION=3.6.1
 export PYENV_NAME="${PROJECT_NAME}"
-
-export GVM_NAME="${PROJECT_NAME}"
-export GVM_PATHS_NAME=(
-    "src"
-    "pkg"
-    "bin"
-)
 
 export GRIP_PORT=6430
 
