@@ -64,4 +64,4 @@ windows:
             - make watch
         - grip:
             - pyenv activate emacs
-            - make grip
+            - echo 'documentation'
