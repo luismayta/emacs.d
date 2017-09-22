@@ -44,6 +44,7 @@
      module-coding-ruby
      module-coding-swift
      module-coding-rust
+     module-coding-terraform
      module-company
      module-coding-go
      module-term
