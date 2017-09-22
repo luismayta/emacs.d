@@ -1,18 +1,2 @@
--r test.txt
-
-ansible>=2.0.0
-autopep8==1.2.4
-bumplus==0.0.8
-bumpversion==0.5.2
-elpy==1.12.0
-epc==0.0.5
-flake8==3.0.4
-grip==4.3.2
-importmagic==0.1.7
-ipdb==0.8.1
-ipython==4.0.0
-ipython-genutils==0.1.0
-jedi==0.9.0
-pre-commit==0.9.0
-pylint==1.4.4
-yapf==0.11.1
+-r ../requirements.txt
+-r setup.txt
