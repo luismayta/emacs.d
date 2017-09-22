@@ -1,0 +1,14 @@
+autopep8==1.2.4
+bumplus==0.0.8
+bumpversion==0.5.3
+docker-compose==1.16.1
+flake8==3.3.0
+importmagic==0.1.7
+ipdb==0.10.3
+ipython==6.0.0
+jedi==0.10.2
+pre-commit==0.15.2
+pylint==1.7.1
+restview==2.7.0
+rope==0.10.7
+yapf==0.16.1
