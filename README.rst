@@ -1,6 +1,6 @@
 |wercker| |build_status| |code_climate| |github_tag| |test_coverage| |license|
 
-:Version: 1.2.4
+:Version: 1.3.1
 :Web: https://github.com/luismayta/emacs.d
 :Download: http://github.com/luismayta/emacs.d
 :Source: http://github.com/luismayta/emacs.d
