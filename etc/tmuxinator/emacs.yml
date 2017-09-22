@@ -61,7 +61,5 @@ windows:
       panes:
         - watch:
             - pyenv activate emacs
-            - make watch
         - grip:
             - pyenv activate emacs
-            - echo 'documentation'
