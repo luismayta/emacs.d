@@ -2,6 +2,10 @@
 ;;; code:
 ;; EditorConfig.org -- project-local coding style definitions.
 
+(use-package better-defaults)
+
+(use-package ein)
+
 (use-package editorconfig
   :commands editorconfig-mode
   :init (add-hook 'prog-mode-hook #'editorconfig-mode)
