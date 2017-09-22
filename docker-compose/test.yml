@@ -1,14 +1,11 @@
 # emacs: Docker Compose
 # https://docs.docker.com/compose/
 #
-# Usage: docker-compose up
+# Usage: test up
 version: '3'
 services:
-  emacs:
-    restart: always
+  app:
     image: luismayta/ubuntu-emacs:emacs24.5
     build:
       context: .
       dockerfiles: docker/emacs/Dockerfile
-    volumes:
-    - ./:/home/.emacs.d
