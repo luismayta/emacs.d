@@ -4,6 +4,8 @@
 -/elpa
 -/el-get
 -/.git
+-/.vagrant
+-/vendor
 -/auto-save-list
 -*.cache
 -GPATH
