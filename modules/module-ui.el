@@ -20,10 +20,10 @@
     (setq ido-vertical-define-keys 'C-n-and-C-p-only))
   (add-to-list 'ido-ignore-files "\\.DS_Store")
   (setq ido-enable-flex-matching t
-        ido-enable-prefix nil
-        ido-max-prospects 10
-        ido-use-faces nil
-        flx-ido-use-faces t)
+    ido-enable-prefix nil
+    ido-max-prospects 10
+    ido-use-faces nil
+    flx-ido-use-faces t)
   (ido-everywhere 1)
   (ido-vertical-mode 1)
   (flx-ido-mode 1))
@@ -41,6 +41,7 @@
 (use-package simple
   :ensure nil
   :diminish visual-line-mode)
+
 (use-package abbrev
   :ensure nil
   :diminish abbrev-mode)
