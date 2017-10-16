@@ -30,6 +30,7 @@
      module-navigation
      module-writing
      module-projects
+     module-company
      module-coding-ansible
      module-source-control
      module-coding-docker
@@ -45,7 +46,6 @@
      module-coding-swift
      module-coding-rust
      module-coding-terraform
-     module-company
      module-coding-go
      module-term
      module-coding-evil
