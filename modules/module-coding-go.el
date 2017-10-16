@@ -26,7 +26,14 @@
 
 ;; company-go
 (use-package company-go
-  :ensure t)
+  :ensure t
+  :defer t
+  :init
+  (with-eval-after-load 'company
+    (add-to-list 'company-backends 'company-go)))
+
+
+
 
 ;; go-add-tags
 (use-package go-add-tags
