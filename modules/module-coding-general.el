@@ -6,6 +6,12 @@
 
 (use-package ein)
 
+(use-package tramp
+  :init
+  (setq tramp-default-method "ssh")
+  :config
+  (with-eval-after-load 'tramp '(setenv "SHELL" "/bin/bash")))
+
 (use-package editorconfig
   :commands editorconfig-mode
   :init (add-hook 'prog-mode-hook #'editorconfig-mode)
