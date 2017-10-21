@@ -48,6 +48,7 @@
      module-coding-terraform
      module-coding-go
      module-term
+     module-org
      module-coding-evil
      )
   )
