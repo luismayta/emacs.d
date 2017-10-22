@@ -1,6 +1,6 @@
-|wercker| |build_status| |code_climate| |github_tag| |test_coverage| |license|
+|wercker| |build_status| |code_climate| |github_tag| |test_coverage| |license| |say_thanks|
 
-:Version: 1.3.1
+:Version: 1.4.0
 :Web: https://github.com/luismayta/emacs.d
 :Download: http://github.com/luismayta/emacs.d
 :Source: http://github.com/luismayta/emacs.d
@@ -277,7 +277,9 @@ Test
 
 .. code-block:: bash
 
-   $ make test
+   $ make setup
+   $ make docker.build env=test
+   $ make test.lint
 
 Actions
 =======
@@ -286,24 +288,36 @@ Other commands for developing are written in Makefile:
 
 .. code-block:: bash
 
-      λ make
-        ༼ つ ◕_◕ ༽つ Commands
-        install              Make install packages
-        clean                Make clean files compilate
-        documentation        Make Documentation
-        environment          Make create environment
-        fix-git              Fix commit user
-        list                 List of current active services by env
-        lint                 Clean files unnecesary
-        test                 make test
-        up                   Up application by env
-        restart              Reload services
-        ssh                  Connect to container
-        stop                 stop containers docker by env
-        setup                Install dependences initial
-        verify_network       Verify network
-        help                 Show help text
+    λ make
+    ༼ つ ◕_◕ ༽つ Commands
 
+    Usage:
+        environment               create environment with pyenv
+        install                   install dependences python by env
+        clean                     remove files of build
+        setup                     install requirements
+
+        Docker:
+
+            docker.build         build all services with docker-compose
+            docker.down          down services docker-compose
+            docker.ssh           connect by ssh to container
+            docker.stop          stop services by env
+            docker.verify_network           verify network
+            docker.up             up services of docker-compose
+            docker.run            run {service} {env}
+            docker.list           list services of docker
+
+        Docs:
+
+            docs.show                  Show restview README
+            docs.make.html             Make documentation html
+            docs.make.pdf              Make documentation pdf
+
+        Tests:
+
+            test.lint                  Run all pre-commit
+            test.syntax                Run all syntax in code
 
 Credits
 =======
@@ -324,13 +338,9 @@ Made with :heart: :coffee:️and :pizza: by `luismayta`_.
   :target: https://travis-ci.org/luismayta/emacs.d
   :alt: Build Status Tag
 
-.. |wercker| image:: https://app.wercker.com/status/c0c2ac92f9f63cc9b21db828f1c8e695/s/ "wercker status"
-  :target: https://app.wercker.com/project/byKey/c0c2ac92f9f63cc9b21db828f1c8e695
+.. |wercker| image:: https://app.wercker.com/status/5197d88761e239221d963a73394f082a/s/
+  :target: https://app.wercker.com/project/byKey/5197d88761e239221d963a73394f082a
   :alt: Wercker status
-
-.. |gitpitch| image:: https://gitpitch.com/assets/badge.svg
-  :target: https://gitpitch.com/luismayta/emacs.d?grs=github&t=white
-  :alt: GitPitch
 
 .. |license| image:: https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square
   :target: LICENSE
@@ -339,6 +349,10 @@ Made with :heart: :coffee:️and :pizza: by `luismayta`_.
 .. |test_coverage| image:: https://codeclimate.com/github/luismayta/emacs.d/badges/coverage.svg
   :target: https://codeclimate.com/github/luismayta/emacs.d/coverage
   :alt: Test Coverage
+
+.. |say_thanks| image:: https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg?style=flat-square
+  :target: https://saythanks.io/to/luismayta
+  :alt: Say Thanks
 
 .. Links
 
