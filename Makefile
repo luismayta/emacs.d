@@ -1,87 +1,87 @@
-.PHONY: build deploy lint test functions help
+#
+# See ./CONTRIBUTING.rst
+#
+
+TAG :=""
+END :=""
+
+.PHONY: help build up requirements clean lint test help
 .DEFAULT_GOAL := help
 
-DOCKER_NETWORK = emacs_network
-PROYECT_NAME = emacs
+PROJECT_NAME := emacs
+PROJECT_NAME_DEV := $(PROJECT_NAME)_dev
+PROJECT_NAME_STAGE := $(PROJECT_NAME)_stage
+PROJECT_NAME_TEST := $(PROJECT_NAME)_test
+
+PYTHON_VERSION=3.6.1
+PYENV_NAME="${PROJECT_NAME}"
 
 # Configuration.
-SHELL = /bin/bash
-ROOT_DIR = $(shell pwd)
-MESSAGE="༼ つ ◕_◕ ༽つ"
-MESSAGE_HAPPY="${MESSAGE} Happy Coding"
-SCRIPT_DIR = $(ROOT_DIR)/script
+SHELL := /bin/bash
+ROOT_DIR=$(shell pwd)
+MESSAGE:=༼ つ ◕_◕ ༽つ
+MESSAGE_HAPPY:="${MESSAGE} Happy Coding"
+SCRIPT_DIR=$(ROOT_DIR)/extras/scripts
+SOURCE_DIR=$(ROOT_DIR)/
+REQUIREMENTS_DIR=$(ROOT_DIR)/requirements/
+FILE_README=$(ROOT_DIR)/README.rst
 
-# Bin scripts
-BUILD = $(shell) $(SCRIPT_DIR)/build.sh
-CLEAN = $(shell) $(SCRIPT_DIR)/clean.sh
-DOCUMENTATION = $(shell) $(SCRIPT_DIR)/documentation.sh
-DOWN = $(shell) $(SCRIPT_DIR)/down.sh
-PYENV = $(shell) $(SCRIPT_DIR)/pyenv.sh
-INSTALL = $(shell) $(SCRIPT_DIR)/install.sh
-LIST = $(shell) $(SCRIPT_DIR)/list.sh
-LINT = $(shell) $(SCRIPT_DIR)/lint.sh
-TEST = $(shell) $(SCRIPT_DIR)/test.sh
-STOP =  $(shell) $(SCRIPT_DIR)/stop.sh
-SETUP =  $(shell) $(SCRIPT_DIR)/setup.sh
-UP = $(shell) $(SCRIPT_DIR)/up.sh
+include *.mk
 
-install: ## Make install packages
-	$(INSTALL)
+help:
+	@echo '${MESSAGE} Makefile for emacs'
+	@echo ''
+	@echo 'Usage:'
+	@echo '    environment               create environment with pyenv'
+	@echo '    install                   install dependences python by env'
+	@echo '    clean                     remove files of build'
+	@echo '    setup                     install requirements'
+	@echo ''
+	@echo '    Docker:'
+	@echo ''
+	@echo '        docker.build         build all services with docker-compose'
+	@echo '        docker.down          down services docker-compose'
+	@echo '        docker.ssh           connect by ssh to container'
+	@echo '        docker.stop          stop services by env'
+	@echo '        docker.verify_network           verify network'
+	@echo '        docker.up             up services of docker-compose'
+	@echo '        docker.run            run {service} {env}'
+	@echo '        docker.list           list services of docker'
+	@echo ''
+	@echo '    Docs:'
+	@echo ''
+	@echo '        docs.show                  Show restview README'
+	@echo '        docs.make.html             Make documentation html'
+	@echo '        docs.make.pdf              Make documentation pdf'
+	@echo ''
+	@echo '    Tests:'
+	@echo ''
+	@echo '        test.lint                  Run all pre-commit'
+	@echo '        test.syntax                Run all syntax in code'
+	@echo ''
 
-clean: ## Make clean files compilate
-	$(CLEAN)
+clean:
+	@echo "$(TAG)"Cleaning up"$(END)"
+	@rm -rf .tox *.egg dist build .coverage
+	@find . -name '__pycache__' -delete -print -o -name '*.pyc' -delete -print -o -name '*.tmp' -delete -print
+	@echo
 
-documentation: ## Make Documentation
-	make clean
-	$(DOCUMENTATION)
+setup: clean
+	pip install -r "${REQUIREMENTS_DIR}/setup.txt"
+	pre-commit install
 
-environment: ## Make create environment
-	$(PYENV)
-	$(INSTALL)
-
-fix-git: ## Fix commit user
-	$(FIX_GIT)
-
-list: ## List of current active services by env
-	make clean
-	@echo $(MESSAGE) "List Services: ${env}"
-	$(LIST) "${env}" && echo $(MESSAGE_HAPPY)
-
-lint: ## Clean files unnecesary
-	make clean
-	$(LINT)
-
-test: ## make test
-	make clean
-	$(TEST)
-
-up: ## Up application by env
-	make clean
-	make verify_network &> /dev/null
-	@echo $(MESSAGE) "Up Application environment: ${env}"
-	$(UP) "${env}" && echo $(MESSAGE_HAPPY)
-
-restart: ## Reload services
-	@echo $(MESSAGE) "restart Application environment: ${env}"
-	docker-compose restart
-
-ssh: ## Connect to container
-	docker exec -it $(CONTAINER) bash
-
-stop: ## stop containers docker by env
-	make clean
-	@echo $(MESSAGE) "Stop Services: ${env}"
-	$(STOP) "${env}" && echo $(MESSAGE_HAPPY)
-
-setup: ## Install dependences initial
-	make clean
-	$(SETUP)
-
-verify_network: ## Verify network
-	@if [ -z $$(docker network ls | grep $(DOCKER_NETWORK) | awk '{print $$2}') ]; then\
-		(docker network create $(DOCKER_NETWORK));\
+environment: clean
+	@if [ -e "$(HOME)/.pyenv" ]; then \
+		eval "$(pyenv init -)"; \
+		eval "$(pyenv virtualenv-init -)"; \
 	fi
+	pyenv virtualenv "${PYTHON_VERSION}" "${PYENV_NAME}" >> /dev/null 2>&1 || echo 'Oh Yeah!!'
+	pyenv activate "${PYENV_NAME}" >> /dev/null 2>&1 || echo 'Oh Yeah!!'
 
-help: ## Show help text
-	@echo $(MESSAGE) "Commands"
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "    \033[36m%-20s\033[0m %s\n", $$1, $$2}'
+install: clean
+	@echo $(MESSAGE) "Deployment environment: ${env}"
+	@if [ "${env}" == "" ]; then \
+		pip install -r requirements.txt; \
+	else \
+		pip install -r "${REQUIREMENTS_DIR}/${env}.txt"; \
+	fi
