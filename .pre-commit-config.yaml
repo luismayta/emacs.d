@@ -36,7 +36,8 @@
     -   id: requirements-txt-fixer
     -   id: check-symlinks
     -   id: name-tests-test
-        args: [--django]
+        args:
+        - --django
     -   id: file-contents-sorter
     -   id: fix-encoding-pragma
     -   id: sort-simple-yaml
@@ -70,7 +71,7 @@
     sha: 1.0.2
     hooks:
     -   id: shell-lint
-        exclude: ^script/wait-for-it.sh$
+        exclude: ^extras/script/wait-for-it.sh$
         args:
         - --exclude=SC1072,SC1073,SC2068
 -   repo: https://github.com/asottile/add-trailing-comma
