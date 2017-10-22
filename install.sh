@@ -31,9 +31,8 @@ debug() {
 
 ############################  BASIC SETUP TOOLS
 program_exists() {
-    local message="To install $APP_NAME you first need to install $1"
     local ret='0'
-    type $1 >/dev/null 2>&1 || { local ret='1'; }
+    type "${1}" >/dev/null 2>&1 || { local ret='1'; }
 
     # throw error on non-zero return value
     if [ ! "$ret" -eq '0' ]; then
@@ -61,7 +60,7 @@ Thanks for installing Emacs
 
 EOF
 
-    msg "© `date +%Y` $APP_NAME"
+    msg "© $(date +%Y) ${APP_NAME}"
 }
 
 initialize() {
