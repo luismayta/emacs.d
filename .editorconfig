@@ -1,6 +1,7 @@
 
 # EditorConfig is awesome: http://EditorConfig.org
 
+
 # top-most EditorConfig file
 root = true
 
@@ -35,3 +36,8 @@ indent_style = tab
 [*.{js,json,yml}]
 indent_style = space
 indent_size = 2
+
+
+[*.{make,mk}]
+indent_style             = tab
+indent_size              = 4
