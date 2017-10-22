@@ -1,4 +1,4 @@
-|wercker| |build_status| |code_climate| |github_tag| |test_coverage| |license|
+|wercker| |build_status| |code_climate| |github_tag| |test_coverage| |license| |say_thanks|
 
 :Version: 1.3.1
 :Web: https://github.com/luismayta/emacs.d
@@ -338,13 +338,9 @@ Made with :heart: :coffee:️and :pizza: by `luismayta`_.
   :target: https://travis-ci.org/luismayta/emacs.d
   :alt: Build Status Tag
 
-.. |wercker| image:: https://app.wercker.com/status/c0c2ac92f9f63cc9b21db828f1c8e695/s/
-  :target: https://app.wercker.com/project/byKey/c0c2ac92f9f63cc9b21db828f1c8e695
+.. |wercker| image:: https://app.wercker.com/status/5197d88761e239221d963a73394f082a/s/
+  :target: https://app.wercker.com/project/byKey/5197d88761e239221d963a73394f082a
   :alt: Wercker status
-
-.. |gitpitch| image:: https://gitpitch.com/assets/badge.svg
-  :target: https://gitpitch.com/luismayta/emacs.d?grs=github&t=white
-  :alt: GitPitch
 
 .. |license| image:: https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square
   :target: LICENSE
@@ -353,6 +349,10 @@ Made with :heart: :coffee:️and :pizza: by `luismayta`_.
 .. |test_coverage| image:: https://codeclimate.com/github/luismayta/emacs.d/badges/coverage.svg
   :target: https://codeclimate.com/github/luismayta/emacs.d/coverage
   :alt: Test Coverage
+
+.. |say_thanks| image:: https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg?style=flat-square
+  :target: https://saythanks.io/to/luismayta
+  :alt: Say Thanks
 
 .. Links
 
