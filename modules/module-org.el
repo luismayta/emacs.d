@@ -25,5 +25,5 @@
   :init (add-hook
           'org-mode-hook (lambda () (org-bullets-mode 1))))
 
-(provide 'module-orgmode)
-;;; module-orgmode.el ends here
+(provide 'module-org)
+;;; module-org.el ends here
