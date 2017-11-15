@@ -1,14 +1,9 @@
 ;; Delete marked text on typing
 ;;; code:
-(delete-selection-mode t)
+;; (delete-selection-mode 1)
 
 ;; Soft-wrap lines
-(global-visual-line-mode t)
-
-;; Require newline at end of file.
-(setq require-final-newline t)
-;; skeletor package
-(use-package skeletor)
+;; (global-visual-line-mode 1)
 
 ;; simpleclip
 (use-package simpleclip
@@ -22,36 +17,6 @@
   :diminish auto-revert-mode
   :config
   (global-auto-revert-mode t))
-
-;; Linum.
-(add-hook 'prog-mode-hook #'linum-mode)
-(setq linum-format " %4d ")
-
-;; Don't use tabs for indent; replace tabs with two spaces.
-(setq-default tab-width 2)
-(setq-default indent-tabs-mode nil)
-
-;; General editing-related bindings.
-(bind-key "C-w" 'backward-kill-word)
-(bind-key "C-x C-k" 'kill-region)
-(bind-key "C-c C-k" 'kill-region)
-
-(bind-key "<f5>" 'sort-lines)
-(bind-key "C-c b" 'switch-to-previous-buffer)
-
-;; Cursor movement
-(defun lm/next-line-fast ()
-  "Faster `C-n'."
-  (interactive)
-  (ignore-errors (next-line 5)))
-
-(defun lm/previous-line-fast ()
-  "Faster `C-p'."
-  (interactive)
-  (ignore-errors (previous-line 5)))
-
-(bind-key "C-S-n" 'lm/next-line-fast)
-(bind-key "C-S-p" 'lm/previous-line-fast)
 
 ;; Crux (Collection of Ridiculously Useful eXtensions)
 ;; Replaces a lot of my old defuns and bindings.
