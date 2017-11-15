@@ -6,8 +6,8 @@ LABEL VERSION emacs24.5
 
 # Install.
 RUN apt-get update -y  \
-    apt-get install -y editorconfig curl git-core wget zsh ctags \
-    apt-get clean
+    && apt-get install -y editorconfig curl git-core wget zsh ctags \
+    && apt-get clean
 
 # Set environment variables.
 ENV HOME /home
