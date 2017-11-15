@@ -4,8 +4,9 @@ Briefly describe the issue you are experiencing (or the feature you want to see 
 
 ## Environment
 
-* Emacs version (or git revision) that exhibits the issue:
-* Desktop OS/version used to run Emacs:
+* OS: {Please write here}
+* Emacs version: {Please write here}
+* Emacs.d version : {Please write here}
 
 ## Details
 
@@ -16,6 +17,7 @@ If necessary, describe the problem you have been experiencing in more detail.
 Create a [GIST](https://gist.github.com) which is a paste of your _full_ Emacs logs, and link them here. 
 Do _NOT_ paste your full Emacs logs here, as it will make this issue very long and hard to read! 
 If you are reporting a bug, _always_ include Emacs logs!
+
 
 ## Tasks
 
