@@ -31,8 +31,6 @@
 
 ;; Show column numbers in mode line.
 (setq column-number-mode t)
-;; Show linum mode
-(global-linum-mode t)
 
 ;; the menu bar is pointless in a terminal
 (menu-bar-mode -1)
