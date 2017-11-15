@@ -32,9 +32,6 @@
   (with-eval-after-load 'company
     (add-to-list 'company-backends 'company-go)))
 
-
-
-
 ;; go-add-tags
 (use-package go-add-tags
   :ensure t
