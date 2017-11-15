@@ -58,8 +58,10 @@
 
 (use-package linum
   :config
-  (setq linum-format " %3d ")
-  (global-linum-mode nil))
+  (setq linum-format " %4d ")
+  (global-linum-mode nil)
+  :init
+  (add-hook 'prog-mode-hook #'linum-mode))
 
 (provide 'module-appearance)
 ;;; module-appearance.el ends here
