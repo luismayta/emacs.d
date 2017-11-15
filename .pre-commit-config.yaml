@@ -1,5 +1,5 @@
 -   repo: https://github.com/pre-commit/pre-commit-hooks.git
-    sha: v0.9.4
+    sha: v1.1.1
     hooks:
     -   id: detect-private-key
         files: ^(?!\.?git-crypt)
@@ -48,7 +48,7 @@
         - --diff
         - --exclude=docs,migrations
 -   repo: https://github.com/pre-commit/mirrors-pylint.git
-    sha: v1.7.2
+    sha: v1.7.4
     hooks:
     -   id: pylint
         language_version: python3
@@ -59,7 +59,7 @@
         - --disable=no-name-in-module,import-error
         - --ignore=settings_test, migrations
 -   repo: https://github.com/pre-commit/pre-commit.git
-    sha: v1.1.2
+    sha: v1.4.1
     hooks:
     -   id: validate_manifest
 -   repo: https://github.com/asottile/reorder_python_imports.git
@@ -96,3 +96,34 @@
     sha: v1.0.5
     hooks:
     -   id: csslint
+-   repo: https://github.com/awebdeveloper/pre-commit-prettier
+    sha: v0.0.1
+    hooks:
+    -   id: prettier
+        args: []
+        additional_dependencies:
+        - prettier@1.1.0
+-   repo: git://github.com/chewse/pre-commit-mirrors-pydocstyle
+    sha: v2.1.1
+    hooks:
+    -   id: pydocstyle
+- repo: git://github.com/kintoandar/pre-commit.git
+  sha: v2.1.0
+  hooks:
+  - id: terraform_fmt
+  - id: terraform_validate
+  - id: prometheus_check_rules
+  - id: prometheus_check_config
+-   repo: https://github.com/Lucas-C/pre-commit-hooks-nodejs
+    sha: v1.1.0
+    hooks:
+    -   id: dockerfile_lint
+    -   id: markdown-toc
+    -   id: htmlhint
+        # optional custom config:
+        args: [--config, .htmlhintrc]
+    -   id: htmllint
+-   repo: git://github.com/Lucas-C/pre-commit-hooks-markup
+    sha: v1.0.0
+    hooks:
+    -   id: rst-linter
