@@ -8,6 +8,7 @@
 -/vendor
 -/auto-save-list
 -*.cache
+-/docs/build
 -GPATH
 -GRTAGS
 -GTAGS
