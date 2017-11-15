@@ -4,11 +4,26 @@
 # Usage: docker-compose up
 version: '3'
 services:
-  emacs:
+  app:
     restart: always
     image: luismayta/ubuntu-emacs:emacs24.5
+    environment: &environment
+      - APP_NAME=emacs
     build:
       context: .
-      dockerfile: docker/emacs/Dockerfile
+      dockerfile: docker/app/Dockerfile
     volumes:
     - ./:/home/.emacs.d
+    env_file:
+      - .env
+
+  docs:
+    restart: always
+    image: labpositiva/latex:3.6.1
+    build:
+      context: .
+      dockerfile: docker/docs/Dockerfile
+    volumes:
+      - .:/usr/src
+    env_file:
+      - .env
