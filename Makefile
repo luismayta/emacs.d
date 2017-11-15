@@ -69,6 +69,7 @@ clean:
 setup: clean
 	pip install -r "${REQUIREMENTS_DIR}/setup.txt"
 	pre-commit install
+	cp -rf .env-sample .env
 
 environment: clean
 	@if [ -e "$(HOME)/.pyenv" ]; then \
