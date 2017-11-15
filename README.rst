@@ -65,6 +65,11 @@ Once Emacs is finished installing packages, you can close the
 mode, so you should use vi key bindings. Get back to Emacs regular mode
 with C-\\.
 
+Versioning
+==========
+
+All Emacs.d versions bellow 1.1.3 are not using semantic versioning.
+After 1.1.3, there is a strict semantic versioning (v3) versioning policy in use.
 
 Content
 *******
