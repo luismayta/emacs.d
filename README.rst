@@ -66,11 +66,6 @@ mode, so you should use vi key bindings. Get back to Emacs regular mode
 with C-\\.
 
 
-Help/Support
-************
-
-|Gitter|
-
 Content
 *******
 
@@ -356,11 +351,14 @@ Made with :heart: :coffee:️and :pizza: by `luismayta`_.
 
 .. Links
 
+.. _`all contributors`: AUTHORS
 .. _`changelog`: CHANGELOG.rst
 .. _`contributors`: AUTHORS
 .. _`contributing`: CONTRIBUTING.rst
 .. _`luismayta`: https://github.com/luismayta
 .. _`python`: https://www.python.org
+.. _`docker`: https://www.docker.io
+.. _`docker compose`: https://docs.docker.com/compose
 .. _`semantic versioning`: http://semver.org
 .. _`Git`: http://git-scm.com/
 .. _`editorconfig`: http://editorconfig.org
