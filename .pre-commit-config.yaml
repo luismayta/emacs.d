@@ -128,18 +128,6 @@
     sha: v1.0.0
     hooks:
     -   id: rst-linter
--   repo: git://github.com/Lucas-C/pre-commit-hooks
-    sha: v1.1.4
-    hooks:
-    -   id: remove-crlf
-    -   id: remove-tabs
--   repo: git://github.com/pre-commit/pre-commit-hooks
-    sha: v1.1.1
-    hooks:
-    -   id: trailing-whitespace
-        args:
-        - --no-markdown-linebreak-ext
-    -   id: check-yaml
 -   repo: git://github.com/pre-commit/mirrors-pylint
     sha: v1.7.4
     hooks:
