@@ -31,6 +31,7 @@
      module-writing
      module-projects
      module-company
+     module-tags
      module-coding-ansible
      module-source-control
      module-coding-docker
