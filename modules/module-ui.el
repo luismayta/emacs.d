@@ -1,8 +1,5 @@
 ;;; module-ui.el --- UI niceties.
 
-;; Bind for toggling fullscreen.
-(bind-key "C-c M-f" 'toggle-frame-fullscreen)
-
 ;; uniquify
 ;; Overrides Emacs' default mechanism for making buffer names unique.
 (use-package uniquify
