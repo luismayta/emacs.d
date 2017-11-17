@@ -16,8 +16,8 @@
 (defun emacs/init ()
   "Perform startup initialization."
   ;; Load configured modules.
-  (core/load-modules)
+  (core/initialize)
   (message "Finish Install packages!"))
 
-(provide 'core-emacs.el)
-;;; core-aliases ends here
+(provide 'core-emacs)
+;;; core-emacs ends here
