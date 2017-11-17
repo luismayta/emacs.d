@@ -41,8 +41,9 @@
 (mapc 'add-to-load-path
   `(
      ,core-directory
-     ,(concat core-directory "libs/")
-     ,(concat core-directory "libs/spacemacs-theme/")
+     ,modules-directory
+     ,elisp-directory
+     ,themes-directory
      ))
 
 (provide 'core-load-paths)
