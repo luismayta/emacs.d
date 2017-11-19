@@ -37,6 +37,8 @@
   (expand-file-name "/usr/local/bin")
   "Exec path directory.")
 
+(add-to-list 'exec-path "/usr/local/bin")
+
 ;; load paths
 (mapc 'add-to-load-path
   `(
