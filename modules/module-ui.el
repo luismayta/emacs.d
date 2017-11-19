@@ -1,10 +1,13 @@
 ;;; module-ui.el --- UI niceties.
 
+
 ;; uniquify
 ;; Overrides Emacs' default mechanism for making buffer names unique.
 (use-package uniquify
   :ensure nil
   :config (setq uniquify-buffer-name-style 'forward))
+
+(use-package flx-ido)
 
 ;; ido
 (use-package ido
