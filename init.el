@@ -1,6 +1,7 @@
 ;;; init.el --- Start of the Emacs initialisation process.
 
 ;;; code:
+(package-initialize)
 
 ;; Increase the GC threshold as soon as possible.
 (setq gc-cons-threshold 50000000)
