@@ -2,6 +2,13 @@
 
 (require 'core-defuns)
 
+(use-package windmove
+  :bind
+  ("C-x <up>" . windmove-up)
+  ("C-x <down>" . windmove-down)
+  ("C-x <left>" . windmove-left)
+  ("C-x <right>" . windmove-right))
+
 ;; switch-window
 (use-package switch-window
   :bind (("C-x o" . switch-window)
