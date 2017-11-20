@@ -106,5 +106,22 @@
       (make-directory parent-directory t))))
 (add-to-list 'find-file-not-found-functions #'lm/create-non-existent-directory)
 
+(defmacro def (name &rest body)
+  (declare (indent 1) (debug t))
+  `(defun ,name (&optional _arg)
+     ,(if (stringp (car body)) (car body))
+     (interactive "p")
+     ,@(if (stringp (car body)) (cdr `,body) body)))
+
+(defmacro λ (&rest body)
+  (declare (indent 1) (debug t))
+  `(lambda ()
+     (interactive)
+     ,@body))
+
+(defmacro add-λ (hook &rest body)
+  (declare (indent 1) (debug t))
+  `(add-hook ,hook (lambda () ,@body)))
+
 (provide 'core-defuns)
 ;;; core-defuns ends here
