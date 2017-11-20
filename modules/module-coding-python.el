@@ -1,6 +1,8 @@
 ;;; module-coding-python.el --- Python settings.
 ;;; code:
 
+(require 'core-defuns)
+
 (use-package python-mode
   :mode ("\\.py$" . python-mode))
 
@@ -31,17 +33,6 @@
       (push
         'comint-watch-for-password-prompt comint-output-filter-functions)))
   )
-;; (use-package elpy
-;;   :ensure t
-;;   :commands
-;;   (elpy-enable elpy-use-ipython)
-;;   :mode (("\\.py\\'" . elpy-mode)
-;;           ("\\.py\\'"       . python-mode))
-;;   :config
-;;   (elpy-enable)
-;;   (add-hook 'python-mode-hook 'elpy-enable)
-;;   (add-hook 'elpy-mode-hook 'flycheck-mode))
-;; (add-hook 'python-mode-hook 'elpy-mode))
 
 ;; Install pyenv-mode-auto package
 (use-package pyenv-mode-auto
