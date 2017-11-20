@@ -1,9 +1,5 @@
 ;; Delete marked text on typing
 ;;; code:
-;; (delete-selection-mode 1)
-
-;; Soft-wrap lines
-;; (global-visual-line-mode 1)
 
 ;; simpleclip
 (use-package simpleclip
@@ -50,39 +46,33 @@
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
 
-;; smartparens
+;; keeps our parentheses balanced and allows for easy manipulation
 (use-package smartparens
-  :defer 2
-  :diminish " ()"
+  :ensure t
+  :diminish smartparens-mode
+  :init
+  (use-package evil-smartparens
+    :ensure t
+    :diminish evil-smartparens-mode
+    :config
+    (add-hook 'clojure-mode-hook #'evil-smartparens-mode)
+    (add-hook 'lisp-mode-hook #'evil-smartparens-mode)
+    (add-hook 'scheme-mode-hook #'evil-smartparens-mode)
+    (add-hook 'emacs-lisp-mode-hook #'evil-smartparens-mode))
   :config
   (require 'smartparens-config)
-  (sp-local-pair 'swift-mode "\\(" nil :actions nil)
-  (sp-local-pair 'swift-mode "\\(" ")")
-  (sp-local-pair 'swift-mode "<" ">")
-  (smartparens-global-mode t)
-  (show-smartparens-global-mode t)
-
-  ;; sp keybindings.
-  (define-key sp-keymap (kbd "C-M-f") 'sp-forward-sexp)
-  (define-key sp-keymap (kbd "C-M-b") 'sp-backward-sexp)
-  (define-key sp-keymap (kbd "C-M-n") 'sp-next-sexp)
-  (define-key sp-keymap (kbd "C-M-p") 'sp-previous-sexp)
-
-  (define-key sp-keymap (kbd "C-M-k") 'sp-kill-sexp)
-  (define-key sp-keymap (kbd "C-M-w") 'sp-copy-sexp))
+  (add-hook 'after-init-hook 'smartparens-global-mode))
 
 ;; browse-kill-ring
 (use-package browse-kill-ring
   :bind ("M-y" . browse-kill-ring))
 
-;; whitespace cleanup
-;; Automatically cleans whitespace on save.
+;; intelligently cleanup whitespace on save
 (use-package whitespace-cleanup-mode
+  :ensure t
   :diminish whitespace-cleanup-mode
-  :commands whitespace-cleanup-mode
-  :init
-  (add-hook 'text-mode-hook #'whitespace-cleanup-mode)
-  (add-hook 'prog-mode-hook #'whitespace-cleanup-mode))
+  :config
+  (add-hook 'after-init-hook 'whitespace-cleanup-mode))
 
 ;; subword
 (use-package subword
@@ -105,12 +95,15 @@
   :bind ("C-," . embrace-commander))
 
 ;; aggressive-indent
-;; Keeps code correctly indented during editing.
+;; amazing plugin - gives us perfect indentation automatically for code
 (use-package aggressive-indent
-  :commands aggressive-indent-mode
-  :init
-  (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
-  (add-hook 'lisp-mode-hook #'aggressive-indent-mode))
+  :ensure t
+  :diminish aggressive-indent-mode
+  :config
+  (add-hook 'after-init-hook #'aggressive-indent-global-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'haskell-mode))
+
+(use-package add-hooks)
 
 (provide 'module-editing)
 ;;; module-editing.el ends here
