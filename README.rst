@@ -174,19 +174,19 @@ navigate to them quickly.
 | fm        | fixmee-view-listing   | show words fixmee   |
 +-----------+-----------------------+---------------------+
 
-Helm-gtags
-==========
+Counsel-gtags
+=============
 
-`Helm-gtags <https://github.com/syohex/emacs-helm-gtags>`__
-helm-gtags-mode
+`counsel-gtags <https://github.com/syohex/emacs-counsel-gtags>`__
+counsel-gtags-mode
 
-+-----------+--------------------------+---------------+
-| Binding   | Call                     | Do            |
-+===========+==========================+===============+
-| tc        | helm-gtags-create-tags   | create tags   |
-+-----------+--------------------------+---------------+
-| tt        | helm-gtags-find-tag      | find tag      |
-+-----------+--------------------------+---------------+
++-----------+-----------------------------+---------------+
+| Binding   | Call                        | Do            |
++===========+=============================+===============+
+| tc        | counsel-gtags-create-tags   | create tags   |
++-----------+-----------------------------+---------------+
+| tt        | counsel-gtags-find-tag      | find tag      |
++-----------+-----------------------------+---------------+
 
 Install
 -------
