@@ -1,7 +1,7 @@
-;; Install Packages
+;;; Evil --- Settings emacs
+;;; comentary:
+;;; Configure evil mode and its packages - VIM like performance
 ;;; code:
-
-;; Configure evil mode and its packages - VIM like performance
 (use-package evil
   :ensure t
   :init
@@ -143,8 +143,8 @@
         "gp" 'google-translate-at-point
         "b" 'ido-switch-buffer
         "s" 'save-buffer
-        ;; "tt" 'helm-gtags-find-tag
-        ;; "tc" 'helm-gtags-create-tags
+        "tt" 'counsel-gtags-find-tag
+        "tc" 'counsel-gtags-create-tags
         "k" 'ido-kill-buffer
         "xx" 'er/expand-region
         "/" 'counsel-grep
