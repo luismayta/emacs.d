@@ -106,5 +106,48 @@
       (make-directory parent-directory t))))
 (add-to-list 'find-file-not-found-functions #'lm/create-non-existent-directory)
 
+(defmacro def (name &rest body)
+  (declare (indent 1) (debug t))
+  `(defun ,name (&optional _arg)
+     ,(if (stringp (car body)) (car body))
+     (interactive "p")
+     ,@(if (stringp (car body)) (cdr `,body) body)))
+
+(defmacro λ (&rest body)
+  (declare (indent 1) (debug t))
+  `(lambda ()
+     (interactive)
+     ,@body))
+
+(defmacro add-λ (hook &rest body)
+  (declare (indent 1) (debug t))
+  `(add-hook ,hook (lambda () ,@body)))
+
+(def lm/prettyfy-change-symbols
+  lambda  ()
+  (mapc (lambda (pair) (push pair prettify-symbols-alist))
+    '(;; Syntax
+       ("def" .      #x2131)
+       ("not" .      #x2757)
+       ("in" .       #x2208)
+       ("not in" .   #x2209)
+       ("return" .   #x27fc)
+       ("yield" .    #x27fb)
+       ("for" .      #x2200)
+       ;; Base Types
+       ("int" .      #x2124)
+       ("float" .    #x211d)
+       ("str" .      #x1d54a)
+       ("True" .     #x1d54b)
+       ("False" .    #x1d53d)
+       ;; Mypy
+       ("Dict" .     #x1d507)
+       ("List" .     #x2112)
+       ("Tuple" .    #x2a02)
+       ("Set" .      #x2126)
+       ("Iterable" . #x1d50a)
+       ("Any" .      #x2754)
+       ("Union" .    #x22c3))))
+
 (provide 'core-defuns)
 ;;; core-defuns ends here

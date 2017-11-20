@@ -1,39 +1,22 @@
 ;;; init.el --- Start of the Emacs initialisation process.
 
 ;;; code:
+(package-initialize)
 
 ;; Increase the GC threshold as soon as possible.
 (setq gc-cons-threshold 50000000)
 
-;; Packages need to be initialised in init.el in Emacs 25.x.
-(unless (fboundp 'package-initialize)
-  (require 'package))
-(package-initialize)
+(defconst project-version         "1.4.0" "Version.")
+(defconst emacs-min-version   "24.4" "Minimal version of Emacs.")
 
-;; Prepare paths.
-(add-to-list 'load-path (expand-file-name "core/" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "modules/" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "lib/elisp" user-emacs-directory))
-(add-to-list 'custom-theme-load-path (expand-file-name "lib/color-themes" user-emacs-directory))
-(add-to-list 'exec-path "/usr/local/bin")
+(if (not (version<= emacs-min-version emacs-version))
+  (error (concat "Your version of Emacs (%s) is too old. "
+           "requires Emacs version %s or above.")
+    emacs-version emacs-min-version)
+  (load-file (concat (file-name-directory load-file-name)
+               "core/core-load-paths.el"))
+  (require 'core-emacs)
+  (emacs/init))
 
-;; Set up aliases.
-(require 'core-aliases)
-
-;; Set up vars.
-(require 'core-vars)
-
-;; Set up some defaults settings
-(require 'core-defaults)
-
-;; Custom functions
-(require 'core-defuns)
-
-;; Set up available modules and the load-modules function
-(require 'core-modules)
-
-;; Load configured modules.
-(core/load-modules)
-(message "Finish Install packages!")
 (provide 'init)
 ;;; init.el ends here
