@@ -1,12 +1,12 @@
 ;;; core-modules.el --- Configures available modules and the package manager.
 
 ;;; code:
-
 (defun core/initialize ()
   "Initialize `package.el'."
   (unless package-archive-contents
     (setq  package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                               ("melpa" . "http://melpa.milkbox.net/packages/")
+                               ("melpa" . "http://melpa.org/packages/")
+                               ("marmalade" . "https://marmalade-repo.org/packages/")
                                ("org" . "http://orgmode.org/elpa/")))
     ;; optimization, no need to activate all the packages so early
     (setq package-enable-at-startup nil)
