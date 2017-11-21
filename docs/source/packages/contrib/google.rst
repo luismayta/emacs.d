@@ -8,7 +8,7 @@ Google Translate
 Description
 -----------
 
-Settings package _`google-translate`
+Settings package `google-translate`_
 
 Key Bindings
 ------------
@@ -30,7 +30,7 @@ Google This
 Description
 -----------
 
-Settings package _`google-this`
+Settings package `google-this`_
 
 Key Bindings
 ------------
