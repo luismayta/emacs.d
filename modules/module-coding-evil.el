@@ -139,8 +139,6 @@
         "gd" 'magit-diff
         "gl" 'gist-list
         "gb" 'gist-buffer
-        "gt" 'google-translate-smooth-translate
-        "gp" 'google-translate-at-point
         "b" 'ido-switch-buffer
         "s" 'save-buffer
         "tt" 'counsel-gtags-find-tag
