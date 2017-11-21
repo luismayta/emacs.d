@@ -141,6 +141,7 @@ stuff built-in anyway.
    -  config editor
 
 -  `Google-translate <https://github.com/atykhonov/google-translate>`__
+-  `Google-this <https://github.com/Malabarba/emacs-google-this>`__
 -  `feature-mode <https://github.com/michaelklishin/cucumber.el>`__
 -  `gist-mode <https://github.com/defunkt/gist.el>`__
 
@@ -194,12 +195,8 @@ Install
 .. code-block:: bash
 
     brew update
-    brew install ctags
-    brew install global --with-exuberant-ctags --with-pygments
-
-.. code-block:: bash
-
-    gtags --gtagslabel=ctags
+    brew install --HEAD ctags
+    brew install global --with-ctags
 
 
 `Plant-Uml <http://plantuml.com/>`__
