@@ -140,8 +140,6 @@ stuff built-in anyway.
 
    -  config editor
 
--  `Google-translate <https://github.com/atykhonov/google-translate>`__
--  `Google-this <https://github.com/Malabarba/emacs-google-this>`__
 -  `feature-mode <https://github.com/michaelklishin/cucumber.el>`__
 -  `gist-mode <https://github.com/defunkt/gist.el>`__
 
