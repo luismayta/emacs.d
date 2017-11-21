@@ -14,5 +14,4 @@
       (setq tab-width 2
         c-basic-offset 2))))
 
-(provide 'module-coding-java)
-;;; module-coding-java.el ends here
+(provide 'lm-coding-java)
