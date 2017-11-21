@@ -26,3 +26,8 @@ recentf
 *.before*
 srecode-map.el
 eshell
+.env
+
+# Generate
+docs/build
+places

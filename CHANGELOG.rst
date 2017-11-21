@@ -8,16 +8,20 @@ This file uses change log convention from `keep a CHANGELOG`_.
 *************
 
 
-`1.4.0`_ - 2017-10-22
+`1.5.0`_ - 2017-11-21
 **********************
+
+
+`1.4.0`_ - 2017-10-22
+*********************
 
 
 `1.3.1`_ - 2017-09-22
-**********************
+*********************
 
 
 `1.3.0`_ - 2017-09-22
-**********************
+*********************
 
 `1.2.4`_ - 2017-06-06
 *********************
@@ -139,12 +143,12 @@ This file uses change log convention from `keep a CHANGELOG`_.
 -  `#47`_ Added theme noctilux
 
 `1.0.5`_ 07-24-2015
-******************
+*******************
 
 -  `#20`_ Fixed install curl emacs
 
-`1.0.4` 07-20-2015
-******************
+`1.0.4`_ 07-20-2015
+*******************
 
 -  `#16`_ Implement Package Fixmee
 -  `#15`_ Implement Package Projectile
@@ -167,46 +171,48 @@ This file uses change log convention from `keep a CHANGELOG`_.
 -  fixed load test code
 
 `1.0.0`_ 06-16-2015
-****************
+*******************
 
 -  added test code
 
 `0.2.6` (DATE)
--------------
+*******************
 
 -  added conf go mode
 
 `0.2.3` (DATE)
--------------
+*******************
 
 -  added editor config
 
 `0.2.2` (DATE)
--------------
+*******************
 
 -  texto1
 
 `0.2.1` (DATE)
-*************
+*******************
 
 -  texto1
 
 `0.2.0` (DATE)
-*************
+*******************
 
 -  texto1
 
 `0.1.1` (DATE)
-*************
+*******************
 
 -  texto1
 
 
-.. _`Unreleased`: https://github.com/luismayta/emacs.d/compare/1.4.0...HEAD
+.. _`Unreleased`: https://github.com/luismayta/emacs.d/compare/1.5.0...HEAD
+.. _`1.5.0`: https://github.com/luismayta/emacs.d/compare/1.4.0...1.5.0
 .. _`1.4.0`: https://github.com/luismayta/emacs.d/compare/1.3.1...1.4.0
 .. _`1.3.1`: https://github.com/luismayta/emacs.d/compare/1.3.0...1.3.1
 .. _`1.3.0`: https://github.com/luismayta/emacs.d/compare/1.2.4...1.3.0
-.. _1.2.4: https://github.com/luismayta/emacs.d/compare/1.2.3...1.2.4
+.. _`1.2.4`: https://github.com/luismayta/emacs.d/compare/1.2.3...1.2.4
+.. _`1.2.3`: https://github.com/luismayta/emacs.d/compare/1.2.2...1.2.3
 .. _0.0.6: https://github.com/luismayta/emacs.d/compare/0.0.5...0.0.6
 .. _0.0.5: https://github.com/luismayta/emacs.d/compare/0.0.4...0.0.5
 .. _0.0.4: https://github.com/luismayta/emacs.d/compare/0.0.3...0.0.4

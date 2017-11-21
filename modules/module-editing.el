@@ -1,14 +1,5 @@
 ;; Delete marked text on typing
 ;;; code:
-(delete-selection-mode t)
-
-;; Soft-wrap lines
-(global-visual-line-mode t)
-
-;; Require newline at end of file.
-(setq require-final-newline t)
-;; skeletor package
-(use-package skeletor)
 
 ;; simpleclip
 (use-package simpleclip
@@ -22,36 +13,6 @@
   :diminish auto-revert-mode
   :config
   (global-auto-revert-mode t))
-
-;; Linum.
-(add-hook 'prog-mode-hook #'linum-mode)
-(setq linum-format " %4d ")
-
-;; Don't use tabs for indent; replace tabs with two spaces.
-(setq-default tab-width 2)
-(setq-default indent-tabs-mode nil)
-
-;; General editing-related bindings.
-(bind-key "C-w" 'backward-kill-word)
-(bind-key "C-x C-k" 'kill-region)
-(bind-key "C-c C-k" 'kill-region)
-
-(bind-key "<f5>" 'sort-lines)
-(bind-key "C-c b" 'switch-to-previous-buffer)
-
-;; Cursor movement
-(defun lm/next-line-fast ()
-  "Faster `C-n'."
-  (interactive)
-  (ignore-errors (next-line 5)))
-
-(defun lm/previous-line-fast ()
-  "Faster `C-p'."
-  (interactive)
-  (ignore-errors (previous-line 5)))
-
-(bind-key "C-S-n" 'lm/next-line-fast)
-(bind-key "C-S-p" 'lm/previous-line-fast)
 
 ;; Crux (Collection of Ridiculously Useful eXtensions)
 ;; Replaces a lot of my old defuns and bindings.
@@ -85,39 +46,33 @@
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
 
-;; smartparens
+;; keeps our parentheses balanced and allows for easy manipulation
 (use-package smartparens
-  :defer 2
-  :diminish " ()"
+  :ensure t
+  :diminish smartparens-mode
+  :init
+  (use-package evil-smartparens
+    :ensure t
+    :diminish evil-smartparens-mode
+    :config
+    (add-hook 'clojure-mode-hook #'evil-smartparens-mode)
+    (add-hook 'lisp-mode-hook #'evil-smartparens-mode)
+    (add-hook 'scheme-mode-hook #'evil-smartparens-mode)
+    (add-hook 'emacs-lisp-mode-hook #'evil-smartparens-mode))
   :config
   (require 'smartparens-config)
-  (sp-local-pair 'swift-mode "\\(" nil :actions nil)
-  (sp-local-pair 'swift-mode "\\(" ")")
-  (sp-local-pair 'swift-mode "<" ">")
-  (smartparens-global-mode t)
-  (show-smartparens-global-mode t)
-
-  ;; sp keybindings.
-  (define-key sp-keymap (kbd "C-M-f") 'sp-forward-sexp)
-  (define-key sp-keymap (kbd "C-M-b") 'sp-backward-sexp)
-  (define-key sp-keymap (kbd "C-M-n") 'sp-next-sexp)
-  (define-key sp-keymap (kbd "C-M-p") 'sp-previous-sexp)
-
-  (define-key sp-keymap (kbd "C-M-k") 'sp-kill-sexp)
-  (define-key sp-keymap (kbd "C-M-w") 'sp-copy-sexp))
+  (add-hook 'after-init-hook 'smartparens-global-mode))
 
 ;; browse-kill-ring
 (use-package browse-kill-ring
   :bind ("M-y" . browse-kill-ring))
 
-;; whitespace cleanup
-;; Automatically cleans whitespace on save.
+;; intelligently cleanup whitespace on save
 (use-package whitespace-cleanup-mode
+  :ensure t
   :diminish whitespace-cleanup-mode
-  :commands whitespace-cleanup-mode
-  :init
-  (add-hook 'text-mode-hook #'whitespace-cleanup-mode)
-  (add-hook 'prog-mode-hook #'whitespace-cleanup-mode))
+  :config
+  (add-hook 'after-init-hook 'whitespace-cleanup-mode))
 
 ;; subword
 (use-package subword
@@ -140,12 +95,15 @@
   :bind ("C-," . embrace-commander))
 
 ;; aggressive-indent
-;; Keeps code correctly indented during editing.
+;; amazing plugin - gives us perfect indentation automatically for code
 (use-package aggressive-indent
-  :commands aggressive-indent-mode
-  :init
-  (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
-  (add-hook 'lisp-mode-hook #'aggressive-indent-mode))
+  :ensure t
+  :diminish aggressive-indent-mode
+  :config
+  (add-hook 'after-init-hook #'aggressive-indent-global-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'haskell-mode))
+
+(use-package add-hooks)
 
 (provide 'module-editing)
 ;;; module-editing.el ends here

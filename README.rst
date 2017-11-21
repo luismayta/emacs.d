@@ -1,6 +1,6 @@
 |wercker| |build_status| |code_climate| |github_tag| |test_coverage| |license| |say_thanks|
 
-:Version: 1.4.0
+:Version: 1.5.0
 :Web: https://github.com/luismayta/emacs.d
 :Download: http://github.com/luismayta/emacs.d
 :Source: http://github.com/luismayta/emacs.d
@@ -65,11 +65,11 @@ Once Emacs is finished installing packages, you can close the
 mode, so you should use vi key bindings. Get back to Emacs regular mode
 with C-\\.
 
+Versioning
+==========
 
-Help/Support
-************
-
-|Gitter|
+All Emacs.d versions bellow 1.1.3 are not using semantic versioning.
+After 1.1.3, there is a strict semantic versioning (v3) versioning policy in use.
 
 Content
 *******
@@ -140,7 +140,6 @@ stuff built-in anyway.
 
    -  config editor
 
--  `Google-translate <https://github.com/atykhonov/google-translate>`__
 -  `feature-mode <https://github.com/michaelklishin/cucumber.el>`__
 -  `gist-mode <https://github.com/defunkt/gist.el>`__
 
@@ -174,19 +173,19 @@ navigate to them quickly.
 | fm        | fixmee-view-listing   | show words fixmee   |
 +-----------+-----------------------+---------------------+
 
-Helm-gtags
-==========
+Counsel-gtags
+=============
 
-`Helm-gtags <https://github.com/syohex/emacs-helm-gtags>`__
-helm-gtags-mode
+`counsel-gtags <https://github.com/syohex/emacs-counsel-gtags>`__
+counsel-gtags-mode
 
-+-----------+--------------------------+---------------+
-| Binding   | Call                     | Do            |
-+===========+==========================+===============+
-| tc        | helm-gtags-create-tags   | create tags   |
-+-----------+--------------------------+---------------+
-| tt        | helm-gtags-find-tag      | find tag      |
-+-----------+--------------------------+---------------+
++-----------+-----------------------------+---------------+
+| Binding   | Call                        | Do            |
++===========+=============================+===============+
+| tc        | counsel-gtags-create-tags   | create tags   |
++-----------+-----------------------------+---------------+
+| tt        | counsel-gtags-find-tag      | find tag      |
++-----------+-----------------------------+---------------+
 
 Install
 -------
@@ -194,12 +193,8 @@ Install
 .. code-block:: bash
 
     brew update
-    brew install ctags
-    brew install global --with-exuberant-ctags --with-pygments
-
-.. code-block:: bash
-
-    gtags --gtagslabel=ctags
+    brew install --HEAD ctags
+    brew install global --with-ctags
 
 
 `Plant-Uml <http://plantuml.com/>`__
@@ -356,11 +351,14 @@ Made with :heart: :coffee:️and :pizza: by `luismayta`_.
 
 .. Links
 
+.. _`all contributors`: AUTHORS
 .. _`changelog`: CHANGELOG.rst
 .. _`contributors`: AUTHORS
 .. _`contributing`: CONTRIBUTING.rst
 .. _`luismayta`: https://github.com/luismayta
 .. _`python`: https://www.python.org
+.. _`docker`: https://www.docker.io
+.. _`docker compose`: https://docs.docker.com/compose
 .. _`semantic versioning`: http://semver.org
 .. _`Git`: http://git-scm.com/
 .. _`editorconfig`: http://editorconfig.org

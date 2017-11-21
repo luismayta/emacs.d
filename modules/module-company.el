@@ -7,50 +7,51 @@
 ;;; Commentary:
 
 ;;; Code:
-;; (use-package company
-;;   :diminish " ©"
-;;   :commands (company-mode global-company-mode)
-;;   :init
-;;   (add-hook 'prog-mode-hook #'company-mode)
-;;   (add-hook 'comint-mode-hook #'company-mode)
-;;   :config
-;;   ;; Quick-help (popup documentation for suggestions).
-;;   (use-package company-quickhelp
-;;     :if window-system
-;;     :init (company-quickhelp-mode 1))
-;;   ;; Company settings.
-;;   (setq-default company-backends (remove 'company-eclim company-backends))
-;;   (setq company-tooltip-limit 20)
-;;   (setq company-idle-delay 0.25)
-;;   (setq company-echo-delay 0)
-;;   (setq company-minimum-prefix-length 2)
-;;   (define-key company-active-map (kbd "M-n") nil)
-;;   (define-key company-active-map (kbd "M-p") nil)
-;;   (define-key company-active-map (kbd "C-n") 'company-select-next)
-;;   (define-key company-active-map (kbd "C-p") 'company-select-previous)
-;;   (setq company-backends (remove 'company-clang company-backends))
-;;   (setq company-backends
-;;     (mapcar #'core/backend-with-yas company-backends)))
+
+;; company - easy auto-completion of code for all modes and documentation integration
 (use-package company
   :ensure t
   :defer t
-  :init (global-company-mode)
+  :init
+  (use-package company-flx
+    :ensure t
+    :config
+    (with-eval-after-load 'company
+      (company-flx-mode t)))
+  (use-package company-statistics
+    :ensure t
+    :diminish company-statistics-mode
+    :config
+    (add-hook 'after-init-hook #'company-statistics-mode))
+  (use-package company-quickhelp
+    :ensure t
+    :config
+    (company-quickhelp-mode 1)
+    (setq company-quickhelp-delay 1))
+                                        ;(use-package company-dabbrev
+                                        ; :init
+                                        ;(setq company-dabbrev-ignore-case nil
+  ;; don't downcase dabbrev suggestions
+                                        ; company-dabbrev-code-other-buffers t
+                                        ;company-tooltip-align-annotations t
+                                        ;company-dabbrev-downcase nil))
+                                        ;(use-package company-dabbrev-code
+                                        ; :init
+                                        ;(setq company-dabbrev-code-modes t
+                                        ; company-dabbrev-code-ignore-case nil))
+  :diminish company-mode
   :config
-  (progn
-    ;; Use Company for completion
-    (bind-key [remap completion-at-point] #'company-complete company-mode-map)
-
-    (setq company-tooltip-align-annotations t
-      ;; Easy navigation to candidates with M-<n>
-      company-show-numbers t)
-    (setq company-dabbrev-downcase nil))
-  :diminish company-mode)
-
-
-(use-package company-quickhelp          ; Documentation popups for Company
-  :ensure t
-  :defer t
-  :init (add-hook 'global-company-mode-hook #'company-quickhelp-mode))
+  (add-hook 'after-init-hook 'global-company-mode)
+  ;; Make it work more like	Vim's YCM, TAB cycling
+  (company-tng-configure-default)
+  ;; More convenient bindings
+  (setq company-minimum-prefix-length 3
+    company-tooltip-limit 10
+    company-idle-delay 0.5
+    company-show-numbers t
+    company-require-match 'never
+    company-selection-wrap-around t
+    company-tooltip-align-annotations t))
 
 (provide 'module-company)
 ;;; module-company.el ends here

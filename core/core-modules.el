@@ -1,27 +1,25 @@
 ;;; core-modules.el --- Configures available modules and the package manager.
 
 ;;; code:
-
-;; Repositories
-;; The ELPA repositories from where the packages are fetched.
-(setq
-  package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                      ("melpa" . "http://melpa.org/packages/")
-                      ("org" . "http://orgmode.org/elpa/")))
-
-;; Refresh the archive if we have no local cache.
-(unless package-archive-contents
-  (package-refresh-contents))
-
-;; Ensure `use-package' is installed.
-(when (not (package-installed-p 'use-package))
-  (package-install 'use-package))
-
-(require 'use-package)
-(setq use-package-always-ensure t)
+(defun core/initialize ()
+  "Initialize `package.el'."
+  (unless package-archive-contents
+    (setq  package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                               ("melpa" . "http://melpa.org/packages/")
+                               ("marmalade" . "https://marmalade-repo.org/packages/")
+                               ("org" . "http://orgmode.org/elpa/")))
+    ;; optimization, no need to activate all the packages so early
+    (setq package-enable-at-startup nil)
+    (package-refresh-contents)
+    ;; Ensure `use-package' is installed.
+    (when (not (package-installed-p 'use-package))
+      (package-install 'use-package))
+    (setq use-package-always-ensure t))
+  (core/load-modules))
 
 (setq modules
-  '(module-path
+  '(
+     module-path
      module-editing
      module-ui
      module-appearance
@@ -31,6 +29,7 @@
      module-writing
      module-projects
      module-company
+     module-tags
      module-coding-ansible
      module-source-control
      module-coding-docker
@@ -50,6 +49,7 @@
      module-term
      module-org
      module-coding-evil
+     module-google
      )
   )
 
