@@ -49,6 +49,7 @@
      module-term
      module-org
      module-coding-evil
+     module-google
      )
   )
 
