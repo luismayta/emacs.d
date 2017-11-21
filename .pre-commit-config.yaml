@@ -118,12 +118,12 @@
     sha: v1.0.0
     hooks:
     -   id: rst-linter
-        exclude: "(docs/*|tests/*)"
+        exclude: (docs/*|tests/*)
 -   repo: https://github.com/asottile/pyupgrade
     sha: v1.2.0
     hooks:
     -   id: pyupgrade
 -   repo: https://github.com/pricematch/pricematch-pre-commit-hooks
-    sha: master
+    sha: 82b0c142b363547cc873bc6581fa3074087a37d2
     hooks:
     -   id: do_not_commit
