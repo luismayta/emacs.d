@@ -1,7 +1,4 @@
 
-.. contents:: Table of Contents:
-    :local:
-
 Google Translate
 ================
 
