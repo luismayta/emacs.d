@@ -1,8 +1,7 @@
-;;; module-coding-rust.el --- Rust settings.
+;;; lm-coding-rust.el --- Rust settings.
 ;;; code:
 (use-package rust-mode
   :commands
   (rust-mode t))
 
-(provide 'module-coding-rust)
-;;; module-coding-rust.el ends here
+(provide 'lm-coding-rust)

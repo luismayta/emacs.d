@@ -1,4 +1,4 @@
-;;; module-company.el --- Company config               -*- lexical-binding: t; -*-
+;;; lm-company.el --- Company config               -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2016  Luis Mayta
 
@@ -6,52 +6,33 @@
 
 ;;; Commentary:
 
+;;
+
 ;;; Code:
-
-;; company - easy auto-completion of code for all modes and documentation integration
 (use-package company
-  :ensure t
-  :defer t
+  :diminish " ©"
+  :commands (company-mode global-company-mode)
   :init
-  (use-package company-flx
-    :ensure t
-    :config
-    (with-eval-after-load 'company
-      (company-flx-mode t)))
-  (use-package company-statistics
-    :ensure t
-    :diminish company-statistics-mode
-    :config
-    (add-hook 'after-init-hook #'company-statistics-mode))
-  (use-package company-quickhelp
-    :ensure t
-    :config
-    (company-quickhelp-mode 1)
-    (setq company-quickhelp-delay 1))
-                                        ;(use-package company-dabbrev
-                                        ; :init
-                                        ;(setq company-dabbrev-ignore-case nil
-  ;; don't downcase dabbrev suggestions
-                                        ; company-dabbrev-code-other-buffers t
-                                        ;company-tooltip-align-annotations t
-                                        ;company-dabbrev-downcase nil))
-                                        ;(use-package company-dabbrev-code
-                                        ; :init
-                                        ;(setq company-dabbrev-code-modes t
-                                        ; company-dabbrev-code-ignore-case nil))
-  :diminish company-mode
+  (add-hook 'prog-mode-hook #'company-mode)
+  (add-hook 'comint-mode-hook #'company-mode)
   :config
-  (add-hook 'after-init-hook 'global-company-mode)
-  ;; Make it work more like	Vim's YCM, TAB cycling
-  (company-tng-configure-default)
-  ;; More convenient bindings
-  (setq company-minimum-prefix-length 3
-    company-tooltip-limit 10
-    company-idle-delay 0.5
-    company-show-numbers t
-    company-require-match 'never
-    company-selection-wrap-around t
-    company-tooltip-align-annotations t))
+  ;; Quick-help (popup documentation for suggestions).
+  (use-package company-quickhelp
+    :if window-system
+    :init (company-quickhelp-mode 1))
+  ;; Company settings.
+  (setq-default company-backends (remove 'company-eclim company-backends))
+  (setq company-tooltip-limit 20)
+  (setq company-idle-delay 0.25)
+  (setq company-echo-delay 0)
+  (setq company-minimum-prefix-length 2)
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-n") 'company-select-next)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous)
+  (setq company-backends (remove 'company-clang company-backends))
+  (setq company-backends
+    (mapcar #'lm/backend-with-yas company-backends)))
 
-(provide 'module-company)
-;;; module-company.el ends here
+(provide 'lm-company)
+;;; lm-company.el ends here
