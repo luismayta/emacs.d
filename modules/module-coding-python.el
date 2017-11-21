@@ -1,51 +1,19 @@
-;;; module-coding-python.el --- Python settings.
+;;; lm-coding-python.el --- Python settings.
 ;;; code:
-
-(require 'core-defuns)
-
-(use-package python-mode
-  :mode ("\\.py$" . python-mode))
-
-(use-package python-docstring
-  :ensure t
-  :init
-  (add-hook 'python-mode-hook 'python-docstring-mode))
-
 (use-package elpy
-  :ensure t
-  :init
+  :commands
   (elpy-enable)
-  :config
-  (elpy-use-ipython)
-  (setq python-shell-interpreter "ipython"
-    python-shell-interpreter-args "--simple-prompt --pprint")
-
-  (when (require 'flycheck nil t)
-    (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-    (add-hook 'elpy-mode-hook 'flycheck-mode))
-
-  (add-hook 'python-mode-hook
-    (lambda ()
-      (add-to-list (make-local-variable 'company-backends)
-        '(elpy-company-backend))))
-  (add-hook 'inferior-python-mode-hook
-    (lambda ()
-      (push
-        'comint-watch-for-password-prompt comint-output-filter-functions)))
-  )
-
-;; Install pyenv-mode-auto package
-(use-package pyenv-mode-auto
   :init
-  (pyenv-mode))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
 
-(use-package py-autopep8
-  :init
-  (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save))
+(use-package pyvenv)
+
+;; company-jedi
+(use-package company-jedi
+  :ensure t)
 
 ;; (when (require 'flycheck nil t)
 ;;   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
 ;;   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
-(provide 'module-coding-python)
-;;; module-coding-python.el ends here
+(provide 'lm-coding-python)

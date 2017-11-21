@@ -1,17 +1,15 @@
-;;; module-coding-php.el --- Php settings.
+;;; lm-coding-php.el --- Php settings.
 ;;; code:
 
 (use-package php-mode
-  :mode  (("\\.phtml" . php-mode)
-           ("\\.php" . php-mode)
-           ("\\.inc" . php-mode))
   :commands php-mode
   :ensure php-mode
-  :config
-  (add-hook 'php-mode-hook #'ggtags-mode))
+  :mode
+  (("\\.phtml\\" . php-mode)
+    ("\\.php\\" . php-mode)
+    ("\\.inc\\" . php-mode)))
 
 ;; company-php
 (use-package company-php)
 
-(provide 'module-coding-php)
-;;; module-coding-php.el ends here
+(provide 'lm-coding-php)
