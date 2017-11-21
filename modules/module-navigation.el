@@ -1,27 +1,61 @@
 ;; Navigation related settings and binds.
+(bind-key "C-x C-b" 'ibuffer)
 
-(require 'core-defuns)
+(defun create-new-buffer ()
+  "Create a new buffer named *new*."
+  (interactive)
+  (switch-to-buffer (generate-new-buffer-name "*new*")))
 
-(use-package windmove
-  :bind
-  ("C-x <up>" . windmove-up)
-  ("C-x <down>" . windmove-down)
-  ("C-x <left>" . windmove-left)
-  ("C-x <right>" . windmove-right))
+(bind-key "C-c n" 'create-new-buffer)
+
+(defun lm/smart-find-file ()
+  "Find files using projectile if within a project, or fall-back to ido."
+  (interactive)
+  (if (projectile-project-p)
+      (projectile-find-file)
+    (ido-find-file)))
+
+(bind-key "C-x f" 'lm/smart-find-file)
+
+(defun lm/kill-default-buffer ()
+  "Kill the currently active buffer."
+  (interactive)
+  (let (kill-buffer-query-functions) (kill-buffer)))
+
+(bind-key "C-x k" 'lm/kill-default-buffer)
+
+(defun switch-to-irc nil
+  "Switch to IRC buffer using ido to select from candidates."
+  (interactive)
+  (let ((final-list (list ))
+        (irc-modes '(circe-channel-mode
+                     circe-query-mode
+                     erc-mode)))
+
+    (dolist (buf (buffer-list) final-list)
+      (if (member (with-current-buffer buf major-mode) irc-modes)
+          (setq final-list (append (list (buffer-name buf)) final-list))))
+    (when final-list
+      (switch-to-buffer (ido-completing-read "IRC Buffer: " final-list)))))
+
+(defun lm/create-non-existent-directory ()
+  "Prompt to automagically create parent directories."
+  (let ((parent-directory (file-name-directory buffer-file-name)))
+    (when (and (not (file-exists-p parent-directory))
+               (y-or-n-p (format "Directory `%s' does not exist! Create it?" parent-directory)))
+      (make-directory parent-directory t))))
+(add-to-list 'find-file-not-found-functions #'lm/create-non-existent-directory)
 
 ;; switch-window
+;; Provides visual cues to instantly switch on C-x o.
 (use-package switch-window
-  :bind (("C-x o" . switch-window)
-          ("C-x h". windmove-left)
-          ("C-x j". windmove-down)
-          ("C-x k". windmove-up)
-          ("C-x l". windmove-right)))
+  :bind ("C-x o" . switch-window))
 
 ;; saveplace
 ;; Remebers your location in a file when saving files.
 (use-package saveplace
   :init
-  (setq save-place-file (core/cache-for "saveplace"))
+  (setq save-place-file (lm/cache-for "saveplace"))
   (setq-default save-place t))
 
 ;; avy
@@ -42,16 +76,15 @@
   :commands recentf-mode
   :config
   (setq recentf-auto-cleanup 'never
-    recentf-max-saved-items 200
-    recentf-auto-cleanup 300
-    recentf-exclude '("/TAGS$"
-                       "/tmp/"
-                       "/var/tmp/"
-                       ".recentf"
-                       "ido.last"
-                       "/elpa/.*\\'"))
-  (setq recentf-save-file (core/cache-for "recentf"))
+        recentf-max-saved-items 200
+        recentf-auto-cleanup 300
+        recentf-exclude '("/TAGS$"
+                          "/tmp/"
+                          "/var/tmp/"
+                          ".recentf"
+                          "ido.last"
+                          "/elpa/.*\\'"))
+  (setq recentf-save-file (lm/cache-for "recentf"))
   (recentf-mode))
 
-(provide 'module-navigation)
-;;; module-navigation.el ends here
+(provide 'lm-navigation)
