@@ -65,6 +65,13 @@
          ("wdired"      "↯δ")))
     (cyphejor-mode t)))
 
+(use-package graphene
+  :config
+  (setq graphene-default-font "Fira Code Retina-16")
+  (setq graphene-variable-pitch-font "Fira Code Retina-16")
+  (setq graphene-fixed-pitch-font "Fira Code Retina-16")
+  )
+
 (use-package pretty-mode
   :ensure t
   :config
