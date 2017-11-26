@@ -39,7 +39,7 @@
 
 (use-package super-save
   :init
-  (super-save-mode +1)
+  (super-save-mode)
   :config
   (setq super-save-auto-save-when-idle t)
   (setq auto-save-default nil))
