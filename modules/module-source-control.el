@@ -10,7 +10,8 @@
 (use-package gist
   :bind ("C-c g p" . gist-region-or-buffer-private)
   :config
-  (setq gist-view-gist t))
+  (setq gist-view-gist t)
+  )
 
 (defun process-exit-code-and-output (program &rest args)
   "Run PROGRAM with ARGS and return the exit code and output in a list."
@@ -23,11 +24,12 @@
 git or hg repository is found in the buffer-local working dir."
   (interactive)
   (cond
-   ((eq (car (process-exit-code-and-output "hg" "status")) 0)
-    (monky-status))
-   ((eq (car (process-exit-code-and-output "git" "status")) 0)
-    (call-interactively 'magit-status))
-   (t (message "No hg or git repository found at %s" default-directory))))
+    ((eq (car (process-exit-code-and-output "hg" "status")) 0)
+      (monky-status))
+    ((eq (car (process-exit-code-and-output "git" "status")) 0)
+      (call-interactively 'magit-status))
+    (t (message "No hg or git repository found at %s" default-directory)))
+  )
 
 ;; magit and monky
 ;; Modes for git and mercurial.
@@ -45,6 +47,9 @@ git or hg repository is found in the buffer-local working dir."
     (jump-to-register :magit-fullscreen))
   ;; Use flyspell during commits.
   (add-hook 'git-commit-mode-hook '(lambda () (flyspell-mode t))))
+
+(use-package magit-gh-pulls
+  :ensure t)
 
 ;; Info git gutter
 (use-package git-gutter
@@ -66,6 +71,8 @@ git or hg repository is found in the buffer-local working dir."
     (jump-to-register :monky-fullscreen))
   ;; Flyspell during commits.
   (add-hook 'monky-log-edit-mode-hook '(lambda () (flyspell-mode t))))
+
+(use-package git-timemachine)
 
 (provide 'module-source-control)
 ;;; module-source-control.el ends here
