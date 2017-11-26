@@ -10,6 +10,13 @@
 (use-package use-package-ensure-system-package)
 (use-package add-hooks)
 
+(use-package graphene
+  :config
+  (setq graphene-default-font "Fira Code Retina-16")
+  (setq graphene-variable-pitch-font "Fira Code Retina-16")
+  (setq graphene-fixed-pitch-font "Fira Code Retina-16")
+  )
+
 (use-package pretty-mode
   :ensure t
   :config
