@@ -141,12 +141,10 @@
         "gb" 'gist-buffer
         "b" 'ido-switch-buffer
         "s" 'save-buffer
-        "tt" 'counsel-gtags-find-tag
-        "tc" 'counsel-gtags-create-tags
         "k" 'ido-kill-buffer
         "xx" 'er/expand-region
         "/" 'counsel-grep
-        "p" 'plantuml-preview)))
+        )))
   :config
   (evil-mode 1)
   (setq evil-want-C-u-scroll t
