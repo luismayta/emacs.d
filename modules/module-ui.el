@@ -1,6 +1,5 @@
 ;;; module-ui.el --- UI niceties.
 
-
 ;; uniquify
 ;; Overrides Emacs' default mechanism for making buffer names unique.
 (use-package uniquify
