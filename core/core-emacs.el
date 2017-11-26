@@ -14,6 +14,9 @@
 (require 'core-defuns)
 (require 'core-modules)
 
+(use-package dash
+  :ensure t)
+
 (defun emacs/init ()
   "Perform startup initialization."
   ;; Load configured modules.
