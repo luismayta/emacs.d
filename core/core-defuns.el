@@ -1,20 +1,6 @@
 ;;; core-defuns.el --- Custom functions required by other init files.
-
 ;;; code:
-;; unfill a paragraph, i.e., make it so the text does not wrap in the
-;; paragraph where the cursor is
-
-(defun unfill-paragraph ()
-  (interactive)
-  (let ((fill-column (point-max)))
-    (fill-paragraph nil)))
-
-;; unfill a region, i.e., make is so the text in that region does not
-;; wrap
-(defun unfill-region ()
-  (interactive)
-  (let ((fill-column (point-max)))
-    (fill-region (region-beginning) (region-end) nil)))
+(require 'core-vars)
 
 (defun system-is-mac ()
   (interactive)
@@ -45,7 +31,7 @@
 
 (defun core/cache-for (identifier)
   "Return cache directory for given identifier."
-  (expand-file-name identifier (core/emacs.d "var/cache")))
+  (expand-file-name identifier cache-directory))
 
 (defun core/mkdir-p (dir-path)
   "Make directory if it doesn't exist."
@@ -83,20 +69,6 @@
   "Kill the currently active buffer."
   (interactive)
   (let (kill-buffer-query-functions) (kill-buffer)))
-
-(defun switch-to-irc nil
-  "Switch to IRC buffer using ido to select from candidates."
-  (interactive)
-  (let ((final-list (list ))
-         (irc-modes '(circe-channel-mode
-                       circe-query-mode
-                       erc-mode)))
-
-    (dolist (buf (buffer-list) final-list)
-      (if (member (with-current-buffer buf major-mode) irc-modes)
-        (setq final-list (append (list (buffer-name buf)) final-list))))
-    (when final-list
-      (switch-to-buffer (ido-completing-read "IRC Buffer: " final-list)))))
 
 (defun lm/create-non-existent-directory ()
   "Prompt to automagically create parent directories."
@@ -147,7 +119,17 @@
        ("Set" .      #x2126)
        ("Iterable" . #x1d50a)
        ("Any" .      #x2754)
-       ("Union" .    #x22c3))))
+       ("Union" .    #x22c3)))
+  )
+
+(defun add-to-load-path (dir) (add-to-list 'load-path dir)
+  )
+
+(defun add-to-load-path-if-exists (dir)
+  "If DIR exists in the file system, add it to `load-path'."
+  (when (file-exists-p dir)
+    (add-to-load-path dir))
+  )
 
 (provide 'core-defuns)
 ;;; core-defuns ends here
