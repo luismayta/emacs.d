@@ -19,16 +19,18 @@
 
 (setq modules
   '(
+     module-utils
+     module-coding-evil
+     module-tools
      module-path
      module-editing
      module-ui
      module-appearance
-     module-snippets
      module-searching
      module-navigation
      module-writing
+     module-completion
      module-projects
-     module-company
      module-tags
      module-coding-ansible
      module-source-control
@@ -48,14 +50,14 @@
      module-coding-go
      module-term
      module-org
-     module-coding-evil
      module-google
      )
   )
 
 (defun core/load-modules ()
   (interactive)
-  (dolist (module modules) (require module)))
+  (dolist (module modules) (require module))
+  )
 
 (provide 'core-modules)
 ;;; core-modules.el ends here

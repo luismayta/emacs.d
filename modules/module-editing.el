@@ -1,6 +1,12 @@
 ;; Delete marked text on typing
 ;;; code:
 
+(use-package atomic-chrome
+  :config
+  (atomic-chrome-start-server)
+  (setq atomic-chrome-default-major-mode 'gfm-mode)
+  )
+
 ;; simpleclip
 (use-package simpleclip
   :config
@@ -72,7 +78,8 @@
   :ensure t
   :diminish whitespace-cleanup-mode
   :config
-  (add-hook 'after-init-hook 'whitespace-cleanup-mode))
+  (add-hook 'after-init-hook 'whitespace-cleanup-mode)
+  (add-hook 'before-save-hook 'whitespace-cleanup-mode))
 
 ;; subword
 (use-package subword
@@ -84,6 +91,8 @@
 (use-package undo-tree
   :diminish undo-tree-mode
   :bind ("C-x u" . undo-tree-visualize)
+  :init
+  (evil-leader/set-key "u" 'undo-tree-visualize)
   :config
   (global-undo-tree-mode)
   (setq undo-tree-visualizer-timestamps t)
@@ -100,10 +109,15 @@
   :ensure t
   :diminish aggressive-indent-mode
   :config
-  (add-hook 'after-init-hook #'aggressive-indent-global-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'haskell-mode))
+  (add-hook 'prog-mode-hook #'aggressive-indent-global-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'haskell-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'rst-mode))
 
-(use-package add-hooks)
+(use-package systemd
+  :ensure t)
+
+(use-package visual-fill-column
+  :ensure t)
 
 (provide 'module-editing)
 ;;; module-editing.el ends here

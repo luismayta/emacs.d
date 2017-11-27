@@ -7,14 +7,12 @@
   (require 'package))
 (package-initialize)
 
+(require 'core-load-paths)
 (require 'core-aliases)
 (require 'core-vars)
 (require 'core-defaults)
 (require 'core-defuns)
 (require 'core-modules)
-
-(use-package dash
-  :ensure t)
 
 (defun emacs/init ()
   "Perform startup initialization."

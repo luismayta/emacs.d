@@ -46,6 +46,9 @@ git or hg repository is found in the buffer-local working dir."
   ;; Use flyspell during commits.
   (add-hook 'git-commit-mode-hook '(lambda () (flyspell-mode t))))
 
+(use-package magit-gh-pulls
+  :ensure t)
+
 ;; Info git gutter
 (use-package git-gutter
   :init
@@ -66,6 +69,10 @@ git or hg repository is found in the buffer-local working dir."
     (jump-to-register :monky-fullscreen))
   ;; Flyspell during commits.
   (add-hook 'monky-log-edit-mode-hook '(lambda () (flyspell-mode t))))
+
+(use-package git-timemachine)
+
+(use-package gitignore-mode)
 
 (provide 'module-source-control)
 ;;; module-source-control.el ends here

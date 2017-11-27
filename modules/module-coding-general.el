@@ -2,7 +2,6 @@
 ;;; code:
 ;; EditorConfig.org -- project-local coding style definitions.
 
-(use-package better-defaults)
 
 (use-package ein)
 
@@ -83,11 +82,14 @@
   (global-wakatime-mode t))
 
 (use-package plantuml-mode
-  :init
-  (setq plantuml-jar-path (getenv "PLANTUML_JAR_PATH"))
   :mode
   (("\\.puml$" . plantuml-mode)
-    ("\\.plantuml$" . plantuml-mode)))
+    ("\\.plantuml$" . plantuml-mode))
+  :config
+  (setq plantuml-jar-path (getenv "PLANTUML_JAR_PATH"))
+  :init
+  (evil-leader/set-key "pu" 'plantuml-preview))
+
 
 (use-package restart-emacs)
 
