@@ -58,6 +58,7 @@
 (setq compilation-scroll-output 1)
 
 (core/mkdir-p (core/emacs.d "var/cache"))
+
 (core/mkdir-p (core/cache-for "backups"))
 
 ;; Keep backups in a separate directory.
