@@ -7,6 +7,7 @@
   (require 'package))
 (package-initialize)
 
+(require 'core-load-paths)
 (require 'core-aliases)
 (require 'core-vars)
 (require 'core-defaults)
