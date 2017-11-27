@@ -1,6 +1,7 @@
 ;;; core-defaults --- defaults.
 ;;; code:
 
+(require 'core-vars)
 (require 'core-defuns)
 
 ;; Ignore customisation by putting it in the cache dir.
@@ -57,7 +58,6 @@
 (setq compilation-scroll-output 1)
 
 (core/mkdir-p (core/emacs.d "var/cache"))
-(core/mkdir-p (core/emacs.d "etc"))
 (core/mkdir-p (core/cache-for "backups"))
 
 ;; Keep backups in a separate directory.
@@ -78,7 +78,7 @@
 (setq create-lockfiles nil)
 
 ;; Change bookmarks file location.
-(setq bookmark-file (core/emacs.d "etc/bookmarks"))
+(setq bookmark-file (core/cache-for "bookmarks"))
 
 ;; Change save-places file location.
 (setq save-place-file (core/cache-for "places"))
@@ -92,7 +92,6 @@
 (setq save-interprogram-paste-before-kill 1)
 (setq yank-pop-change-selection t)
 (fset 'evil-visual-update-x-selection 'ignore)
-
 
 ;; Move files to trash when deleting
 (setq delete-by-moving-to-trash t)
@@ -116,6 +115,8 @@
 ;; Misc.
 (setq inhibit-startup-message t)
 (global-font-lock-mode t)
+
+(add-to-list 'exec-path "/usr/local/bin")
 
 (provide 'core-defaults)
 ;;; core-defaults ends here
