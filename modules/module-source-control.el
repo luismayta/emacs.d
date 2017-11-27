@@ -10,8 +10,7 @@
 (use-package gist
   :bind ("C-c g p" . gist-region-or-buffer-private)
   :config
-  (setq gist-view-gist t)
-  )
+  (setq gist-view-gist t))
 
 (defun process-exit-code-and-output (program &rest args)
   "Run PROGRAM with ARGS and return the exit code and output in a list."
@@ -24,12 +23,11 @@
 git or hg repository is found in the buffer-local working dir."
   (interactive)
   (cond
-    ((eq (car (process-exit-code-and-output "hg" "status")) 0)
-      (monky-status))
-    ((eq (car (process-exit-code-and-output "git" "status")) 0)
-      (call-interactively 'magit-status))
-    (t (message "No hg or git repository found at %s" default-directory)))
-  )
+   ((eq (car (process-exit-code-and-output "hg" "status")) 0)
+    (monky-status))
+   ((eq (car (process-exit-code-and-output "git" "status")) 0)
+    (call-interactively 'magit-status))
+   (t (message "No hg or git repository found at %s" default-directory))))
 
 ;; magit and monky
 ;; Modes for git and mercurial.
