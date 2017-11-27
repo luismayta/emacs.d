@@ -72,5 +72,7 @@ git or hg repository is found in the buffer-local working dir."
 
 (use-package git-timemachine)
 
+(use-package gitignore-mode)
+
 (provide 'module-source-control)
 ;;; module-source-control.el ends here
