@@ -56,7 +56,8 @@
 
 (defun core/load-modules ()
   (interactive)
-  (dolist (module modules) (require module)))
+  (dolist (module modules) (require module))
+  )
 
 (provide 'core-modules)
 ;;; core-modules.el ends here
