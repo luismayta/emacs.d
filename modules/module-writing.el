@@ -1,9 +1,18 @@
 ;; typo
 ;; Mode for typographical editing.
-;; (use-package typo
-;;   :commands typo-mode
-;;   :config (setq-default typo-language "English")
-;;   :init (add-hook 'text-mode-hook #'typo-mode))
+
+(use-package typo
+  :ensure t
+  :diminish (typo-mode . " Ⓣ")
+  :config
+  (setq-default typo-language "English")
+  (typo-global-mode 1)
+  (dolist (hook '(markdown-mode-hook
+                   rst-mode-hook
+                   org-mode-hook
+                   text-mode-hook))
+    (add-hook hook 'typo-mode))
+  )
 
 ;; flyspell spell checking.
 (use-package flyspell
