@@ -41,7 +41,7 @@
 
 ;;==============mode-line===============
 
-(use-package cyphejor :disabled t
+(use-package cyphejor
   :init
   (progn
     (setq
@@ -87,17 +87,6 @@
 (use-package origami
   :init
   (global-origami-mode 1))
-
-;; (use-package hl-line
-;;   :config
-;;   ;; Doesn't seem to play nice in emacs 25+
-;;   (defvar-local current-hl-line-mode nil)
-;;   (setq hl-line-sticky-flag nil)
-;;   (setq global-hl-line-sticky-flag nil)
-;;   (defun hl-line-on ()  (if current-hl-line-mode (hl-line-mode +1)))
-;;   (defun hl-line-off () (if current-hl-line-mode (hl-line-mode -1)))
-;;   ;;(add-hook hl-line-mode (lambda () (if current-hl-line-mode (setq current-hl-line-mode t))))
-;;   (global-hl-line-mode))
 
 (use-package hlinum
   :config
