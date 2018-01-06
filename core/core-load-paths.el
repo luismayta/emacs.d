@@ -12,35 +12,6 @@
     (add-to-load-path dir))
   )
 
-;; paths
-(defvar start-directory
-  user-emacs-directory
-  "Start directory.")
-
-(defconst core-directory
-  (expand-file-name (concat start-directory "core/"))
-  "Core directory.")
-
-(defconst modules-directory
-  (expand-file-name (concat start-directory "modules/"))
-  "Modules directory.")
-
-(defconst elisp-directory
-  (expand-file-name (concat start-directory "lib/elisp"))
-  "Elisp directory.")
-
-(defconst themes-directory
-  (expand-file-name (concat start-directory "lib/color-themes"))
-  "Themes directory.")
-
-(defconst test-directory
-  (expand-file-name (concat start-directory "tests/"))
-  "Tests directory.")
-
-(defconst exec-path
-  (expand-file-name "/usr/local/bin")
-  "Exec path directory.")
-
 ;; load paths
 (mapc 'add-to-load-path
   `(
