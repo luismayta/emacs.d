@@ -41,7 +41,6 @@ windows:
       panes:
         - python:
             - pyenv activate emacs
-            - ipython
   - databases:
       layout: main-vertical
       panes:

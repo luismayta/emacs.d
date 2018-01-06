@@ -4,11 +4,67 @@
 
 (require 'core-vars)
 (require 'core-defuns)
+(require 'core-defaults)
+
+;; eliminate scroll bars and do other things
+(use-package better-defaults
+  :ensure t
+  )
+
+(use-package graphene
+  :config
+  (setq graphene-default-font core/default-font)
+  (setq graphene-variable-pitch-font core/default-font)
+  (setq graphene-fixed-pitch-font core/default-font)
+  )
+
+(use-package all-the-icons
+  :ensure t)
+
+(use-package all-the-icons-dired
+  :ensure t)
+
+
+(use-package zerodark-theme
+  :config
+  (load-theme 'zerodark 1)
+  ;; (zerodark-setup-modeline-format)
+  (setq zerodark-use-paddings-in-mode-line nil)
+  (set-cursor-color "violet")
+  ;; stop cursor blinking and make sure it's a box
+  (set-default 'cursor-type 'box)
+  (blink-cursor-mode 0)
+  )
 
 (use-package no-littering)
 (use-package use-package-chords)
 (use-package use-package-ensure-system-package)
-(use-package add-hooks)
+
+;;==============mode-line===============
+
+(use-package cyphejor
+  :init
+  (progn
+    (setq
+      cyphejor-rules
+      '(:upcase
+         ("bookmark"    "→")
+         ("buffer"      "β")
+         ("diff"        "Δ")
+         ("dired"       "δ")
+         ("emacs"       "ε")
+         ("inferior"    "i" :prefix)
+         ("interaction" "i" :prefix)
+         ("interactive" "i" :prefix)
+         ("lisp"        "λ" :postfix)
+         ("menu"        "▤" :postfix)
+         ("mode"        "")
+         ("package"     "↓")
+         ("python"      "π")
+         ("shell"       "sh" :postfix)
+         ("text"        "ξ")
+         ("wdired"      "↯δ")))
+    (cyphejor-mode t)))
 
 (use-package pretty-mode
   :ensure t
@@ -25,6 +81,27 @@
 (use-package nyan-mode
   :init
   (nyan-mode))
+
+(use-package rainbow-mode
+  :commands rainbow-mode)
+
+(use-package origami
+  :init
+  (global-origami-mode 1))
+
+(use-package hlinum
+  :config
+  (hlinum-activate))
+
+(use-package linum
+  :config
+  (setq linum-format " %4d ")
+  (global-linum-mode nil)
+  :init
+  (add-hook 'prog-mode-hook #'linum-mode))
+
+(use-package dired-hacks-utils
+  :ensure t)
 
 (def lm-install-fira-code-font
   (let* ((font-name "FiraCode-Retina.ttf")
@@ -87,50 +164,13 @@
     (set-face-attribute 'default nil :height 135))
   (when (eq system-type 'gnu/linux)
     (set-face-attribute 'default nil :height 116))
-                                        ;(lm-setup-fira-code-font)
-  (when (window-system)
-    (set-frame-font "Fira Code Retina-17"))
+  ;; (lm-setup-fira-code-font)
+  ;; (set-frame-font "Fira Code Retina-17"))
   (setq-default truncate-lines 1)  ;; no word wrap
-  (setq-default line-spacing 4)
-  (use-package all-the-icons)
-  (use-package zerodark-theme
-    :config
-    (load-theme 'zerodark 1)
-    ;; (zerodark-setup-modeline-format)
-    (setq zerodark-use-paddings-in-mode-line nil)
-    (set-cursor-color "violet")
-    ))
+  ;; (setq-default line-spacing 4)
+  )
 
 (add-hook 'emacs-startup-hook #'setup-windows-hook)
-
-(use-package rainbow-mode
-  :commands rainbow-mode)
-
-(use-package origami
-  :init
-  (global-origami-mode 1))
-
-(use-package hl-line
-  :config
-  ;; Doesn't seem to play nice in emacs 25+
-  (defvar-local current-hl-line-mode nil)
-  (setq hl-line-sticky-flag nil)
-  (setq global-hl-line-sticky-flag nil)
-  (defun hl-line-on ()  (if current-hl-line-mode (hl-line-mode +1)))
-  (defun hl-line-off () (if current-hl-line-mode (hl-line-mode -1)))
-  ;;(add-hook hl-line-mode (lambda () (if current-hl-line-mode (setq current-hl-line-mode t))))
-  (global-hl-line-mode))
-
-(use-package hlinum
-  :config
-  (hlinum-activate))
-
-(use-package linum
-  :config
-  (setq linum-format " %3d ")
-  (global-linum-mode nil)
-  :init
-  (add-hook 'prog-mode-hook #'linum-mode))
 
 (provide 'module-appearance)
 ;;; module-appearance.el ends here
