@@ -5,6 +5,8 @@
 (use-package counsel-gtags
   :diminish counsel-gtags-mode
   :init
+  (evil-leader/set-key "tt" 'counsel-gtags-find-tag)
+  (evil-leader/set-key "tc" 'counsel-gtags-update-tags)
   (add-hook 'prog-mode-hook 'counsel-gtags-mode)
   (add-hook 'before-save-hook 'counsel-gtags-update-tags))
 
