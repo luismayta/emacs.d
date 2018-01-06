@@ -2,15 +2,6 @@
 ;;; code:
 (require 'core-vars)
 
-;;; code:
-;; unfill a paragraph, i.e., make it so the text does not wrap in the
-;; paragraph where the cursor is
-
-(defun unfill-paragraph ()
-  (interactive)
-  (let ((fill-column (point-max)))
-    (fill-paragraph nil)))
-
 (defun system-is-mac ()
   (interactive)
   (string-equal system-type "darwin"))
