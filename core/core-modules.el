@@ -1,20 +1,23 @@
 ;;; core-modules.el --- Configures available modules and the package manager.
 
+(setq  package-archives '( ("gnu" . "http://elpa.gnu.org/packages/")
+                           ("melpa" . "http://melpa.org/packages/")
+                           ("marmalade" . "http://marmalade-repo.org/packages/")
+                            ("org" . "http://orgmode.org/elpa/"))
+ )
+
 ;;; code:
 (defun core/initialize ()
   "Initialize `package.el'."
+  (package-initialize)
+  (setq package-enable-at-startup nil)
   (unless package-archive-contents
-    (setq  package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                               ("melpa" . "http://melpa.org/packages/")
-                               ("marmalade" . "https://marmalade-repo.org/packages/")
-                               ("org" . "http://orgmode.org/elpa/")))
-    ;; optimization, no need to activate all the packages so early
-    (setq package-enable-at-startup nil)
     (package-refresh-contents)
     ;; Ensure `use-package' is installed.
     (when (not (package-installed-p 'use-package))
-      (package-install 'use-package))
-    (setq use-package-always-ensure t))
+      (package-install 'use-package)
+      (setq use-package-always-ensure t))
+    )
   (core/load-modules))
 
 (setq modules
@@ -45,9 +48,9 @@
      module-coding-python
      module-coding-ruby
      module-coding-swift
-     module-coding-rust
-     module-coding-terraform
      module-coding-go
+                                        ;module-coding-rust
+     module-coding-terraform
      module-term
      module-org
      module-google

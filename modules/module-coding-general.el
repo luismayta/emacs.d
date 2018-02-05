@@ -1,8 +1,5 @@
 ;;; module-coding-general.el --- General coding-related config.
 ;;; code:
-;; EditorConfig.org -- project-local coding style definitions.
-
-
 (use-package ein)
 
 (use-package tramp
@@ -11,9 +8,11 @@
   :config
   (with-eval-after-load 'tramp '(setenv "SHELL" "/bin/bash")))
 
+;; EditorConfig.org -- project-local coding style definitions.
 (use-package editorconfig
   :commands editorconfig-mode
-  :init (add-hook 'prog-mode-hook #'editorconfig-mode)
+  :init
+  (add-hook 'prog-mode-hook #'editorconfig-mode)
   :config
   (progn
     (add-to-list 'editorconfig-indentation-alist
@@ -89,7 +88,6 @@
   (setq plantuml-jar-path (getenv "PLANTUML_JAR_PATH"))
   :init
   (evil-leader/set-key "pu" 'plantuml-preview))
-
 
 (use-package restart-emacs)
 
