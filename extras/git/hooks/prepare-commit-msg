@@ -4,8 +4,9 @@
 
 ORIG_MSG_FILE="$1"
 TEMP=`mktemp /tmp/git-XXXXX`
-
 TICKETNO=`git branch | grep '^\*' | cut -b3- | sed 's/[a-z/]//g'`
 
-(echo "!$TICKETNO"; cat "$ORIG_MSG_FILE") > "$TEMP"
+if [ -n "${TICKETNO}" ]; then
+    (echo "($TICKETNO)"; cat "$ORIG_MSG_FILE") > "$TEMP"
+fi
 cat "$TEMP" > "$ORIG_MSG_FILE"

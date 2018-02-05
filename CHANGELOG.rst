@@ -4,8 +4,13 @@ ChangeLog
 All notable changes to this project will be documented in this file.
 This file uses change log convention from `keep a CHANGELOG`_.
 
+
 `Unreleased`_
 *************
+
+
+`1.5.2`_ - 2018-02-05
+**********************
 
 
 `1.5.1`_ - 2018-01-06
@@ -210,7 +215,8 @@ This file uses change log convention from `keep a CHANGELOG`_.
 -  texto1
 
 
-.. _`Unreleased`: https://github.com/luismayta/emacs.d/compare/1.5.1...HEAD
+.. _`Unreleased`: https://github.com/luismayta/emacs.d/compare/1.5.2...HEAD
+.. _`1.5.2`: https://github.com/luismayta/emacs.d/compare/1.5.1...1.5.2
 .. _`1.5.1`: https://github.com/luismayta/emacs.d/compare/1.5.0...1.5.1
 .. _`1.5.0`: https://github.com/luismayta/emacs.d/compare/1.4.0...1.5.0
 .. _`1.4.0`: https://github.com/luismayta/emacs.d/compare/1.3.1...1.4.0

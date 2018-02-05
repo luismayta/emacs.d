@@ -10,33 +10,24 @@ root = true
 end_of_line = lf
 insert_final_newline = false
 indent_style = space
-
-# Matches multiple files with brace expansion notation
 # Set default charset
-[*.{js,py,el}]
 charset = utf-8
 
 [*.{el}]
 insert_final_newline = false
 
-[*.{el,md}]
+[*.{el,md,yml,yaml,js,json}]
 indent_style = space
 indent_size = 2
 
 # 4 space indentation
-[*.{py,yml}]
+[*.{py}]
 indent_style = space
 indent_size = 4
 
 # Tab indentation (no size specified)
 [Makefile]
 indent_style = tab
-
-# Indentation override for all JS under lib directory
-[*.{js,json,yml}]
-indent_style = space
-indent_size = 2
-
 
 [*.{make,mk}]
 indent_style             = tab
