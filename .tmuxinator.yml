@@ -1,5 +1,5 @@
 # ~/.tmuxinator/emacs.d.yml
-name: emacs.d
+name: emacs
 root: <%= ENV["PROJECTS"] %>/lisp/emacs.d
 # Optional tmux socket
 # socket_name: foo
