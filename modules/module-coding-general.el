@@ -11,8 +11,7 @@
 ;; EditorConfig.org -- project-local coding style definitions.
 (use-package editorconfig
   :commands editorconfig-mode
-  :init
-  (add-hook 'prog-mode-hook #'editorconfig-mode)
+  :init (add-hook 'prog-mode-hook #'editorconfig-mode)
   :config
   (progn
     (add-to-list 'editorconfig-indentation-alist
