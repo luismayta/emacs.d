@@ -113,7 +113,8 @@
   :config
   (add-hook 'prog-mode-hook #'aggressive-indent-global-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'haskell-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'rst-mode))
+  (add-to-list 'aggressive-indent-excluded-modes 'rst-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'php-mode))
 
 (use-package systemd
   :ensure t)
