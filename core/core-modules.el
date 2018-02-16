@@ -48,6 +48,7 @@
      module-coding-python
      module-coding-ruby
      module-coding-swift
+     module-coding-solidity
      module-coding-go
                                         ;module-coding-rust
      module-coding-terraform
