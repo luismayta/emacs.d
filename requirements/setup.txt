@@ -16,6 +16,6 @@ jedi==0.11.1
 mypy
 pre-commit==0.15.2
 pylint==1.8.1
-restview==2.7.0
+restview==2.9.0
 rope==0.10.7
 yapf==0.16.1
