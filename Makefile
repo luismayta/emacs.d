@@ -9,9 +9,6 @@ OS := $(shell uname)
 .DEFAULT_GOAL := help
 
 PROJECT := emacs.d
-PROJECT_DEV := $(PROJECT)_dev
-PROJECT_STAGE := $(PROJECT)_stage
-PROJECT_TEST := $(PROJECT)_test
 
 PYTHON_VERSION=3.6.1
 PYENV_NAME="${PROJECT}"
@@ -31,14 +28,13 @@ KEYS_DIR:="${HOME}/.ssh"
 pip_install := pip install -r
 docker-compose:=docker-compose -f docker-compose.yml
 
-include *.mk
+include extras/make/*.mk
 
 help:
 	@echo '${MESSAGE} Makefile for ${PROJECT}'
 	@echo ''
 	@echo 'Usage:'
 	@echo '    environment               create environment with pyenv'
-	@echo '    install                   install dependences python by env'
 	@echo '    clean                     remove files of build'
 	@echo '    setup                     install requirements'
 	@echo ''
@@ -72,13 +68,6 @@ environment: clean
 		eval "$(pyenv init -)"; \
 		eval "$(pyenv virtualenv-init -)"; \
 	fi
-	pyenv virtualenv "${PYTHON_VERSION}" "${PYENV_NAME}" >> /dev/null 2>&1 || echo 'Oh Yeah!!'
-	pyenv activate "${PYENV_NAME}" >> /dev/null 2>&1 || echo 'Oh Yeah!!'
+	pyenv virtualenv "${PYTHON_VERSION}" "${PYENV_NAME}" >> /dev/null 2>&1 || echo $(MESSAGE_HAPPY)
+	pyenv activate "${PYENV_NAME}" >> /dev/null 2>&1 || echo $(MESSAGE_HAPPY)
 
-install: clean
-	@echo $(MESSAGE) "Deployment environment: ${env}"
-	@if [ "${env}" == "" ]; then \
-		$(pip_install) requirements.txt; \
-	else \
-		$(pip_install) "${REQUIREMENTS_DIR}/${env}.txt"; \
-	fi
