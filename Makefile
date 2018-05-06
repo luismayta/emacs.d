@@ -31,7 +31,7 @@ KEYS_DIR:="${HOME}/.ssh"
 pip_install := pip install -r
 docker-compose:=docker-compose -f docker-compose.yml
 
-include *.mk
+include extras/make/*.mk
 
 help:
 	@echo '${MESSAGE} Makefile for ${PROJECT}'
