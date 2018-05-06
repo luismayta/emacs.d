@@ -26,7 +26,7 @@ SOURCE_DIR=$(ROOT_DIR)/
 REQUIREMENTS_DIR=$(ROOT_DIR)/requirements/
 FILE_README=$(ROOT_DIR)/README.rst
 
-include *.mk
+include extras/make/*.mk
 
 help:
 	@echo '${MESSAGE} Makefile for emacs'
