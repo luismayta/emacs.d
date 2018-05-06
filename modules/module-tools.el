@@ -8,7 +8,6 @@
 (use-package pomidor
   :ensure t
   :config
-  (setq alert-default-style 'libnotify)
   (setq pomidor-update-interval 30) ; seconds
   :init
   (evil-leader/set-key "po" 'pomidor)

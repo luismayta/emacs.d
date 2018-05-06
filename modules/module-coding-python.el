@@ -16,7 +16,11 @@
 ;; Install pyenv-mode-auto package
 (use-package pyenv-mode)
 
-(use-package pyenv-mode-auto)
+(use-package pyenv-mode-auto
+  :config
+  (add-hook 'pyenv-mode-auto-hook
+    (lambda () (shell-command "pip install autopep8 flake8 elpy jedi rope isort epc importmagic yapf pylint")))
+  )
 
 (use-package elpy
   :ensure t
