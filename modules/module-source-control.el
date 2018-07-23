@@ -44,7 +44,12 @@ git or hg repository is found in the buffer-local working dir."
     ad-do-it
     (jump-to-register :magit-fullscreen))
   ;; Use flyspell during commits.
-  (add-hook 'git-commit-mode-hook '(lambda () (flyspell-mode t))))
+  (add-hook 'git-commit-mode-hook '(lambda () (flyspell-mode t)))
+  :init
+  (evil-leader/set-key "gs" 'magit-status)
+  (evil-leader/set-key "gc" 'magit-commit)
+  (evil-leader/set-key "gd" 'magit-diff)
+  )
 
 (use-package magit-gh-pulls
   :ensure t)
