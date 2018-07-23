@@ -7,15 +7,12 @@
   ("C-x <up>" . windmove-up)
   ("C-x <down>" . windmove-down)
   ("C-x <left>" . windmove-left)
-  ("C-x <right>" . windmove-right))
-
-;; switch-window
-(use-package switch-window
-  :bind (("C-x o" . switch-window)
-          ("C-x h". windmove-left)
-          ("C-x j". windmove-down)
-          ("C-x k". windmove-up)
-          ("C-x l". windmove-right)))
+  ("C-x <right>" . windmove-right)
+  ("C-x h". windmove-left)
+  ("C-x j". windmove-down)
+  ("C-x k". windmove-up)
+  ("C-x l". windmove-right)
+  )
 
 ;; saveplace
 ;; Remebers your location in a file when saving files.
