@@ -58,7 +58,7 @@ endif
 setup: clean
 	$(pip_install) "${REQUIREMENTS_DIR}/setup.txt"
 	pre-commit install
-	cp -rf extras/git/hooks/prepare-commit-msg .git/hooks/
+	cp -rf .hooks/prepare-commit-msg .git/hooks/
 	@if [ ! -e ".env" ]; then \
 		cp -rf .env-sample .env;\
 	fi
