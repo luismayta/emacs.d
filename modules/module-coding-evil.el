@@ -67,9 +67,6 @@
         "ff" 'counsel-projectile-ag
         "fp" 'counsel-projectile-find-file
         "fm" 'fixmee-view-listing
-        "gs" 'magit-status
-        "gc" 'magit-commit
-        "gd" 'magit-diff
         "gl" 'gist-list
         "gb" 'gist-buffer
         "b" 'ido-switch-buffer
