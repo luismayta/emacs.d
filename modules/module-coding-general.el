@@ -88,6 +88,8 @@
   :init
   (evil-leader/set-key "pu" 'plantuml-preview))
 
+(use-package gdscript-mode)
+
 (use-package restart-emacs)
 
 (provide 'module-coding-general)
