@@ -22,8 +22,8 @@
 
 (use-package fixmee
   :init
-  (fixmee-mode)
-  (global-fixmee-mode t))
+ (fixmee-mode)
+ (global-fixmee-mode t))
 
 (use-package goto-last-change)
 
