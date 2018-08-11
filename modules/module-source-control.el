@@ -56,10 +56,25 @@ git or hg repository is found in the buffer-local working dir."
 
 ;; Info git gutter
 (use-package git-gutter
+  :ensure t
+  :diminish git-gutter-mode
+  :config (global-git-gutter-mode)
   :init
-  (global-git-gutter-mode +1)
-  (add-hook 'ruby-mode-hook 'git-gutter-mode)
-  (add-hook 'python-mode-hook 'git-gutter-mode))
+  (progn
+    (setq git-gutter:separator-sign " "
+          git-gutter:lighter " GG"))
+  :config
+  (progn
+    (set-face-background 'git-gutter:deleted "#990A1B")
+    (set-face-foreground 'git-gutter:deleted "#990A1B")
+    (set-face-background 'git-gutter:modified "#00736F")
+    (set-face-foreground 'git-gutter:modified "#00736F")
+    (set-face-background 'git-gutter:added "#546E00")
+    (set-face-foreground 'git-gutter:added "#546E00"))
+  :bind (("C-x p" . git-gutter:previous-hunk)
+         ("C-x n" . git-gutter:next-hunk)
+         ("C-x v =" . git-gutter:popup-hunk)
+         ("C-x v r" . git-gutter:revert-hunk)))
 
 (use-package monky
   :commands monky-status
