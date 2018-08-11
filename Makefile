@@ -10,7 +10,7 @@ OS := $(shell uname)
 
 PROJECT := emacs.d
 
-PYTHON_VERSION=3.6.1
+PYTHON_VERSION=3.6.4
 PYENV_NAME="${PROJECT}"
 
 # Configuration.
