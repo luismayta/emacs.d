@@ -103,7 +103,11 @@
 
 (use-package origami
   :init
-  (global-origami-mode 1))
+  (global-origami-mode 1)
+  :config
+  (evil-leader/set-key "fa" 'origami-toggle-all-nodes)
+  (evil-leader/set-key "fr" 'origami-recursively-toggle-node)
+  )
 
 (use-package hlinum
   :config
