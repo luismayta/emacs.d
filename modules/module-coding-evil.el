@@ -59,13 +59,7 @@
       (setq evil-leader/in-all-states 1)
       ;; keyboard shortcuts
       (evil-leader/set-key
-        "u" 'undo-tree-visualize
         "c" 'evil-commentary-line
-        "fa" 'origami-toggle-all-nodes
-        "fr" 'origami-recursively-toggle-node
-        "fe" 'find-file
-        "ff" 'counsel-projectile-ag
-        "fp" 'counsel-projectile-find-file
         "fm" 'fixmee-view-listing
         "gl" 'gist-list
         "gb" 'gist-buffer
