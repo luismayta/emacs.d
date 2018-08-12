@@ -53,7 +53,7 @@
      module-coding-swift
      module-coding-ethereum
      module-coding-go
-                                        ;module-coding-rust
+     module-coding-rust
      module-coding-terraform
      module-term
      module-org
