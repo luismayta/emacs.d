@@ -22,6 +22,11 @@
     (lambda () (shell-command "pip install autopep8 flake8 elpy jedi rope isort epc importmagic yapf pylint")))
   )
 
+(use-package py-isort
+  :ensure t
+  :config
+  (add-hook 'before-save-hook 'py-isort-before-save))
+
 (use-package elpy
   :ensure t
   :config
