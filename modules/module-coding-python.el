@@ -4,17 +4,24 @@
 (require 'core-defuns)
 (require 'core-vars)
 
-(use-package python-mode
-  :mode ("\\.py\\'" . python-mode)
-  :config
-  (use-package python-docstring
-    :ensure t
-    :init
-    (add-hook 'python-mode-hook 'python-docstring-mode))
+(use-package anaconda-mode
+  :ensure t
+  :commands anaconda-mode
+  :diminish anaconda-mode
+  :init
+  (add-hook 'python-mode-hook 'anaconda-mode)
+  (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
+  (evil-leader/set-key "gd" 'anaconda-mode-find-definitions)
   )
 
-;; Install pyenv-mode-auto package
-(use-package pyenv-mode)
+(use-package company-anaconda
+  :ensure t
+  :init (add-to-list 'company-backends 'company-anaconda))
+
+(use-package pyenv-mode
+  :ensure t
+  :config
+  (pyenv-mode))
 
 (use-package pyenv-mode-auto
   :config
@@ -22,43 +29,10 @@
     (lambda () (shell-command "pip install autopep8 flake8 elpy jedi rope isort epc importmagic yapf pylint")))
   )
 
-(use-package elpy
+(use-package py-isort
   :ensure t
   :config
-  (setq elpy-rpc-backend "jedi")
-  (elpy-enable)
-  (when (require 'flycheck nil t)
-    (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-    (add-hook 'elpy-mode-hook 'flycheck-mode))
-  (setq python-shell-interpreter "ipython"
-    python-shell-interpreter-args "--simple-prompt --pprint")
-  )
-
-(use-package jedi
-  :ensure t
-  :init
-  (add-hook 'python-mode 'jedi:setup)
-  :config
-  (setq jedi:complete-on-dot t)
-  )
-
-(use-package jedi-direx
-  :ensure t
-  )
-
-(use-package company-jedi
-  :init
-  (progn
-    (add-hook 'python-mode-hook
-      (lambda ()
-        (add-to-list (make-local-variable 'company-backends)
-          '(company-jedi)))))
-  )
-
-(use-package py-autopep8
-  :init
-  (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
-  )
+  (add-hook 'before-save-hook 'py-isort-before-save))
 
 (provide 'module-coding-python)
 ;;; module-coding-python.el ends here

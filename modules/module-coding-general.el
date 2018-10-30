@@ -22,8 +22,8 @@
 
 (use-package fixmee
   :init
-  (fixmee-mode)
-  (global-fixmee-mode t))
+ (fixmee-mode)
+ (global-fixmee-mode t))
 
 (use-package goto-last-change)
 
@@ -87,6 +87,8 @@
   (setq plantuml-jar-path (getenv "PLANTUML_JAR_PATH"))
   :init
   (evil-leader/set-key "pu" 'plantuml-preview))
+
+(use-package gdscript-mode)
 
 (use-package restart-emacs)
 

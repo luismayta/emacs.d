@@ -3,16 +3,28 @@
 
 (require 'core-vars)
 
+(use-package projectile
+    :bind-keymap
+    ("C-c q" . projectile-command-map)
+    :init
+    (setq projectile-keymap-prefix (kbd "C-c q"))
+    :config
+    (setq projectile-completion-system 'ivy)
+    (setq projectile-enable-caching t)
+    (projectile-mode)
+    :delight
+    projectile-mode 1)
+
 (use-package counsel-projectile
-  ;; :commands (all-the-icons-icon-for-dir all-the-icons-icon-for-file)
-  :init
+  :bind-keymap
+  ("C-c q" . counsel-projectile-command-map)
+  :config
   (counsel-projectile-mode)
-  (evil-leader/set-key "fsp" 'counsel-projectile-switch-project)
+  :init
+  (evil-leader/set-key "fe" 'find-file)
   (evil-leader/set-key "ff" 'counsel-projectile-ag)
   (evil-leader/set-key "fp" 'counsel-projectile-find-file)
-  ;; :config
-  ;; (setq projectile-switch-project-action 'neotree-projectile-action)
-  ;; (setq counsel-projectile-switch-project-action 'neotree-projectile-action)
+  (evil-leader/set-key "fsp" 'counsel-projectile-switch-project)
   )
 
 (provide 'module-projects)
