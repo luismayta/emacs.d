@@ -8,15 +8,15 @@ OS := $(shell uname)
 .PHONY: help build up requirements clean lint test help
 .DEFAULT_GOAL := help
 
-PROJECT := emacs.d
+PROJECT := emacs
 
-PYTHON_VERSION=3.6.1
+PYTHON_VERSION=3.6.4
 PYENV_NAME="${PROJECT}"
 
 # Configuration.
 SHELL := /bin/bash
 ROOT_DIR=$(shell pwd)
-MESSAGE:=༼ つ ◕_◕ ༽つ
+MESSAGE:=🍺️
 MESSAGE_HAPPY:="${MESSAGE} Happy Coding"
 SCRIPT_DIR=$(ROOT_DIR)/extras/scripts
 SOURCE_DIR=$(ROOT_DIR)/
