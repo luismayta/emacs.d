@@ -1,5 +1,5 @@
 -   repo: https://github.com/pre-commit/pre-commit-hooks.git
-    sha: v1.2.0
+    sha: v2.0.0
     hooks:
     -   id: detect-private-key
         files: ^(?!\.?git-crypt)
@@ -48,24 +48,20 @@
         - --exclude=docs,migrations
     -   id: check-executables-have-shebangs
 -   repo: https://github.com/pre-commit/pre-commit.git
-    sha: v1.5.1
+    sha: v1.12.0
     hooks:
     -   id: validate_manifest
 -   repo: https://github.com/detailyang/pre-commit-shell.git
-    sha: 1.0.2
+    sha: 1.0.4
     hooks:
     -   id: shell-lint
         exclude: ^extras/script/wait-for-it.sh$
         args:
         - --exclude=SC1072,SC1073,SC2068
 -   repo: https://github.com/asottile/add-trailing-comma
-    sha: v0.6.4
+    sha: v0.7.1
     hooks:
     -   id: add-trailing-comma
--   repo: https://github.com/antonbabenko/pre-commit-terraform.git
-    sha: v1.2.0
-    hooks:
-    -   id: terraform_fmt
 -   repo: https://github.com/Lucas-C/pre-commit-hooks-safety
     sha: v1.1.0
     hooks:
@@ -76,24 +72,6 @@
     -   id: python-bandit-vulnerability-check
         args: []
         files: .py$
--   repo: https://github.com/pre-commit/mirrors-csslint
-    sha: v1.0.5
-    hooks:
-    -   id: csslint
--   repo: https://github.com/awebdeveloper/pre-commit-prettier
-    sha: v0.0.1
-    hooks:
-    -   id: prettier
-        args: []
-        additional_dependencies:
-        - prettier@1.1.0
--   repo: git://github.com/kintoandar/pre-commit.git
-    sha: v2.1.0
-    hooks:
-    -   id: terraform_fmt
-    -   id: terraform_validate
-    -   id: prometheus_check_rules
-    -   id: prometheus_check_config
 -   repo: https://github.com/Lucas-C/pre-commit-hooks-nodejs
     sha: v1.1.0
     hooks:
@@ -105,11 +83,11 @@
     -   id: rst-linter
         exclude: (docs/*|tests/*)
 -   repo: https://github.com/asottile/pyupgrade
-    sha: v1.2.0
+    sha: v1.10.0
     hooks:
     -   id: pyupgrade
 -   repo: https://github.com/pricematch/pricematch-pre-commit-hooks
-    sha: 82b0c142b363547cc873bc6581fa3074087a37d2
+    sha: 93f5296d960021ee1f507a59a0bca1fe8f73c285
     hooks:
     -   id: do_not_commit
 -   repo: git://github.com/luismayta/pre-commit-isort
@@ -120,12 +98,12 @@
         args:
         - --atomic
 -   repo: https://github.com/pre-commit/mirrors-pylint.git
-    sha: v1.8.2
+    sha: v2.1.1
     hooks:
     -   id: pylint
         language_version: python3
         exclude: __pycache__|migrations|conf.py|_build|.tox|pootle/static|pootle/translations|pootle/locale|pootle/assets|templates
         args:
         - --rcfile=.pylintrc
-        - --disable=no-name-in-module,import-error
+        - --disable=no-name-in-module,import-error,ungrouped-imports
         - --ignore=settings_test, migrations
