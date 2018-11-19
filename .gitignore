@@ -31,3 +31,4 @@ eshell
 # Generate
 docs/build
 places
+*.orig

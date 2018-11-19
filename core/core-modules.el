@@ -1,12 +1,5 @@
 ;;; core-modules.el --- Configures available modules and the package manager.
-
-(setq  package-archives '( ("gnu" . "http://elpa.gnu.org/packages/")
-                           ("melpa" . "http://melpa.org/packages/")
-                           ("melpa-stable". "http://stable.melpa.org/packages/")
-                           ("marmalade" . "http://marmalade-repo.org/packages/")
-                           ("org" . "http://orgmode.org/elpa/")
-                           )
-  )
+(setq package-enable-at-startup nil)
 
 ;;; code:
 (defun core/initialize ()

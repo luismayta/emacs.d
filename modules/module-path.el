@@ -12,7 +12,9 @@
   (setq exec-path-from-shell-copy-env "DOCKER_TLS_VERIFY")
   (setq exec-path-from-shell-copy-env "DOCKER_CERT_PATH")
   (setq exec-path-from-shell-copy-env "DOCKER_MACHINE_NAME")
-  (setq exec-path-from-shell-copy-env "PLANTUML_JAR_PATH")
+  (setq exec-path-from-shell-copy-env "WAKATIME_API_KEY")
+  (setq exec-path-from-shell-copy-env "WAKATIME_CLI_PATH")
+  (setq exec-path-from-shell-copy-env "WAKATIME_PYTHON_BIN")
   (setq exec-path-from-shell-check-startup-files nil)
   (exec-path-from-shell-initialize))
 
