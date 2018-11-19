@@ -9,6 +9,10 @@ This file uses change log convention from `keep a CHANGELOG`_.
 +++++++++++++
 
 
+`1.6.3`_ - 2018-11-19
+++++++++++++++++++++++
+
+
 `1.6.2`_ - 2018-07-23
 ++++++++++++++++++++++
 
@@ -225,7 +229,8 @@ This file uses change log convention from `keep a CHANGELOG`_.
 -  texto1
 
 
-.. _`Unreleased`: https://github.com/luismayta/emacs.d/compare/1.6.2...HEAD
+.. _`Unreleased`: https://github.com/luismayta/emacs.d/compare/1.6.3...HEAD
+.. _`1.6.3`: https://github.com/luismayta/emacs.d/compare/1.6.2...1.6.3
 .. _`1.6.2`: https://github.com/luismayta/emacs.d/compare/1.6.1...1.6.2
 .. _`1.6.1`: https://github.com/luismayta/emacs.d/compare/1.6.0...1.6.1
 .. _`1.6.0`: https://github.com/luismayta/emacs.d/compare/1.5.2...1.6.0
