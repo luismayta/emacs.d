@@ -1,8 +1,6 @@
 ;;; core-load-paths.el --- def vars.
 ;;; code:
 
-(add-to-list 'exec-path "/usr/local/bin")
-
 (defun add-to-load-path (dir) (add-to-list 'load-path dir)
   )
 
