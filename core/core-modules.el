@@ -47,7 +47,7 @@
      module-coding-ethereum
      module-coding-go
      module-coding-rust
-     module-coding-terraform
+     module-coding-hashicorp
      module-term
      module-org
      module-google
