@@ -1,5 +1,5 @@
 -   repo: https://github.com/pre-commit/pre-commit-hooks.git
-    sha: v2.0.0
+    sha: v2.1.0
     hooks:
     -   id: detect-private-key
         files: ^(?!\.?git-crypt)
@@ -48,7 +48,7 @@
         - --exclude=docs,migrations
     -   id: check-executables-have-shebangs
 -   repo: https://github.com/pre-commit/pre-commit.git
-    sha: v1.12.0
+    sha: v1.14.3
     hooks:
     -   id: validate_manifest
 -   repo: https://github.com/detailyang/pre-commit-shell.git
@@ -59,7 +59,7 @@
         args:
         - --exclude=SC1072,SC1073,SC2068
 -   repo: https://github.com/asottile/add-trailing-comma
-    sha: v0.7.1
+    sha: v0.7.2
     hooks:
     -   id: add-trailing-comma
 -   repo: https://github.com/Lucas-C/pre-commit-hooks-safety
@@ -83,7 +83,7 @@
     -   id: rst-linter
         exclude: (docs/*|tests/*)
 -   repo: https://github.com/asottile/pyupgrade
-    sha: v1.10.0
+    sha: v1.11.2
     hooks:
     -   id: pyupgrade
 -   repo: https://github.com/pricematch/pricematch-pre-commit-hooks
@@ -98,7 +98,7 @@
         args:
         - --atomic
 -   repo: https://github.com/pre-commit/mirrors-pylint.git
-    sha: v2.1.1
+    sha: v2.3.0.dev1
     hooks:
     -   id: pylint
         language_version: python3
