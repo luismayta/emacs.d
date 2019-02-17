@@ -3,8 +3,8 @@
 ;;; code:
 
 (defvar core/fixed-font-name "Fira Code")
-(defvar core/frame-font "Fira Code Retina-15")
-(defvar core/default-font "Fira Code Retina-16")
+(defvar core/frame-font "Fira Code Retina-17")
+(defvar core/default-font "Fira Code Retina-17")
 (defvar core/fixed-font-weight "normal")
 (defvar core/var-font-name "Fira Code")
 (defvar core/font-height 170)
