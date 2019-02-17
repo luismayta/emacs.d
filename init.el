@@ -11,17 +11,18 @@
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives 
-             '("org" . "http://orgmode.org/elpa/") t)
+  '("org" . "http://orgmode.org/elpa/") t)
+
 
 ;;("melpa-stable". "http://stable.melpa.org/packages/")
 
 (unless package-archive-contents
-(package-refresh-contents)
-;; Ensure `use-package' is installed.
-(when (not (package-installed-p 'use-package))
-(package-install 'use-package)
-(setq use-package-always-ensure t))
-)
+  (package-refresh-contents)
+  ;; Ensure `use-package' is installed.
+  (when (not (package-installed-p 'use-package))
+    (package-install 'use-package)
+    (setq use-package-always-ensure t))
+  )
 
 
 ;; Increase the GC threshold as soon as possible.
