@@ -1,6 +1,8 @@
 ;;; module-coding-go.el --- Golang config.
 ;;; code:
 
+(use-package go-imports)
+
 (use-package go-mode
   :ensure t
   :config

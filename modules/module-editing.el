@@ -23,7 +23,7 @@
 ;; Crux (Collection of Ridiculously Useful eXtensions)
 ;; Replaces a lot of my old defuns and bindings.
 (use-package crux
-  :bind (("C-x C-r" . crux-recentf-ido-find-file)
+  :bind (("C-x C-r" . crux-recentf-find-file)
           ("C-a" . crux-move-beginning-of-line)
           ("<S-return>" . crux-smart-open-line)
           ("C-c R" . crux-rename-buffer-and-file)
@@ -31,7 +31,7 @@
           ("<f2>" . crux-visit-term-buffer)
           ("s-j" . crux-top-join-line))
   :init
-  (evil-leader/set-key "fx" 'crux-recentf-ido-find-file)
+  (evil-leader/set-key "fx" 'crux-recentf-find-file)
   :config (recentf-mode t))
 
 ;; Use conf-mode where appropriate.
