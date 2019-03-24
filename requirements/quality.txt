@@ -5,5 +5,5 @@ isort                     # to standardize order of imports
 mypy
 pre-commit
 pycodestyle               # PEP 8 compliance validation
-pydocstyle                # PEP 257 compliance validation
+pydocstyle==3.0.0                # PEP 257 compliance validation
 pylint
