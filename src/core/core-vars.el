@@ -26,19 +26,19 @@
   "Hostname-based elisp temp directories.")
 
 (defconst core-directory
-  (expand-file-name (concat start-directory "core/"))
+  (expand-file-name (concat start-directory "src/core/"))
   "Core directory.")
 
 (defconst modules-directory
-  (expand-file-name (concat start-directory "modules/"))
+  (expand-file-name (concat start-directory "src/modules/"))
   "Modules directory.")
 
 (defconst elisp-directory
-  (expand-file-name (concat start-directory "lib/elisp"))
+  (expand-file-name (concat start-directory "src/lib/elisp"))
   "Elisp directory.")
 
 (defconst themes-directory
-  (expand-file-name (concat start-directory "lib/color-themes"))
+  (expand-file-name (concat start-directory "src/lib/color-themes"))
   "Themes directory.")
 
 (defconst test-directory
