@@ -1,5 +1,6 @@
 ;;; init.el --- Start of the Emacs initialisation process.
-
+(setq explicit-shell-file-name "/usr/local/bin/zsh")
+(setq shell-file-name "zsh")
 ;;; code:
 (package-initialize)
 (add-to-list 'package-archives
