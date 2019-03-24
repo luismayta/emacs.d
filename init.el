@@ -32,9 +32,9 @@
            "requires Emacs version %s or above.")
     emacs-version emacs-min-version)
   (load-file (concat (file-name-directory load-file-name)
-               "core/core-vars.el"))
+               "src/core/core-vars.el"))
   (load-file (concat (file-name-directory load-file-name)
-               "core/core-load-paths.el"))
+               "src/core/core-load-paths.el"))
   (require 'core-emacs)
   (emacs/init))
 
