@@ -2,7 +2,7 @@
 
 caniusepython3            # Additional Python 3 compatibility pylint checks
 isort                     # to standardize order of imports
-mypy
+mypy==0.670
 pre-commit
 pycodestyle               # PEP 8 compliance validation
 pydocstyle                # PEP 257 compliance validation
