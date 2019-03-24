@@ -4,16 +4,15 @@
 (require 'core-vars)
 
 (use-package projectile
-    :bind-keymap
-    ("C-c q" . projectile-command-map)
-    :init
-    (setq projectile-keymap-prefix (kbd "C-c q"))
-    :config
-    (setq projectile-completion-system 'ivy)
-    (setq projectile-enable-caching t)
-    (projectile-mode)
-    :delight
-    projectile-mode 1)
+  :bind-keymap
+  ("C-c q" . projectile-command-map)
+  :init
+  (setq projectile-keymap-prefix (kbd "C-c q"))
+  :config
+  (setq projectile-completion-system 'ivy)
+  (projectile-mode)
+  :delight
+  projectile-mode 1)
 
 (use-package counsel-projectile
   :bind-keymap
