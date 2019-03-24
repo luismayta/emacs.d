@@ -44,6 +44,11 @@ or ``wget``.
 via curl
 --------
 
+.. code-block:: bash
+
+    sh -c "$(curl -fsSL https://raw.github.com/luismayta/emacs.d/master/install.sh)"
+
+
 -  Only Creates the necessary files and folders.
 -  Blazing fast creation, forget about file creation and focus in
    actions.
@@ -67,44 +72,6 @@ Test
    $ make setup
    $ make docker.build env=test
    $ make test.lint
-
-Actions
-=======
-
-Other commands for developing are written in Makefile:
-
-.. code-block:: bash
-
-    λ make
-    ༼ つ ◕_◕ ༽つ Commands
-
-    Usage:
-        environment               create environment with pyenv
-        install                   install dependences python by env
-        clean                     remove files of build
-        setup                     install requirements
-
-        Docker:
-
-            docker.build         build all services with docker-compose
-            docker.down          down services docker-compose
-            docker.ssh           connect by ssh to container
-            docker.stop          stop services by env
-            docker.verify_network           verify network
-            docker.up             up services of docker-compose
-            docker.run            run {service} {env}
-            docker.list           list services of docker
-
-        Docs:
-
-            docs.show                  Show restview README
-            docs.make.html             Make documentation html
-            docs.make.pdf              Make documentation pdf
-
-        Tests:
-
-            test.lint                  Run all pre-commit
-            test.syntax                Run all syntax in code
 
 Credits
 =======
@@ -143,10 +110,10 @@ Made with :heart: :coffee:️and :pizza: by `luismayta`_.
 
 .. Links
 
-.. _`all contributors`: AUTHORS
+.. _`all contributors`: docs/source/AUTHORS.rst
 .. _`changelog`: CHANGELOG.rst
-.. _`contributors`: AUTHORS
-.. _`contributing`: CONTRIBUTING.rst
+.. _`contributors`: docs/source/AUTHORS.rst
+.. _`contributing`: docs/source/CONTRIBUTING.rst
 .. _`luismayta`: https://github.com/luismayta
 .. _`python`: https://www.python.org
 .. _`docker`: https://www.docker.io
