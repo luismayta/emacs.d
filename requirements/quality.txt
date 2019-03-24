@@ -6,4 +6,4 @@ mypy
 pre-commit
 pycodestyle               # PEP 8 compliance validation
 pydocstyle                # PEP 257 compliance validation
-pylint
+pylint==2.3.1
