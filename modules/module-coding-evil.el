@@ -2,6 +2,27 @@
 ;;; comentary:
 ;;; Configure evil mode and its packages - VIM like performance
 ;;; code:
+
+;; The definition of evil-escape-mode.
+(define-minor-mode evil-escape-mode
+  (if evil-escape-mode
+    (add-hook 'pre-command-hook 'evil-escape-pre-command-hook)
+    (remove-hook 'pre-command-hook 'evil-escape-pre-command-hook)))
+
+;; Before:
+(evil-escape-mode)
+
+;; After:
+(use-package evil-escape
+  :defer t
+  ;; Only needed for functions without an autoload comment (;;;###autoload).
+  :commands (evil-escape-pre-command-hook)
+
+  ;; Adding to a hook won't load the function until we invoke it.
+  ;; With pre-command-hook, that means the first command we run will
+  ;; load evil-escape.
+  :init (add-hook 'pre-command-hook 'evil-escape-pre-command-hook))
+
 (use-package evil
   :ensure t
   :init
@@ -60,7 +81,7 @@
       ;; keyboard shortcuts
       (evil-leader/set-key
         "c" 'evil-commentary-line
-        "fm" 'fixmee-view-listing
+        ;"fm" 'fixmee-view-listing
         "gl" 'gist-list
         "gb" 'gist-buffer
         "b" 'ido-switch-buffer
