@@ -6,7 +6,7 @@ services:
 
   # App service.
   app:
-    image: emacs.d/dev/app:1.5.1
+    image: emacs.d/dev/app
     environment: &environment
       - ENVIRONMENT=local
     build:
@@ -19,7 +19,7 @@ services:
 
   docs:
     restart: always
-    image: emacs.d/dev/docs:1.5.1
+    image: emacs.d/dev/docs
     build:
       context: .
       dockerfile: provision/docker/docs/Dockerfile
