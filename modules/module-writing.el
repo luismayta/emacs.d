@@ -29,12 +29,9 @@
 
 (use-package super-save
   :init
-  (super-save-mode)
-  :config
-  (setq super-save-auto-save-when-idle t)
-  (setq auto-save-default nil))
+  (super-save-mode))
 
-(use-package auto-save-buffers-enhanced)
+;; (use-package auto-save-buffers-enhanced)
 
 (provide 'module-writing)
 ;;; module-writing.el ends here

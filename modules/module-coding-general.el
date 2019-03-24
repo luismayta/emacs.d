@@ -20,10 +20,10 @@
 (use-package feature-mode
   :mode (("\\.feature$" . feature-mode)))
 
-(use-package fixmee
-  :init
- (fixmee-mode)
- (global-fixmee-mode t))
+;(use-package fixmee
+;  :init
+; (fixmee-mode)
+; (global-fixmee-mode t))
 
 (use-package goto-last-change)
 
@@ -36,10 +36,10 @@
 
 ;; rainbow-delimiters
 ;; Highlights parens, brackets, and braces according to their depth.
-(use-package rainbow-delimiters
-  :commands rainbow-delimiters-mode
-  :init
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+;(use-package rainbow-delimiters
+;  :commands rainbow-delimiters-mode
+;  :init
+;  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
 ;; flycheck
 (use-package flycheck
@@ -69,7 +69,17 @@
   :mode
   (("\\.toml$" . toml-mode)))
 
-;; wakatime for developer
+;; Time Tracking
+;; TODO make cli-path configurable and activate this module only if api key is available
+;; (use-package wakatime-mode
+;;   :config
+;;   ;; (setq wakatime-api-key "2df64913-f90e-4daa-8941-caf456c29059")
+;;   ;; (setq wakatime-cli-path "/usr/local/bin/wakatime")
+;;   ;; (setq wakatime-python-bin "/usr/local/bin/python3")
+;;   (setq wakatime-api-key (getenv "WAKATIME_API_KEY"))
+;;   (setq wakatime-cli-path (getenv "WAKATIME_CLI_PATH"))
+;;   (setq wakatime-python-bin (getenv "WAKATIME_PYTHON_BIN"))
+;;   (global-wakatime-mode))
 ;; (use-package wakatime-mode
 ;;   :config
 ;;   ;; (custom-set-variables
@@ -79,13 +89,14 @@
 ;;   ;;   )
 ;;   (setq wakatime-api-key (getenv "WAKATIME_API_KEY"))
 ;;   (setq wakatime-cli-path (getenv "WAKATIME_CLI_PATH"))
-;;   (setq wakatime-api-bin (getenv "WAKATIME_PYTHON_BIN"))
+;;   (setq wakatime-python-bin (getenv "WAKATIME_PYTHON_BIN"))
 ;;   :init
 ;;   ;; (setq inhibit-startup-screen t)
 ;;   (global-wakatime-mode t)
 ;;   :pin melpa)
 
 (use-package plantuml-mode
+  :defer t ; autoload this package
   :mode
   (("\\.puml$" . plantuml-mode)
     ("\\.plantuml$" . plantuml-mode))

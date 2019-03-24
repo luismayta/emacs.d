@@ -29,10 +29,19 @@
     (lambda () (shell-command "pip install autopep8 flake8 elpy jedi rope isort epc importmagic yapf pylint")))
   )
 
+(use-package importmagic
+  :straight t
+  :disabled t
+  :config (add-hook 'python-mode-hook 'importmagic-mode))
+
 (use-package py-isort
   :ensure t
   :config
   (add-hook 'before-save-hook 'py-isort-before-save))
+
+(use-package pyimport
+  :ensure t
+  )
 
 (provide 'module-coding-python)
 ;;; module-coding-python.el ends here

@@ -51,9 +51,6 @@ git or hg repository is found in the buffer-local working dir."
   ;; (evil-leader/set-key "gd" 'magit-diff)
   )
 
-(use-package magit-gh-pulls
-  :ensure t)
-
 ;; Info git gutter
 (use-package git-gutter
   :ensure t
