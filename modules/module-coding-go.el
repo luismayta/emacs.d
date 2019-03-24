@@ -1,6 +1,8 @@
 ;;; module-coding-go.el --- Golang config.
 ;;; code:
 
+(use-package go-imports)
+
 (use-package go-mode
   :ensure t
   :config
@@ -8,7 +10,7 @@
   (add-hook 'before-save-hook 'gofmt-before-save)
   :commands
   (go-mode)
-  :pin melpa-stable)
+  :pin melpa)
 
 (use-package flycheck
   :ensure t
