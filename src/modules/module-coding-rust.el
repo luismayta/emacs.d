@@ -1,27 +1,39 @@
 ;;; module-coding-rust.el --- Rust settings.
 ;;; code:
 
+(use-package toml-mode
+  :mode "/\\(Cargo.lock\\|\\.cargo/config\\)\\'")
+
 (use-package rust-mode
-  :ensure t
-  :defer t
+  :mode ("\\.rs\\'" . rust-mode)
+  :hook electric-pair
   :config
-
+  (setq rust-format-on-save t)
+  (use-package lsp-mode
+    :config
+    (use-package lsp-rust
+      :hook ((rust-mode . lsp-rust-enable)
+	            (rust-mode . flycheck-mode))
+      :config
+      (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls"))))
   (use-package company-racer
-    :ensure t)
-
-  (use-package cargo
-    :ensure t)
+    :requires company
+    :bind ("M-TAB" . company-complete)
+    :config
+    (setq company-tooltip-align-annotations t))
 
   (use-package flycheck-rust
-    :ensure t
-    :config
-    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+    :hook ((rust-mode . flycheck-mode)
+	          (flycheck-mode . flycheck-rust-setup)))
+
+  (use-package cargo
+    :hook ((rust-mode . cargo-minor-mode)))
 
   (use-package racer
-    :ensure t
-    :config
-    (add-hook 'rust-mode-hook #'racer-mode)
-    (add-hook 'racer-mode-hook #'eldoc-mode)))
+    :hook ((racer-mode . eldoc-mode)
+	          (racer-mode . company-mode)
+	          (rust-mode . racer-mode))
+    :bind (("M-." . racer-find-definition))))
 
 (provide 'module-coding-rust)
 ;;; module-coding-rust.el ends here
