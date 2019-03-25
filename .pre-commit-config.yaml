@@ -24,10 +24,6 @@
     -   id: check-ast
         language_version: python3
     -   id: debug-statements
-    -   id: autopep8-wrapper
-        args:
-        - -i
-        - --ignore=E501,D205
         language_version: python3
     -   id: double-quote-string-fixer
     -   id: check-docstring-first
