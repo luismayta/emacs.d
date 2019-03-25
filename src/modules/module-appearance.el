@@ -43,29 +43,29 @@
 
 ;;==============mode-line===============
 
-;; (use-package cyphejor
-;;   :init
-;;   (progn
-;;     (setq
-;;       cyphejor-rules
-;;       '(:upcase
-;;          ("bookmark"    "→")
-;;          ("buffer"      "β")
-;;          ("diff"        "Δ")
-;;          ("dired"       "δ")
-;;          ("emacs"       "ε")
-;;          ("inferior"    "i" :prefix)
-;;          ("interaction" "i" :prefix)
-;;          ("interactive" "i" :prefix)
-;;          ("lisp"        "λ" :postfix)
-;;          ("menu"        "▤" :postfix)
-;;          ("mode"        "")
-;;          ("package"     "↓")
-;;          ("python"      "π")
-;;          ("shell"       "sh" :postfix)
-;;          ("text"        "ξ")
-;;          ("wdired"      "↯δ")))
-;;     (cyphejor-mode t)))
+(use-package cyphejor
+  :init
+  (progn
+    (setq
+      cyphejor-rules
+      '(:upcase
+         ("bookmark"    "→")
+         ("buffer"      "β")
+         ("diff"        "Δ")
+         ("dired"       "δ")
+         ("emacs"       "ε")
+         ("inferior"    "i" :prefix)
+         ("interaction" "i" :prefix)
+         ("interactive" "i" :prefix)
+         ("lisp"        "λ" :postfix)
+         ("menu"        "▤" :postfix)
+         ("mode"        "")
+         ("package"     "↓")
+         ("python"      "π")
+         ("shell"       "sh" :postfix)
+         ("text"        "ξ")
+         ("wdired"      "↯δ")))
+    (cyphejor-mode t)))
 
 
 (use-package nyan-mode
