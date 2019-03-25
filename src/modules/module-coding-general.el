@@ -20,10 +20,10 @@
 (use-package feature-mode
   :mode (("\\.feature$" . feature-mode)))
 
-;(use-package fixmee
-;  :init
-; (fixmee-mode)
-; (global-fixmee-mode t))
+(use-package fixmee
+  :init
+  (fixmee-mode)
+  (global-fixmee-mode t))
 
 (use-package goto-last-change)
 
