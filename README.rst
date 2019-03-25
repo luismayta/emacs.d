@@ -1,4 +1,4 @@
-|wercker| |build_status| |code_climate| |github_tag| |test_coverage| |license| |say_thanks|
+|build| |code_climate| |github_tag| |test_coverage| |license| |say_thanks|
 
 :Version: 1.6.3
 :Web: https://github.com/luismayta/emacs.d
@@ -88,13 +88,9 @@ Made with :heart: :coffee:️and :pizza: by `luismayta`_.
   :target: https://github.com/luismayta/emacs.d
   :alt: Github Tag
 
-.. |build_status| image:: https://travis-ci.org/luismayta/emacs.d.svg
+.. |build| image:: https://travis-ci.org/luismayta/emacs.d.svg
   :target: https://travis-ci.org/luismayta/emacs.d
   :alt: Build Status Tag
-
-.. |wercker| image:: https://app.wercker.com/status/5197d88761e239221d963a73394f082a/s/
-  :target: https://app.wercker.com/project/byKey/5197d88761e239221d963a73394f082a
-  :alt: Wercker status
 
 .. |license| image:: https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square
   :target: LICENSE
