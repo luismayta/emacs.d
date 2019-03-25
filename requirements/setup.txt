@@ -1,5 +1,5 @@
 bumplus
-bumpversion
+bumpversion==0.5.3
 docker-compose
 pre-commit
 restview>=2.8.1
