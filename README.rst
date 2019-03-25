@@ -1,4 +1,4 @@
-|build| |code_climate| |github_tag| |test_coverage| |license| |say_thanks|
+|build| |code_climate| |tag| |test_coverage| |license| |say_thanks|
 
 :Version: 1.6.3
 :Web: https://github.com/luismayta/emacs.d
@@ -84,7 +84,7 @@ Made with :heart: :coffee:️and :pizza: by `luismayta`_.
   :target: https://codeclimate.com/github/luismayta/emacs.d
   :alt: Code Climate
 
-.. |github_tag| image:: https://img.shields.io/github/tag/luismayta/emacs.d.svg?maxAge=2592000
+.. |tag| image:: https://img.shields.io/github/tag/luismayta/emacs.d.svg?maxAge=2592000
   :target: https://github.com/luismayta/emacs.d
   :alt: Github Tag
 
