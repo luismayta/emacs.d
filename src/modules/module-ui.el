@@ -25,10 +25,10 @@
                            "^\*compilation" "^\*GTAGS" "^session\.*")
     ido-enable-prefix nil
     ido-use-url-at-point nil
-    ido-max-prospects 10
     ido-use-faces nil
     )
   (ido-everywhere 1)
+  (ido-vertical-mode 1)
   (flx-ido-mode 1))
 
 ;; diminish some modes.
