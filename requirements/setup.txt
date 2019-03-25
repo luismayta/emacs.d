@@ -1,4 +1,4 @@
-bumplus
+bumplus==0.1.6
 bumpversion
 docker-compose
 pre-commit
