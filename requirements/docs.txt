@@ -2,4 +2,4 @@ pygments>=2.2.0
 Sphinx==1.6.5
 sphinx-intl==0.9.10
 sphinx-rtd-theme==0.2.4
-sphinxcontrib-plantuml==0.8.1
+sphinxcontrib-plantuml==0.15
