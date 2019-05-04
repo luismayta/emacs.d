@@ -1,6 +1,6 @@
 bumplus
 bumpversion
 docker-compose
-pre-commit
+pre-commit==1.16.0
 restview>=2.8.1
 rst>=0.1
