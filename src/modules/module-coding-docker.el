@@ -9,9 +9,11 @@
 ;;
 
 ;;; Code:
-(use-package dockerfile-mode
-  :ensure t
-  :defer t)
+(use-package dockerfile-mode)
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+
+;; editing and completion for docker compose (YAML)
+(use-package docker-compose-mode)
 
 (use-package docker
   :ensure t
