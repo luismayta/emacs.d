@@ -26,7 +26,7 @@
 (use-package pyenv-mode-auto
   :config
   (add-hook 'pyenv-mode-auto-hook
-    (lambda () (shell-command "pip install autopep8 flake8 elpy jedi rope isort epc importmagic yapf pylint")))
+    (lambda () (shell-command "pip install mypy autopep8 flake8 elpy jedi rope isort epc importmagic yapf pylint")))
   )
 
 (use-package importmagic
@@ -42,6 +42,32 @@
 (use-package pyimport
   :ensure t
   )
+(use-package flycheck-mypy)
+
+(use-package flycheck-pyflakes)
+
+(use-package flycheck
+  :init
+  ;; disable noisy checkers
+  (setq-default flycheck-disabled-checkers
+    '(emacs-lisp emacs-lisp-checkdoc go-golint))
+
+  ;; prefer python 3
+  (let ((python "python3"))
+    (when (executable-find python)
+      (setq flycheck-python-flake8-executable python
+        flycheck-python-pycompile-executable python
+        flycheck-python-pylint-executable python)))
+
+  :config
+  (global-flycheck-mode 1))
+
+(defun python/python-mode-hook ()
+  "Python module hook."
+  (anaconda-mode 1)
+  (anaconda-eldoc-mode 1))
+
+(add-hook 'python-mode-hook 'python/python-mode-hook)
 
 (provide 'module-coding-python)
 ;;; module-coding-python.el ends here
