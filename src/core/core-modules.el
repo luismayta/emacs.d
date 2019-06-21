@@ -38,6 +38,7 @@
      module-coding-elixir
      module-coding-java
      module-coding-js
+     module-coding-web
      module-coding-typescript
      module-coding-lua
      module-coding-php
