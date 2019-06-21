@@ -10,6 +10,7 @@
   (setq exec-path-from-shell-copy-env "GOPATH")
   (setq exec-path-from-shell-copy-env "GOROOT")
   (setq exec-path-from-shell-copy-env "GO_ENV")
+  (setq exec-path-from-shell-copy-env "PYTHONPATH")
   (setq exec-path-from-shell-copy-env "DOCKER_HOST")
   (setq exec-path-from-shell-copy-env "DOCKER_TLS_VERIFY")
   (setq exec-path-from-shell-copy-env "DOCKER_CERT_PATH")
