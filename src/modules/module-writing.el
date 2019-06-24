@@ -31,7 +31,7 @@
   :init
   (super-save-mode))
 
-;; (use-package auto-save-buffers-enhanced)
+(use-package auto-save-buffers-enhanced)
 
 (provide 'module-writing)
 ;;; module-writing.el ends here
