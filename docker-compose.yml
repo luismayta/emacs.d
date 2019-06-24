@@ -1,13 +1,17 @@
 # Docker Compose
 # https://docs.docker.com/compose/
 # Usage: docker-compose up
-
-version: '3'
+---
+version: "3"
 services:
+
   app:
-    restart: always
+    build:
+      context: .
+      dockerfile: provision/docker/app/Dockerfile
     environment: &environment
       - APP_NAME=emacs
+      - STAGE=local
     volumes:
     - ./:/home/.emacs.d
     env_file:

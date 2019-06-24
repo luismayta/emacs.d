@@ -1,31 +1,18 @@
 # Docker Compose
 # https://docs.docker.com/compose/
+#
+# Usage: test up
 
-version: '3'
+version: "3"
 services:
-
-  # App service.
   app:
-    image: emacs.d/dev/app
+    image: emacs.d-app-test
     environment: &environment
-      - ENVIRONMENT=local
+      - STAGE=testing
     build:
-      context: .
-      dockerfile: provision/docker/app-test/Dockerfile
+      args:
+        stage: test
     volumes:
     - ./:/home/.emacs.d
     env_file:
       - .env
-
-  docs:
-    restart: always
-    image: emacs.d/dev/docs
-    build:
-      context: .
-      dockerfile: provision/docker/docs/Dockerfile
-    volumes:
-      - .:/usr/src
-    env_file:
-      - .env
-    depends_on:
-      - app

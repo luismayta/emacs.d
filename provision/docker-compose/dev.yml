@@ -1,25 +1,37 @@
 # Docker Compose
 # https://docs.docker.com/compose/
 
-version: '3'
+version: "3"
 services:
 
   # App service.
   app:
-    image: emacs.d/dev/app
     environment: &environment
       - ENVIRONMENT=local
+    image: emacs.d-app-dev
     build:
-      context: .
-      dockerfile: provision/docker/app/Dockerfile
+      args:
+        stage: dev
     volumes:
     - ./:/home/.emacs.d
     env_file:
       - .env
 
+  check:
+    image: emacs.d-check-dev
+    environment: *environment
+    build:
+      context: .
+      dockerfile: provision/docker/check/Dockerfile
+      args:
+        stage: dev
+    volumes:
+      - .:/usr/src
+    env_file:
+      - .env
+
   docs:
-    restart: always
-    image: emacs.d/dev/docs
+    image: emacs.d-docs-dev
     build:
       context: .
       dockerfile: provision/docker/docs/Dockerfile
