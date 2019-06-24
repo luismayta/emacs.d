@@ -49,6 +49,7 @@
      module-coding-go
      module-coding-rust
      module-coding-hashicorp
+     module-coding-dart
      module-term
      module-org
      module-google
