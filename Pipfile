@@ -1,0 +1,34 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+docker-compose = "*"
+restview = ">=2.8.1"
+rst = ">=0.1"
+caniusepython3 = "*"
+isort = "*"
+mypy = "*"
+pycodestyle = "*"
+pydocstyle = "*"
+pylint = "*"
+mock = "*"
+pyhamcrest = "*"
+pytest-cov = "*"
+pytest = "*"
+tox = "*"
+ipython = "*"
+parso = "*"
+pyyaml = "*"
+bumplus = "*"
+bumpversion = "*"
+pre-commit = "*"
+
+[packages]
+
+[scripts]
+test = "pytest"
+
+[requires]
+python_version = "3.6.5"
