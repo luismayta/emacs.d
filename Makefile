@@ -15,7 +15,7 @@ SHELL := /bin/bash
 ROOT_DIR=$(shell pwd)
 MESSAGE:=🍺️
 MESSAGE_HAPPY:="Done! ${MESSAGE} Now Happy Coding"
-SCRIPT_DIR=$(ROOT_DIR)/extras/scripts
+SCRIPT_DIR=$(ROOT_DIR)/provision/scripts
 SOURCE_DIR=$(ROOT_DIR)/
 REQUIREMENTS_DIR=$(ROOT_DIR)/requirements
 PROVISION_DIR:=$(ROOT_DIR)/provision
@@ -25,7 +25,7 @@ PATH_DOCKER_COMPOSE:=provision/docker-compose
 pip_install := pip install -r
 docker-compose:=docker-compose -f docker-compose.yml
 
-include extras/make/*.mk
+include provision/make/*.mk
 
 help:
 	@echo '${MESSAGE} Makefile for ${PROJECT}'
