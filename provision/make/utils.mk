@@ -7,16 +7,17 @@ utils.help:
 	@echo '    utils:'
 	@echo ''
 	@echo '        utils                      help utils'
-	@echo '        utils.generate             generate key ssh by env'
-	@echo '        utils.convert              convert id_rsa to pem by env'
+	@echo '        utils.generate             generate key ssh by stage'
 	@echo ''
 
 utils: clean
 	make utils.help
 
 utils.generate: clean
-	ssh-keygen -t rsa -b 4096 -C "admin@${PROJECT}-${env}.com"
-
-utils.convert: clean
-	openssl rsa -in "${PROJECT}-${env}" -outform pem > "${PROJECT}-${env}".pem
-	chmod 0400 "${PROJECT}-${env}".pem
+	ssh-keygen -q -m PEM -t rsa -b 4096 -C "admin@${PROJECT}-${stage}.com" -f ${PROJECT}-${stage} -P ""
+	openssl rsa -in ${PROJECT}-${stage} -outform pem > ${PROJECT}-${stage}.pem
+	chmod 0600 ${PROJECT}-${stage}.pem
+	cp -rf ${PROJECT}-${stage}.pem ${KEYS_PEM_DIR}
+	cp -rf ${PROJECT}-${stage}.pub ${KEYS_PUB_DIR}
+	cp -rf ${PROJECT}-${stage}.pub ${KEYS_PRIVATE_DIR}
+	cp -rf ${PROJECT}-${stage} ${KEYS_PRIVATE_DIR}
