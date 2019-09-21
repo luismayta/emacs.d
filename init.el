@@ -1,15 +1,15 @@
 ;;; init.el --- Start of the Emacs initialisation process.
 (setq explicit-shell-file-name "/usr/local/bin/zsh")
 (setq shell-file-name "zsh")
-
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 ;;; code:
 (package-initialize)
 (add-to-list 'package-archives
-  '("gnu" . "https://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives
   '("melpa" . "https://melpa.org/packages/") t )
 (add-to-list 'package-archives
-  '("marmalade" . "http://marmalade-repo.org/packages/") t)
+  '("marmalade" . "https://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+  '("gnu" . "http://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives
   '("org" . "http://orgmode.org/elpa/") t)
 
