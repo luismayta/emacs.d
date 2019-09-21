@@ -111,6 +111,7 @@ Made with :heart: :coffee:️and :pizza: by `luismayta`_.
 .. _`contributors`: docs/source/AUTHORS.rst
 .. _`contributing`: docs/source/CONTRIBUTING.rst
 .. _`luismayta`: https://github.com/luismayta
+.. _`Pyenv`: https://github.com/pyenv/pyenv
 .. _`python`: https://www.python.org
 .. _`docker`: https://www.docker.io
 .. _`docker compose`: https://docs.docker.com/compose
