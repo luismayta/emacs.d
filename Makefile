@@ -3,28 +3,46 @@
 #
 
 OS := $(shell uname)
-.PHONY: help build up requirements clean lint test help
+.PHONY: help
 .DEFAULT_GOAL := help
 
-PROJECT := emacs.d
+HAS_PIP := $(shell command -v pip;)
+HAS_PIPENV := $(shell command -v pipenv;)
 
-PYTHON_VERSION=3.6.5
+ifdef HAS_PIPENV
+	PIPENV_RUN:=pipenv run
+	PIPENV_INSTALL:=pipenv install
+else
+	PIPENV_RUN:=
+	PIPENV_INSTALL:=
+endif
+
+TEAM := luismayta
+PROJECT := emacs.d
+PROJECT_PORT := 8000
+
+PYTHON_VERSION=3.7.3
 PYENV_NAME="${PROJECT}"
 
 # Configuration.
-SHELL := /bin/bash
+SHELL ?=/bin/bash
 ROOT_DIR=$(shell pwd)
 MESSAGE:=🍺️
-MESSAGE_HAPPY:="Done! ${MESSAGE} Now Happy Coding"
+MESSAGE_HAPPY:="Done! ${MESSAGE}, Now Happy Coding"
 SCRIPT_DIR=$(ROOT_DIR)/provision/scripts
 SOURCE_DIR=$(ROOT_DIR)/
 REQUIREMENTS_DIR=$(ROOT_DIR)/requirements
 PROVISION_DIR:=$(ROOT_DIR)/provision
 FILE_README:=$(ROOT_DIR)/README.rst
-PATH_DOCKER_COMPOSE:=provision/docker-compose
+KEYBASE_PATH ?= /keybase/team/${TEAM}
+KEYS_PEM_DIR:=${KEYBASE_PATH}/pem
+KEYS_PUB_DIR:=${KEYBASE_PATH}/pub
+KEYS_PRIVATE_DIR:=${KEYBASE_PATH}/private/key_file/${PROJECT}
+PASSWORD_DIR:=${KEYBASE_PATH}/password
+PATH_DOCKER_COMPOSE:=docker-compose.yml -f provision/docker-compose
+DOCKER_SERVICE:=app
 
-pipenv_install := pipenv install
-docker-compose:=docker-compose -f docker-compose.yml
+docker-compose:=$(PIPENV_RUN) docker-compose
 
 include provision/make/*.mk
 
@@ -42,7 +60,7 @@ help:
 	@make test.help
 
 clean:
-	@echo "$(TAG)"Cleaning up"$(END)"
+	@echo "=====> clean files unnecessary for ${TEAM}..."
 ifneq (Darwin,$(OS))
 	@sudo rm -rf .tox *.egg *.egg-info dist build .coverage .eggs .mypy_cache
 	@sudo rm -rf docs/build
@@ -52,17 +70,16 @@ else
 	@rm -rf docs/build
 	@find . -name '__pycache__' -delete -print -o -name '*.pyc' -delete -print -o -name '*.pyo' -delete -print -o -name '*~' -delete -print -o -name '*.tmp' -delete -print
 endif
-	@echo
+	@echo "=====> end clean files unnecessary for ${TEAM}..."
 
 setup: clean
-	@echo "=====> loading packages..."
-	$(pipenv_install) --dev --python ${PYTHON_VERSION}
-	pre-commit install
-	cp -rf .hooks/prepare-commit-msg .git/hooks/
-	@if [ ! -e ".env" ]; then \
-		cp -rf .env-sample .env;\
-	fi
+	@echo "=====> install packages..."
+	$(PIPENV_INSTALL) --dev --skip-lock
+	$(PIPENV_RUN) pre-commit install
+	@cp -rf provision/git/hooks/prepare-commit-msg .git/hooks/
+	@[[ ! -e ".env" ]] &&  cp -rf .env.example .env
+	@echo ${MESSAGE_HAPPY}
 
 environment: clean
 	@echo "=====> loading virtualenv ${PYENV_NAME}..."
-	pipenv shell --fancy
+	@pipenv --venv || $(PIPENV_INSTALL) --skip-lock --python ${PYTHON_VERSION}
