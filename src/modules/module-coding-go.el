@@ -2,7 +2,7 @@
 ;;; code:
 
 (use-package go-imports)
-
+(setq gofmt-command "goimports")
 (use-package go-mode
   :ensure t
   :config
