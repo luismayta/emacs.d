@@ -61,16 +61,24 @@
   :diminish which-key-mode
   )
 
-;; Company
 (use-package company
-  :ensure t
+  ;; :bind (("<C-tab>" . company-complete))
+  :init
+  (setq company-idle-delay 0.5
+    company-show-numbers t
+    company-tooltip-limit 10
+    company-minimum-prefix-length 2
+    company-tooltip-flip-when-above t)
   :config
-  (global-company-mode 1)
-  ;; Configure YouCompleteMe-esque behavior
-  (add-to-list 'company-frontends 'company-tng-frontend)
-  ;; Sort completions by frequency
-  (setq company-transformers '(company-sort-by-occurrence))
-  )
+  (use-package company-emoji
+    :init
+    (add-to-list 'company-backends 'company-emoji))
+  (use-package company-web-html
+    :ensure company-web
+    :init
+    (add-to-list 'company-backends 'company-web-html))
+  (company-tng-configure-default)
+  (global-company-mode 1))
 
 ;; YaSnippet
 (use-package yasnippet
