@@ -32,7 +32,14 @@
   )
 
 (use-package pipenv
+  :after python-mode
   :hook (python-mode . pipenv-mode)
+  :commands (pipenv-activate
+              pipenv-deactivate
+              pipenv-shell
+              pipenv-open
+              pipenv-install
+              pipenv-uninstall)
   :init
   (setq
     pipenv-projectile-after-switch-function
@@ -95,13 +102,8 @@
   :bind (:map anaconda-mode-map
 	        ("C-c C-d" . anaconda-mode-show-doc)
 	        ("M-?" . anaconda-mode-find-references))
+  :init (evil-leader/set-key "gd" 'anaconda-mode-find-definitions)
   :config (add-hook 'python-mode-hook 'python/init-anaconda))
-
-(use-package company-anaconda
-  :ensure t
-  :config (add-to-list 'company-backends 'company-anaconda)
-  :init
-  (evil-leader/set-key "gd" 'anaconda-mode-find-definitions))
 
 (use-package pip-requirements
   :ensure t)
