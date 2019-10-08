@@ -61,6 +61,12 @@
   :diminish which-key-mode
   )
 
+;; Auto completion
+(use-package company-anaconda
+  :after (anaconda-mode company)
+  :commands company-anaconda
+  :config (add-to-list 'company-backends 'company-anaconda))
+
 (use-package company
   ;; :bind (("<C-tab>" . company-complete))
   :init
