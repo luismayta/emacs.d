@@ -46,6 +46,7 @@
      module-coding-ruby
      module-coding-swift
      module-coding-ethereum
+     module-coding-iot
      module-coding-go
      module-coding-rust
      module-coding-hashicorp
