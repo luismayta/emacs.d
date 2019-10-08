@@ -3,7 +3,6 @@
 
 version: "3.6"
 services:
-
   # App service.
   app:
     environment: &environment
