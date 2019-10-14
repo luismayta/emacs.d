@@ -23,6 +23,7 @@
      module-path
      module-editing
      module-ui
+     module-fonts
      module-appearance
      module-searching
      module-navigation
