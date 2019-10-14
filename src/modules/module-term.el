@@ -4,7 +4,7 @@
 (require 'core-vars)
 
 (defadvice ansi-term (before force-bash)
-  (interactive (list my-term-shell)))
+  (interactive (list core-term-shell)))
 (ad-activate 'ansi-term)
 
 (provide 'module-term)
