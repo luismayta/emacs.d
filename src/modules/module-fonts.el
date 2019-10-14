@@ -7,7 +7,7 @@
   (set-default-coding-systems 'utf-8)
   (set-frame-font core/fixed-font-name))
 
-(set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol")
+(set-fontset-font t '(#Xe100 . #Xe16f) core/fixed-font-name)
 
 (use-package
   dash
@@ -15,9 +15,9 @@
 
 (defun my-correct-symbol-bounds (pretty-alist)
   "Prepend a TAB character to each symbol in this alist,
-    this way compose-region called by prettify-symbols-mode
-    will use the correct width of the symbols
-    instead of the width measured by char-width."
+  this way compose-region called by prettify-symbols-mode
+  will use the correct width of the symbols
+  instead of the width measured by char-width."
   (mapcar (lambda (el)
             (setcdr el (string ?\t (cdr el)))
             el)
@@ -25,7 +25,7 @@
 
 (defun my-ligature-list (ligatures codepoint-start)
   "Create an alist of strings to replace with
-    codepoints starting from codepoint-start."
+  codepoints starting from codepoint-start."
   (let ((codepoints (-iterate '1+ codepoint-start (length ligatures))))
     (-zip-pair ligatures codepoints)))
 
@@ -49,7 +49,7 @@
                                                                   "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<" "<~"
                                                                   "<~~" "</" "</>" "~@" "~-" "~=" "~>" "~~" "~~>" "%%"
                                                                   "x" ":" "+" "+" "*")))
-    (my-correct-symbol-bounds (my-ligature-list ligs #Xe100))))
+  (my-correct-symbol-bounds (my-ligature-list ligs #Xe100))))
 
 (add-hook 'prog-mode-hook 'my-set-fira-code-ligatures)
 
