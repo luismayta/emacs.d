@@ -1,7 +1,15 @@
 ;;; init.el --- Start of the Emacs initialisation process.
-(setq explicit-shell-file-name "/usr/local/bin/zsh")
+(load-file (concat (file-name-directory load-file-name)
+               "src/core/core-vars.el"))
+(load-file (concat (file-name-directory load-file-name)
+               "src/core/core-load-paths.el"))
+
+(require 'core-vars)
+
+(setq explicit-shell-file-name core-term-shell)
 (setq shell-file-name "zsh")
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
 ;;; code:
 (package-initialize)
 (add-to-list 'package-archives
@@ -31,10 +39,6 @@
   (error (concat "Your version of Emacs (%s) is too old. "
            "requires Emacs version %s or above.")
     emacs-version emacs-min-version)
-  (load-file (concat (file-name-directory load-file-name)
-               "src/core/core-vars.el"))
-  (load-file (concat (file-name-directory load-file-name)
-               "src/core/core-load-paths.el"))
   (require 'core-emacs)
   (emacs/init))
 
