@@ -2,7 +2,7 @@
 
 ;;; code:
 
-(defvar core/fixed-font-name "Fira Code")
+(defvar core/fixed-font-name "Fira Code Symbol")
 (defvar core/frame-font "Fira Code Retina-17")
 (defvar core/default-font "Fira Code Retina-17")
 (defvar core/fixed-font-weight "normal")
@@ -10,7 +10,7 @@
 (defvar core/font-height 170)
 
 ;; vars for terminals.
-(defvar my-term-shell "/usr/local/bin/zsh")
+(defvar core-term-shell "/usr/local/bin/zsh")
 
 ;; paths
 (defvar start-directory
