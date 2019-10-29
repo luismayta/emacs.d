@@ -29,9 +29,9 @@
   :config
   (setq company-tooltip-align-annotations t))
 
-(use-package flycheck-rust
-  :hook ((rust-mode . flycheck-mode)
-	        (flycheck-mode . flycheck-rust-setup)))
+;(use-package flycheck-rust
+;  :hook ((rust-mode . flycheck-mode)
+;	        (flycheck-mode . flycheck-rust-setup)))
 
 (use-package cargo
   :hook ((rust-mode . cargo-minor-mode)))
