@@ -60,7 +60,7 @@
 ;; toml
 (use-package toml-mode
   :mode
-  (("\\.toml$" . toml-mode)))
+  :mode ("\\.toml\\'" "Pipfile\\'" "\\Cargo.lock\\'" "\\.cargo/config\\'"))
 
 ;; Time Tracking
 (use-package wakatime-mode
