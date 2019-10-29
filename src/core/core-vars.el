@@ -5,7 +5,7 @@
 (defvar core/fixed-font-name "Fira Code Symbol")
 (defvar core/frame-font "Fira Code Retina-17")
 (defvar core/default-font "Fira Code Retina-17")
-(defvar core/fixed-font-weight "normal")
+(defvar core/fixed-font-weight "retina")
 (defvar core/var-font-name "Fira Code")
 (defvar core/font-height 170)
 
