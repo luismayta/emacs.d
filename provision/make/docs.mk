@@ -15,7 +15,7 @@ docs.help:
 	@echo ''
 
 docs.show: clean
-	$(PIPENV_RUN) restview --allowed-hosts=* --listen=0.0.0.0:${PROJECT_PORT} ${FILE_README}
+	$(PIPENV_RUN) restview ${FILE_README}
 
 docs.make: clean
-	$(docker-compose) -f ${PATH_DOCKER_COMPOSE}/dev.yml run --rm docs bash -c "cd docs && make html"
+	$(docker-dev) run --rm docs bash -c "cd docs && make html"
