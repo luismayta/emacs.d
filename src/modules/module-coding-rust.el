@@ -1,9 +1,6 @@
 ;;; module-coding-rust.el --- Rust settings.
 ;;; code:
 
-(use-package toml-mode
-  :mode "/\\(Cargo.lock\\|\\.cargo/config\\)\\'")
-
 (use-package rust-mode
   :hook (rust-mode . lsp))
 
