@@ -28,7 +28,7 @@ PYENV_NAME="${PROJECT}"
 SHELL ?=/bin/bash
 ROOT_DIR=$(shell pwd)
 MESSAGE:=🍺️
-MESSAGE_HAPPY:="Done! ${MESSAGE}, Now Happy Coding"
+MESSAGE_HAPPY:="Done! ${MESSAGE}, Now Happy Hacking"
 SCRIPT_DIR=$(ROOT_DIR)/provision/scripts
 SOURCE_DIR=$(ROOT_DIR)/
 PROVISION_DIR:=$(ROOT_DIR)/provision
@@ -38,14 +38,21 @@ KEYS_PEM_DIR:=${KEYBASE_PATH}/pem
 KEYS_PUB_DIR:=${KEYBASE_PATH}/pub
 KEYS_PRIVATE_DIR:=${KEYBASE_PATH}/private/key_file/${PROJECT}
 PASSWORD_DIR:=${KEYBASE_PATH}/password
+
 PATH_DOCKER_COMPOSE:=docker-compose.yml -f provision/docker-compose
 
-DOCKER_COMPOSE:=$(PIPENV_RUN) docker-compose
-DOCKER_COMPOSE_DEV=$(DOCKER_COMPOSE) -f ${PATH_DOCKER_COMPOSE}/dev.yml
-DOCKER_COMPOSE_TEST=$(DOCKER_COMPOSE) -f ${PATH_DOCKER_COMPOSE}/test.yml
+DOCKER_SERVICE_DEV:=app
+DOCKER_SERVICE_TEST:=app
 
-SERVICE_APP:=app
-SERVICE_CHECK:=check
+docker-compose:=$(PIPENV_RUN) docker-compose
+
+docker-test:=$(docker-compose) -f ${PATH_DOCKER_COMPOSE}/test.yml
+docker-dev:=$(docker-compose) -f ${PATH_DOCKER_COMPOSE}/dev.yml
+
+docker-test-run:=$(docker-test) run --rm ${DOCKER_SERVICE_TEST}
+docker-dev-run:=$(docker-dev) run --rm --service-ports ${DOCKER_SERVICE_DEV}
+
+terragrunt:=terragrunt
 
 include provision/make/*.mk
 
@@ -68,7 +75,7 @@ ifneq (Darwin,$(OS))
 	@sudo rm -rf .tox *.egg *.egg-info dist build .coverage .eggs .mypy_cache
 	@sudo rm -rf docs/build
 	@sudo find . -name '__pycache__' -delete -print -o -name '*.pyc' -delete -print -o -name '*.pyo' -delete -print -o -name '*~' -delete -print -o -name '*.tmp' -delete -print
-else
+elifneq (Linux,$(OS))
 	@rm -rf .tox *.egg *.egg-info dist build .coverage .eggs .mypy_cache
 	@rm -rf docs/build
 	@find . -name '__pycache__' -delete -print -o -name '*.pyc' -delete -print -o -name '*.pyo' -delete -print -o -name '*~' -delete -print -o -name '*.tmp' -delete -print
@@ -78,7 +85,7 @@ endif
 setup: clean
 	@echo "=====> install packages..."
 	$(PIPENV_INSTALL) --dev --skip-lock
-	$(PIPENV_RUN) pre-commit install
+	$(PIPENV_RUN) pre-commit install && pre-commit install -t pre-push
 	@cp -rf provision/git/hooks/prepare-commit-msg .git/hooks/
 	@[[ -e ".env" ]] || cp -rf .env.example .env
 	@echo ${MESSAGE_HAPPY}
@@ -86,3 +93,4 @@ setup: clean
 environment: clean
 	@echo "=====> loading virtualenv ${PYENV_NAME}..."
 	@pipenv --venv || $(PIPENV_INSTALL) --skip-lock --python ${PYTHON_VERSION}
+	@echo ${MESSAGE_HAPPY}
