@@ -59,7 +59,6 @@
 
 ;; toml
 (use-package toml-mode
-  :mode
   :mode ("\\.toml\\'" "Pipfile\\'" "\\Cargo.lock\\'" "\\.cargo/config\\'"))
 
 ;; Time Tracking
@@ -67,15 +66,13 @@
   :diminish 'wakatime-mode
   :init
   (add-hook 'prog-mode-hook 'wakatime-mode)
-  :config   (progn (setq wakatime-cli-path "/usr/local/bin/wakatime")
-	            (setq wakatime-python-bin nil)
-	            (global-wakatime-mode)))
+  :config (progn (setq wakatime-cli-path "/usr/local/bin/wakatime")
+            (setq wakatime-python-bin nil)
+            (global-wakatime-mode)))
 
 (use-package plantuml-mode
-  :defer t ; autoload this package
-  :mode
-  (("\\.puml$" . plantuml-mode)
-    ("\\.plantuml$" . plantuml-mode))
+  :mode (("\\.puml$" . plantuml-mode)
+          ("\\.plantuml$" . plantuml-mode))
   :config
   (setq plantuml-jar-path (getenv "PLANTUML_JAR_PATH"))
   :init
