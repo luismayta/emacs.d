@@ -32,7 +32,6 @@
   )
 
 (use-package pipenv
-  :after python-mode
   :hook (python-mode . pipenv-mode)
   :commands (pipenv-activate
               pipenv-deactivate
