@@ -48,9 +48,8 @@
 (use-package blacken
   :ensure t
   :diminish blacken-mode
-  ;; :hook (python-mode . blacken-mode)
+  :hook (python-mode . blacken-mode)
   :config
-  ;; (setq blacken-line-length 100)
   :bind (([?\C-c ?\C-x ?a] . blacken-buffer)))
 
 (defun python/init-eldoc-mode ()
@@ -118,7 +117,6 @@
   :ensure t)
 
 (use-package importmagic
-  :straight t
   :disabled t
   :config (add-hook 'python-mode-hook 'importmagic-mode))
 

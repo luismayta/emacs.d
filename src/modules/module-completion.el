@@ -68,7 +68,7 @@
   :config (add-to-list 'company-backends 'company-anaconda))
 
 (use-package company
-  ;; :bind (("<C-tab>" . company-complete))
+  :bind (("<C-tab>" . company-complete))
   :init
   (setq company-idle-delay 0.5
     company-show-numbers t

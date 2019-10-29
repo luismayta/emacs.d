@@ -31,6 +31,10 @@
   :config
   (push 'company-arduino company-backends))
 
+(use-package company-irony-c-headers
+  :config
+  (push 'company-irony-c-headers company-backends))
+
 (use-package company-c-headers
   :config
   (push 'company-c-headers company-backends))
@@ -39,10 +43,6 @@
   :after irony
   :config
   (push 'company-irony company-backends))
-
-(use-package company-irony-c-headers
-  :config
-  (push 'company-irony-c-headers company-backends))
 
 (provide 'module-coding-iot)
 ;;; module-coding-iot.el ends here
