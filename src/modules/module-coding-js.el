@@ -5,7 +5,8 @@
 (require 'use-package)
 
 (use-package json-mode
-  :mode "\\.json$")
+  :ensure t
+  :mode ("\\.json\\'" ".eslintrc\\'" ".prettierrc\\'" "Pipfile.lock\\'"))
 
 (use-package js2-mode
   :custom
@@ -20,6 +21,7 @@
   (js2-mode-show-strict-warnings nil)
   (js2-mode-strict-inconsistent-return-warning nil)
   (js2-getprop-has-side-effects t)
+  :init (evil-leader/set-key "gd" 'js2-jump-to-definition)
   :config
   (add-to-list 'aggressive-indent-excluded-modes 'js2-mode))
 
@@ -30,8 +32,12 @@
   (js2r-add-keybindings-with-prefix "C-c C-r"))
 
 (use-package rjsx-mode
-  :pin melpa
-  :mode "\\.jsx?\\'")
+  :ensure t
+  :mode "\\.jsx\\'"
+  :magic ("/\\*\\* @jsx React\\.DOM \\*/" "^import React"))
+
+(use-package tss
+  :mode ("\\.ts\\'" . typescript-mode))
 
 (use-package typescript-mode
   :mode "\\.tsx?\\'"
@@ -49,9 +55,20 @@
   (push 'company-lsp company-backends))
 
 (use-package tide
+  :ensure t
   :after (typescript-mode company flycheck)
   :hook ((typescript-mode . tide-setup)
-          (typescript-mode . tide-hl-identifier-mode)))
+          (typescript-mode . tide-hl-identifier-mode)
+          (before-save . tide-formater-before-save)))
+
+(use-package emmet-mode
+  :ensure t
+  :hook ((css-mode . emmet-mode)
+          (php-mode . emmet-mode)
+          (sgnl-mode . emmet-mode)
+          (rjsx-mode . emmet-mode)
+          (html-mode . emmet-mode)
+          (web-mode . emmet-mode)))
 
 (use-package js-doc
   :bind (:map js2-refactor-mode-map
