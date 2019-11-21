@@ -61,6 +61,15 @@
 (use-package toml-mode
   :mode ("\\.toml\\'" "Pipfile\\'" "\\Cargo.lock\\'" "\\.cargo/config\\'"))
 
+(use-package emmet-mode
+  :ensure t
+  :hook ((css-mode . emmet-mode)
+          (php-mode . emmet-mode)
+          (sgnl-mode . emmet-mode)
+          (rjsx-mode . emmet-mode)
+          (html-mode . emmet-mode)
+          (web-mode . emmet-mode)))
+
 ;; Time Tracking
 (use-package wakatime-mode
   :diminish 'wakatime-mode
