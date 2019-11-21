@@ -11,7 +11,7 @@ test.help:
 	@echo '        test.validate             Run all validation fixture dead in code'
 	@echo ''
 
-test: clean
+test:
 	@echo $(MESSAGE) Running tests on the current Python interpreter with coverage $(END)
 	@if [ -z "${run}" ]; then \
 		make test.help;\
@@ -20,22 +20,22 @@ test: clean
 		$(docker-test-run) bash -c "$(PIPENV_RUN) pytest ${run}";\
 	fi
 
-test.all: clean
+test.all:
 	@echo $(MESSAGE) Running tests on the current Python interpreter with coverage $(END)
 	$(docker-test-run) bash -c "$(PIPENV_RUN) pytest"
 
-test.picked: clean
+test.picked:
 	$(docker-test-run) bash -c "$(PIPENV_RUN) pytest --picked"
 
-test.validate: clean
+test.validate:
 	@echo $(MESSAGE) Running tests validation fixture $(END)
 	$(docker-test-run) bash -c "$(PIPENV_RUN) py.test --dead-fixtures"
 
-test.lint: clean
-	$(docker-test-run) bash -c "$(PIPENV_RUN) pre-commit run --all-files --verbose"
+test.lint:
+	$(PIPENV_RUN) pre-commit run --all-files --verbose
 
-test.lint.docker: clean
+test.lint.docker:
 	$(docker-dev-run) check sh -c "$(PIPENV_RUN) pre-commit run --all-files --verbose"
 
-test.syntax: clean
+test.syntax:
 	@echo $(MESSAGE) Running tests $(END)
