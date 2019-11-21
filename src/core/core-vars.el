@@ -2,7 +2,7 @@
 
 ;;; code:
 
-(defvar core/fixed-font-name "Fira Code Symbol")
+(defvar core/fixed-font-name "Fira Code Retina")
 (defvar core/frame-font "Fira Code Retina-17")
 (defvar core/default-font "Fira Code Retina-17")
 (defvar core/fixed-font-weight "retina")
