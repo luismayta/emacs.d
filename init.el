@@ -7,6 +7,7 @@
 (require 'core-vars)
 
 (setq explicit-shell-file-name core-term-shell)
+(setenv "SHELL" core-term-shell)
 (setq shell-file-name "zsh")
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
