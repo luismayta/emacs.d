@@ -5,8 +5,8 @@ verify_ssl = true
 
 [dev-packages]
 docker-compose = "*"
-restview = ">=2.8.1"
-rst = ">=0.1"
+restview = "*"
+rst = "*"
 caniusepython3 = "*"
 isort = "*"
 mypy = "*"
@@ -21,8 +21,8 @@ tox = "*"
 ipython = "*"
 parso = "*"
 pyyaml = "*"
-bumplus = "*"
 bumpversion = "*"
+bumplus = "*"
 pre-commit = "*"
 
 [packages]
@@ -31,4 +31,4 @@ pre-commit = "*"
 test = "pytest"
 
 [requires]
-python_version = "3.7.3"
+python_version = "3.8.0"
