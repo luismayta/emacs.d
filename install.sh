@@ -1,58 +1,63 @@
 #!/usr/bin/env bash
 # -*- coding: utf-8 -*-
 
-############################  SETUP PARAMETERS
-HOME=~
-APP_NAME='emacs.d'
-APP_NAME_PATH="$HOME/.emacs.d"
-GIT_URI='https://github.com/luismayta/emacs.d.git'
-GIT_BRANCH='master'
-DEBUG_MODE='0'
-PATH_REPO="$HOME/$APP_NAME"
+RED="\033[0;31m"
+GREEN="\033[0;32m"
+YELLOW="\033[0;33m"
+BLUE="\033[0;36m"
+NORMAL="\033[0m"
 
-msg() {
-    printf '%b\n' "$1" >&2
-}
+EMACS_REPO_HTTPS="https://github.com/luismayta/emacs.d.git"
+EMACS_REPO_BRANCH="master"
+EMACS_ROOT_PATH="${HOME}/.emacs.d"
+EMACS_APP_NAME='emacs.d'
 
-success() {
-    msg "\e[32m[✔]\e[0m ${1}${2}"
-}
-
-error() {
-    msg "\e[31m[✘]\e[0m ${1}${2}"
+message_error() {
+    printf "${RED}%s${NORMAL}\n" "[ERROR]: ${1}"
     exit 1
 }
 
-debug() {
-    if [ "$DEBUG_MODE" -eq '1' ] && [ "$ret" -gt '1' ]; then
-      msg "An error occured in function \"${FUNCNAME[$i+1]}\" on line ${BASH_LINENO[$i+1]}, we're sorry for that."
+message_info() {
+    printf "${BLUE}%s${NORMAL}\n" "[INFO]: ${1}"
+}
+
+message_warning() {
+    printf "${YELLOW}%s${NORMAL}\n" "[WARNING]: ${1}"
+}
+
+message_success() {
+    printf "${GREEN}%s${NORMAL}\n" "🍺️ [SUCCESS]: ${1}"
+}
+
+emacs::repository::clone() {
+    if [ -d "${EMACS_ROOT_PATH}/.git" ]; then
+        message_info "The application is installed, please remove the directory ${EMACS_APP_NAME}"
+        return 1
     fi
+    git clone --recursive -b "${EMACS_REPO_BRANCH}" "${EMACS_REPO_HTTPS}" "${EMACS_ROOT_PATH}"
+    message_success "Clone success"
 }
 
-############################  BASIC SETUP TOOLS
-program_exists() {
-    local ret='0'
-    type "${1}" >/dev/null 2>&1 || { local ret='1'; }
-
-    # throw error on non-zero return value
-    if [ ! "$ret" -eq '0' ]; then
-        error "$2"
-   fi
-}
-
-clone_repo() {
-    if [[ ! -d "${PATH_REPO}/.git" ]]; then
-        git clone --recursive -b "${GIT_BRANCH}" "${GIT_URI}" "${APP_NAME_PATH}"
-        success "$1"
-        debug
-    else
-        msg "The application is installed, please remove the directory ${APP_NAME_PATH}"
-        exit 1
+emacs::install::dependences() {
+    if ! type -p brew > /dev/null; then
+        message_error "Install brew for next also use github.com/luismayta/zsh-brew"
     fi
+
+    hash git >/dev/null 2>&1 || {
+        brew install git
+    }
+
+    hash curl >/dev/null 2>&1 || {
+        brew install curl
+    }
+
+    hash wget >/dev/null 2>&1 || {
+        brew install wget
+    }
 }
 
-thanks() {
-cat <<EOF
+emmacs::greeting::thanks() {
+    cat <<EOF
 
 ---------------------------
 Thanks for installing Emacs
@@ -60,16 +65,13 @@ Thanks for installing Emacs
 
 EOF
 
-    msg "© $(date +%Y) ${APP_NAME}"
+    msg "© $(date +%Y) ${EMACS_APP_NAME}"
 }
 
 initialize() {
-    for app in {emacs,git}; do
-        program_exists "$app"
-    done
-    unset app
-    clone_repo      "Successfully cloned ${APP_NAME}"
-    thanks
+    emacs::install::dependences
+    emacs::repository::clone
+    emacs::greeting::thanks
 }
 
 initialize
