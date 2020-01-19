@@ -2,10 +2,9 @@
 # https://docs.docker.com/compose/
 # Usage: docker-compose up
 ---
-version: "3.6"
+version: '3.6'
 
 services:
-
   app:
     build:
       context: .
@@ -14,6 +13,6 @@ services:
       - APP_NAME=emacs
       - STAGE=local
     volumes:
-    - ./:/home/.emacs.d
+      - ./:/home/.emacs.d
     env_file:
       - .env
