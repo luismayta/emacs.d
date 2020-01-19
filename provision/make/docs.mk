@@ -18,4 +18,4 @@ docs.show:
 	$(PIPENV_RUN) restview ${FILE_README}
 
 docs.make:
-	$(docker-compose) -f ${PATH_DOCKER_COMPOSE}/dev.yml run --rm docs bash -c "cd docs && make html"
+	$(docker-dev) run --rm docs bash -c "cd docs && make html"
