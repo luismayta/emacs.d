@@ -1,7 +1,7 @@
 # Docker Compose
 # https://docs.docker.com/compose/
 
-version: "3.6"
+version: '3.6'
 services:
   # App service.
   app:
@@ -12,7 +12,7 @@ services:
       args:
         stage: dev
     volumes:
-    - ./:/home/.emacs.d
+      - ./:/home/.emacs.d
     env_file:
       - .env
 
