@@ -10,10 +10,10 @@ utils.help:
 	@echo '        utils.generate             generate key ssh by stage'
 	@echo ''
 
-utils: clean
+utils:
 	make utils.help
 
-utils.generate: clean
+utils.generate:
 	ssh-keygen -q -m PEM -t rsa -b 4096 -C "admin@${PROJECT}-${stage}.com" -f ${PROJECT}-${stage} -P ""
 	openssl rsa -in ${PROJECT}-${stage} -outform pem > ${PROJECT}-${stage}.pem
 	chmod 0600 ${PROJECT}-${stage}.pem
