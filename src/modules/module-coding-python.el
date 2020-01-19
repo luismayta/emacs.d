@@ -56,7 +56,6 @@
   (eldoc-mode)
   (anaconda-eldoc-mode))
 
-
 (defun python/init-indent ()
   "Setup indentation."
   (setq indent-tabs-mode nil))
@@ -100,7 +99,6 @@
   :bind (:map anaconda-mode-map
 	        ("C-c C-d" . anaconda-mode-show-doc)
 	        ("M-?" . anaconda-mode-find-references))
-  :init (evil-leader/set-key "gd" 'anaconda-mode-find-definitions)
   :config (add-hook 'python-mode-hook 'python/init-anaconda))
 
 (use-package pip-requirements
