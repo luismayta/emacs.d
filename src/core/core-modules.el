@@ -31,6 +31,7 @@
      module-completion
      module-projects
      module-tags
+     module-coding-sh
      module-coding-ansible
      module-source-control
      module-coding-docker
@@ -42,7 +43,6 @@
      module-coding-web
      module-coding-typescript
      module-coding-lua
-     module-coding-sh
      module-coding-php
      module-coding-python
      module-coding-ruby
