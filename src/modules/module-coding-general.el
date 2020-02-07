@@ -70,14 +70,11 @@
           (html-mode . emmet-mode)
           (web-mode . emmet-mode)))
 
-;; Time Tracking
 (use-package wakatime-mode
-  :diminish 'wakatime-mode
-  :init
-  (add-hook 'prog-mode-hook 'wakatime-mode)
-  :config (progn (setq wakatime-cli-path "/usr/local/bin/wakatime")
-            (setq wakatime-python-bin nil)
-            (global-wakatime-mode)))
+  :ensure t
+  :defer t
+  :diminish wakatime-mode
+  :init (add-hook 'after-init-hook 'global-wakatime-mode))
 
 (use-package plantuml-mode
   :mode (("\\.puml$" . plantuml-mode)
