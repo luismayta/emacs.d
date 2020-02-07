@@ -1,0 +1,62 @@
+{
+  "keywords": [],
+  "version": "0.0.0",
+  "name": "@luismayta/emacs",
+  "private": true,
+  "dependencies": {
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@equipindustry/eslint-config": "^0.2.0",
+    "@equipindustry/prettierrc": "^0.1.0",
+    "@equipindustry/tsconfig": "^0.1.0",
+    "@typescript-eslint/eslint-plugin": "^2.19.0",
+    "@typescript-eslint/parser": "^2.19.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^25.1.0",
+    "babel-plugin-import": "^1.13.0",
+    "babel-plugin-inline-import": "^3.0.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-plugin-root-import": "^6.4.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "concurrently": "^5.1.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint": "^6.8.0",
+    "husky": "^4.2.1",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "rimraf": "^3.0.1",
+    "semantic-release": "^17.0.2",
+    "ts-jest": "^25.2.0",
+    "typescript": "^3.7.5"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx",
+    "lint:fix": "eslint --fix . --ext .js,.jsx,.mjs,.ts,.tsx",
+    "clean": "rimraf dist .next out",
+    "semantic-release": "semantic-release",
+    "prettier": "prettier '**/*.{js?(on),ts?(x),scss,md,yml}' --write --list-different",
+    "prettier-check": "yarn prettier -- --write=false"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+},
+"husky": {
+  "hooks": {
+    "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+  }
+}
+}
