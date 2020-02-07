@@ -29,6 +29,8 @@
   (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
   (add-to-list 'aggressive-indent-excluded-modes 'scss-mode))
 
+(use-package sass-mode :mode "\\.sass\\'")
+
 (use-package helm-css-scss
   :ensure t)
 
