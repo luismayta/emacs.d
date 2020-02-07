@@ -7,9 +7,9 @@ docker: docker.help
 docker.help:
 	@echo '    Docker:'
 	@echo ''
-	@echo '        docker.build         build all or one example: make docker.build service={{services}}  args=(--pull|...)'
+	@echo '        docker.build         build all or one example: make docker.build service={services}  args=(--pull|...)'
 	@echo '        docker.down          down services docker-compose'
-	@echo '        docker.exec          exec command in container by {{services}} {{command}}'
+	@echo '        docker.exec          exec command in container by {services} {command}'
 	@echo '        docker.ssh           connect by ssh to container'
 	@echo '        docker.stop          stop services by stage'
 	@echo '        docker.log           log {service} {stage}'
@@ -41,9 +41,9 @@ docker.build:
 	elif [ -z "${stage}" ] && [ -n "${service}" ]; then \
 		$(docker-dev) build ${service} ${args}; \
 	elif [ -n "${stage}" ] && [ -z "${service}" ]; then \
-		$(docker_compose) -f ${PATH_DOCKER_COMPOSE}/${stage}.yml build ${args}; \
+		$(docker-compose) -f ${PATH_DOCKER_COMPOSE}/${stage}.yml build ${args}; \
 	elif [ -n "${stage}" ] && [ -n "${service}" ]; then \
-		$(docker_compose) -f ${PATH_DOCKER_COMPOSE}/${stage}.yml build ${service} ${args}; \
+		$(docker-compose) -f ${PATH_DOCKER_COMPOSE}/${stage}.yml build ${service} ${args}; \
 	fi
 
 docker.log:
