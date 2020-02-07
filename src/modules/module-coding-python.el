@@ -4,21 +4,21 @@
 (require 'core-defuns)
 (require 'core-vars)
 
-(use-package auto-virtualenv
+(use-package anaconda-mode
   :ensure t
-  :config
-  (add-hook 'python-mode-hook 'auto-virtualenv-set-virtualenv)
-  (add-hook 'projectile-after-switch-project-hook 'auto-virtualenv-set-virtualenv)
-  (add-hook 'pyvenv-post-activate-hooks 'pyvenv-restart-python))
+  :commands anaconda-mode
+  :diminish anaconda-mode
+  :init
+  (add-hook 'python-mode-hook 'anaconda-mode)
+  (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
+  (evil-define-key 'normal anaconda-mode-map
+    (kbd "gd") 'anaconda-mode-find-definitions
+    )
+  )
 
-(use-package epc
-  :ensure t)
-
-(use-package python-environment
-  :ensure t)
-
-(use-package pyvenv
-  :ensure t)
+(use-package company-anaconda
+  :ensure t
+  :init (add-to-list 'company-backends 'company-anaconda))
 
 (use-package pyenv-mode
   :ensure t
@@ -30,92 +30,12 @@
   (add-hook 'pyenv-mode-auto-hook
     (lambda () (shell-command "pip install mypy autopep8 flake8 elpy jedi rope isort epc importmagic yapf pylint")))
   )
-
 (use-package pipenv
   :hook (python-mode . pipenv-mode)
-  :commands (pipenv-activate
-              pipenv-deactivate
-              pipenv-shell
-              pipenv-open
-              pipenv-install
-              pipenv-uninstall)
   :init
   (setq
     pipenv-projectile-after-switch-function
     #'pipenv-projectile-after-switch-extended))
-
-(use-package blacken
-  :ensure t
-  :diminish blacken-mode
-  :hook (python-mode . blacken-mode)
-  :config
-  :bind (([?\C-c ?\C-x ?a] . blacken-buffer)))
-
-(defun python/init-eldoc-mode ()
-  "Setup eldoc."
-  (eldoc-mode)
-  (anaconda-eldoc-mode))
-
-(defun python/init-indent ()
-  "Setup indentation."
-  (setq indent-tabs-mode nil))
-
-(defun python/init-imenu ()
-  "Setup imenu."
-  (when (fboundp #'python-imenu-create-flat-index)
-    (setq-local imenu-create-index-function
-		  #'python-imenu-create-flat-index)))
-
-(defun python/init-misc ()
-  "Setup misc stuffs."
-  (subword-mode +1)
-  (pyvenv-mode t))
-
-(defun python/init-flycheck ()
-  "Setup flycheck."
-  (flymake-mode -1)
-  (flycheck-mode t)
-  (flycheck-select-checker 'python-pycheckers))
-
-(defun python/init-company ()
-  "Setup company."
-  (company-mode t))
-
-(defun python/init-anaconda ()
-  "Setup anaconda."
-  (anaconda-mode t)
-  (python/init-eldoc-mode))
-
-(use-package flycheck
-  :ensure t
-  :config (add-hook 'python-mode-hook 'python/init-flycheck))
-
-(use-package company
-  :ensure t
-  :config (add-hook 'python-mode-hook 'python/init-company))
-
-(use-package anaconda-mode
-  :ensure t
-  :bind (:map anaconda-mode-map
-	        ("C-c C-d" . anaconda-mode-show-doc)
-	        ("M-?" . anaconda-mode-find-references))
-  :config (add-hook 'python-mode-hook 'python/init-anaconda))
-
-(use-package pip-requirements
-  :ensure t)
-
-(use-package flycheck-pycheckers
-  :ensure t
-  :config (progn (add-hook 'flycheck-mode-hook #'flycheck-pycheckers-setup)
-            (setq flycheck-pycheckers-max-line-length 100)
-            (setq flycheck-pycheckers-checkers '(pylint mypy3))))
-
-(use-package python-docstring
-  :ensure t)
-
-(use-package importmagic
-  :disabled t
-  :config (add-hook 'python-mode-hook 'importmagic-mode))
 
 (use-package py-isort
   :ensure t
@@ -125,11 +45,32 @@
 (use-package pyimport
   :ensure t
   )
+(use-package flycheck-mypy)
 
-(add-hook 'python-mode-hook 'python/init-indent)
-(add-hook 'python-mode-hook 'python/init-imenu)
-(add-hook 'python-mode-hook 'python/init-misc)
+(use-package flycheck-pyflakes)
 
+(use-package flycheck
+  :init
+  ;; disable noisy checkers
+  (setq-default flycheck-disabled-checkers
+    '(emacs-lisp emacs-lisp-checkdoc go-golint))
+
+  ;; prefer python 3
+  (let ((python "python3"))
+    (when (executable-find python)
+      (setq flycheck-python-flake8-executable python
+        flycheck-python-pycompile-executable python
+        flycheck-python-pylint-executable python)))
+
+  :config
+  (global-flycheck-mode 1))
+
+(defun python/python-mode-hook ()
+  "Python module hook."
+  (anaconda-mode 1)
+  (anaconda-eldoc-mode 1))
+
+(add-hook 'python-mode-hook 'python/python-mode-hook)
 
 (provide 'module-coding-python)
 ;;; module-coding-python.el ends here
