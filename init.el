@@ -7,19 +7,23 @@
 (require 'core-vars)
 
 (setq explicit-shell-file-name core-term-shell)
+(setenv "SHELL" core-term-shell)
 (setq shell-file-name "zsh")
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
 ;;; code:
 (package-initialize)
 (add-to-list 'package-archives
-  '("melpa" . "https://melpa.org/packages/") t )
-(add-to-list 'package-archives
   '("marmalade" . "https://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
   '("gnu" . "http://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives
   '("org" . "http://orgmode.org/elpa/") t)
+(add-to-list 'package-archives
+  '("melpa" . "https://melpa.org/packages/") t )
+
+
+(package-initialize)
 
 (unless package-archive-contents
   (package-refresh-contents)
