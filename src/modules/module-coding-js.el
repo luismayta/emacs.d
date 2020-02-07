@@ -13,14 +13,6 @@
   (add-hook 'js2-mode-hook 'prettier-js-mode)
   (add-hook 'web-mode-hook 'prettier-js-mode)
   (add-hook 'rjsx-mode-hook 'prettier-js-mode)
-  (setq prettier-js-args '(
-                            "--trailing-comma" "all"
-                            "--bracket-spacing" "true"
-                            "--single-quote" "true"
-                            "--no-semi" "true"
-                            "--jsx-single-quote" "true"
-                            "--jsx-bracket-same-line" "true"
-                            "--print-width" "100"))
   :ensure t  )
 
 (use-package json-mode
