@@ -56,6 +56,7 @@ repos:
       - id: mypy
         args:
           - --ignore-missing-imports
+        exclude: migrations|conf.py|_build|.tox|pootle/static|pootle/translations|pootle/locale|pootle/assets|templates
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v2.5.0
     hooks:
@@ -69,14 +70,13 @@ repos:
       - id: check-added-large-files
         files: ^tf|-|\.(py|env|yml|yaml)$
       - id: check-case-conflict
-      - id: check-json
       - id: check-xml
       - id: check-yaml
-      - id: check-case-conflict
       - id: check-byte-order-marker
       - id: check-ast
       - id: debug-statements
       - id: check-docstring-first
+      - id: detect-aws-credentials
       - id: requirements-txt-fixer
       - id: check-symlinks
       - id: name-tests-test
@@ -103,3 +103,20 @@ repos:
     rev: 1.19.1 # Use the sha or tag you want to point at
     hooks:
       - id: prettier
+        exclude: lib|node_modules
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v7.0.0-alpha.0 # Use the sha / tag you want to point at
+    hooks:
+      - id: eslint
+        args: [--fix]
+        additional_dependencies:
+          - eslint@^6.8.0
+          - typescript@3.7.2
+          - '@equipindustry/eslint-config@^0.2.0'
+          - '@equipindustry/prettierrc@^0.1.0'
+          - eslint-plugin-prettier@^3.1.2
+        # remove default javascript-only filter so we can lint typescript
+        # https://github.com/pre-commit/mirrors-eslint/blob/master/.pre-commit-hooks.yaml
+        types: []
+        files: '.*\.(ts|tsx|js|jsx)$'
+        exclude: lib|node_modules
