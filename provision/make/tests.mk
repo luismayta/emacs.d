@@ -29,7 +29,7 @@ test.picked:
 
 test.validate:
 	@echo $(MESSAGE) Running tests validation fixture $(END)
-	$(docker-test-run) bash -c "$(PIPENV_RUN) py.test --dead-fixtures"
+	$(docker-test-run) bash -c "$(PIPENV_RUN) pytest --dead-fixtures"
 
 test.lint:
 	$(PIPENV_RUN) pre-commit run --all-files --verbose
