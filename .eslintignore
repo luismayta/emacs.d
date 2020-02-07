@@ -1,0 +1,7 @@
+node_modules/
+build
+.next/
+storybook-static/
+__snapshots__/
+out/
+prettier.config.js
