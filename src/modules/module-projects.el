@@ -10,9 +10,11 @@
   (setq projectile-keymap-prefix (kbd "C-c q"))
   :config
   (setq projectile-completion-system 'ivy)
+  (setq projectile-require-project-root nil)
   (projectile-mode)
   :delight
   projectile-mode 1)
+
 
 (use-package counsel-projectile
   :bind-keymap
