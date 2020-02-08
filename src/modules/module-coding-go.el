@@ -8,6 +8,12 @@
   :config
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save)
+  :init
+  (evil-define-key 'normal go-mode-map
+    (kbd "gd") 'godef-jump
+    (kbd "C-]") 'godef-jump
+    (kbd "gh") 'godef-describe
+    )
   :commands
   (go-mode)
   :pin melpa)
