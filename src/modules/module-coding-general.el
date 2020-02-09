@@ -88,5 +88,17 @@
 
 (use-package restart-emacs)
 
+(use-package dashboard
+  :ensure t
+  :init
+  (setq
+    dashboard-banner-logo-title ""
+    dashboard-startup-banner nil
+    dashboard-items '((recents  . 10)
+                       (projects . 10)))
+  (setq dashboard-set-footer nil)
+  :config
+  (dashboard-setup-startup-hook))
+
 (provide 'module-coding-general)
 ;;; module-coding-general.el ends here
