@@ -4,6 +4,8 @@
 (setq vc-handled-backends '())
 (remove-hook 'find-file-hooks 'vc-find-file-hook)
 
+(use-package git-timemachine)
+
 ;; gist.el
 ;; Provides ability to create github gists from region, file, etc., as well as
 ;; browse, edit, and update metadata of your gists.
@@ -87,7 +89,6 @@ git or hg repository is found in the buffer-local working dir."
   ;; Flyspell during commits.
   (add-hook 'monky-log-edit-mode-hook '(lambda () (flyspell-mode t))))
 
-(use-package git-timemachine)
 
 (use-package gitignore-mode)
 
