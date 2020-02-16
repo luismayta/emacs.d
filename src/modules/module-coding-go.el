@@ -20,13 +20,6 @@
 
 (use-package golint)
 
-(use-package flycheck-gometalinter
-  :ensure t
-  :config
-  (flycheck-gometalinter-setup)
-  (setq flycheck-gometalinter-fast t)
-  (setq flycheck-gometalinter-disable-linters '("gotype")))
-
 ;; go-add-tags
 (use-package go-add-tags
   :ensure t
