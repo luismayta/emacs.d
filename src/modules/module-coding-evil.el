@@ -23,13 +23,47 @@
   ;; load evil-escape.
   :init (add-hook 'pre-command-hook 'evil-escape-pre-command-hook))
 
-(use-package  evil
-  :requires (evil-leader)
+(use-package evil-leader
+  :init
+  (global-evil-leader-mode)
+  :config
+  (progn
+    (evil-leader/set-leader ",")
+    (setq evil-leader/in-all-states 1)
+    ;; keyboard shortcuts
+    (evil-leader/set-key
+      "c" 'evil-commentary-line
+                                        ;"fm" 'fixmee-view-listing
+      "gl" 'gist-list
+      "gb" 'gist-buffer
+      "b" 'ido-switch-buffer
+      "s" 'save-buffer
+      "k" 'ido-kill-buffer
+      "xx" 'er/expand-region
+      "/" 'counsel-grep
+      )))
+
+(with-eval-after-load 'evil
+  (defalias #'forward-evil-word #'forward-evil-symbol))
+
+(use-package evil
+  :requires (evil-leader dashboard)
   :init
   (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
+  (add-hook 'emacs-startup-hook (lambda()
+                                  (evil-mode 1)
+                                  ))
   :config
-  (evil-mode 1))
+  (evil-mode 1)
+  (turn-on-evil-mode)
+  (define-key evil-insert-state-map (kbd "<tab>") 'hippie-expand)
+  (add-hook 'git-commit-mode-hook 'evil-insert-state)
+  (evil-set-initial-state 'dashboard-mode 'emacs)
+  (eval-after-load 'git-timemachine
+    '(progn
+       (evil-make-overriding-map git-timemachine-mode-map 'normal)
+       (add-hook 'git-timemachine-mode-hook #'evil-normalize-keymaps))))
 
 (use-package evil-collection
   :requires (evil)
@@ -40,6 +74,7 @@
 
 (use-package evil-commentary
   :requires (evil)
+  :after evil
   :ensure t
   :diminish ""
   :config
@@ -98,29 +133,6 @@
   (setq evil-multiedit-scope 'buffer
     evil-multiedit-follow-matches t))
 
-(use-package evil-leader
-  :requires (avy git-gutter magit yasnippet)
-  :init
-  (global-evil-leader-mode)
-  :config
-  (progn
-    (evil-leader/set-leader ",")
-    (setq evil-leader/in-all-states 1)
-    ;; keyboard shortcuts
-    (evil-leader/set-key
-      "c" 'evil-commentary-line
-                                        ;"fm" 'fixmee-view-listing
-      "gl" 'gist-list
-      "gb" 'gist-buffer
-      "b" 'ido-switch-buffer
-      "s" 'save-buffer
-      "k" 'ido-kill-buffer
-      "xx" 'er/expand-region
-      "/" 'counsel-grep
-      )))
-
-(with-eval-after-load 'evil
-  (defalias #'forward-evil-word #'forward-evil-symbol))
 
 (provide 'module-coding-evil)
 ;;; module-coding-evil.el ends here
