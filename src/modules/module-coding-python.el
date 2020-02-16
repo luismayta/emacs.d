@@ -11,9 +11,6 @@
   :init
   (add-hook 'python-mode-hook 'anaconda-mode)
   (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
-  (evil-define-key 'normal anaconda-mode-map
-    (kbd "gd") 'anaconda-mode-find-definitions
-    )
   )
 
 (use-package company-anaconda

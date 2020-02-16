@@ -16,11 +16,6 @@
 (use-package tide
   :requires (company eldoc flycheck web-mode)
   :commands tide-jump-to-definition
-  :init
-  (evil-define-key 'normal tide-mode-map
-    (kbd "gd") 'tide-jump-to-definition
-    (kbd "gD") 'tide-jump-back
-    )
   )
 
 (require 'web-mode)
