@@ -25,7 +25,13 @@
   (evil-leader/set-key "fe" 'find-file)
   (evil-leader/set-key "ff" 'counsel-projectile-ag)
   (evil-leader/set-key "fp" 'counsel-projectile-find-file)
-  (evil-leader/set-key "fsp" 'counsel-projectile-switch-project)
+  )
+
+(use-package helm-ghq
+  :bind
+  ("C-x C-q" . 'helm-ghq)
+  :init
+  (evil-leader/set-key "fsp" 'helm-ghq)
   )
 
 (provide 'module-projects)
