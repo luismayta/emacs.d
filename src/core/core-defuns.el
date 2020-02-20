@@ -2,6 +2,16 @@
 ;;; code:
 (require 'core-vars)
 
+;; Save buffer when file is modified
+;; Used when switching buffers, exiting evil-insert-state
+(defun core/save-if-bufferfilename ()
+  (if (buffer-file-name)
+    (progn
+      (save-buffer)
+      )
+    )
+  )
+
 (defun system-is-mac ()
   (interactive)
   (string-equal system-type "darwin"))
