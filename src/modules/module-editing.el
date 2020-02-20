@@ -52,6 +52,8 @@
 
 ;; expand-region
 (use-package expand-region
+  :init
+  (evil-leader/set-key "xx" 'er/expand-region)
   :bind ("C-=" . er/expand-region))
 
 ;; keeps our parentheses balanced and allows for easy manipulation
