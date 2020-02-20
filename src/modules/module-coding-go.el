@@ -13,8 +13,7 @@
 (setq gofmt-command "goimports")
 
 (use-package go-autocomplete
-  :after (auto-complete-mode)
-  :defer t
+  :ensure t
   :config
   (ac-config-default))
 
