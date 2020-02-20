@@ -14,7 +14,10 @@
 (use-package ido
   :ensure flx-ido
   :ensure ido-ubiquitous
-  :init (ido-mode 1)
+  :init
+  (ido-mode 1)
+  (evil-leader/set-key "b" 'ido-switch-buffer)
+  (evil-leader/set-key "k" 'ido-kill-buffer)
   :config
   (setq ido-auto-merge-delay-time 99999999)
   (setq ido-everywhere t)
