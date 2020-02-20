@@ -11,6 +11,9 @@
 ;; browse, edit, and update metadata of your gists.
 (use-package gist
   :bind ("C-c g p" . gist-region-or-buffer-private)
+  :init
+  (evil-leader/set-key "gl" 'gist-list)
+  (evil-leader/set-key "gb" 'gist-buffer)
   :config
   (setq gist-view-gist t))
 

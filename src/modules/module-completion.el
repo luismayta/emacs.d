@@ -32,6 +32,8 @@
 ;; Counsel (same as Ivy above)
 (use-package counsel
   :ensure t
+  :init
+  (evil-leader/set-key "/" 'counsel-grep)
   :commands          ; Load counsel when any of these commands are invoked
   (counsel-M-x       ; M-x use counsel
     counsel-find-file ; C-x C-f use counsel-find-file
