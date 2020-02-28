@@ -114,9 +114,10 @@
   :diminish aggressive-indent-mode
   :config
   (add-hook 'prog-mode-hook #'aggressive-indent-global-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'haskell-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'rst-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'php-mode))
+  (defvar aggressive-indent/excluded '())
+  (setq aggressive-indent/excluded '(php-mode rst-mode html-mode ruby-mode python-mode yaml-mode haskell-mode))
+  (dolist (i aggressive-indent/excluded)
+    (add-to-list 'aggressive-indent-excluded-modes i)))
 
 (use-package systemd
   :ensure t)
