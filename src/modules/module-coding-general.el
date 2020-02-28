@@ -47,9 +47,10 @@
 ;; restclient
 ;; Runs REST queries from a query sheet and pretty-prints responses.
 (use-package restclient
-  :commands restclient-mode
-  :mode
-  (("\\.http$" . restclient-mode)))
+  :mode (("\\.http\\'" . restclient-mode)
+          ("\\.rest\\'" . restclient-mode))
+  :config
+  (setq outline-regexp "#[*\f]+"))
 
 ;; yaml
 (use-package yaml-mode
