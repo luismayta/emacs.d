@@ -37,6 +37,7 @@
      module-coding-docker
      module-coding-haskell
      module-coding-general
+     module-coding-graphql
      module-coding-elixir
      module-coding-java
      module-coding-js
