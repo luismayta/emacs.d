@@ -44,14 +44,6 @@
 ;; flycheck-plantuml
 (use-package flycheck-plantuml)
 
-;; restclient
-;; Runs REST queries from a query sheet and pretty-prints responses.
-(use-package restclient
-  :mode (("\\.http\\'" . restclient-mode)
-          ("\\.rest\\'" . restclient-mode))
-  :config
-  (setq outline-regexp "#[*\f]+"))
-
 ;; yaml
 (use-package yaml-mode
   :mode

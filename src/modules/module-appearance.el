@@ -64,7 +64,7 @@
          ("shell"       "sh" :postfix)
          ("text"        "ξ")
          ("wdired"      "↯δ")))
-    (cyphejor-mode t)))
+    ))
 
 
 (use-package nyan-mode
