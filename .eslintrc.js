@@ -1,8 +1,6 @@
 const prettierrc = require('@equipindustry/prettierrc');
 module.exports = {
-  parser: '@typescript-eslint/parser',
-  extends: ['@equipindustry/eslint-config'],
-  plugins: ['prettier', '@typescript-eslint'],
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -19,4 +17,27 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      files: ['**/*.ts', '**/*.tsx'],
+      env: { browser: true, es6: true, node: true },
+      extends: ['@equipindustry/eslint-config'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        ecmaFeatures: { jsx: true },
+        ecmaVersion: 2018,
+        sourceType: 'module',
+      },
+      plugins: ['prettier', '@typescript-eslint'],
+      rules: {
+        'prettier/prettier': [
+          'error',
+          prettierrc,
+          {
+            usePrettierrc: true,
+          },
+        ],
+      },
+    },
+  ],
 };
