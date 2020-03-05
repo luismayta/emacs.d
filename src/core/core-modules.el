@@ -31,6 +31,7 @@
      module-completion
      module-projects
      module-tags
+     module-coding-http
      module-coding-sh
      module-coding-ansible
      module-source-control
