@@ -9,11 +9,9 @@
 (use-package flx-ido :requires ido :config (flx-ido-mode))
 (use-package ido-vertical-mode :requires ido :config (ido-vertical-mode))
 (use-package ido-hacks :requires ido :config (ido-hacks-mode))
-(use-package ido-ubiquitous :config (ido-ubiquitous-mode))
 
 (use-package ido
   :ensure flx-ido
-  :ensure ido-ubiquitous
   :init
   (ido-mode 1)
   (evil-leader/set-key "b" 'ido-switch-buffer)
