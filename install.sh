@@ -54,6 +54,37 @@ emacs::install::dependences() {
     hash wget >/dev/null 2>&1 || {
         brew install wget
     }
+
+    hash hg >/dev/null 2>&1 || {
+        brew install hg
+    }
+
+    hash the_silver_searcher >/dev/null 2>&1 || {
+        brew install the_silver_searcher
+    }
+
+    hash editorconfig >/dev/null 2>&1 || {
+        brew install editorconfig
+    }
+
+    hash aspell >/dev/null 2>&1 || {
+        brew install aspell --with-lang-en
+    }
+
+    hash ctags >/dev/null 2>&1 || {
+        # for the GNU global tag system. Used by ggtags.
+        brew install --HEAD ctags
+        brew install global --with-ctags
+    }
+
+    hash aspell >/dev/null 2>&1 || {
+        # program used for plantuml
+        brew install graphviz
+    }
+
+    hash markdown >/dev/null 2>&1 || {
+        brew install markdown
+    }
 }
 
 emmacs::greeting::thanks() {
