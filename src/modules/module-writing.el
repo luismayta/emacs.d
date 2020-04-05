@@ -27,14 +27,21 @@
 (use-package apib-mode
   :mode (("\\.apib$" . apib-mode)))
 
+;; Super Save, ON! ...or not.. 😬
 (use-package super-save
-  :config
-  (setq super-save-exclude '(".py" ".go" ".ts" ".tsx" ".json" ".js" ".jsx"))
-  (super-save-mode))
-
-(use-package auto-save-buffers-enhanced
   :disabled
-  )
+  ;; Here's why:
+  ;;  - lsp-mode added function signature docs which use lv
+  ;;  - lv momentarily moves focus away from the buffer which triggers super-save
+  ;;  - prettier-js-mode makes saves trigger prettier which edits the current line
+  ;;  - edits to the current line by prettier move point to beginning of line
+  ;;  - point is now at beginning of line so I can't type args in the function I just typed
+  ;;
+  ;; this is infuriating, but lsp signatures are (1) cool and (2) almost impossible to disable,
+  ;; therefore I'm just disabling super-save for now until lsp-mode/lv/super-save work out their problems
+  ;; See also https://github.com/emacs-lsp/lsp-mode/issues/1322
+  :config
+  (super-save-mode))
 
 (provide 'module-writing)
 ;;; module-writing.el ends here
