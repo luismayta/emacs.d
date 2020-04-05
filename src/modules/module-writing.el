@@ -28,10 +28,13 @@
   :mode (("\\.apib$" . apib-mode)))
 
 (use-package super-save
-  :init
+  :config
+  (setq super-save-exclude '(".py" ".go" ".ts" ".tsx" ".json" ".js" ".jsx"))
   (super-save-mode))
 
-(use-package auto-save-buffers-enhanced)
+(use-package auto-save-buffers-enhanced
+  :disabled
+  )
 
 (provide 'module-writing)
 ;;; module-writing.el ends here
