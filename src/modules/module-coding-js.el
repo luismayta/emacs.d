@@ -3,23 +3,20 @@
 ;;; Code:
 
 (use-package add-node-modules-path
-  :hook ((js2-mode . add-node-modules-path)
-          (web-mode . add-node-modules-path)
-          (rjsx-mode . add-node-modules-path)
-          ))
+  :hook ((js2-mode web-mode rjsx-mode) . add-node-modules-path))
 
+;; Web modes
 (use-package prettier-js
-  :config
-  (add-hook 'js2-mode-hook 'prettier-js-mode)
-  (add-hook 'web-mode-hook 'prettier-js-mode)
-  (add-hook 'rjsx-mode-hook 'prettier-js-mode)
-  :ensure t  )
+  :demand t ;; Was getting some weird load order errors, and I use it all the time, so just load it always
+  :hook ((rjsx-mode yaml-mode css-mode json-mode typescript-mode) . prettier-js-mode))
 
 (use-package json-mode
+  :after prettier-js
   :ensure t
   :mode ("\\.json\\'" ".eslintrc\\'" ".prettierrc\\'" "Pipfile.lock\\'"))
 
 (use-package js2-mode
+  :after prettier-js
   :mode
   (("\\.js$" . js2-mode)
     ("\\.jsx$" . js2-jsx-mode))
@@ -32,11 +29,7 @@
                             ))
           (js2-mode . add-node-modules-path)
           )
-  :config
-  ;; have 2 space indentation by default
-  (setq js-indent-level 2
-    js2-basic-offset 2
-    js-chain-indent t))
+  )
 
 ;;; * Use Package indium: javascript awesome development environment
 ;;;;   - https://github.com/NicolasPetton/indium
@@ -51,8 +44,8 @@
           ("C-c b t" . indium-toggle-breakpoint))
   :hook ((js2-mode . indium-interaction-mode)))
 
-(use-package js-auto-beautify
-  :ensure t)
+(use-package jade-mode
+  :mode ("\\.jade\\'" "\\.pug\\'"))
 
 (use-package js-import
   :ensure t)
