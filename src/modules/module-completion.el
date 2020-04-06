@@ -101,6 +101,12 @@
   :after yasnipet
   )
 
+(use-package js-react-redux-yasnippets
+  :ensure t)
+
+(use-package react-snippets
+  :ensure t)
+
 (use-package auto-yasnippet
   :ensure t
   :after yasnippet
@@ -110,19 +116,21 @@
     aya-open-line)
   )
 
-;; Add yasnippet support for all company backends
-;; https://github.com/syl20bnr/spacemacs/pull/179
-(defvar company-mode/enable-yas t
-  "Enable yasnippet for all backends.")
+(use-package company-yasnippet
+  :ensure company
+  :after yasnippet
+  :commands company-yasnippet
+  )
 
-(defun company-mode/backend-with-yas (backend)
-  (if (or (not company-mode/enable-yas)
-        (and (listp backend) (member 'company-yasnippet backend)))
-    backend
-    (append (if (consp backend) backend (list backend))
-      '(:with company-yasnippet))))
-
-(setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
+;; Integrate yasnippet
+(use-package ivy-yasnippet
+  :after yasnippet
+  :commands ivy-yasnippet--preview
+  :bind (
+          ("C-c C-y" . ivy-yasnippet)
+          ("<tab>" . ivy-yasnippet)
+          )
+  :config (advice-add #'ivy-yasnippet--preview :override #'ignore))
 
 (provide 'module-completion)
 ;;; module-completion.el ends here
