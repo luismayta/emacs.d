@@ -1,7 +1,9 @@
 node_modules/
-build
+dist/
+build/
+out/
+.serverless/
+.serverless_nextjs/
 .next/
 storybook-static/
 __snapshots__/
-out/
-prettier.config.js
