@@ -38,54 +38,12 @@
 
 
 (use-package evil-ex-fasd
-             :config
-;; :[w]q should kill the current buffer rather than quitting emacs entirely
-(evil-ex-define-cmd "[w]q" 'kill-this-buffer)
-;; Need to type out :quit to close emacs
-(evil-ex-define-cmd "quit" 'evil-quit)
-             )
-
-;; (use-package evil-leader
-;;   :init
-;;   (global-evil-leader-mode)
-;;   :config
-;;   (progn
-;;     (evil-leader/set-leader ",")
-;;     (setq evil-leader/in-all-states 1)
-;;     ;; keyboard shortcuts
-;;     (evil-leader/set-key
-;;       "c" 'evil-commentary-line
-;;                                         ;"fm" 'fixmee-view-listing
-;;       "gl" 'gist-list
-;;       "gb" 'gist-buffer
-;;       "b" 'ido-switch-buffer
-;;       "s" 'save-buffer
-;;       "k" 'ido-kill-buffer
-;;       "xx" 'er/expand-region
-;;       "/" 'counsel-grep
-;; )))
-
-;; (with-eval-after-load 'evil
-;;   (defalias #'forward-evil-word #'forward-evil-symbol))
-
-;; (use-package evil
-;;   :requires (evil-leader dashboard)
-;;   :init
-;;   (setq evil-want-integration t)
-;;   (setq evil-want-keybinding nil)
-;;   (add-hook 'emacs-startup-hook (lambda()
-;;                                   (evil-mode 1)
-;;                                   ))
-;;   :config
-;;   (evil-mode 1)
-;;   (turn-on-evil-mode)
-;;   (define-key evil-insert-state-map (kbd "<tab>") 'hippie-expand)
-;;   (add-hook 'git-commit-mode-hook 'evil-insert-state)
-;;   (evil-set-initial-state 'dashboard-mode 'emacs)
-;;   (eval-after-load 'git-timemachine
-;;     '(progn
-;;        (evil-make-overriding-map git-timemachine-mode-map 'normal)
-;; (add-hook 'git-timemachine-mode-hook #'evil-normalize-keymaps))))
+  :config
+  ;; :[w]q should kill the current buffer rather than quitting emacs entirely
+  (evil-ex-define-cmd "[w]q" 'kill-this-buffer)
+  ;; Need to type out :quit to close emacs
+  (evil-ex-define-cmd "quit" 'evil-quit)
+  )
 
 (use-package evil-collection
   :requires (evil)
