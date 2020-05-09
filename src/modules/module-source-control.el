@@ -10,6 +10,7 @@
 ;; Provides ability to create github gists from region, file, etc., as well as
 ;; browse, edit, and update metadata of your gists.
 (use-package gist
+  :requires (evil-leader)
   :bind ("C-c g p" . gist-region-or-buffer-private)
   :init
   (evil-leader/set-key "gl" 'gist-list)
@@ -37,6 +38,7 @@ git or hg repository is found in the buffer-local working dir."
 ;; magit and monky
 ;; Modes for git and mercurial.
 (use-package magit
+  :requires (evil-leader)
   :commands magit-status
   :bind ("C-x g" . lm/magit-or-monky-status)
   :config

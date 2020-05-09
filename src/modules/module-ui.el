@@ -11,7 +11,7 @@
 (use-package ido-hacks :requires ido :config (ido-hacks-mode))
 
 (use-package ido
-   :requires (evil-leader)
+  :requires (evil-leader)
   :ensure flx-ido
   :init
   (ido-mode 1)

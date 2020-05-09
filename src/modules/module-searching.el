@@ -14,6 +14,7 @@
 ;; engine
 ;; Search engines integrated into Emacs.
 (use-package engine-mode
+  :requires (evil-leader)
   :commands (engine/search-github engine/search-google)
   :bind (("C-c / g" . engine/search-google)
           ("C-c / h" . engine/search-github))
