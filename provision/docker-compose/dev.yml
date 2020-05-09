@@ -3,7 +3,7 @@
 
 version: '3.6'
 services:
-  # App service.
+  # Python
   app:
     environment: &environment
       - ENVIRONMENT=local
@@ -11,8 +11,6 @@ services:
     build:
       args:
         stage: dev
-    volumes:
-      - ./:/home/.emacs.d
     env_file:
       - .env
 
@@ -24,8 +22,6 @@ services:
       dockerfile: provision/docker/check/Dockerfile
       args:
         stage: dev
-    volumes:
-      - .:/usr/src
     env_file:
       - .env
 
@@ -34,8 +30,6 @@ services:
     build:
       context: .
       dockerfile: provision/docker/docs/Dockerfile
-    volumes:
-      - .:/usr/src
     env_file:
       - .env
     depends_on:
