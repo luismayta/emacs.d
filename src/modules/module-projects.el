@@ -17,6 +17,7 @@
 
 
 (use-package counsel-projectile
+  :requires (evil-leader)
   :bind-keymap
   ("C-c q" . counsel-projectile-command-map)
   :config
@@ -28,6 +29,7 @@
   )
 
 (use-package helm-ghq
+  :requires (evil-leader)
   :bind
   ("C-x C-q" . 'helm-ghq)
   :init
