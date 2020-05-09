@@ -3,6 +3,7 @@
 ;;; code:
 
 (use-package counsel-gtags
+  :requires (evil-leader)
   :diminish counsel-gtags-mode
   :init
   (evil-leader/set-key "tt" 'counsel-gtags-find-tag)
@@ -16,6 +17,7 @@
   :defer
   :diminish
   ggtags-mode
+  :requires (evil-leader)
   :init
   (evil-leader/set-key
     "ft" 'ggtags-find-tag-dwim

@@ -2,6 +2,7 @@
 
 ;;; code:
 (use-package google-translate
+  :requires (evil-leader)
   :config
   (setq google-translate-translation-directions-alist
     '(("en" . "es") ("es" . "en") ("de" . "fr") ("fr" . "de")))
@@ -11,6 +12,7 @@
   )
 
 (use-package google-this
+  :requires (evil-leader)
   :ensure t
   :config
   (progn
