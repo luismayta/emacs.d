@@ -2,11 +2,11 @@
 
 ;;; code:
 
-(defvar core/fixed-font-name "Fira Code Retina")
-(defvar core/frame-font "Fira Code Retina-18")
-(defvar core/default-font "Fira Code Retina-18")
+(defvar core/fixed-font-name "FuraCode Nerd Font Mono")
+(defvar core/frame-font "FuraCode Nerd Font Mono-18")
+(defvar core/default-font "FuraCode Nerd Font Mono-18")
 (defvar core/fixed-font-weight "retina")
-(defvar core/var-font-name "Fira Code")
+(defvar core/var-font-name "FuraCode Nerd Font Mono")
 (defvar core/font-height 170)
 
 ;; vars for terminals.
