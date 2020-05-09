@@ -5,26 +5,6 @@
 
 (require 'core-defuns)
 
-;; The definition of evil-escape-mode.
-(define-minor-mode evil-escape-mode
-  (if evil-escape-mode
-    (add-hook 'pre-command-hook 'evil-escape-pre-command-hook)
-    (remove-hook 'pre-command-hook 'evil-escape-pre-command-hook)))
-
-;; Before:
-(evil-escape-mode)
-
-;; After:
-(use-package evil-escape
-  :defer t
-  ;; Only needed for functions without an autoload comment (;;;###autoload).
-  :commands (evil-escape-pre-command-hook)
-
-  ;; Adding to a hook won't load the function until we invoke it.
-  ;; With pre-command-hook, that means the first command we run will
-  ;; load evil-escape.
-  :init (add-hook 'pre-command-hook 'evil-escape-pre-command-hook))
-
 (use-package evil-leader
   :config
   (global-evil-leader-mode t)
@@ -34,6 +14,7 @@
   :init
   (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
+  :requires (evil-leader)
   :config
   (evil-mode t)
   (evil-set-initial-state 'term-mode 'emacs)
@@ -55,10 +36,14 @@
 (with-eval-after-load 'evil
   (defalias #'forward-evil-word #'forward-evil-symbol))
 
+
+(use-package evil-ex-fasd
+             :config
 ;; :[w]q should kill the current buffer rather than quitting emacs entirely
 (evil-ex-define-cmd "[w]q" 'kill-this-buffer)
 ;; Need to type out :quit to close emacs
 (evil-ex-define-cmd "quit" 'evil-quit)
+             )
 
 ;; (use-package evil-leader
 ;;   :init
