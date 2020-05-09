@@ -40,7 +40,8 @@ emacs::repository::clone() {
 
 emacs::install::dependences() {
     if ! type -p brew > /dev/null; then
-        message_error "Install brew for next also use github.com/luismayta/zsh-brew"
+        message_warning "Install brew for next also use github.com/luismayta/zsh-brew"
+        return
     fi
 
     hash git >/dev/null 2>&1 || {
