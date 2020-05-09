@@ -10,7 +10,7 @@
 .. code developer
 .. _cloud computing: https://en.wikipedia.org/wiki/Cloud_computing
 .. _git: https://git-scm.com/
-.. _Python 3.6.1: https://www.python.org/downloads/release/python-361
+.. _Python 3.6.4: https://www.python.org/downloads/release/python-364
 .. _Docker: https://www.docker.com/
 .. _Docker Compose: https://docs.docker.com/compose
 
@@ -24,7 +24,7 @@
 .. _Redis: http://redis.io
 .. _ApacheSolr: http://lucene.apache.org/solr
 .. _Vagrant: http://www.vagrantup.comhttp://bundler.io/
-.. _GitHub: https://github.com
+.. _Github: https://github.com
 .. _Bitbucket: https://bitbucket.org
 .. _Terraform: https://www.terraform.io/
 .. _Wercker: https://www.wercker.com/
@@ -48,8 +48,8 @@
 .. _Gherkin: https://github.com/cucumber/cucumber/wiki/Gherkin
 .. _Behave: http://pythonhosted.org/behave/
 
-..
-   Servicios Cloud
+..   Services Cloud
+
 .. _Azure: https://azure.microsoft.com/en-us/
 .. _Google Cloud Platform: https://cloud.google.com
 .. _AWS: https://aws.amazon.com
