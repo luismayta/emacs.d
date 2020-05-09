@@ -12,7 +12,5 @@ services:
     build:
       args:
         stage: test
-    volumes:
-      - ./:/home/.emacs.d
     env_file:
       - .env
