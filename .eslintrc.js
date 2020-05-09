@@ -1,6 +1,13 @@
 const prettierrc = require('@equipindustry/prettierrc');
 module.exports = {
-  parser: 'babel-eslint',
+  extends: ['@equipindustry/eslint-config'],
+  plugins: ['prettier', 'react-hooks', 'jsx-a11y'],
+  settings: {},
+  env: {
+    browser: true,
+    jest: true,
+  },
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
