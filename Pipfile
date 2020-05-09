@@ -24,11 +24,14 @@ pyyaml = "*"
 bumpversion = "*"
 bumplus = "*"
 pre-commit = "*"
+doc8 = "*"
 
 [packages]
 
+
 [scripts]
 test = "pytest"
+update = "pre-commit autoupdate"
 
 [requires]
 python_version = "3.8.0"
