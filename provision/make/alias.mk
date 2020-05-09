@@ -5,7 +5,7 @@ alias: alias.help
 alias.help:
 	@echo '    Alias:'
 	@echo ''
-	@echo '        env        environment'
+	@echo '        stage        stage'
 	@echo ''
 
-env: environment
+stage: stage
