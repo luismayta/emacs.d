@@ -18,10 +18,17 @@ else
 endif
 
 TEAM := luismayta
+REPOSITORY_DOMAIN:=github.com
+REPOSITORY_OWNER:=${TEAM}
+AWS_VAULT ?= ${TEAM}
+KEYBASE_OWNER ?= ${TEAM}
+KEYBASE_PATH_TEAM_NAME ?=private
 PROJECT := emacs.d
-PROJECT_PORT := 8000
+PROJECT_PORT := 3000
 
 PYTHON_VERSION=3.8.0
+NODE_VERSION=v12.14.1
+TERRAFORM_VERSION=0.12.20
 PYENV_NAME="${PROJECT}"
 
 # Configuration.
@@ -33,12 +40,9 @@ SCRIPT_DIR=$(ROOT_DIR)/provision/scripts
 SOURCE_DIR=$(ROOT_DIR)/
 PROVISION_DIR:=$(ROOT_DIR)/provision
 FILE_README:=$(ROOT_DIR)/README.rst
-KEYBASE_PATH ?= /keybase/team/${TEAM}
-KEYS_PEM_DIR:=${KEYBASE_PATH}/pem
-KEYS_KEY_DIR:=${KEYBASE_PATH}/key
-KEYS_PUB_DIR:=${KEYBASE_PATH}/pub
-KEYS_PRIVATE_DIR:=${KEYBASE_PATH}/private/key_file/${PROJECT}
-PASSWORD_DIR:=${KEYBASE_PATH}/password
+KEYBASE_VOLUME_PATH ?= /Keybase
+KEYBASE_TEAM_PATH ?=${KEYBASE_VOLUME_PATH}/${KEYBASE_PATH_TEAM_NAME}/${KEYBASE_OWNER}
+KEYBASE_PROJECT_PATH ?= ${KEYBASE_TEAM_PATH}/${REPOSITORY_DOMAIN}/${REPOSITORY_OWNER}/${PROJECT}
 
 PATH_DOCKER_COMPOSE:=docker-compose.yml -f provision/docker-compose
 
@@ -68,7 +72,8 @@ help:
 	@make docker.help
 	@make docs.help
 	@make test.help
-
+	@make keybase.help
+	@make utils.help
 
 setup:
 	@echo "=====> install packages..."
@@ -84,5 +89,6 @@ setup:
 environment:
 	@echo "=====> loading virtualenv ${PYENV_NAME}..."
 	pyenv local ${PYTHON_VERSION}
+	make keybase.setup
 	@pipenv --venv || $(PIPENV_INSTALL) --python=${PYTHON_VERSION} --skip-lock
 	@echo ${MESSAGE_HAPPY}
