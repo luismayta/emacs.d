@@ -1,13 +1,13 @@
 ;; Module-utils --- Utils
 ;;; code:
 
+(use-package gnu-elpa-keyring-update
+             )
+
 (use-package async
   :ensure t)
 
 (use-package dash
-  :ensure t)
-
-(use-package cl
   :ensure t)
 
 (use-package parsebib

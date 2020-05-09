@@ -70,6 +70,7 @@
   :init (add-hook 'after-init-hook 'global-wakatime-mode))
 
 (use-package plantuml-mode
+   :requires (evil-leader)
   :mode (("\\.puml$" . plantuml-mode)
           ("\\.plantuml$" . plantuml-mode))
   :config
