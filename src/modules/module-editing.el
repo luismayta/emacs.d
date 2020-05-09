@@ -23,6 +23,7 @@
 ;; Crux (Collection of Ridiculously Useful eXtensions)
 ;; Replaces a lot of my old defuns and bindings.
 (use-package crux
+  :requires (evil-leader)
   :bind (("C-x C-r" . crux-recentf-find-file)
           ("C-a" . crux-move-beginning-of-line)
           ("<S-return>" . crux-smart-open-line)
@@ -52,6 +53,7 @@
 
 ;; expand-region
 (use-package expand-region
+   :requires (evil-leader)
   :init
   (evil-leader/set-key "xx" 'er/expand-region)
   :bind ("C-=" . er/expand-region))
@@ -93,6 +95,7 @@
 ;; undo-tree
 ;; Treat undo history as a tree.
 (use-package undo-tree
+   :requires (evil-leader)
   :diminish undo-tree-mode
   :bind ("C-x u" . undo-tree-visualize)
   :init
@@ -111,13 +114,12 @@
 ;; amazing plugin - gives us perfect indentation automatically for code
 (use-package aggressive-indent
   :ensure t
-  :diminish aggressive-indent-mode
   :config
   (add-hook 'prog-mode-hook #'aggressive-indent-global-mode)
   (defvar aggressive-indent/excluded '())
   (setq aggressive-indent/excluded '(php-mode rst-mode html-mode ruby-mode python-mode yaml-mode haskell-mode))
-  (dolist (i aggressive-indent/excluded)
-    (add-to-list 'aggressive-indent-excluded-modes i)))
+  (dolist (item aggressive-indent/excluded)
+    (add-to-list 'aggressive-indent-excluded-modes item)))
 
 (use-package systemd
   :ensure t)

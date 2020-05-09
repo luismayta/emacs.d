@@ -6,6 +6,7 @@
 
 ;; pomodoro timer
 (use-package pomidor
+ :requires (evil-leader)
   :ensure t
   :config
   (setq pomidor-update-interval 30) ; seconds
@@ -26,13 +27,6 @@
   :config
   (atomic-chrome-start-server)
   )
-
-;; password-store
-;;(use-package pass
-;;  :ensure t)
-
-;;(use-package auth-password-store
-;;  :ensure t)
 
 (use-package kurecolor
   :ensure t)
