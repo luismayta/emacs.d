@@ -1,7 +1,7 @@
 ;;; module-coding-haskell.el --- Code haskell.
 ;;; code:
 
-(require 'core-vars)
+(require 'core/vars)
 
 (use-package haskell-mode
   :ensure t

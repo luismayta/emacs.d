@@ -9,7 +9,7 @@
 
 (require 'core-load-paths)
 (require 'core-aliases)
-(require 'core-vars)
+(require 'core/vars)
 (require 'core-defaults)
 (require 'core-defuns)
 (require 'core-modules)
