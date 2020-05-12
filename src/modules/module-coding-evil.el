@@ -3,7 +3,7 @@
 ;;; Configure evil mode and its packages - VIM like performance
 ;;; code:
 
-(require 'core-defuns)
+(require 'core/functions)
 
 (use-package evil-leader
   :config

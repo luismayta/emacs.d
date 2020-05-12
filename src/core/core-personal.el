@@ -1,6 +1,6 @@
 ;;; personal---load files
 ;;;code:
-(require 'core-defuns)
+(require 'core/functions)
 
 (setq my-settings
   '(

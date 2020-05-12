@@ -1,6 +1,6 @@
 ;; Navigation related settings and binds.
 
-(require 'core-defuns)
+(require 'core/functions)
 
 (use-package windmove
   :bind

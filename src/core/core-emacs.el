@@ -11,7 +11,7 @@
 (require 'core-aliases)
 (require 'core/vars)
 (require 'core-defaults)
-(require 'core-defuns)
+(require 'core/functions)
 (require 'core-modules)
 
 (use-package dash
