@@ -1,15 +1,12 @@
 ;;; init.el --- Start of the Emacs initialisation process.
-(load-file (concat (file-name-directory load-file-name)
-               "src/core/core-vars.el"))
-(load-file (concat (file-name-directory load-file-name)
-               "src/core/core-load-paths.el"))
+(load-to-list 'load-path (concat (file-name-directory load-file-name)
+                           "/src/core"))
+(load-to-list 'load-path (concat (file-name-directory load-file-name)
+                           "/src/config"))
 
 (require 'core-vars)
-
-(setq explicit-shell-file-name core-term-shell)
-(setenv "SHELL" core-term-shell)
-(setq shell-file-name "zsh")
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+(require 'config/default)
+(require 'config/backup)
 
 ;;; code:
 (package-initialize)
@@ -32,9 +29,6 @@
     (package-install 'use-package)
     (setq use-package-always-ensure t))
   )
-
-;; Increase the GC threshold as soon as possible.
-(setq gc-cons-threshold 50000000)
 
 (defconst project-version     "1.6.3" "Version.")
 (defconst emacs-min-version   "24.4" "Minimal version of Emacs.")
