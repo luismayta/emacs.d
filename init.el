@@ -4,7 +4,7 @@
 (load-to-list 'load-path (concat (file-name-directory load-file-name)
                            "/src/config"))
 
-(require 'core-vars)
+(require 'core/vars)
 (require 'config/default)
 (require 'config/backup)
 
