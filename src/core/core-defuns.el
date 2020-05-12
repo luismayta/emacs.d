@@ -1,6 +1,6 @@
 ;;; core-defuns.el --- Custom functions required by other init files.
 ;;; code:
-(require 'core-vars)
+(require 'core/vars)
 
 ;; Save buffer when file is modified
 ;; Used when switching buffers, exiting evil-insert-state

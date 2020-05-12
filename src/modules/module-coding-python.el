@@ -2,7 +2,7 @@
 ;;; code:
 
 (require 'core-defuns)
-(require 'core-vars)
+(require 'core/vars)
 
 (use-package anaconda-mode
   :ensure t
