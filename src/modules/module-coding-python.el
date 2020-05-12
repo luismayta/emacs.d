@@ -1,7 +1,7 @@
 ;;; module-coding-python.el --- Python settings.
 ;;; code:
 
-(require 'core-defuns)
+(require 'core/functions)
 (require 'core/vars)
 
 (use-package anaconda-mode
