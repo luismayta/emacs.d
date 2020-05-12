@@ -1,7 +1,7 @@
 ;;; core-defaults --- defaults.
 ;;; code:
 
-(require 'core-vars)
+(require 'core/vars)
 (require 'core-defuns)
 
 ;; Ignore customisation by putting it in the cache dir.
