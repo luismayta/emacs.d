@@ -1,5 +1,4 @@
 ;;; core-modules.el --- Configures available modules and the package manager.
-(setq package-enable-at-startup nil)
 
 ;;; code:
 (defun core/initialize ()
