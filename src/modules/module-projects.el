@@ -1,7 +1,7 @@
 ;;; module-projects.el --- Project management         -*- lexical-binding: t; -*-
 ;;; code:
 
-(require 'core-vars)
+(require 'core/vars)
 
 (use-package projectile
   :bind-keymap
