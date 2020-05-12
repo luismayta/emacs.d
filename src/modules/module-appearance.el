@@ -2,7 +2,7 @@
 
 ;;; code:
 
-(require 'core-vars)
+(require 'core/vars)
 (require 'core-defuns)
 (require 'core-defaults)
 

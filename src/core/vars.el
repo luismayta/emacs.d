@@ -1,4 +1,4 @@
-;;; core-vars.el --- def vars.
+;; core/vars.el --- def vars.
 
 ;;; code:
 
@@ -17,6 +17,12 @@
   user-emacs-directory
   "Start directory.")
 
+;; paths
+(defvar core/vars/src-directory
+  (expand-file-name (concat start-directory "src"))
+  "src directory.")
+
+
 (defconst private-directory
   (expand-file-name (concat start-directory "private/"))
   "Core directory.")
@@ -26,19 +32,23 @@
   "Hostname-based elisp temp directories.")
 
 (defconst core-directory
-  (expand-file-name (concat start-directory "src/core/"))
+  (expand-file-name (concat core/vars/src-directory "/core/"))
   "Core directory.")
 
 (defconst modules-directory
-  (expand-file-name (concat start-directory "src/modules/"))
+  (expand-file-name (concat core/var/src-directory "/modules"))
   "Modules directory.")
 
+(defconst core/vars/lib-directory
+  (expand-file-name (concat core/vars/src-directory "/lib"))
+  "core lib directory.")
+
 (defconst elisp-directory
-  (expand-file-name (concat start-directory "src/lib/elisp"))
+  (expand-file-name (concat core/vars/lib-directory "/elisp"))
   "Elisp directory.")
 
 (defconst themes-directory
-  (expand-file-name (concat start-directory "src/lib/color-themes"))
+  (expand-file-name (concat core/vars/lib-directory "/color-themes"))
   "Themes directory.")
 
 (defconst test-directory
@@ -50,5 +60,5 @@
   "Cache directory.")
 
 
-(provide 'core-vars)
-;;; core-vars.el ends here
+(provide 'core/vars)
+;;; core/vars.el ends here
