@@ -1,7 +1,7 @@
 ;;; module-term.el --- Terminal config.
 ;;; code:
 
-(require 'core-vars)
+(require 'core/vars)
 
 (defadvice ansi-term (before force-bash)
   (interactive (list core-term-shell)))
