@@ -1,6 +1,6 @@
 ;;; module-fonts.el --- setup fonts.
 
-(require 'core-vars)
+(require 'core/vars)
 
 (when (window-system)
   (set-language-environment "UTF-8")
