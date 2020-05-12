@@ -49,9 +49,6 @@
   (expand-file-name (concat start-directory "var/cache"))
   "Cache directory.")
 
-;(defconst exec-path
-;  (expand-file-name "/usr/local/bin")
-;  "Exec path directory.")
 
 (provide 'core-vars)
 ;;; core-vars.el ends here
