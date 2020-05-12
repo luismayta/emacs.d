@@ -3,7 +3,7 @@
 ;;; code:
 
 (require 'core/vars)
-(require 'core-defuns)
+(require 'core/functions)
 (require 'core-defaults)
 
 ;; eliminate scroll bars and do other things
