@@ -1,4 +1,4 @@
-;;; core-defuns.el --- Custom functions required by other init files.
+;;; core/functions.el --- Custom functions required by other init files.
 ;;; code:
 (require 'core/vars)
 
@@ -141,5 +141,5 @@
     (add-to-load-path dir))
   )
 
-(provide 'core-defuns)
-;;; core-defuns ends here
+(provide 'core/functions)
+;;; core/functions ends here
