@@ -2,7 +2,7 @@
 ;;; code:
 
 (require 'core/vars)
-(require 'core-defuns)
+(require 'core/functions)
 
 ;; Ignore customisation by putting it in the cache dir.
 (setq custom-file (core/cache-for "custom.el"))
