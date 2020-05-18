@@ -1,4 +1,4 @@
-;;; core-modules.el --- Configures available modules and the package manager.
+;;; core/modules.el --- Configures available modules and the package manager.
 
 ;;; code:
 (defun core/initialize ()
@@ -65,5 +65,5 @@
   (dolist (module modules) (require module))
   )
 
-(provide 'core-modules)
-;;; core-modules.el ends here
+(provide 'core/modules)
+;;; core/modules.el ends here

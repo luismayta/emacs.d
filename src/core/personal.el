@@ -11,4 +11,4 @@
   (when (file-exists-p setting)
     (load setting)))
 
-(provide 'core-personal)
+(provide 'core/personal)
