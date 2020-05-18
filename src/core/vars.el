@@ -1,4 +1,4 @@
-;; core/vars.el --- def vars.
+;;; core/vars.el --- def vars.
 
 ;;; code:
 
