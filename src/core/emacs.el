@@ -1,4 +1,4 @@
-;;; core-emacs.el --- def vars.
+;;; core/emacs.el --- def vars.
 
 ;;; code:
 
@@ -7,12 +7,12 @@
   (require 'package))
 (package-initialize)
 
-(require 'core-load-paths)
-(require 'core-aliases)
+(require 'core/load-paths)
+(require 'core/aliases)
 (require 'core/vars)
-(require 'core-defaults)
+(require 'core/defaults)
 (require 'core/functions)
-(require 'core-modules)
+(require 'core/modules)
 
 (defun emacs/init ()
   "Perform startup initialization."
@@ -20,5 +20,5 @@
   (core/initialize)
   (message "Finish Install packages!"))
 
-(provide 'core-emacs)
-;;; core-emacs ends here
+(provide 'core/emacs)
+;;; core/emacs ends here
