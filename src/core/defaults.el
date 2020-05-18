@@ -1,4 +1,4 @@
-;;; core-defaults --- defaults.
+;;; core/defaults --- defaults.
 ;;; code:
 
 (require 'core/vars)
@@ -118,5 +118,5 @@
 
 (add-to-list 'exec-path "/usr/local/bin")
 
-(provide 'core-defaults)
-;;; core-defaults ends here
+(provide 'core/defaults)
+;;; core/defaults ends here

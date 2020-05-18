@@ -1,4 +1,4 @@
-;;; core-aliases.el --- def vars.
+;;; core/aliases.el --- def vars.
 
 ;;; code:
 
@@ -8,5 +8,5 @@
 
 (defalias 'rg 'rgrep)
 
-(provide 'core-aliases)
-;;; core-aliases ends here
+(provide 'core/aliases)
+;;; core/aliases ends here
