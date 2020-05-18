@@ -37,7 +37,7 @@
   (error (concat "Your version of Emacs (%s) is too old. "
            "requires Emacs version %s or above.")
     emacs-version emacs-min-version)
-  (require 'core-emacs)
+  (require 'core/emacs)
   (emacs/init))
 
 (provide 'init)
