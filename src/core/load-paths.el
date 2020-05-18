@@ -1,4 +1,4 @@
-;;; core-load-paths.el --- def vars.
+;;; core/load-paths.el --- def vars.
 ;;; code:
 
 (defun add-to-load-path (dir) (add-to-list 'load-path dir)
@@ -19,5 +19,5 @@
      ,themes-directory
      ))
 
-(provide 'core-load-paths)
-;;; core-load-paths ends here
+(provide 'core/load-paths)
+;;; core/load-paths ends here
