@@ -4,7 +4,7 @@
 
 (require 'core/vars)
 (require 'core/functions)
-(require 'core-defaults)
+(require 'core/defaults)
 
 ;; eliminate scroll bars and do other things
 (use-package better-defaults
