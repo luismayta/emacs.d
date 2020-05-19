@@ -1,6 +1,6 @@
 
-# Created by https://www.gitignore.io/api/vim,cmake,emacs,python,node
-# Edit at https://www.gitignore.io/?templates=vim,cmake,emacs,python,node
+# Created by https://www.gitignore.io/api/vim,cmake,emacs,python,node,tags
+# Edit at https://www.gitignore.io/?templates=vim,cmake,emacs,python,node,tags
 
 ### CMake ###
 CMakeLists.txt.user
@@ -278,6 +278,25 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+### Tags ###
+# Ignore tags created by etags, ctags, gtags (GNU global) and cscope
+TAGS
+.TAGS
+!TAGS/
+tags
+.tags
+!tags/
+gtags.files
+GTAGS
+GRTAGS
+GPATH
+GSYMS
+cscope.files
+cscope.out
+cscope.in.out
+cscope.po.out
+
+
 ### Vim ###
 # Swap
 [._]*.s[a-v][a-z]
@@ -294,7 +313,6 @@ Sessionx.vim
 .netrwhist
 
 # Auto-generated tag files
-tags
 
 # Persistent undo
 [._]*.un~
@@ -302,4 +320,4 @@ tags
 # Coc configuration directory
 .vim
 
-# End of https://www.gitignore.io/api/vim,cmake,emacs,python,node
+# End of https://www.gitignore.io/api/vim,cmake,emacs,python,node,tags
