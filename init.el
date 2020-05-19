@@ -1,14 +1,17 @@
 ;;; init.el --- Start of the Emacs initialisation process.
-(load-to-list 'load-path (concat (file-name-directory load-file-name)
-                           "/src/core"))
-(load-to-list 'load-path (concat (file-name-directory load-file-name)
-                           "/src/config"))
-
-(require 'core/vars)
-(require 'config/default)
-(require 'config/backup)
-
 ;;; code:
+
+(load-file (concat (file-name-directory load-file-name)
+               "src/core/core-vars.el"))
+(load-file (concat (file-name-directory load-file-name)
+               "src/core/core-load.el"))
+
+(require 'core-vars)
+(require 'core-load)
+(require 'core-defaults)
+(require 'config-default)
+(require 'config-backup)
+
 (package-initialize)
 (add-to-list 'package-archives
   '("gnu" . "http://elpa.gnu.org/packages/") t)
@@ -37,8 +40,8 @@
   (error (concat "Your version of Emacs (%s) is too old. "
            "requires Emacs version %s or above.")
     emacs-version emacs-min-version)
-  (require 'core/emacs)
-  (emacs/init))
+  (require 'core-init)
+  (core-initialize))
 
 (provide 'init)
 ;;; init.el ends here
