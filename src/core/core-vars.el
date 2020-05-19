@@ -62,6 +62,8 @@
   (expand-file-name (concat start-directory "var/cache/"))
   "Cache directory.")
 
+(defconst IS-LINUX   (eq system-type 'gnu/linux))
+(defconst IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
 
 (provide 'core-vars)
 ;;; core-vars.el ends here
