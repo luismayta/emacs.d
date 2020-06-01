@@ -39,7 +39,6 @@
   (blink-cursor-mode 0)
   )
 
-
 ;;==============mode-line===============
 
 (use-package cyphejor
@@ -133,6 +132,37 @@
 
 (add-hook 'emacs-startup-hook #'setup-windows-hook)
 ; (evil-leader/set-key "fa" 'origami-toggle-all-nodes)
+
+;; Use doom-mode-line by default
+;; Doom Mode-line
+(use-package doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode)
+  :config
+  ;; If the actual char height is larger, it respects the actual height.
+  (setq doom-modeline-height 20)
+  ;; How wide the mode-line bar should be. It's only respected in GUI.
+  (setq doom-modeline-bar-width 2)
+  ;; Whether display icons in mode-line or not.
+  (setq doom-modeline-icon t)
+
+  ;; Whether display the icon for major mode. It respects `doom-modeline-icon'.
+  (setq doom-modeline-major-mode-icon t)
+
+  ;; Whether display color icons for `major-mode'. It respects
+  ;; `doom-modeline-icon' and `all-the-icons-color-icons'.
+  (setq doom-modeline-major-mode-color-icon t)
+
+  ;; Whether display icons for buffer states. It respects `doom-modeline-icon'.
+  (setq doom-modeline-buffer-state-icon t)
+
+  ;; Whether display buffer modification icon. It respects `doom-modeline-icon'
+  ;; and `doom-modeline-buffer-state-icon'.
+  (setq doom-modeline-buffer-modification-icon t)
+
+  ;; Whether display minor modes in mode-line or not.
+  (setq doom-modeline-minor-modes t)
+  )
 
 (provide 'module-appearance)
 ;;; module-appearance.el ends here
