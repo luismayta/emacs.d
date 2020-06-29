@@ -10,18 +10,19 @@
                                           "GOPATH"
                                           "GOROOT"
                                           "GO_ENV"
-                                          "PYTHONPATH"
-                                          "PYENV_DIR"
-                                          "PIPENV_PYTHON"
-                                          "DOCKER_HOST"
-                                          "DOCKER_TLS_VERIFY"
-                                          "DOCKER_CERT_PATH"
-                                          "DOCKER_MACHINE_NAME"
-                                          "WAKATIME_API_KEY"
-                                          "WAKATIME_CLI_PATH"
-                                          "WAKATIME_PYTHON_BIN"
-                                          "LC_ALL"
-                                          ))
+                                          "GO111MODULES"
+    "PYTHONPATH"
+    "PYENV_DIR"
+    "PIPENV_PYTHON"
+    "DOCKER_HOST"
+    "DOCKER_TLS_VERIFY"
+    "DOCKER_CERT_PATH"
+    "DOCKER_MACHINE_NAME"
+    "WAKATIME_API_KEY"
+    "WAKATIME_CLI_PATH"
+    "WAKATIME_PYTHON_BIN"
+    "LC_ALL"
+    ))
   (exec-path-from-shell-initialize))
 
 
