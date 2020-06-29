@@ -15,7 +15,7 @@
      module-writing
      module-completion
      module-projects
-     module-tags
+     ;; module-tags
      module-http
      module-sh
      module-ansible
