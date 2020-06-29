@@ -1,16 +1,7 @@
 ;;; module-go.el --- Golang config.
 ;;; code:
 
-(defvar go-mode)
-(defvar go-eldoc)
-(defvar go-stacktracer)
-(defvar go-autocomplete)
-(defvar before-save-hook)
-
-
 (use-package go-imports)
-
-(setq gofmt-command "goimports")
 
 (use-package go-autocomplete
   :ensure t
@@ -20,25 +11,40 @@
 (use-package go-guru
   :ensure t
   :config
-  (go-guru-hl-identifier-mode))
+  (go-guru-hl-identifier-mode)
+  )
 
 (use-package company-go
   :ensure t
   :after go
-  :config
-  (setq tab-width 4))
+  )
 
 (use-package go-mode
   :after (go-autocomplete)
-  :commands (gofmt-before-save)
-  :defer t
+  :mode ("\\.go" . go-mode)
+  :init
   :config
   (setq auto-mode-alist
     (append '(("go.mod" . text-mode)) auto-mode-alist))
-  (add-hook 'go-mode-hook (lambda ()
-                            (setq indent-tabs-mode t)
-                            (setq tab-width 4)))
-  (add-hook 'before-save-hook #'gofmt-before-save))
+  (defun my-go-mode-hook ()
+    (setq gofmt-command "goimports")
+    (setq godoc-command "godoc")
+    (setq tab-width 4)
+    (set (make-local-variable 'company-backends) '(company-go))
+    (company-mode))
+  (add-hook 'go-mode-hook 'my-go-mode-hook)
+
+  (add-hook 'go-mode-hook 'go-eldoc-setup)
+  (add-hook 'go-mode-hook #'go-guru-hl-identifier-mode)
+  (add-hook 'go-mode-hook 'flycheck-mode)
+  (add-hook 'before-save-hook 'gofmt-before-save)
+  )
+
+(use-package go-impl
+	:after go-mode)
+
+(use-package go-add-tags
+	:after go-mode)
 
 (use-package go-eldoc
   :after (go-mode)
