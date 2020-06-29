@@ -23,6 +23,7 @@
      module-docker
      module-haskell
      module-general
+     module-lsp
      module-graphql
      module-elixir
      module-java
@@ -30,6 +31,7 @@
      module-web
      module-typescript
      module-lua
+     module-clojure
      module-php
      module-python
      module-ruby
@@ -41,7 +43,7 @@
      module-hashicorp
      module-dart
      module-term
-     ; module-org
+                                        ; module-org
      module-google
      )
   )
