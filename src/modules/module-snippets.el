@@ -14,9 +14,13 @@
   :bind
   (:map yas-minor-mode-map
     ("<tab>" . nil)
-    ("TAB" . nil))
+    ("TAB" . nil)
+    )
   :config
   (yas-global-mode)
+  (define-key yas-minor-mode-map (kbd "C-<tab>") 'yas-expand)
+  (define-key yas-minor-mode-map (kbd "<tab>") nil)
+  (define-key yas-minor-mode-map (kbd "TAB") nil)
   ;; Disable yasnippet in some modes.
   (defun yas-disable-hook ()
     (setq yas-dont-activate t))
@@ -37,6 +41,43 @@
 
   (add-hook 'yas-before-expand-snippet-hook 'expand-for-web-mode)
   )
+
+(use-package yasnippet-snippets
+  :ensure t
+  :after yasnipet
+  )
+
+(use-package js-react-redux-yasnippets
+  :ensure t)
+
+(use-package react-snippets
+  :ensure t)
+
+(use-package auto-yasnippet
+  :ensure t
+  :after yasnippet
+  :commands
+  (aya-create
+    aya-expand
+    aya-open-line)
+  )
+
+(use-package company-yasnippet
+  :ensure company
+  :after yasnippet
+  :commands company-yasnippet
+  )
+
+;; Integrate yasnippet
+(use-package ivy-yasnippet
+  :after yasnippet
+  :commands ivy-yasnippet--preview
+  :bind (
+          ("C-c C-y" . ivy-yasnippet)
+          ("C-<tab>" . ivy-yasnippet)
+          )
+  :config (advice-add #'ivy-yasnippet--preview :override #'ignore))
+
 
 (provide 'module-snippets)
 ;;; module-snippets.el ends here
