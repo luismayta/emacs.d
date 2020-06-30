@@ -17,11 +17,7 @@
   user-emacs-directory
   "Start directory.")
 
-;; paths
-(defconst core-vars/src-directory
-  (expand-file-name (concat start-directory "src/"))
-  "src directory.")
-
+; paths
 (defconst private-directory
   (expand-file-name (concat start-directory "private/"))
   "Core directory.")
@@ -31,19 +27,23 @@
   "Hostname-based elisp temp directories.")
 
 (defconst core-directory
-  (expand-file-name (concat core-vars/src-directory "core/"))
+  (expand-file-name (concat start-directory "core/"))
   "Core directory.")
 
+(defconst mode-directory
+  (expand-file-name (concat start-directory "modes/"))
+  "Modes directory.")
+
 (defconst module-directory
-  (expand-file-name (concat core-vars/src-directory "modules/"))
+  (expand-file-name (concat start-directory "modules/"))
   "Modules directory.")
 
 (defconst config-directory
-  (expand-file-name (concat core-vars/src-directory "config/"))
-  "Modules directory.")
+  (expand-file-name (concat start-directory "config/"))
+  "Config directory.")
 
 (defconst core-vars/lib-directory
-  (expand-file-name (concat core-vars/src-directory "lib/"))
+  (expand-file-name (concat start-directory "lib/"))
   "core lib directory.")
 
 (defconst elisp-directory
