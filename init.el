@@ -2,9 +2,9 @@
 ;;; code:
 
 (load-file (concat (file-name-directory load-file-name)
-               "src/core/core-vars.el"))
+               "core/core-vars.el"))
 (load-file (concat (file-name-directory load-file-name)
-               "src/core/core-load.el"))
+               "core/core-load.el"))
 
 (require 'core-vars)
 (require 'core-load)
