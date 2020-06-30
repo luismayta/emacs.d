@@ -23,6 +23,10 @@
 (use-package fixmee
   )
 
+(use-package multi-compile
+  :custom
+  (multi-compile-completion-system 'default))
+
 (use-package goto-last-change)
 
 ;; highlight-numbers
