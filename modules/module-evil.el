@@ -4,6 +4,8 @@
 ;;; code:
 
 (use-package evil-leader
+  :init
+  (setq evil-want-keybinding nil) ;; required for evil-collection
   :config
   (global-evil-leader-mode t)
   )
