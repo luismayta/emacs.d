@@ -2,8 +2,8 @@
 ;;; code:
 
 (defun lsp-go-install-save-hooks ()
-  (add-hook 'before-save-hook #'lsp-format-buffer t t)
-  (add-hook 'before-save-hook #'lsp-organize-imports t t)
+  ;; (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  ;; (add-hook 'before-save-hook #'lsp-organize-imports t t)
   )
 
 (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
@@ -32,6 +32,9 @@
     )
   (when (executable-find "goimports")
     (setq-default gofmt-command (executable-find "goimports")))
+  ;; (if (not (string-match "go" compile-command))   ; set compile command default
+  ;;   (set (make-local-variable 'compile-command)
+  ;;     "go build -v && go test -v && go vet"))
   (add-to-list 'multi-compile-alist
     '(go-mode . (("build/git" "go build -v ./..."
                    (locate-dominating-file buffer-file-name ".git"))
@@ -56,6 +59,7 @@
                   )))
   :hook
   (go-mode-hook . lsp-deferred)
+  ;;   :hook (go-mode . lsp-go-install-save-hooks)
   )
 
 (use-package go-autocomplete
@@ -69,18 +73,27 @@
 (use-package go-gopath
   :after go-mode
   )
+
 (use-package go-stacktracer
   :after go-mode
   )
+
 (use-package go-fill-struct
   :after go-mode
   )
+
 (use-package go-impl
   :after go-mode
   )
+
 (use-package go-gen-test
   :after go-mode
   )
+
+(use-package go-add-tags
+  :after go-mode
+  )
+
 (use-package go-tag
   :after go-mode
   )
