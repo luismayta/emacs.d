@@ -11,33 +11,33 @@
   :ensure t
   )
 
-(use-package graphene
-  :ensure t
-  :init
-  (setq graphene-default-font core-default-font)
-  (setq graphene-variable-pitch-font core-default-font)
-  (setq graphene-fixed-pitch-font core-default-font)
-  (setq ido-use-url-at-point nil)
-  (linum-mode -1)
-  )
-
-(use-package all-the-icons
-  :ensure t)
-
 (use-package all-the-icons-dired
   :ensure t)
 
+(use-package all-the-icons
+  :ensure t
+  :if (display-graphic-p))
 
-(use-package zerodark-theme
-  :config
-  (load-theme 'zerodark 1)
-  ;; (zerodark-setup-modeline-format)
-  (setq zerodark-use-paddings-in-mode-line nil)
-  (set-cursor-color "violet")
-  ;; stop cursor blinking and make sure it's a box
-  (set-default 'cursor-type 'box)
-  (blink-cursor-mode 0)
-  )
+(use-package doom-modeline
+  :ensure t
+  :defer t
+  :init (doom-modeline-init)
+  (setq doom-modeline-height 20 doom-modeline-bar-width 3 doom-modeline-icon nil
+    doom-modeline-enable-word-count 10
+    ;; doom-modeline-icon (display-graphic-p)
+    doom-modeline-continuous-word-count-modes '(markdown-mode gfm-mode org-mode)
+    doom-modeline-buffer-file-name-style 'relative-to-project doom-modeline-modal-icon nil)
+  :hook (after-init . doom-modeline-mode)
+  :config)
+
+(use-package doom-themes
+  ;; :when (display-graphic-p)
+  :ensure t
+  ;; :init (load-theme 'doom-Iosvkem t)
+  :init (load-theme 'doom-one t)
+  :config (set-face-attribute 'fringe nil
+            :foreground "#fc5c59"
+            :background (face-background 'default)))
 
 ;;==============mode-line===============
 
@@ -124,45 +124,38 @@
   (run-with-idle-timer 0.1 nil (lambda nil (toggle-frame-maximized)))
   (when (eq system-type 'darwin)
     (setq mac-allow-anti-aliasing t)  ;; nice fonts in OS X
-    (set-face-attribute 'default nil :height 135))
+    (set-face-attribute 'default nil :height core-font-height))
   (when (eq system-type 'gnu/linux)
-    (set-face-attribute 'default nil :height 116))
+    (set-face-attribute 'default nil :height 135))
   (setq-default truncate-lines 1)  ;; no word wrap
   )
 
 (add-hook 'emacs-startup-hook #'setup-windows-hook)
-; (evil-leader/set-key "fa" 'origami-toggle-all-nodes)
 
-;; Use doom-mode-line by default
-;; Doom Mode-line
-(use-package doom-modeline
+;; treemacs
+(use-package treemacs
+  :requires (evil-leader evil)
   :ensure t
-  :hook (after-init . doom-modeline-mode)
-  :config
-  ;; If the actual char height is larger, it respects the actual height.
-  (setq doom-modeline-height 20)
-  ;; How wide the mode-line bar should be. It's only respected in GUI.
-  (setq doom-modeline-bar-width 2)
-  ;; Whether display icons in mode-line or not.
-  (setq doom-modeline-icon t)
-
-  ;; Whether display the icon for major mode. It respects `doom-modeline-icon'.
-  (setq doom-modeline-major-mode-icon t)
-
-  ;; Whether display color icons for `major-mode'. It respects
-  ;; `doom-modeline-icon' and `all-the-icons-color-icons'.
-  (setq doom-modeline-major-mode-color-icon t)
-
-  ;; Whether display icons for buffer states. It respects `doom-modeline-icon'.
-  (setq doom-modeline-buffer-state-icon t)
-
-  ;; Whether display buffer modification icon. It respects `doom-modeline-icon'
-  ;; and `doom-modeline-buffer-state-icon'.
-  (setq doom-modeline-buffer-modification-icon t)
-
-  ;; Whether display minor modes in mode-line or not.
-  (setq doom-modeline-minor-modes t)
+  :defer t
+  :commands
+  (treemacs)
+  :init
+  (evil-leader/set-key "ft" 'treemacs)
   )
+
+(use-package treemacs-icons-dired
+  :after treemacs dired
+  :ensure t
+  :config (treemacs-icons-dired-mode))
+
+(use-package treemacs-magit
+  :after treemacs magit
+  :ensure t)
+
+(use-package fira-code-mode
+  ;; Requires installing Fira Code Symbol font first
+  :custom (fira-code-mode-disabled-ligatures '("www" "[]" "#{" "#(" "#_" "#_(" "x"))
+  :hook prog-mode)
 
 (provide 'module-appearance)
 ;;; module-appearance.el ends here
