@@ -26,6 +26,7 @@
   (add-hook 'pyenv-mode-auto-hook
     (lambda () (shell-command "pip install mypy autopep8 flake8 elpy jedi rope isort epc importmagic yapf pylint")))
   )
+
 (use-package pipenv
   :hook (python-mode . pipenv-mode)
   :init
