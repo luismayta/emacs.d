@@ -2,7 +2,11 @@
 ;;; code:
 
 (use-package graphql-mode
-  :mode ("\\.graphql\\'" "\\.gql\\'")
+  :mode (
+          ("\\.graphql$" . graphql-mode)
+          ("\\.graphqls$" . graphql-mode)
+          ("\\.gql$" . graphql-mode)
+          )
   :commands
   (graphql-query graphql-mutation))
 
