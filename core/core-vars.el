@@ -7,7 +7,7 @@
 (defvar core-default-font "FuraCode Nerd Font Mono-18")
 (defvar core-fixed-font-weight "retina")
 (defvar core-var-font-name "FuraCode Nerd Font Mono")
-(defvar core-font-height 170)
+(defvar core-font-height 180)
 
 ;; vars for terminals.
 (defvar core-term-shell "/usr/local/bin/zsh")
