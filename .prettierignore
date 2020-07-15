@@ -1,8 +1,11 @@
 .next
 .serverless
 .serverless_nextjs
+.terraform
 node_modules
 dist
-
+package.json
 package-lock.json
-dist/
+coverage
+.mypy_cache/
+.build
