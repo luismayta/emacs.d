@@ -5,7 +5,6 @@
 ;; Packages need to be initialised in init.el in Emacs 25.x.
 (unless (fboundp 'package-initialize)
   (require 'package))
-(package-initialize)
 
 (require 'core-vars)
 (require 'core-load)
