@@ -17,7 +17,7 @@ trim_trailing_whitespace = true
 [*.{el}]
 insert_final_newline = false
 
-[*.{el,md,yml,yaml,js,json,toml,ts,tsx}]
+[*.{el,md,yml,yaml,js,json,toml,ts,tsx,graphql,go}]
 indent_style = space
 indent_size = 2
 
@@ -47,3 +47,6 @@ indent_size  = 4
 # Batch files use tabs for indentation
 [*.bat]
 indent_style = tab
+
+[*.md]
+trim_trailing_whitespace = false
