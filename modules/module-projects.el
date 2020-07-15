@@ -10,36 +10,18 @@
   :init
   (setq projectile-keymap-prefix (kbd "C-c q"))
   (setq projectile-mode-line-prefix ""
-        projectile-sort-order 'recentf
-        projectile-use-git-grep t)
+    projectile-sort-order 'recentf
+    )
   :config
   (setq projectile-completion-system 'ivy)
-  (cond
-   ((executable-find "fd")
-    (setq projectile-generic-command
-          (format "%s . --color=never --type f -0 -H -E .git"
-                  "fd")
-          projectile-git-command projectile-generic-command
-          projectile-git-submodule-command nil
-          ;; ensure Windows users get fd's benefits
-          projectile-indexing-method 'alien))
-
-   ((executable-find "rg")
-    (setq projectile-generic-command
-          (concat "rg -0 --files --color=never --hidden"
-                  (cl-loop for dir in projectile-globally-ignored-directories
-                           concat (format " --glob '!%s'" dir)))
-          projectile-git-command projectile-generic-command
-          projectile-git-submodule-command nil
-          ;; ensure Windows users get rg's benefits
-          projectile-indexing-method 'alien)))
-
+  (setq projectile-indexing-method 'alien)
   (when IS-WINDOWS
     (setq projectile-git-submodule-command nil
-          projectile-enable-caching nil)))
+      projectile-enable-caching nil)))
 
 
 (use-package counsel-projectile
+  :after projectile
   :requires (evil-leader)
   :bind-keymap
   ("C-c q" . counsel-projectile-command-map)
