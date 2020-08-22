@@ -3,7 +3,6 @@
 #
 
 OS := $(shell uname)
-
 .PHONY: help
 .DEFAULT_GOAL := help
 
@@ -81,3 +80,20 @@ environment:
 	@echo "=====> loading virtualenv ${PYENV_NAME}..."
 	make python.environment
 	@echo ${MESSAGE_HAPPY}
+
+.PHONY: clean
+clean:
+	@rm -f ./dist.zip
+	@rm -fr ./vendor
+
+# Show to-do items per file.
+todo:
+	@grep \
+		--exclude-dir=vendor \
+		--exclude-dir=node_modules \
+		--exclude-dir=bin \
+		--exclude=Makefile \
+		--text \
+		--color \
+		-nRo -E ' TODO:.*|SkipNow|FIXMEE:.*' .
+.PHONY: todo
