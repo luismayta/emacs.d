@@ -10,7 +10,6 @@
 ;; this module includes
 ;;   - ivy
 ;;   - counsel
-;;   - swiper
 ;;   - which-key
 ;;   - avy
 ;;   - YaSnippet
@@ -18,12 +17,6 @@
 
 ;;; Code:
 
-(use-package auto-complete
-  :config
-  (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-  (ac-set-trigger-key "TAB")
-  (ac-set-trigger-key "<tab>")
-  )
 
 ;; Ivy (taken from "How to make your own Spacemacs")
 (use-package ivy
@@ -52,49 +45,36 @@
     counsel-locate)   ; search for files or else using locate
   )
 
-;; Swiper
-(use-package swiper
-  :ensure t
-  :commands swiper
-  )
-
-;; Which key
-(use-package which-key
-  :ensure t
-  :init
-  (which-key-mode)
-  :config
-  (which-key-setup-side-window-bottom)
-  (setq which-key-sort-order 'which-key-key-order-alpha
-    which-key-side-window-max-width 0.00
-    which-key-idle-delay 0.00)
-  :diminish which-key-mode
-  )
-
-;; Auto completion
-(use-package company-anaconda
-  :after (anaconda-mode company)
-  :commands company-anaconda
-  :config (add-to-list 'company-backends 'company-anaconda))
-
 (use-package company
-  :bind (("<C-tab>" . company-complete))
-  :init
-  (setq company-idle-delay 0.5
-    company-show-numbers t
-    company-tooltip-limit 10
-    company-minimum-prefix-length 2
-    company-tooltip-flip-when-above t)
-  :config
-  (use-package company-emoji
-    :init
-    (add-to-list 'company-backends 'company-emoji))
-  (use-package company-web-html
-    :ensure company-web
-    :init
-    (add-to-list 'company-backends 'company-web-html))
-  (company-tng-configure-default)
-  (global-company-mode 1))
+  :ensure t
+  :config (progn
+            ;; don't add any dely before trying to complete thing being typed
+            ;; the call/response to gopls is asynchronous so this should have little
+            ;; to no affect on edit latency
+            (setq company-idle-delay 0)
+            ;; start completing after a single character instead of 3
+            (setq company-minimum-prefix-length 2)
+            ;; align fields in completions
+            (setq company-tooltip-align-annotations t)
+            )
+  )
+
+;; optional package to get the error squiggles as you edit
+(use-package flycheck
+  :ensure t)
+
+;; if you use company-mode for completion (otherwise, complete-at-point works out of the box):
+(use-package company-lsp
+  :ensure t
+  ;;:after(company lsp-mode)
+  :commands company-lsp)
+
+(use-package company-box
+  :requires (lsp-mode)
+  :ensure t
+  :hook
+  (lsp-mode . company-box-mode)
+  (emacs-lisp-mode . company-box-mode))
 
 (provide 'module-completion)
 ;;; module-completion.el ends here

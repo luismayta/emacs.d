@@ -12,10 +12,6 @@
   (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
   )
 
-(use-package company-anaconda
-  :ensure t
-  :init (add-to-list 'company-backends 'company-anaconda))
-
 (use-package pyenv-mode
   :ensure t
   :config
