@@ -51,19 +51,13 @@
           ("C-<" . mc/mark-previous-like-this)
           ("C-c C->" . mc/mark-all-like-this)))
 
-;; expand-region
-(use-package expand-region
-   :requires (evil-leader)
-  :init
-  (evil-leader/set-key "xx" 'er/expand-region)
-  :bind ("C-=" . er/expand-region))
-
 ;; keeps our parentheses balanced and allows for easy manipulation
 (use-package smartparens
-  :ensure t
+    :requires (evil)
   :diminish smartparens-mode
   :init
   (use-package evil-smartparens
+    :requires (evil)
     :ensure t
     :diminish evil-smartparens-mode
     :config
@@ -81,7 +75,6 @@
 
 ;; intelligently cleanup whitespace on save
 (use-package whitespace-cleanup-mode
-  :ensure t
   :diminish whitespace-cleanup-mode
   :config
   (add-hook 'after-init-hook 'whitespace-cleanup-mode)

@@ -3,14 +3,6 @@
   :bind ("C-c s" . ag)
   :config (setq ag-highlight-search t))
 
-;; anzu
-;; Shows isearch results in mode-line and better query-replace.
-(use-package anzu
-  :diminish anzu-mode
-  :init (global-anzu-mode)
-  :bind (("M-%" . anzu-query-replace)
-         ("C-M-%" . anzu-query-replace-regexp)))
-
 ;; engine
 ;; Search engines integrated into Emacs.
 (use-package engine-mode

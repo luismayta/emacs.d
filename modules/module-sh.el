@@ -2,8 +2,12 @@
 ;;; code:
 
 (use-package sh-script
-  :mode (("\\.zunit\\'" . sh-mode)
-          ("/bspwmrc\\'" . sh-mode)))
+  :mode (
+          ("\\.zunit\\'" . sh-mode)
+          ("/bspwmrc\\'" . sh-mode)
+          ("\\.customrc\\'" . sh-mode)
+          )
+  )
 
 (use-package company-shell
   :after sh-script
