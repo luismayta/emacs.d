@@ -26,12 +26,7 @@
 (use-package avy
   :config (setq avy-style 'at)
   :bind (("C-o" . avy-goto-char)
-         ("M-g" . avy-goto-line)))
-
-;; smooth-scrolling
-;; Avoids annoying behaviour when scrolling past the edges of a buffer.
-(use-package smooth-scrolling
-  :init (smooth-scrolling-mode t))
+          ("M-g" . avy-goto-line)))
 
 ;; recentf
 ;; Open/view recent files.
