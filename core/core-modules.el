@@ -37,7 +37,7 @@
      module-ruby
      module-swift
      module-ethereum
-     module-iot
+     ; module-iot
      module-go
      module-rust
      module-hashicorp
