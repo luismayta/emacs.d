@@ -1,74 +1,17 @@
 ;;; module-go.el --- Golang config.
 ;;; code:
 
+
+(use-package go-mode)
+
+;; Set up before-save hooks to format buffer and add/delete imports.
+;; Make sure you don't have other gofmt/goimports hooks enabled.
 (defun lsp-go-install-save-hooks ()
-  ;; (add-hook 'before-save-hook #'lsp-format-buffer t t)
-  ;; (add-hook 'before-save-hook #'lsp-organize-imports t t)
-  )
+   (add-hook 'before-save-hook #'lsp-format-buffer t t)
+   (add-hook 'before-save-hook #'lsp-organize-imports t t))
 
 (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 
-(use-package go-mode
-  :after (lsp-mode multi-compile)
-  :mode ("\\.go$" . go-mode)
-  :mode ("go\\.mod\\'" . go-dot-mod-mode)
-  :commands (go-mode go-dot-mod-mode)
-  :init
-  (setq lsp-gopls-staticcheck t
-    lsp-eldoc-render-all t
-    lsp-gopls-complete-unimported t)
-  (lsp-register-custom-settings
-    '(
-       ("gopls.completeUnimported" t t)
-       ("gopls.staticcheck" t t)
-       ("gopls.usePlaceholders" t t)
-       ("gopls.hoverKind" "SynopsisDocumentation")
-       )
-    )
-  :config
-  (when (executable-find "gofmt")
-    (setq-default gofmt-command (executable-find "gofmt"))
-    (add-hook 'before-save-hook 'gofmt-before-save)
-    )
-  (when (executable-find "goimports")
-    (setq-default gofmt-command (executable-find "goimports")))
-  ;; (if (not (string-match "go" compile-command))   ; set compile command default
-  ;;   (set (make-local-variable 'compile-command)
-  ;;     "go build -v && go test -v && go vet"))
-  (add-to-list 'multi-compile-alist
-    '(go-mode . (("build/git" "go build -v ./..."
-                   (locate-dominating-file buffer-file-name ".git"))
-                  ("build/mod" "go build -v ./..."
-                    (locate-dominating-file buffer-file-name "go.mod"))
-                  ("lint/git" "golangci-lint run ./..."
-                    (locate-dominating-file buffer-file-name ".git"))
-                  ("lint/git/fix" "golangci-lint run --fix ./..."
-                    (locate-dominating-file buffer-file-name ".git"))
-                  ("mod/deps/download" "go mod download"
-                    (locate-dominating-file buffer-file-name "go.mod"))
-                  ("all/generate" "go generate -v ./..."
-                    (locate-dominating-file buffer-file-name "go.mod"))
-                  ("bin/install" "go install -v ./cmd/..."
-                    (locate-dominating-file buffer-file-name "go.mod"))
-                  ("docker/build" "docker-compose build"
-                    (locate-dominating-file buffer-file-name "go.mod"))
-                  ("mod/deps/update" "go get -u ./..."
-                    (locate-dominating-file buffer-file-name "go.mod"))
-                  ("mod/deps/gc" "go mod tidy"
-                    (locate-dominating-file buffer-file-name "go.mod"))
-                  )))
-  :hook
-  (go-mode-hook . lsp-deferred)
-  ;;   :hook (go-mode . lsp-go-install-save-hooks)
-  )
-
-(use-package go-autocomplete
-  :after (go-mode)
-  :ensure t
-  :config
-  (defun auto-complete-for-go ()
-    (auto-complete-mode 1))
-  (add-hook 'go-mode-hook 'auto-complete-for-go))
 
 (use-package go-gopath
   :after go-mode
@@ -108,6 +51,41 @@
 
 (use-package gotest
   :after go-mode)
+
+;(use-package use-package-hydra
+;  :ensure t)
+
+;;; go hydra
+;(use-package hydra
+;  :ensure t
+;  :config
+;  (require 'hydra)
+;  (require 'dap-mode)
+;  (require 'dap-ui)
+;  ;;:commands (ace-flyspell-setup)
+;  :bind
+;  ;;("M-s" . hydra-go/body)
+;  :init
+;  (add-hook 'dap-stopped-hook
+;    (lambda (arg) (call-interactively #'hydra-go/body)))
+;  :hydra (hydra-go (:color pink :hint nil :foreign-keys run)
+;           "
+;   _n_: Next       _c_: Continue _g_: goroutines      _i_: break log
+;   _s_: Step in    _o_: Step out _k_: break condition _h_: break hit condition
+;   _Q_: Disconnect _q_: quit     _l_: locals
+;   "
+;	         ("n" dap-next)
+;	         ("c" dap-continue)
+;	         ("s" dap-step-in)
+;	         ("o" dap-step-out)
+;	         ("g" dap-ui-sessions)
+;	         ("l" dap-ui-locals)
+;	         ("e" dap-eval-thing-at-point)
+;	         ("h" dap-breakpoint-hit-condition)
+;	         ("k" dap-breakpoint-condition)
+;	         ("i" dap-breakpoint-log-message)
+;	         ("q" nil "quit" :color blue)
+;	         ("Q" dap-disconnect :color red)))
 
 (provide 'module-go)
 ;;; module-go.el ends here

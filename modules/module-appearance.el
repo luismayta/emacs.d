@@ -115,8 +115,6 @@
 
   :config (setq linum-relative-current-symbol ">>"))
 
-(use-package pretty-lambdada)
-
 (use-package dired-hacks-utils
   :ensure t)
 
