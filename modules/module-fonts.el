@@ -55,7 +55,7 @@
                                                                   "x" ":" "+" "+" "*")))
   (my-correct-symbol-bounds (my-ligature-list ligs #Xe100))))
 
-(add-hook 'prog-mode-hook 'my-set-fira-code-ligatures)
+; (add-hook 'prog-mode-hook 'my-set-fira-code-ligatures)
 
 (provide 'module-fonts)
 ;;; module-fonts.el ends here

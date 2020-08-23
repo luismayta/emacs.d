@@ -4,6 +4,7 @@
 (require 'core-vars)
 
 (use-package projectile
+  :requires (ivy)
   :bind-keymap
   ("C-c q" . projectile-command-map)
   :hook (after-init . projectile-mode)

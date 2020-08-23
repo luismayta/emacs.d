@@ -17,7 +17,7 @@
   (setq web-mode-enable-current-element-highlight t))
 
 ;; Enable eslint checker for web-mode
-(flycheck-add-mode 'javascript-eslint 'web-mode)
+; (flycheck-add-mode 'javascript-eslint 'web-mode)
 ;; Enable flycheck globally
 (add-hook 'after-init-hook #'global-flycheck-mode)
 

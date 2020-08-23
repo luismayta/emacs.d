@@ -16,35 +16,6 @@
   :ensure t
   :mode ("\\.json\\'" ".eslintrc\\'" ".prettierrc\\'" "Pipfile.lock\\'"))
 
-(use-package js2-mode
-  :requires (prettier-js add-node-modules-path)
-  :mode
-  (("\\.js$" . js2-mode)
-    ("\\.jsx$" . js2-jsx-mode))
-  :ensure t
-  :hook ((js2-mode . (lambda ()
-                       (flycheck-mode)
-                       ))
-          (js2-jsx-mode . (lambda ()
-                            (flycheck-mode)
-                            ))
-          (js2-mode . add-node-modules-path)
-          )
-  )
-
-;;; * Use Package indium: javascript awesome development environment
-;;;;   - https://github.com/NicolasPetton/indium
-(use-package indium
-  :ensure t
-  :after js2-mode
-  :bind (:map js2-mode-map
-          ("C-c C-l" . indium-eval-buffer)
-          ("C-c C-n" . indium-run-node)
-          ("C-c b l" . indium-list-breakpoints)
-          ("C-c b K" . indium-remove-all-breakpoints-from-buffer)
-          ("C-c b t" . indium-toggle-breakpoint))
-  :hook ((js2-mode . indium-interaction-mode)))
-
 (use-package jade-mode
   :mode ("\\.jade\\'" "\\.pug\\'"))
 
