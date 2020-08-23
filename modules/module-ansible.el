@@ -27,8 +27,5 @@
   :init
   (add-hook 'ansible::hook #'ansible-doc-mode))
 
-(use-package company-ansible
-  :ensure t)
-
 (provide 'module-ansible)
 ;;; module-ansible.el ends here
