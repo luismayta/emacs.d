@@ -7,6 +7,7 @@
 (use-package helm-lsp :commands helm-lsp-workspace-symbol)
 ;; if you are ivy user
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
 ;; optionally if you want to use debugger
@@ -23,6 +24,7 @@
   :commands (lsp lsp-deferred)
   :hook ((lsp-mode . lsp-enable-which-key-integration)
           (python-mode . lsp-deferred)
+          (lua-mode . lsp-deferred)
           (c-mode . lsp-deferred)
           (go-mode . lsp-deferred)
           (java-mode . lsp-deferred)
