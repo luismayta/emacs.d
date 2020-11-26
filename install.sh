@@ -11,6 +11,7 @@ EMACS_REPO_HTTPS="https://github.com/luismayta/emacs.d.git"
 EMACS_REPO_BRANCH="master"
 EMACS_ROOT_PATH="${HOME}/.emacs.d"
 EMACS_APP_NAME='emacs.d'
+EMASC_MESSAGES_BREW_NOT_FOUND="Install brew for next also use github.com/luismayta/zsh-brew"
 
 message_error() {
     printf "${RED}%s${NORMAL}\n" "[ERROR]: ${1}"
@@ -29,6 +30,33 @@ message_success() {
     printf "${GREEN}%s${NORMAL}\n" "🍺️ [SUCCESS]: ${1}"
 }
 
+emacs::lua::install() {
+    if ! type -p brew > /dev/null; then
+        message_warning "${EMASC_MESSAGES_BREW_NOT_FOUND}"
+        return
+    fi
+
+    brew install lua
+}
+
+emacs::luarocks::install() {
+    if ! type -p brew > /dev/null; then
+        message_warning "${EMASC_MESSAGES_BREW_NOT_FOUND}"
+        return
+    fi
+
+    if ! type -p luarocks > /dev/null; then
+        brew install luarocks
+        emacs::luarocks::dependences::install
+    fi
+}
+
+emacs::luarocks::dependences::install() {
+    hash luarocks >/dev/null 2>&1 || {
+        luarocks install luacheck
+    }
+}
+
 emacs::repository::clone() {
     if [ -d "${EMACS_ROOT_PATH}/.git" ]; then
         message_info "The application is installed, please remove the directory ${EMACS_APP_NAME}"
@@ -40,7 +68,7 @@ emacs::repository::clone() {
 
 emacs::install::dependences() {
     if ! type -p brew > /dev/null; then
-        message_warning "Install brew for next also use github.com/luismayta/zsh-brew"
+        message_warning "${EMASC_MESSAGES_BREW_NOT_FOUND}"
         return
     fi
 
@@ -72,13 +100,17 @@ emacs::install::dependences() {
         brew install aspell --with-lang-en
     }
 
+    hash ispell >/dev/null 2>&1 || {
+        brew install ispell
+    }
+
     hash ctags >/dev/null 2>&1 || {
         # for the GNU global tag system. Used by ggtags.
         brew install --HEAD ctags
         brew install global --with-ctags
     }
 
-    hash aspell >/dev/null 2>&1 || {
+    hash graphviz >/dev/null 2>&1 || {
         # program used for plantuml
         brew install graphviz
     }
@@ -86,6 +118,9 @@ emacs::install::dependences() {
     hash markdown >/dev/null 2>&1 || {
         brew install markdown
     }
+
+    emacs::lua::install
+    emacs::luarocks::install
 }
 
 emmacs::greeting::thanks() {
