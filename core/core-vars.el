@@ -2,12 +2,12 @@
 
 ;;; code:
 
-(defvar core-fixed-font-name "FuraCode Nerd Font Mono")
-(defvar core-frame-font "FuraCode Nerd Font Mono-18")
-(defvar core-default-font "FuraCode Nerd Font Mono-18")
+(defvar core-fixed-font-name "FiraCode Nerd Font Mono")
+(defvar core-frame-font "FiraCode Nerd Font Mono-19")
+(defvar core-default-font "FiraCode Nerd Font Mono-19")
 (defvar core-fixed-font-weight "retina")
-(defvar core-var-font-name "FuraCode Nerd Font Mono")
-(defvar core-font-height 180)
+(defvar core-var-font-name "FiraCode Nerd Font Mono")
+(defvar core-font-height 190)
 
 ;; vars for terminals.
 (defvar core-term-shell "/usr/local/bin/zsh")
