@@ -1,12 +1,6 @@
 ;; Delete marked text on typing
 ;;; code:
 
-(use-package atomic-chrome
-  :config
-  (atomic-chrome-start-server)
-  (setq atomic-chrome-default-major-mode 'gfm-mode)
-  )
-
 ;; simpleclip
 (use-package simpleclip
   :config
@@ -53,7 +47,7 @@
 
 ;; keeps our parentheses balanced and allows for easy manipulation
 (use-package smartparens
-    :requires (evil)
+  :requires (evil)
   :diminish smartparens-mode
   :init
   (use-package evil-smartparens
@@ -68,10 +62,6 @@
   :config
   (require 'smartparens-config)
   (add-hook 'after-init-hook 'smartparens-global-mode))
-
-;; browse-kill-ring
-(use-package browse-kill-ring
-  :bind ("M-y" . browse-kill-ring))
 
 ;; intelligently cleanup whitespace on save
 (use-package whitespace-cleanup-mode
@@ -88,7 +78,7 @@
 ;; undo-tree
 ;; Treat undo history as a tree.
 (use-package undo-tree
-   :requires (evil-leader)
+  :requires (evil-leader)
   :diminish undo-tree-mode
   :bind ("C-x u" . undo-tree-visualize)
   :init
@@ -97,11 +87,6 @@
   (global-undo-tree-mode)
   (setq undo-tree-visualizer-timestamps t)
   (setq undo-tree-visualizer-diff t))
-
-;; embrace
-;; Add/Change/Delete pairs based on expand-region.
-(use-package embrace
-  :bind ("C-," . embrace-commander))
 
 ;; aggressive-indent
 ;; amazing plugin - gives us perfect indentation automatically for code
@@ -115,11 +100,11 @@
   (dolist (item aggressive-indent/excluded)
     (add-to-list 'aggressive-indent-excluded-modes item))
   (add-to-list
-   'aggressive-indent-dont-indent-if
-   '(and (or (derived-mode-p 'c-mode)
-             (eq major-mode 'rust-mode))
-         (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
-                             (thing-at-point 'line))))))
+    'aggressive-indent-dont-indent-if
+    '(and (or (derived-mode-p 'c-mode)
+            (eq major-mode 'rust-mode))
+       (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
+               (thing-at-point 'line))))))
 
 (use-package systemd
   :ensure t)
