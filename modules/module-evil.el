@@ -115,5 +115,13 @@
   (setq evil-multiedit-scope 'buffer
     evil-multiedit-follow-matches t))
 
+(use-package evil-escape
+  :ensure t
+  :init
+  (setq-default evil-escape-key-sequence "jk")
+  (setq-default evil-escape-delay 0.2)
+  :config
+  (evil-escape-mode))
+
 (provide 'module-evil)
 ;;; module-evil.el ends here

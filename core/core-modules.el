@@ -4,17 +4,17 @@
   '(
      module-utils
      module-evil
-     module-tools
+     ;; module-tools
      module-path
      module-editing
      module-ui
      module-fonts
      module-appearance
      module-searching
+     module-projects
      module-navigation
      module-writing
      module-completion
-     module-projects
      ;; module-tags
      module-http
      module-sh
