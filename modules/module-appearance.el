@@ -65,7 +65,6 @@
          ("wdired"      "↯δ")))
     ))
 
-
 (use-package nyan-mode
   :init
   (nyan-mode)
@@ -129,26 +128,6 @@
   )
 
 (add-hook 'emacs-startup-hook #'setup-windows-hook)
-
-;; treemacs
-(use-package treemacs
-  :requires (evil-leader evil)
-  :ensure t
-  :defer t
-  :commands
-  (treemacs)
-  :init
-  (evil-leader/set-key "ft" 'treemacs)
-  )
-
-(use-package treemacs-icons-dired
-  :after treemacs dired
-  :ensure t
-  :config (treemacs-icons-dired-mode))
-
-(use-package treemacs-magit
-  :after treemacs magit
-  :ensure t)
 
 (use-package fira-code-mode
   ;; Requires installing Fira Code Symbol font first
