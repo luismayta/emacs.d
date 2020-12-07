@@ -45,36 +45,55 @@
     counsel-locate)   ; search for files or else using locate
   )
 
-(use-package company
-  :ensure t
-  :config (progn
-            ;; don't add any dely before trying to complete thing being typed
-            ;; the call/response to gopls is asynchronous so this should have little
-            ;; to no affect on edit latency
-            (setq company-idle-delay 0)
-            ;; start completing after a single character instead of 3
-            (setq company-minimum-prefix-length 2)
-            ;; align fields in completions
-            (setq company-tooltip-align-annotations t)
-            )
-  )
-
 ;; optional package to get the error squiggles as you edit
 (use-package flycheck
   :ensure t)
 
-;; if you use company-mode for completion (otherwise, complete-at-point works out of the box):
-(use-package company-lsp
-  :ensure t
-  ;;:after(company lsp-mode)
-  :commands company-lsp)
+(use-package company
+  :defer 5
+  :diminish
+  :init
+  (setq company-idle-delay 0.2)
+  (setq company-minimum-prefix-length 2)
+  (setq company-show-numbers t)
+  (setq company-tooltip-limit 20)
+
+  (setq company-dabbrev-downcase nil)
+  (setq company-dabbrev-ignore-case t)
+
+  (setq company-dabbrev-code-ignore-case t)
+  (setq company-dabbrev-code-everywhere t)
+
+  (setq company-etags-ignore-case t)
+
+  (setq company-global-modes
+    '(not
+       eshell-mode comint-mode org-mode erc-mode))
+  :config
+  (add-to-list 'company-backends 'company-capf)
+
+  (defadvice company-complete-common (around advice-for-company-complete-common activate)
+    (when (null (yas-expand))
+      ad-do-it))
+
+  (defun my-company-tab ()
+    (interactive)
+    (when (null (yas-expand))
+      (company-select-next)))
+
+  (add-hook 'after-init-hook 'global-company-mode))
 
 (use-package company-box
   :requires (lsp-mode)
-  :ensure t
-  :hook
-  (lsp-mode . company-box-mode)
-  (emacs-lisp-mode . company-box-mode))
+  :diminish
+  :after (company)
+  :hook (company-mode . company-box-mode))
+:config
+(setq company-box-backends-colors nil
+  company-box-show-single-candidate t
+  company-box-max-candidates 50
+  company-box-doc-delay 0.5)
+
 
 (provide 'module-completion)
 ;;; module-completion.el ends here

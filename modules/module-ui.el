@@ -7,7 +7,7 @@
   :config (setq uniquify-buffer-name-style 'forward))
 
 (use-package flx-ido :requires ido :config (flx-ido-mode))
-(use-package ido-vertical-mode :requires ido :config (ido-vertical-mode))
+(use-package ido-vertical-mode :config (ido-vertical-mode))
 (use-package ido-hacks :requires ido :config (ido-hacks-mode))
 
 (use-package ido

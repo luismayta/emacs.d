@@ -1,10 +1,27 @@
 ;;; module-lsp.el --- lsp config.
 ;;; code:
 
-;; optionally
-(use-package lsp-ui :commands lsp-ui-mode)
+;; Set up before-save hooks to format buffer and add/delete imports.
+;; Make sure you don't have other gofmt/goimports hooks enabled.
+(defun lsp-go-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+
+;; Optional - provides fancier overlays.
+(use-package lsp-ui
+  :ensure t
+  :commands lsp-ui-mode)
+
+;; Optional - provides snippet support.
+(use-package yasnippet
+  :ensure t
+  :commands yas-minor-mode
+  :hook (go-mode . yas-minor-mode))
+
 ;; if you are helm user
 (use-package helm-lsp :commands helm-lsp-workspace-symbol)
+
 ;; if you are ivy user
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 
@@ -41,12 +58,6 @@
 		lsp-enable-file-watchers nil
 		lsp-highlight-symbol-at-point nil)
   )
-
-(use-package company-lsp
-	:after company
-	:ensure t
-	:config
-	(setq company-lsp-cache-candidates t))
 
 (use-package lsp-ui
 	:after lsp-mode
