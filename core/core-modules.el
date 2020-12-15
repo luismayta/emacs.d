@@ -14,6 +14,7 @@
      module-projects
      module-navigation
      module-writing
+     module-file
      module-completion
      ;; module-tags
      module-http
