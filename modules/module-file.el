@@ -1,4 +1,4 @@
-;;; module-file.el --- Golang config.
+;;; module-file.el --- files mode.
 ;;; code:
 
 (use-package vimrc-mode
