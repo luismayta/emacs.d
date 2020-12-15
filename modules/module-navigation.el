@@ -20,10 +20,10 @@
   :requires (evil-leader)
   :after projectile
   :init
+  (evil-leader/set-key "n"  'neotree-toggle)
   (setq neo-smart-open t)
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
-  (evil-leader/set-key "n"  'neotree-toggle)
-  (setq projectile-switch-project-action 'neotree-projectile-action)
+    (setq projectile-switch-project-action 'neotree-projectile-action)
   :config
   (evil-define-key 'normal neotree-mode-map (kbd "+") 'neotree-create-node)
   (evil-define-key 'normal neotree-mode-map (kbd "R") 'neotree-rename-node)
