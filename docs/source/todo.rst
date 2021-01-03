@@ -1,5 +1,0 @@
-
-Todo (docs)
-===========
-
-.. todolist::
