@@ -1,0 +1,24 @@
+site_name: Emacs Documentation
+theme: 'material'
+markdown_extensions:
+  - toc:
+      permalink: True
+  - admonition
+  - smarty
+  - wikilinks
+  - codehilite:
+      linenums: True
+extra:
+  palette:
+    primary: '#087da1'
+    accent: '#00a889'
+  font:
+    text: 'Source Sans Pro'
+
+repo_name: 'luismayta/emacs.d'
+repo_url: 'https://github.com/luismayta/emacs.d'
+copyright: 'Copyright © 2020 <a href="https://hadenlabs.com">hadenlabs</a>'
+
+google_analytics:
+  - ''
+  - 'auto'
