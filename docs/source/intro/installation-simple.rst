@@ -1,3 +1,0 @@
-
-Installation by Binary (Experimental)
--------------------------------------
