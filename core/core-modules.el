@@ -2,10 +2,10 @@
 
 (setq modules
   '(
+     module-core
      module-utils
      module-evil
      ;; module-tools
-     module-path
      module-editing
      module-ui
      module-fonts
