@@ -6,11 +6,6 @@
 (require 'core-functions)
 (require 'core-defaults)
 
-;; eliminate scroll bars and do other things
-(use-package better-defaults
-  :ensure t
-  )
-
 (use-package all-the-icons-dired
   :ensure t)
 
@@ -71,10 +66,6 @@
   (nyan-start-animation)
   )
 
-(use-package rainbow-mode
-  :commands rainbow-mode)
-
-
 (use-package hlinum
   :config
   (hlinum-activate))
@@ -112,7 +103,8 @@
       '(linum-relative-current-face
          ((t (:inherit linum :weight bold :reverse t))))))
 
-  :config (setq linum-relative-current-symbol ">>"))
+  :config (setq linum-relative-current-symbol ">>")
+  )
 
 (use-package dired-hacks-utils
   :ensure t)

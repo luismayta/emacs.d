@@ -106,11 +106,5 @@
        (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
                (thing-at-point 'line))))))
 
-(use-package systemd
-  :ensure t)
-
-(use-package visual-fill-column
-  :ensure t)
-
 (provide 'module-editing)
 ;;; module-editing.el ends here
