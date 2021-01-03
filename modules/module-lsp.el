@@ -47,16 +47,26 @@
           (java-mode . lsp-deferred)
           (js-mode . lsp-deferred)
           (web-mode . lsp-deferred)
+          (terraform-mode	. lsp-deferred)
           (html-mode . lsp-deferred))
-  :config
-  (setq lsp-enable-indentation nil
+  :custom
+  (
+   setq lsp-enable-indentation nil
     lsp-log-io nil
     lsp-prefer-flymake nil
     lsp-trace nil
 		lsp-inhibit-message t
 		lsp-eldoc-render-all t
 		lsp-enable-file-watchers nil
-		lsp-highlight-symbol-at-point nil)
+		lsp-highlight-symbol-at-point nil
+    )
+  :config
+  (lsp-register-client
+		(make-lsp-client	:new-connection (lsp-stdio-connection '("terraform-ls" "serve"))
+							:major-modes '(terraform-mode)
+							:server-id 'terraform-ls
+		)
+	)
   )
 
 (use-package lsp-ui

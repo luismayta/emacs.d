@@ -1,7 +1,5 @@
 ;;; module-general.el --- General coding-related config.
 ;;; code:
-(use-package ein)
-
 (use-package tramp
   :init
   (setq tramp-default-method "ssh")
@@ -31,10 +29,10 @@
 
 ;; highlight-numbers
 ;; Highlights magic numbers in programming modes.
-(use-package highlight-numbers
-  :commands highlight-numbers-mode
-  :init
-  (add-hook 'prog-mode-hook #'highlight-numbers-mode))
+; (use-package highlight-numbers
+;   :commands highlight-numbers-mode
+;   :init
+;   (add-hook 'prog-mode-hook #'highlight-numbers-mode))
 
 ;; flycheck
 (use-package flycheck
