@@ -2,9 +2,10 @@
 ;;; code:
 
 (use-package terraform-mode
-  :mode ("\\.inc\\'" . terraform-mode))
-
-(use-package hcl-mode)
+  :mode ("\\.inc\\'" . terraform-mode)
+	:hook
+    (terraform-mode . format-all-mode)
+)
 
 (provide 'module-hashicorp)
 ;;; module-hashicorp.el ends here
