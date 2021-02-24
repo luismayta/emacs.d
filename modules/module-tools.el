@@ -14,6 +14,20 @@
   (evil-leader/set-key "po" 'pomidor)
   )
 
+(use-package atomic-chrome
+  :ensure t
+  :init
+  (setq atomic-chrome-url-major-mode-alist
+    '(("github\\.com" . gfm-mode)
+       ("redmine" . textile-mode)
+       ("gmail" . markdown-mode)
+       )
+    )
+  (message "this hacker")
+  :config
+  (atomic-chrome-start-server)
+  )
+
 ;; password-store
 ;;(use-package pass
 ;;  :ensure t)
