@@ -6,11 +6,16 @@
 (require 'core-defuns)
 (require 'core-defaults)
 
+;; eliminate scroll bars and do other things
+(use-package better-defaults
+  :ensure t
+  )
+
 (use-package graphene
   :config
-  (setq graphene-default-font "Fira Code Retina-16")
-  (setq graphene-variable-pitch-font "Fira Code Retina-16")
-  (setq graphene-fixed-pitch-font "Fira Code Retina-16")
+  (setq graphene-default-font core/default-font)
+  (setq graphene-variable-pitch-font core/default-font)
+  (setq graphene-fixed-pitch-font core/default-font)
   )
 
 (use-package all-the-icons
@@ -18,6 +23,7 @@
 
 (use-package all-the-icons-dired
   :ensure t)
+
 
 (use-package zerodark-theme
   :config
@@ -33,11 +39,6 @@
 (use-package no-littering)
 (use-package use-package-chords)
 (use-package use-package-ensure-system-package)
-
-;; eliminate scroll bars and do other things
-(use-package better-defaults
-  :ensure t
-  )
 
 ;;==============mode-line===============
 
