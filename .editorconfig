@@ -17,7 +17,7 @@ trim_trailing_whitespace = true
 [*.{el}]
 insert_final_newline = false
 
-[*.{el,md,yml,yaml,js,json,toml,ts,tsx,graphql,go}]
+[*.{el,md,yml,yaml,js,json,toml,ts,tsx,hcl,tf,graphql,go}]
 indent_style = space
 indent_size = 2
 
@@ -36,7 +36,7 @@ insert_final_newline = ignore
 indent_style = tab
 
 # Indentation override for all JS under lib directory
-[*.{el,js,json,md,yml,yaml}]
+[*.{el,js,json,md,yml,yaml,tf}]
 indent_style = space
 indent_size = 2
 

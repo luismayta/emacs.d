@@ -47,9 +47,11 @@ module.exports = {
       },
     },
     {
-      files: '*.{gql,graphql}',
+      files: '*.less',
       options: {
-        parser: 'graphql',
+        tabWidth: 4,
+        printWidth: 80,
+        parser: 'less',
       },
     },
   ],
