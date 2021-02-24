@@ -11,23 +11,18 @@
     :ensure t
     :init
     (add-hook 'python-mode-hook 'python-docstring-mode))
-  ;; Install pyenv-mode-auto package
-  (use-package pyenv-mode-auto
-    :init
-    (pyenv-mode))
   )
 
-(use-package pip-requirements
-  :config
-  (add-hook 'pip-requirements-mode-hook #'pip-requirements-auto-complete-setup)
-  )
+;; Install pyenv-mode-auto package
+(use-package pyenv-mode)
+
+(use-package pyenv-mode-auto)
 
 (use-package elpy
   :ensure t
   :config
   (setq elpy-rpc-backend "jedi")
   (elpy-enable)
-  (elpy-use-ipython)
   (when (require 'flycheck nil t)
     (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
     (add-hook 'elpy-mode-hook 'flycheck-mode))

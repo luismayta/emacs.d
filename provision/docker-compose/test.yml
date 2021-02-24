@@ -1,0 +1,31 @@
+# Docker Compose
+# https://docs.docker.com/compose/
+
+version: '3'
+services:
+
+  # App service.
+  app:
+    image: emacs.d/dev/app:1.5.1
+    environment: &environment
+      - ENVIRONMENT=local
+    build:
+      context: .
+      dockerfile: provision/docker/app-test/Dockerfile
+    volumes:
+    - ./:/home/.emacs.d
+    env_file:
+      - .env
+
+  docs:
+    restart: always
+    image: emacs.d/dev/docs:1.5.1
+    build:
+      context: .
+      dockerfile: provision/docker/docs/Dockerfile
+    volumes:
+      - .:/usr/src
+    env_file:
+      - .env
+    depends_on:
+      - app
