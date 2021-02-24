@@ -1,57 +1,31 @@
-language: c
+---
+language: python
 
-os:
-  - linux
-  - osx
+python:
+  - 3.8
 
+sudo: false
+
+services:
+  - docker
+
+# Docker-compose setup
+# https://docs.travis-ci.com/user/docker/
 env:
-  matrix:
-    - EMACS=emacs24.5
-    - EMACS=emacs25.1
-
-sudo: true
-
-matrix:
-  allow_failures:
-    - env:
-        - EMACS=emacs-snapshot
+  global:
+    - DOCKER_COMPOSE_VERSION=1.25.0
 
 before_install:
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then
-    sudo apt-get update -qq &&
-    sudo apt-get install -y tree &&
-    sudo apt-get install -y wget &&
-    sudo apt-get install -y libxpm-dev &&
-    sudo apt-get install -y libjpeg-dev &&
-    sudo apt-get install -y libgif-dev &&
-    sudo apt-get install -y libtiff4-dev;
-    fi
-  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then
-    brew update &&
-    brew install tree;
-    fi
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  - cp -rf .env.example .env
 
+# install dependences
 install:
-  - if [ "$EMACS" = "emacs24.5" ]; then
-    wget http://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.gz &&
-    tar -xf emacs-24.5.tar.gz && cd emacs-24.5 &&
-    ./configure &&
-    make &&
-    sudo make install;
-    fi
-  - if [ "$EMACS" = "emacs25.1" ]; then
-    wget http://ftp.gnu.org/gnu/emacs/emacs-25.1.tar.gz &&
-    tar -xf emacs-25.1.tar.gz && cd emacs-25.1 &&
-    ./configure &&
-    make &&
-    sudo make install;
-    fi
+  - make setup
 
-script: make test
-
-notifications:
-  email: false
-# Local Variables:
-# indent-tabs-mode: nil
-# coding: utf-8
-# End:
+# execute test
+script:
+  - make test.lint
