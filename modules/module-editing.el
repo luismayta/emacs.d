@@ -30,6 +30,8 @@
           ("C-c D" . crux-delete-buffer-and-file)
           ("<f2>" . crux-visit-term-buffer)
           ("s-j" . crux-top-join-line))
+  :init
+  (evil-leader/set-key "fx" 'crux-recentf-ido-find-file)
   :config (recentf-mode t))
 
 ;; Use conf-mode where appropriate.
