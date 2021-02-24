@@ -20,12 +20,12 @@
   :hook (go-mode . yas-minor-mode))
 
 ;; if you are helm user
-(use-package helm-lsp :commands helm-lsp-workspace-symbol)
+; (use-package helm-lsp :commands helm-lsp-workspace-symbol)
 
 ;; if you are ivy user
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 
-(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+; (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
 ;; optionally if you want to use debugger
 (use-package dap-mode)
@@ -62,11 +62,11 @@
     )
   :config
   (lsp-register-client
-		(make-lsp-client	:new-connection (lsp-stdio-connection '("terraform-ls" "serve"))
-							:major-modes '(terraform-mode)
-							:server-id 'terraform-ls
-		)
-	)
+   (make-lsp-client :new-connection (lsp-stdio-connection '("terraform-ls" "serve"))
+                  :major-modes '(terraform-mode)
+                  :server-id 'terraform-ls)
+   )
+  (add-hook 'terraform-mode-hook #'lsp)
   )
 
 (use-package lsp-ui
