@@ -3,9 +3,10 @@
 
 (use-package terraform-mode
   :mode ("\\.inc\\'" . terraform-mode)
-	:hook
-    (terraform-mode . format-all-mode)
 )
+
+(use-package hcl-mode
+  :mode ("\\.sentinel\\'" . hcl-mode))
 
 (provide 'module-hashicorp)
 ;;; module-hashicorp.el ends here
