@@ -6,12 +6,6 @@
 
 (use-package ein)
 
-(use-package tramp
-  :init
-  (setq tramp-default-method "ssh")
-  :config
-  (with-eval-after-load 'tramp '(setenv "SHELL" "/bin/bash")))
-
 (use-package editorconfig
   :commands editorconfig-mode
   :init (add-hook 'prog-mode-hook #'editorconfig-mode)
@@ -66,11 +60,6 @@
   :mode
   ((("\\.yml$" . yaml-mode)
      ("\\.yaml$" . yaml-mode))))
-
-;; toml
-(use-package toml-mode
-  :mode
-  (("\\.toml$" . toml-mode)))
 
 ;; toml
 (use-package toml-mode
