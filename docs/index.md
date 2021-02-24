@@ -1,1 +1,1 @@
-# Welcome to Infrastructure documentation
+# Welcome to emacs.d documentation
