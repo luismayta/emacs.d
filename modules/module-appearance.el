@@ -191,6 +191,7 @@
   )
 
 (add-hook 'emacs-startup-hook #'setup-windows-hook)
+(evil-leader/set-key "fa" 'origami-toggle-all-nodes)
 
 (provide 'module-appearance)
 ;;; module-appearance.el ends here
