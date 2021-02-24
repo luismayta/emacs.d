@@ -8,7 +8,7 @@
   (add-hook 'before-save-hook 'gofmt-before-save)
   :commands
   (go-mode)
-  :pin melpa-stable)
+  :pin melpa)
 
 (use-package flycheck
   :ensure t
@@ -18,12 +18,28 @@
 
 (use-package golint)
 
+(use-package auto-complete
+  :ensure t
+  :pin melpa)
+
+(use-package go-autocomplete
+  :ensure t
+  :pin melpa)
+
 (use-package flycheck-gometalinter
   :ensure t
   :config
   (flycheck-gometalinter-setup)
   (setq flycheck-gometalinter-fast t)
   (setq flycheck-gometalinter-disable-linters '("gotype")))
+
+;; company-go
+(use-package company-go
+  :ensure t
+  :defer t
+  :init
+  (with-eval-after-load 'company
+    (add-to-list 'company-backends 'company-go)))
 
 ;; go-add-tags
 (use-package go-add-tags
@@ -37,14 +53,6 @@
   :ensure t
   :config
   (add-hook 'go-mode-hook 'go-eldoc-setup))
-
-(use-package speedbar
-  :config
-  (speedbar-add-supported-extension ".go"))
-
-(use-package go-complete
-  :init
-  (add-hook 'completion-at-point-functions 'go-complete-at-point))
 
 (provide 'module-coding-go)
 ;;; module-coding-go.el ends here
