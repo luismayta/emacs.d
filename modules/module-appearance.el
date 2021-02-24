@@ -11,10 +11,6 @@
   :ensure t
   )
 
-(use-package beacon
-  :init
-  (beacon-mode 1)
-  )
 
 (use-package graphene
   :ensure t
@@ -22,9 +18,7 @@
   (setq graphene-default-font core/default-font)
   (setq graphene-variable-pitch-font core/default-font)
   (setq graphene-fixed-pitch-font core/default-font)
-  (setq powerline-height 20)
   (setq ido-use-url-at-point nil)
-  (setq ido- 20)
   (linum-mode -1)
   )
 
@@ -73,24 +67,6 @@
 ;;          ("wdired"      "↯δ")))
 ;;     (cyphejor-mode t)))
 
-(use-package graphene
-  :config
-  (setq graphene-default-font "Fira Code Retina-16")
-  (setq graphene-variable-pitch-font "Fira Code Retina-16")
-  (setq graphene-fixed-pitch-font "Fira Code Retina-16")
-  )
-
-(use-package pretty-mode
-  :ensure t
-  :config
-  (global-pretty-mode t)
-  (global-prettify-symbols-mode t)
-  (pretty-deactivate-groups
-    '(:logic :sets))
-  (pretty-activate-groups
-    '(:equality :ordering :ordering-double :ordering-triple
-       :arrows :arrows-twoheaded :punctuation
-       :sub-and-superscripts :greek :arithmetic-nary)))
 
 (use-package nyan-mode
   :init
