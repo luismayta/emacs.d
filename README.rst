@@ -1,6 +1,6 @@
-|wercker| |build_status| |code_climate| |github_tag| |test_coverage| |license| |say_thanks|
+|wercker| |build_status| |code_climate| |github_tag| |test_coverage| |license|
 
-:Version: 1.5.0
+:Version: 1.2.4
 :Web: https://github.com/luismayta/emacs.d
 :Download: http://github.com/luismayta/emacs.d
 :Source: http://github.com/luismayta/emacs.d
@@ -65,11 +65,11 @@ Once Emacs is finished installing packages, you can close the
 mode, so you should use vi key bindings. Get back to Emacs regular mode
 with C-\\.
 
-Versioning
-==========
 
-All Emacs.d versions bellow 1.1.3 are not using semantic versioning.
-After 1.1.3, there is a strict semantic versioning (v3) versioning policy in use.
+Help/Support
+************
+
+|Gitter|
 
 Content
 *******
@@ -140,6 +140,7 @@ stuff built-in anyway.
 
    -  config editor
 
+-  `Google-translate <https://github.com/atykhonov/google-translate>`__
 -  `feature-mode <https://github.com/michaelklishin/cucumber.el>`__
 -  `gist-mode <https://github.com/defunkt/gist.el>`__
 
@@ -173,19 +174,19 @@ navigate to them quickly.
 | fm        | fixmee-view-listing   | show words fixmee   |
 +-----------+-----------------------+---------------------+
 
-Counsel-gtags
-=============
+Helm-gtags
+==========
 
-`counsel-gtags <https://github.com/syohex/emacs-counsel-gtags>`__
-counsel-gtags-mode
+`Helm-gtags <https://github.com/syohex/emacs-helm-gtags>`__
+helm-gtags-mode
 
-+-----------+-----------------------------+---------------+
-| Binding   | Call                        | Do            |
-+===========+=============================+===============+
-| tc        | counsel-gtags-create-tags   | create tags   |
-+-----------+-----------------------------+---------------+
-| tt        | counsel-gtags-find-tag      | find tag      |
-+-----------+-----------------------------+---------------+
++-----------+--------------------------+---------------+
+| Binding   | Call                     | Do            |
++===========+==========================+===============+
+| tc        | helm-gtags-create-tags   | create tags   |
++-----------+--------------------------+---------------+
+| tt        | helm-gtags-find-tag      | find tag      |
++-----------+--------------------------+---------------+
 
 Install
 -------
@@ -193,8 +194,12 @@ Install
 .. code-block:: bash
 
     brew update
-    brew install --HEAD ctags
-    brew install global --with-ctags
+    brew install ctags
+    brew install global --with-exuberant-ctags --with-pygments
+
+.. code-block:: bash
+
+    gtags --gtagslabel=ctags
 
 
 `Plant-Uml <http://plantuml.com/>`__
@@ -272,9 +277,7 @@ Test
 
 .. code-block:: bash
 
-   $ make setup
-   $ make docker.build env=test
-   $ make test.lint
+   $ make test
 
 Actions
 =======
@@ -283,36 +286,24 @@ Other commands for developing are written in Makefile:
 
 .. code-block:: bash
 
-    λ make
-    ༼ つ ◕_◕ ༽つ Commands
+      λ make
+        ༼ つ ◕_◕ ༽つ Commands
+        install              Make install packages
+        clean                Make clean files compilate
+        documentation        Make Documentation
+        environment          Make create environment
+        fix-git              Fix commit user
+        list                 List of current active services by env
+        lint                 Clean files unnecesary
+        test                 make test
+        up                   Up application by env
+        restart              Reload services
+        ssh                  Connect to container
+        stop                 stop containers docker by env
+        setup                Install dependences initial
+        verify_network       Verify network
+        help                 Show help text
 
-    Usage:
-        environment               create environment with pyenv
-        install                   install dependences python by env
-        clean                     remove files of build
-        setup                     install requirements
-
-        Docker:
-
-            docker.build         build all services with docker-compose
-            docker.down          down services docker-compose
-            docker.ssh           connect by ssh to container
-            docker.stop          stop services by env
-            docker.verify_network           verify network
-            docker.up             up services of docker-compose
-            docker.run            run {service} {env}
-            docker.list           list services of docker
-
-        Docs:
-
-            docs.show                  Show restview README
-            docs.make.html             Make documentation html
-            docs.make.pdf              Make documentation pdf
-
-        Tests:
-
-            test.lint                  Run all pre-commit
-            test.syntax                Run all syntax in code
 
 Credits
 =======
@@ -333,9 +324,13 @@ Made with :heart: :coffee:️and :pizza: by `luismayta`_.
   :target: https://travis-ci.org/luismayta/emacs.d
   :alt: Build Status Tag
 
-.. |wercker| image:: https://app.wercker.com/status/5197d88761e239221d963a73394f082a/s/
-  :target: https://app.wercker.com/project/byKey/5197d88761e239221d963a73394f082a
+.. |wercker| image:: https://app.wercker.com/status/c0c2ac92f9f63cc9b21db828f1c8e695/s/ "wercker status"
+  :target: https://app.wercker.com/project/byKey/c0c2ac92f9f63cc9b21db828f1c8e695
   :alt: Wercker status
+
+.. |gitpitch| image:: https://gitpitch.com/assets/badge.svg
+  :target: https://gitpitch.com/luismayta/emacs.d?grs=github&t=white
+  :alt: GitPitch
 
 .. |license| image:: https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square
   :target: LICENSE
@@ -345,20 +340,13 @@ Made with :heart: :coffee:️and :pizza: by `luismayta`_.
   :target: https://codeclimate.com/github/luismayta/emacs.d/coverage
   :alt: Test Coverage
 
-.. |say_thanks| image:: https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg?style=flat-square
-  :target: https://saythanks.io/to/luismayta
-  :alt: Say Thanks
-
 .. Links
 
-.. _`all contributors`: AUTHORS
 .. _`changelog`: CHANGELOG.rst
 .. _`contributors`: AUTHORS
 .. _`contributing`: CONTRIBUTING.rst
 .. _`luismayta`: https://github.com/luismayta
 .. _`python`: https://www.python.org
-.. _`docker`: https://www.docker.io
-.. _`docker compose`: https://docs.docker.com/compose
 .. _`semantic versioning`: http://semver.org
 .. _`Git`: http://git-scm.com/
 .. _`editorconfig`: http://editorconfig.org
