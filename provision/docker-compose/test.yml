@@ -3,7 +3,7 @@
 #
 # Usage: test up
 
-version: "3"
+version: "3.6"
 services:
   app:
     image: emacs.d-app-test
