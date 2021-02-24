@@ -8,6 +8,9 @@
 -/vendor
 -/auto-save-list
 -*.cache
+-*.pyc
+-.wercker/*
+-.sass-cache/*
 -/docs/build
 -GPATH
 -GRTAGS
