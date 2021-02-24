@@ -1,4 +1,4 @@
-site_name: Emacs Documentation
+site_name: emacs.d Documentation
 theme: 'material'
 markdown_extensions:
   - toc:
@@ -17,7 +17,7 @@ extra:
 
 repo_name: 'luismayta/emacs.d'
 repo_url: 'https://github.com/luismayta/emacs.d'
-copyright: 'Copyright © 2020 <a href="https://hadenlabs.com">hadenlabs</a>'
+copyright: 'Copyright © 2021 <a href="https://hadenlabs.com">hadenlabs</a>'
 
 google_analytics:
   - ''

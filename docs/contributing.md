@@ -1,6 +1,6 @@
 # How To Contribute
 
-Contributions to Infrastructure are welcome.
+Contributions to emacs.d are welcome.
 
 ## Getting Started
 
@@ -46,21 +46,17 @@ Use [slash convention]() with the same leaders as `commits` e.g.:
 
 ### Code Improvement
 
-1.  See if an [Issue](https://endustria.atlassian.net/projects/IN/issues) exists
-    - Comment with any added information to help the discussion
-2.  Create an [Issue](https://endustria.atlassian.net/projects/IN/issues) if needed
-
 ### Code Submission
 
-1.  See if a [Pull Request](https://github.com/hadenlabs/infrastructure/pull-requests/) exists
+1.  See if a [Pull Request](https://github.com/luismayta/emacs.d/pull-requests/) exists
     - Add some comments or review the code to help it along
     - Don\'t be afraid to comment when logic needs clarification
-2.  Create a Fork and open a [Pull Request](https://github.com/hadenlabs/infrastructure/pull-requests/) if needed
+2.  Create a Fork and open a [Pull Request](https://github.com/luismayta/emacs.d/pull-requests/) if needed
 
 ### Code Review
 
 - Anyone can review code
-- Any [Pull Request](https://github.com/hadenlabs/infrastructure/pull-requests/) should be closed or merged within a week
+- Any [Pull Request](https://github.com/luismayta/emacs.d/pull-requests/) should be closed or merged within a week
 
 ### Code Acceptance
 
