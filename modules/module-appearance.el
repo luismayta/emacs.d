@@ -11,11 +11,21 @@
   :ensure t
   )
 
+(use-package beacon
+  :init
+  (beacon-mode 1)
+  )
+
 (use-package graphene
-  :config
+  :ensure t
+  :init
   (setq graphene-default-font core/default-font)
   (setq graphene-variable-pitch-font core/default-font)
   (setq graphene-fixed-pitch-font core/default-font)
+  (setq powerline-height 20)
+  (setq ido-use-url-at-point nil)
+  (setq ido- 20)
+  (linum-mode -1)
   )
 
 (use-package all-the-icons
@@ -36,9 +46,6 @@
   (blink-cursor-mode 0)
   )
 
-(use-package no-littering)
-(use-package use-package-chords)
-(use-package use-package-ensure-system-package)
 
 ;;==============mode-line===============
 
@@ -87,7 +94,9 @@
 
 (use-package nyan-mode
   :init
-  (nyan-mode))
+  (nyan-mode)
+  (nyan-start-animation)
+  )
 
 (use-package rainbow-mode
   :commands rainbow-mode)

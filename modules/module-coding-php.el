@@ -7,8 +7,9 @@
            ("\\.inc" . php-mode))
   :commands php-mode
   :ensure php-mode
-  :config
-  (add-hook 'php-mode-hook #'ggtags-mode))
+  )
+;; :config
+;; (add-hook 'php-mode-hook #'ggtags-mode))
 
 ;; company-php
 (use-package company-php)
