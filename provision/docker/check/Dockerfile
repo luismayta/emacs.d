@@ -14,7 +14,7 @@ RUN apt-get update -y \
   git-core \
   shellcheck \
   # install python dependencies
-  && pip3 install pipenv \
+  && pip3 install --no-cache-dir pipenv \
   && pipenv install --dev --skip-lock \
   && pipenv shell --fancy \
   && apt-get purge \
