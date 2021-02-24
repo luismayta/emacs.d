@@ -6,7 +6,6 @@
   :ensure nil
   :config (setq uniquify-buffer-name-style 'forward))
 
-(use-package flx-ido)
 
 ;; ido
 (use-package ido
@@ -19,7 +18,10 @@
     (setq ido-vertical-define-keys 'C-n-and-C-p-only))
   (add-to-list 'ido-ignore-files "\\.DS_Store")
   (setq ido-enable-flex-matching t
+    ido-ignore-buffers  '("\\` "  "^\*Back" ".*Completions\*" "^\*Ido" "^\*trace"
+                           "^\*compilation" "^\*GTAGS" "^session\.*")
     ido-enable-prefix nil
+    ido-use-url-at-point nil
     ido-max-prospects 10
     ido-use-faces nil
     flx-ido-use-faces t)
@@ -40,10 +42,6 @@
 (use-package simple
   :ensure nil
   :diminish visual-line-mode)
-
-(use-package abbrev
-  :ensure nil
-  :diminish abbrev-mode)
 
 ;; get rid of the mouse.
 (use-package avoid

@@ -12,7 +12,6 @@
 
 (use-package ansible
   :ensure t
-  :defer t
   :mode
   (("ansible/group_vars/.*" . yaml-mode)
     ("ansible/host_vars/.*"  . yaml-mode))
