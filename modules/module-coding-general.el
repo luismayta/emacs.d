@@ -70,14 +70,20 @@
   (("\\.toml$" . toml-mode)))
 
 ;; wakatime for developer
-(use-package wakatime-mode
-  :config
-  (setq wakatime-api-key (getenv "WAKATIME_API_KEY"))
-  (setq wakatime-cli-path (getenv "WAKATIME_CLI_PATH"))
-  (setq wakatime-python-bin (getenv "WAKATIME_PYTHON_BIN"))
-  :init
-  (setq inhibit-startup-screen t)
-  (global-wakatime-mode t))
+;; (use-package wakatime-mode
+;;   :config
+;;   ;; (custom-set-variables
+;;   ;;   '(wakatime-api-key (getenv "WAKATIME_API_KEY"))
+;;   ;;   '(wakatime-cli-path (getenv "WAKATIME_CLI_PATH"))
+;;   ;;   '(wakatime-python-bin (getenv "WAKATIME_PYTHON_BIN"))
+;;   ;;   )
+;;   (setq wakatime-api-key (getenv "WAKATIME_API_KEY"))
+;;   (setq wakatime-cli-path (getenv "WAKATIME_CLI_PATH"))
+;;   (setq wakatime-api-bin (getenv "WAKATIME_PYTHON_BIN"))
+;;   :init
+;;   ;; (setq inhibit-startup-screen t)
+;;   (global-wakatime-mode t)
+;;   :pin melpa)
 
 (use-package plantuml-mode
   :mode

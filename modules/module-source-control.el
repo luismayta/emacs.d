@@ -48,7 +48,7 @@ git or hg repository is found in the buffer-local working dir."
   :init
   (evil-leader/set-key "gs" 'magit-status)
   (evil-leader/set-key "gc" 'magit-commit)
-  (evil-leader/set-key "gd" 'magit-diff)
+  ;; (evil-leader/set-key "gd" 'magit-diff)
   )
 
 (use-package magit-gh-pulls
