@@ -24,6 +24,7 @@
   (evil-leader/set-key "fe" 'find-file)
   (evil-leader/set-key "ff" 'counsel-projectile-ag)
   (evil-leader/set-key "fp" 'counsel-projectile-find-file)
+  (evil-leader/set-key "fsp" 'counsel-projectile-switch-project)
   )
 
 (provide 'module-projects)
