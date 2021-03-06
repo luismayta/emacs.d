@@ -28,6 +28,8 @@ PROJECT_PORT := 3000
 PYTHON_VERSION=3.8.0
 NODE_VERSION=14.15.5
 PYENV_NAME="${PROJECT}"
+GIT_IGNORES:=python,node,go,emacs
+GI:=gi
 
 # Configuration.
 SHELL ?=/bin/bash
@@ -38,7 +40,7 @@ SOURCE_DIR=$(ROOT_DIR)
 SCRIPT_DIR=$(ROOT_DIR)/provision/scripts
 PROVISION_DIR:=$(ROOT_DIR)/provision
 DOCS_DIR:=$(ROOT_DIR)/docs
-README_TEMPLATE:=$(PROVISION_DIR)/templates/README.md.gotmpl
+README_TEMPLATE:=$(PROVISION_DIR)/templates/README.md.tmpl
 
 export README_FILE ?= README.md
 export README_YAML ?= provision/generators/README.yaml
@@ -74,6 +76,7 @@ help:
 	@make docker.help
 	@make docs.help
 	@make test.help
+	@make git.help
 	@make utils.help
 	@make python.help
 	@make yarn.help
@@ -90,26 +93,10 @@ setup:
 	@cp -rf provision/git/hooks/prepare-commit-msg .git/hooks/
 	@[ -e ".env" ] || cp -rf .env.example .env
 	make yarn.setup
+	make git.setup
 	@echo ${MESSAGE_HAPPY}
 
 environment:
 	@echo "=====> loading virtualenv ${PYENV_NAME}..."
 	make python.environment
 	@echo ${MESSAGE_HAPPY}
-
-.PHONY: clean
-clean:
-	@rm -f ./dist.zip
-	@rm -fr ./vendor
-
-# Show to-do items per file.
-todo:
-	@grep \
-		--exclude-dir=vendor \
-		--exclude-dir=node_modules \
-		--exclude-dir=bin \
-		--exclude=Makefile \
-		--text \
-		--color \
-		-nRo -E ' TODO:.*|SkipNow|FIXMEE:.*' .
-.PHONY: todo
