@@ -67,8 +67,3 @@ usage: |-
   ```bash
   make setup
   ```
-
-# Contributors to this project
-contributors:
-  - name: 'Luis Mayta'
-    github: 'luismayta'
