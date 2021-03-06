@@ -56,5 +56,6 @@
 		(company-mode . company-box-mode)
 )
 
+
 (provide 'module-completion)
 ;;; module-completion.el ends here
