@@ -14,7 +14,7 @@
 
 # emacs.d
 
-[![Build Status](https://travis-ci.org/luismayta/emacs.d.svg?branch=main)](https://travis-ci.org/luismayta/emacs.d) [![Issues](https://img.shields.io/github/issues/luismayta/emacs.d.svg)](https://github.com/luismayta/emacs.d/issues) [![Latest Release](https://img.shields.io/github/release/luismayta/emacs.d.svg)](https://travis-ci.org/luismayta/emacs.d/releases)
+[![Lint](https://github.com/luismayta/emacs.d/actions/workflows/lint.yml/badge.svg?branch=develop)](https://github.com/luismayta/emacs.d/actions) [![Issues](https://img.shields.io/github/issues/luismayta/emacs.d.svg)](https://github.com/luismayta/emacs.d/issues) [![Latest Release](https://img.shields.io/github/release/luismayta/emacs.d.svg)](https://travis-ci.org/luismayta/emacs.d/releases)
 
 emacs.d is installed by running one of the following commands in your terminal. You can install this via the command-line with either `curl` or `wget`.
 
@@ -105,11 +105,3 @@ All other trademarks referenced herein are the property of their respective owne
 ## About
 
 This project is maintained and funded by [Hadenlabs][https://hadenlabs.com]. Like it? Please let us know at <support@hadenlabs.com>
-
-### Contributors
-
-| [![Luis Mayta][luismayta_avatar]][luismayta_homepage]<br/>[Luis Mayta][luismayta_homepage] |
-| ------------------------------------------------------------------------------------------ |
-
-[luismayta_homepage]: https://github.com/luismayta
-[luismayta_avatar]: https://github.com/luismayta.png?size=150
