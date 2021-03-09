@@ -7,6 +7,8 @@
 (require 'core-defaults)
 
 (use-package all-the-icons-dired
+  :quelpa (all-the-icons-dired :fetcher github
+		   :repo "jtbm37/all-the-icons-dired")
   :ensure t)
 
 (use-package all-the-icons
@@ -76,13 +78,10 @@
          ((t (:inherit linum :weight bold :reverse t))))))
 
   :config
-    (setq
-      linum-relative-current-symbol ">>"
+  (setq
+    linum-relative-current-symbol ">>"
     )
   )
-
-(use-package dired-hacks-utils
-  :ensure t)
 
 (def setup-windows-hook
   (run-with-idle-timer 0.1 nil (lambda nil (toggle-frame-maximized)))
@@ -97,6 +96,8 @@
 (add-hook 'emacs-startup-hook #'setup-windows-hook)
 
 (use-package fira-code-mode
+  :quelpa (fira-code-mode :fetcher github
+		   :repo "jming422/fira-code-mode")
   ;; Requires installing Fira Code Symbol font first
   :custom (fira-code-mode-disabled-ligatures '("www" "[]" "#{" "#(" "#_" "#_(" "x"))
   :hook prog-mode)
