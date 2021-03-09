@@ -8,9 +8,8 @@
      module-general
      ;; module-tools
      module-editing
-     module-ui
      module-fonts
-     module-appearance
+     module-ui
      module-searching
      module-projects
      module-navigation
