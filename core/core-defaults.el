@@ -8,6 +8,7 @@
 ;; Ignore customisation by putting it in the cache dir.
 (setq custom-file (core-cache-for "custom.el"))
 (setq debug-on-error t)
+(setq inhibit-compacting-font-caches t)
 
 ;; Fix mac-port defaults.
 (when (equal system-type 'darwin)
