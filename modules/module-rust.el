@@ -21,14 +21,16 @@
     ))
 
 (use-package company-racer
+  :quelpa (company-racer :fetcher github
+		   :repo "emacsattic/company-racer")
   :requires company
   :bind ("M-TAB" . company-complete)
   :config
   (setq company-tooltip-align-annotations t))
 
-;(use-package flycheck-rust
-;  :hook ((rust-mode . flycheck-mode)
-;	        (flycheck-mode . flycheck-rust-setup)))
+(use-package flycheck-rust
+  :hook ((rust-mode . flycheck-mode)
+	        (flycheck-mode . flycheck-rust-setup)))
 
 (use-package cargo
   :hook ((rust-mode . cargo-minor-mode)))
