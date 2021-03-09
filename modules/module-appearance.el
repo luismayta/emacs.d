@@ -11,71 +11,43 @@
 
 (use-package all-the-icons
   :ensure t
-  :if (display-graphic-p))
+  :if (display-graphic-p)
+  :config
+  (setq
+    all-the-icons-color-icons nil
+    )
+  )
 
 (use-package doom-modeline
   :ensure t
   :defer t
   :init (doom-modeline-init)
-  (setq doom-modeline-height 20 doom-modeline-bar-width 3 doom-modeline-icon nil
+  :config
+  (setq
+    doom-modeline-project-detection 'project
+    doom-modeline-project-detection 'ffip
     doom-modeline-enable-word-count 10
-    ;; doom-modeline-icon (display-graphic-p)
+    doom-modeline-icon (display-graphic-p)
     doom-modeline-continuous-word-count-modes '(markdown-mode gfm-mode org-mode)
-    doom-modeline-buffer-file-name-style 'relative-to-project doom-modeline-modal-icon nil)
+    doom-modeline-buffer-file-name-style 'relative-to-project doom-modeline-modal-icon nil
+    )
   :hook (after-init . doom-modeline-mode)
-  :config)
+  )
 
 (use-package doom-themes
-  ;; :when (display-graphic-p)
   :ensure t
-  ;; :init (load-theme 'doom-Iosvkem t)
   :init (load-theme 'doom-one t)
   :config (set-face-attribute 'fringe nil
             :foreground "#fc5c59"
             :background (face-background 'default)))
-
-;;==============mode-line===============
-
-(use-package cyphejor
-  :init
-  (progn
-    (setq
-      cyphejor-rules
-      '(:upcase
-         ("bookmark"    "→")
-         ("buffer"      "β")
-         ("diff"        "Δ")
-         ("dired"       "δ")
-         ("emacs"       "ε")
-         ("inferior"    "i" :prefix)
-         ("interaction" "i" :prefix)
-         ("interactive" "i" :prefix)
-         ("lisp"        "λ" :postfix)
-         ("menu"        "▤" :postfix)
-         ("mode"        "")
-         ("package"     "↓")
-         ("python"      "π")
-         ("shell"       "sh" :postfix)
-         ("text"        "ξ")
-         ("wdired"      "↯δ")))
-    ))
-
-(use-package nyan-mode
-  :init
-  (nyan-mode)
-  (nyan-start-animation)
-  )
-
-(use-package hlinum
-  :config
-  (hlinum-activate))
 
 (use-package linum
   :config
   (setq linum-format " %4d ")
   (global-linum-mode nil)
   :init
-  (add-hook 'prog-mode-hook #'linum-mode))
+  :hook (prog-mode . linum-mode)
+  )
 
 (use-package linum-relative
   :init
@@ -103,7 +75,10 @@
       '(linum-relative-current-face
          ((t (:inherit linum :weight bold :reverse t))))))
 
-  :config (setq linum-relative-current-symbol ">>")
+  :config
+    (setq
+      linum-relative-current-symbol ">>"
+    )
   )
 
 (use-package dired-hacks-utils
