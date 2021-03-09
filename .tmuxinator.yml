@@ -1,5 +1,5 @@
 # ~/.tmuxinator/emacs.d.yml
-name: emacs.d
+name: emacsd
 root: ./
 # Optional tmux socket
 # socket_name: foo
