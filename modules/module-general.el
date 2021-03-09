@@ -52,8 +52,6 @@
           (web-mode . emmet-mode)))
 
 (use-package wakatime-mode
-  :quelpa (wakatime-mode :fetcher github
-		   :repo "wakatime/wakatime-mode")
   :ensure t
   :defer t
   :diminish wakatime-mode
