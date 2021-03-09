@@ -14,15 +14,13 @@
 
 # emacs.d
 
-[![Lint](https://github.com/luismayta/emacs.d/actions/workflows/lint.yml/badge.svg?branch=develop)](https://github.com/luismayta/emacs.d/actions) [![Issues](https://img.shields.io/github/issues/luismayta/emacs.d.svg)](https://github.com/luismayta/emacs.d/issues) [![Latest Release](https://img.shields.io/github/release/luismayta/emacs.d.svg)](https://travis-ci.org/luismayta/emacs.d/releases)
+[![Lint](https://github.com/luismayta/emacs.d/actions/workflows/lint.yml/badge.svg?branch=develop)](https://github.com/luismayta/emacs.d/actions) [![License](https://img.shields.io/github/license/luismayta/emacs.d.svg)](https://github.com/luismayta/emacs.d) [![Issues](https://img.shields.io/github/issues/luismayta/emacs.d.svg)](https://github.com/hadenlabs/dockerfiles/readme) [![Latest Release](https://img.shields.io/github/release/luismayta/emacs.d.svg)](https://github.com/luismayta/emacs.d/releases)
 
 emacs.d is installed by running one of the following commands in your terminal. You can install this via the command-line with either `curl` or `wget`.
 
-This project is part of our comprehensive [hadenlabs](https://hadenlabs.com).
-
 ## :page_facing_up: License
 
-MIT is an open-sourced software licensed under the [MIT license](LICENSE.md).
+emacs.d is an open-sourced software licensed under the [MIT license](LICENSE.md).
 
 ## Requirements
 
@@ -50,6 +48,10 @@ This is a list of applications that need to be installed previously to enjoy all
 make setup
 ```
 
+## :page_facing_up: Examples
+
+### common
+
 ## Help
 
 **Got a question?**
@@ -63,8 +65,6 @@ File a GitHub [issue](https://github.com/luismayta/emacs.d/issues), send us an [
 Please use the [issue tracker](https://github.com/luismayta/emacs.d/issues) to report any bugs or file feature requests.
 
 ### Developing
-
-If you are interested in being a contributor and want to get involved in developing this project or [help out](https://hadenlabs.com) with our other projects, we would love to hear from you! Shoot us an [email](mailto:support@hadenlabs.com).
 
 In general, PRs are welcome. We follow the typical "fork-and-pull" Git workflow.
 
@@ -88,6 +88,6 @@ Copyright © 2018-2021 [Hadenlabs](https://hadenlabs.com)
 
 All other trademarks referenced herein are the property of their respective owners.
 
-## About
+## Don't forget to 🌟 Star 🌟 the repo if you like emacs.d
 
-This project is maintained and funded by [Hadenlabs](https://hadenlabs.com). Like it? Please let us know at <support@hadenlabs.com>
+[Your feedback is appreciated](https://github.com/luismayta/emacs.d/issues)
