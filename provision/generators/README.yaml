@@ -67,3 +67,6 @@ usage: |-
   ```bash
   make setup
   ```
+
+examples:
+  - 'docs/examples/common.md'
