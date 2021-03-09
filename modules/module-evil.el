@@ -57,8 +57,6 @@
   :after evil
   :ensure t
   :diminish ""
-  :init
-  (evil-leader/set-key "c" 'evil-commentary-line)
   :config
   (evil-commentary-mode))
 
