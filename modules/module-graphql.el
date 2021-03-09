@@ -2,6 +2,8 @@
 ;;; code:
 
 (use-package graphql-mode
+  :quelpa (graphql-mode :fetcher github
+		   :repo "davazp/graphql-mode")
   :mode (
           ("\\.graphql$" . graphql-mode)
           ("\\.graphqls$" . graphql-mode)
