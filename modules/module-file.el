@@ -2,6 +2,8 @@
 ;;; code:
 
 (use-package vimrc-mode
+  :quelpa (vimrc-mode :fetcher github
+		   :repo "mcandre/vimrc-mode")
   :mode (("\\.vim\\(rc\\)?\\'" . vimrc-mode)
           ("\\vimrc\\'" . vimrc-mode)))
 

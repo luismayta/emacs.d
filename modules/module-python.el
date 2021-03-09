@@ -18,12 +18,16 @@
   (pyenv-mode))
 
 (use-package pyenv-mode-auto
+  :quelpa (pyenv-mode-auto :fetcher github
+		   :repo "ssbb/pyenv-mode-auto")
   :config
   (add-hook 'pyenv-mode-auto-hook
     (lambda () (shell-command "pip install mypy autopep8 flake8 elpy jedi rope isort epc importmagic yapf pylint")))
   )
 
 (use-package pipenv
+  :quelpa (pipenv :fetcher github
+		   :repo "pwalsh/pipenv.el")
   :hook (python-mode . pipenv-mode)
   :init
   (setq
@@ -38,9 +42,11 @@
 (use-package pyimport
   :ensure t
   )
-(use-package flycheck-mypy)
 
-(use-package flycheck-pyflakes)
+(use-package flycheck-mypy
+  :quelpa (flycheck-mypy :fetcher github
+		   :repo "lbolla/emacs-flycheck-mypy")
+             )
 
 (use-package flycheck
   :init

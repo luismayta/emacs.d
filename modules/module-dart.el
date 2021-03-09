@@ -15,8 +15,9 @@
   (setq dart-sdk-path (getenv "FLUTTER_DART_SDK"))
   )
 
-(use-package
-  flutter
+(use-package flutter
+  :quelpa (flutter :fetcher github
+		   :repo "amake/flutter.el")
   :ensure t
   :after dart-mode
   :bind (:map dart-mode-map

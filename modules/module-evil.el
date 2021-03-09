@@ -39,6 +39,8 @@
 
 (use-package evil-ex-fasd
   :after evil
+  :quelpa (evil-ex-fasd :fetcher github
+		   :repo "yqrashawn/evil-ex-fasd")
   :config
   ;; :[w]q should kill the current buffer rather than quitting emacs entirely
   (evil-ex-define-cmd "[w]q" 'kill-this-buffer)
@@ -95,6 +97,8 @@
 
 (use-package evil-easymotion
   :after evil
+  :quelpa (evil-easymotion :fetcher github
+		   :repo "PythonNut/evil-easymotion")
   :ensure t
   :config
   (evilem-default-keybindings "gs"))

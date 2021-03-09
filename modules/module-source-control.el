@@ -16,29 +16,12 @@
   :config
   (setq gist-view-gist t))
 
-(defun process-exit-code-and-output (program &rest args)
-  "Run PROGRAM with ARGS and return the exit code and output in a list."
-  (with-temp-buffer
-    (list (apply 'call-process program nil (current-buffer) nil args)
-          (buffer-string))))
-
-(defun lm/magit-or-monky-status ()
-  "Call `magit-status' or `monky-status' depending on whether a
-git or hg repository is found in the buffer-local working dir."
-  (interactive)
-  (cond
-   ((eq (car (process-exit-code-and-output "hg" "status")) 0)
-    (monky-status))
-   ((eq (car (process-exit-code-and-output "git" "status")) 0)
-    (call-interactively 'magit-status))
-   (t (message "No hg or git repository found at %s" default-directory))))
-
-;; magit and monky
 ;; Modes for git and mercurial.
 (use-package magit
+  :quelpa (magit :fetcher github
+		   :repo "magit/magit")
   :requires (evil-leader)
   :commands magit-status
-  :bind ("C-x g" . lm/magit-or-monky-status)
   :config
   ;; Full-screen magit status with restore.
   (defadvice magit-status (around magit-fullscreen activate)
@@ -48,12 +31,9 @@ git or hg repository is found in the buffer-local working dir."
   (defadvice magit-mode-quit-window (around magit-restore-screen activate)
     ad-do-it
     (jump-to-register :magit-fullscreen))
-  ;; Use flyspell during commits.
-  (add-hook 'git-commit-mode-hook '(lambda () (flyspell-mode t)))
   :init
   (evil-leader/set-key "gs" 'magit-status)
   (evil-leader/set-key "gc" 'magit-commit)
-  ;; (evil-leader/set-key "gd" 'magit-diff)
   )
 
 ;; Info git gutter

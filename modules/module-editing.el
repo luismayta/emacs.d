@@ -67,6 +67,8 @@
 ;; Treat undo history as a tree.
 (use-package undo-tree
   :requires (evil-leader)
+  :quelpa (undo-tree :fetcher github
+		   :repo "tarsiiformes/undo-tree")
   :diminish undo-tree-mode
   :bind ("C-x u" . undo-tree-visualize)
   :init

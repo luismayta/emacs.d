@@ -38,6 +38,8 @@
 
 ;; toml
 (use-package toml-mode
+  :quelpa (toml-mode :fetcher github
+		   :repo "dryman/toml-mode.el")
   :mode ("\\.toml\\'" "Pipfile\\'" "\\Cargo.lock\\'" "\\.cargo/config\\'"))
 
 (use-package emmet-mode
@@ -50,6 +52,8 @@
           (web-mode . emmet-mode)))
 
 (use-package wakatime-mode
+  :quelpa (wakatime-mode :fetcher github
+		   :repo "wakatime/wakatime-mode")
   :ensure t
   :defer t
   :diminish wakatime-mode
