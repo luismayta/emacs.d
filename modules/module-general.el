@@ -21,18 +21,7 @@
 (use-package fixmee
   )
 
-(use-package multi-compile
-  :custom
-  (multi-compile-completion-system 'default))
-
 (use-package goto-last-change)
-
-;; highlight-numbers
-;; Highlights magic numbers in programming modes.
-; (use-package highlight-numbers
-;   :commands highlight-numbers-mode
-;   :init
-;   (add-hook 'prog-mode-hook #'highlight-numbers-mode))
 
 ;; flycheck
 (use-package flycheck
@@ -40,9 +29,6 @@
   :diminish " ✓"
   :init (add-hook 'prog-mode-hook #'flycheck-mode)
   :config (setq flycheck-emacs-lisp-load-path 'inherit))
-
-;; flycheck-plantuml
-(use-package flycheck-plantuml)
 
 ;; yaml
 (use-package yaml-mode
@@ -70,15 +56,13 @@
   :init (add-hook 'after-init-hook 'global-wakatime-mode))
 
 (use-package plantuml-mode
-   :requires (evil-leader)
+  :requires (evil-leader)
   :mode (("\\.puml$" . plantuml-mode)
           ("\\.plantuml$" . plantuml-mode))
   :config
   (setq plantuml-jar-path (getenv "PLANTUML_JAR_PATH"))
   :init
   (evil-leader/set-key "pu" 'plantuml-preview))
-
-(use-package gdscript-mode)
 
 (use-package restart-emacs)
 

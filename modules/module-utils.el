@@ -7,15 +7,6 @@
 (use-package async
   :ensure t)
 
-(use-package dash
-  :ensure t)
-
-(use-package parsebib
-  :ensure t)
-
-(use-package charmap
-  :ensure t)
-
 (use-package direx
   :ensure t)
 

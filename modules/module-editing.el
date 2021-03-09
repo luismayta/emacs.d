@@ -63,18 +63,6 @@
   (require 'smartparens-config)
   (add-hook 'after-init-hook 'smartparens-global-mode))
 
-;; intelligently cleanup whitespace on save
-(use-package whitespace-cleanup-mode
-  :diminish whitespace-cleanup-mode
-  :config
-  (add-hook 'after-init-hook 'whitespace-cleanup-mode)
-  (add-hook 'before-save-hook 'whitespace-cleanup-mode))
-
-;; subword
-(use-package subword
-  :diminish subword-mode
-  :init (global-subword-mode))
-
 ;; undo-tree
 ;; Treat undo history as a tree.
 (use-package undo-tree
@@ -96,7 +84,7 @@
   :hook ((lisp-mode lisp-interaction-mode emacs-lisp-mode clojure-mode) . aggressive-indent-mode)
   :config
   (defvar aggressive-indent/excluded '())
-  (setq aggressive-indent/excluded '(php-mode rst-mode html-mode ruby-mode python-mode yaml-mode haskell-mode))
+  (setq aggressive-indent/excluded '(php-mode go-mode markdown-mode rst-mode html-mode ruby-mode python-mode yaml-mode haskell-mode))
   (dolist (item aggressive-indent/excluded)
     (add-to-list 'aggressive-indent-excluded-modes item))
   (add-to-list
@@ -104,7 +92,8 @@
     '(and (or (derived-mode-p 'c-mode)
             (eq major-mode 'rust-mode))
        (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
-               (thing-at-point 'line))))))
+               (thing-at-point 'line)))))
+  )
 
 (provide 'module-editing)
 ;;; module-editing.el ends here

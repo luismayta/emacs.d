@@ -4,8 +4,6 @@
 (setq vc-handled-backends '())
 (remove-hook 'find-file-hooks 'vc-find-file-hook)
 
-(use-package git-timemachine)
-
 ;; gist.el
 ;; Provides ability to create github gists from region, file, etc., as well as
 ;; browse, edit, and update metadata of your gists.
@@ -66,7 +64,7 @@ git or hg repository is found in the buffer-local working dir."
   :init
   (progn
     (setq git-gutter:separator-sign " "
-          git-gutter:lighter " GG"))
+      git-gutter:lighter " GG"))
   :config
   (progn
     (set-face-background 'git-gutter:deleted "#990A1B")
@@ -76,24 +74,9 @@ git or hg repository is found in the buffer-local working dir."
     (set-face-background 'git-gutter:added "#546E00")
     (set-face-foreground 'git-gutter:added "#546E00"))
   :bind (("C-x p" . git-gutter:previous-hunk)
-         ("C-x n" . git-gutter:next-hunk)
-         ("C-x v =" . git-gutter:popup-hunk)
-         ("C-x v r" . git-gutter:revert-hunk)))
-
-(use-package monky
-  :commands monky-status
-  :config
-  ;; Similar full-screen config for monky.
-  (defadvice monky-status (around monky-fullscreen activate)
-    (window-configuration-to-register :monky-fullscreen)
-    ad-do-it
-    (delete-other-windows))
-  (defadvice monky-quit-window (around monky-restore-screen activate)
-    ad-do-it
-    (jump-to-register :monky-fullscreen))
-  ;; Flyspell during commits.
-  (add-hook 'monky-log-edit-mode-hook '(lambda () (flyspell-mode t))))
-
+          ("C-x n" . git-gutter:next-hunk)
+          ("C-x v =" . git-gutter:popup-hunk)
+          ("C-x v r" . git-gutter:revert-hunk)))
 
 (use-package gitignore-mode)
 

@@ -5,6 +5,7 @@
      module-core
      module-utils
      module-evil
+     module-general
      ;; module-tools
      module-editing
      module-ui
@@ -17,35 +18,34 @@
      module-file
      module-completion
      ;; module-tags
-     module-http
+     ;; module-http
      module-sh
      module-ansible
      module-source-control
      module-docker
-     module-haskell
-     module-general
+                                        ; module-haskell
      module-lsp
      module-graphql
-     module-elixir
-     module-java
+                                        ; module-elixir
+                                        ; module-java
      module-js
      module-web
      module-typescript
      module-lua
      module-clojure
-     module-php
+                                        ; module-php
      module-python
      module-ruby
      module-swift
      module-ethereum
-     ; module-iot
+                                        ; module-iot
      module-go
      module-rust
      module-hashicorp
      module-dart
      module-term
                                         ; module-org
-     module-google
+                                        ; module-google
      )
   )
 
