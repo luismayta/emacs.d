@@ -28,9 +28,5 @@
   (exec-path-from-shell-initialize)
   )
 
-(use-package format-all
-)
-
-
 (provide 'module-core)
 ;;; module-core.el ends here

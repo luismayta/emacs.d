@@ -1,12 +1,12 @@
 ;; flyspell spell checking.
-(use-package flyspell
-  :diminish flyspell-mode
-  :commands flyspell-mode
-  :init (add-hook 'text-mode-hook #'flyspell-mode)
-  :config
-  (setq ispell-extra-args '("--sug-mode=fast"))
-  (setq flyspell-issue-message-flag nil)
-  (setq flyspell-issue-welcome-flag nil))
+;; (use-package flyspell
+;;   :diminish flyspell-mode
+;;   :commands flyspell-mode
+;;   :init (add-hook 'text-mode-hook #'flyspell-mode)
+;;   :config
+;;   (setq ispell-extra-args '("--sug-mode=fast"))
+;;   (setq flyspell-issue-message-flag nil)
+;;   (setq flyspell-issue-welcome-flag nil))
 
 ;; markdown
 (use-package markdown-mode
@@ -22,10 +22,6 @@
       (local-set-key (kbd "C-M-h") 'backward-kill-word)
       (turn-on-auto-fill)))
   :mode (("\\.rst$" . rst-mode)))
-
-;; Install Apib-Mode
-(use-package apib-mode
-  :mode (("\\.apib$" . apib-mode)))
 
 (provide 'module-writing)
 ;;; module-writing.el ends here

@@ -38,12 +38,5 @@
   :ensure nil
   :diminish visual-line-mode)
 
-;; get rid of the mouse.
-(use-package avoid
-  :if window-system
-  :defer 10
-  :config
-  (mouse-avoidance-mode 'exile))
-
 (provide 'module-ui)
 ;;; module-ui.el ends here
