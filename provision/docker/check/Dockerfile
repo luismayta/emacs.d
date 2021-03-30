@@ -1,4 +1,4 @@
-FROM equipindustry/python:3.8.0-slim
+FROM hadenlabs/python:3.8.0-slim
 
 ARG stage
 LABEL NAME emacs.d-check-$stage
