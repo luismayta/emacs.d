@@ -16,7 +16,6 @@
 ;;; code:
 (defun core-initialize ()
   "Initialize `package.el'."
-  (package-initialize)
   (setq package-enable-at-startup nil)
   (unless package-archive-contents
     (package-refresh-contents)
