@@ -6,7 +6,7 @@
 (defun lsp-go-install-save-hooks ()
   (add-hook 'before-save-hook #'lsp-format-buffer t t)
   (add-hook 'before-save-hook #'lsp-organize-imports t t))
-(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+; (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 
 ;; Optional - provides fancier overlays.
 (use-package lsp-ui
@@ -39,11 +39,17 @@
 (use-package lsp-mode
 	:ensure nil
   :commands (lsp lsp-deferred)
+  :init
+  ;; https://emacs-lsp.github.io/lsp-mode/page/performance/
+  ;; NOTE: Only take effects after Emacs 27
+  (when (boundp 'read-process-output-max)
+    (setq read-process-output-max (* 2 1024 1024)))
   :hook ((lsp-mode . lsp-enable-which-key-integration)
           (python-mode . lsp-deferred)
           (lua-mode . lsp-deferred)
           (c-mode . lsp-deferred)
           (go-mode . lsp-deferred)
+          (ruby-mode . lsp-deferred)
           (java-mode . lsp-deferred)
           (js-mode . lsp-deferred)
           (web-mode . lsp-deferred)
@@ -51,7 +57,7 @@
           (html-mode . lsp-deferred))
   :custom
   (
-   setq lsp-enable-indentation nil
+    setq lsp-enable-indentation nil
     lsp-log-io nil
     lsp-prefer-flymake nil
     lsp-trace nil
@@ -61,13 +67,8 @@
 		lsp-highlight-symbol-at-point nil
     )
   :config
-  (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection '("terraform-ls" "serve"))
-                  :major-modes '(terraform-mode)
-                  :server-id 'terraform-ls)
-   )
-  (add-hook 'terraform-mode-hook #'lsp)
-  )
+  ;; avoid visual interference
+  (setq lsp-enable-symbol-highlighting nil))
 
 (use-package lsp-ui
 	:after lsp-mode
