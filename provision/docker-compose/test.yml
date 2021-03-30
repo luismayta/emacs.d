@@ -3,7 +3,6 @@
 #
 # Usage: test up
 
-version: '3.6'
 services:
   app:
     image: emacs.d-app-test
@@ -12,5 +11,3 @@ services:
     build:
       args:
         stage: test
-    env_file:
-      - .env

@@ -1,7 +1,6 @@
 # Docker Compose
 # https://docs.docker.com/compose/
 
-version: '3.6'
 services:
   # Python
   app:
@@ -22,15 +21,7 @@ services:
       dockerfile: provision/docker/check/Dockerfile
       args:
         stage: dev
+    volumes:
+      - .:/usr/src
     env_file:
       - .env
-
-  docs:
-    image: emacs.d-docs-dev
-    build:
-      context: .
-      dockerfile: provision/docker/docs/Dockerfile
-    env_file:
-      - .env
-    depends_on:
-      - app
