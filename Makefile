@@ -30,6 +30,9 @@ PYENV_NAME="${PROJECT}"
 GIT_IGNORES:=python,node,go,emacs
 GI:=gi
 
+# issues reviewers
+REVIEWERS?=luismayta
+
 # Configuration.
 SHELL ?=/bin/bash
 ROOT_DIR=$(shell pwd)
@@ -86,7 +89,7 @@ readme:
 		--out $(README_FILE)
 
 setup:
-	@echo "=====> install packages..."
+	@echo "==> install packages..."
 	make python.setup
 	make python.precommit
 	@cp -rf provision/git/hooks/prepare-commit-msg .git/hooks/
@@ -96,6 +99,6 @@ setup:
 	@echo ${MESSAGE_HAPPY}
 
 environment:
-	@echo "=====> loading virtualenv ${PYENV_NAME}..."
+	@echo "==> loading virtualenv ${PYENV_NAME}..."
 	make python.environment
 	@echo ${MESSAGE_HAPPY}
