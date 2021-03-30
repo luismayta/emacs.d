@@ -21,14 +21,6 @@
 
 {{ if has (ds "config") "description" }} {{(ds "config").description }} {{ end }}
 
-{{ if has (ds "config") "license" }}
-
-## :page_facing_up: License
-
-{{ (ds "config").name }} is an open-sourced software licensed under the [{{(ds "config").license }} license](LICENSE.md).
-
-{{ end }}
-
 
 {{ if has (ds "config") "screenshots" }}
 
@@ -39,20 +31,20 @@
 {{ end }}{{ end }}
 
 {{ if has (ds "config") "features" }}
-## :sparkles: Features
+## Features
 {{ range $feature := (ds "config").features }}{{printf "- %s\n" $feature}}{{ end }}
 {{ end }}
 
 {{ if has (ds "config") "introduction" }}
 
-## :page_facing_up: Introduction
+## Introduction
 
 {{ (ds "config").introduction -}} {{ end }}
 
 
 {{ if has (ds "config") "todo" }}
 
-## :page_facing_up: TODO
+## To-do
 
 {{ range $todo := (ds "config").todo }}
 {{ printf "* [%s](%s)" $todo.name $todo.url }}
@@ -81,35 +73,41 @@
 
 
 {{ if has (ds "config") "quickstart" -}}
-## :bulb: Quick Start
+
+## Quick Start
 
 {{ (ds "config").quickstart -}} {{ end }}
 
 {{ if has (ds "config") "examples" }}
 
-## :page_facing_up: Examples
+## Examples
 
 {{ range $file := (datasource "config").examples -}}
 {{ (include "includes" $file) }}
 {{- end }}
-{{- end }}
-
+{{ end }}
 
 {{ if has (ds "config") "include" }} {{ range $file := (datasource "config").include -}} {{ (include "includes" $file) }} {{- end }} {{- end }}
-
 
 {{ if has (ds "config") "related" }}
 
 ## Related Projects
 
-Check out these related projects. {{ range $related := (ds "config").related }} {{ printf "- [%s](%s) - %s" $related.name $related.url $related.description }}{{ end }}
+Check out these related projects.
+{{ range $related := (ds "config").related }}
+{{ printf "* [%s](%s) - %s" $related.name $related.url $related.description }}
+{{ end }}
 
-{{ end}} {{ if has (ds "config") "references" }}
+{{ end}}
 
-## :blue_book: References
+{{ if has (ds "config") "references" }}
 
-For additional context, refer to some of these links. {{ range $reference := (ds "config").references }} {{ printf "- [%s](%s) - %s" $reference.name $reference.url $reference.description }}{{ end }}
+## References
 
+For additional context, refer to some of these links.
+{{ range $reference := (ds "config").references }}
+{{ printf "* [%s](%s) - %s" $reference.name $reference.url $reference.description }}
+{{ end }}
 {{ end}}
 
 ## Help
@@ -124,7 +122,7 @@ File a GitHub [issue]({{ printf "https://github.com/%s/issues" (ds "config").git
 
 Please use the [issue tracker]({{ printf "https://github.com/%s/issues" (ds "config").github_repo}}) to report any bugs or file feature requests.
 
-### Developing
+### Development
 
 In general, PRs are welcome. We follow the typical "fork-and-pull" Git workflow.
 
@@ -136,7 +134,7 @@ In general, PRs are welcome. We follow the typical "fork-and-pull" Git workflow.
 
 **NOTE:** Be sure to rebase the latest changes from "upstream" before making a pull request!
 
-### Versioning
+#### Versioning
 
 Releases are managed using github release feature. We use [Semantic Versioning](http://semver.org) for all the releases. Every change made to the code base will be referred to in the release notes (except for cleanups and refactorings).
 
@@ -145,6 +143,7 @@ Releases are managed using github release feature. We use [Semantic Versioning](
 ## Copyrights
 
 {{ range $copyright := (ds "config").copyrights -}} {{ printf "Copyright © %s-%d [%s](%s)\n" $copyright.year time.Now.Year $copyright.name $copyright.url }} {{ end }}
+
 {{ else }}
 
 ## Copyright
@@ -176,6 +175,15 @@ All other trademarks referenced herein are the property of their respective owne
 {{ printf "  [%s_avatar]: https://github.com/%s.png?size=150" $contributor.github $contributor.github }}
 {{- end }}
 {{ end }}
+
+{{ end }}
+
+
+{{ if has (ds "config") "license" }}
+
+## License
+
+The code and styles are licensed under the {{(ds "config").license }} license [See project license.](LICENSE).
 
 {{ end }}
 
