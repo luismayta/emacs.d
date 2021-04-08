@@ -27,7 +27,11 @@
 
 (use-package pipenv
   :quelpa (pipenv :fetcher github
-		   :repo "pwalsh/pipenv.el")
+		        :repo "pwalsh/pipenv.el")
+  :ensure-system-package
+  (
+    (pyls . "pip install pipenv")
+    )
   :hook (python-mode . pipenv-mode)
   :init
   (setq
@@ -70,6 +74,14 @@
   (anaconda-eldoc-mode 1))
 
 (add-hook 'python-mode-hook 'python/python-mode-hook)
+
+(use-package python
+  :ensure-system-package
+  (
+    (pyls . "pip install python-language-server")
+    )
+  :init
+  (add-hook 'python-mode-hook 'lsp-deferred))
 
 (provide 'module-python)
 ;;; module-python.el ends here

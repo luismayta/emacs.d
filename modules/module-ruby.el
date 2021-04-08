@@ -1,16 +1,16 @@
 ;;; module-ruby.el --- Ruby configuration.
 
 (use-package ruby-mode
-  :ensure ruby-tools
-  :ensure inf-ruby
-  :interpreter "ruby"
+  :ensure-system-package
+  ((solargraph     . "gem install solargraph")
+   (bundler . "gem install bundler")
+   (ruby-lint   . "gem install ruby-lint")
+   (ripper-tags . "gem install ripper-tags")
+   (pry         . "gem install pry"))
   :mode (("Fastfile$" . ruby-mode)
           ("Appfile$" . ruby-mode))
-  :config
-  (add-hook 'ruby-mode-hook
-    (lambda ()
-      (inf-ruby-minor-mode t)
-      (ruby-tools-mode t))))
+  :init
+  (add-hook 'ruby-mode-hook 'lsp-deferred))
 
 (provide 'module-ruby)
 ;;; module-ruby.el ends here

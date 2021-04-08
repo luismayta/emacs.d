@@ -1,6 +1,9 @@
 ;;; module-core.el --- Core settings.
 ;;; code:
 
+(use-package use-package-ensure-system-package
+  :ensure t)
+
 ;; eliminate scroll bars and do other things
 (use-package better-defaults
   :ensure t
