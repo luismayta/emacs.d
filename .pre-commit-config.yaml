@@ -5,9 +5,20 @@ default_language_version:
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit
-    rev: v2.11.1
+    rev: v2.12.0
     hooks:
       - id: validate_manifest
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.0.0
+    hooks:
+      - id: codespell
+        args: [--ignore-words=.codespell-ignores]
+        exclude: >
+          (?x)^(
+            .+\.vendor\/.*$|
+            .+\.node_modules\/.*$|
+            .+\.lock$|
+          )$
   - repo: https://github.com/Lucas-C/pre-commit-hooks-safety
     rev: v1.2.1
     hooks:
@@ -19,7 +30,7 @@ repos:
         args: []
         files: .py$
   - repo: https://github.com/pre-commit/mirrors-pylint
-    rev: v2.7.2
+    rev: v3.0.0a1
     hooks:
       - id: pylint
         exclude: __pycache__|migrations|conf.py|_build|.tox|pootle/static|pootle/translations|pootle/locale|pootle/assets|templates
@@ -73,31 +84,37 @@ repos:
       - id: mixed-line-ending
         fix: lr
       - id: check-executables-have-shebangs
-  - repo: https://github.com/tcassou/python-pre-commit-hooks
-    rev: 3383e2f83463370cf4651040fb697a636bb0374e
-    hooks:
-      - id: do_not_commit
   - repo: https://github.com/asottile/blacken-docs
     rev: v1.10.0
     hooks:
       - id: blacken-docs
         additional_dependencies:
           - black
-  - repo: git://github.com/dnephin/pre-commit-golang
-    rev: v0.3.5
-    hooks:
-      - id: validate-toml
-  - repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: v0.7.1.1
-    hooks:
-      - id: shellcheck
-        exclude: (^provision/script/wait-for-it.sh$|^provision/git/hooks/prepare-commit-msg$)
-        args:
-          - --exclude=SC1072,SC1073,SC2068
   - repo: https://github.com/IamTheFij/docker-pre-commit
     rev: v2.0.0
     hooks:
       - id: docker-compose-check
+  - repo: https://github.com/hadenlabs/pre-commit-hooks
+    rev: 104e7b2376a8745a8871f31115f83364877044ad
+    hooks:
+      - id: do-not-commit
+      - id: markdown-link-check
+        exclude: \.tpl.md$
+      - id: shellcheck
+        exclude: (^provision/script/wait-for-it.sh$|^provision/git/hooks/prepare-commit-msg$)
+        args:
+          - --exclude=SC1072,SC1073,SC2068
+      - id: todocheck
+      - id: hadolint
+        args:
+          - --ignore=SC2001
+          - --ignore=SC2086
+          - --ignore=SC2102
+          - --ignore=DL3008
+          - --ignore=DL3013
+          - --ignore=DL3018
+          - --ignore=DL4006
+
   - repo: local
     hooks:
       - id: prettier
@@ -126,10 +143,3 @@ repos:
         entry: node_modules/stylelint/bin/stylelint.js --config=.github/linters/.stylintrc --syntax less **/*.less
         args: [--fix]
         files: \.(css|scss|sass|less)$
-      - id: dockerfile-provides-entrypoint
-        name: hadolint
-        description: Lint Dockerfiles with hadolint
-        language: docker_image
-        entry: --entrypoint /bin/hadolint hadolint/hadolint:latest --ignore DL3008 --ignore DL3013 --ignore DL3018 --ignore DL3008 --ignore DL4006 --ignore SC2001 --ignore SC2086 --ignore SC2102 -
-        types: [file]
-        files: Dockerfile(.*)
