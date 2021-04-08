@@ -32,13 +32,13 @@ badges:
     url: https://github.com/luismayta/emacs.d
   - name: Issues
     image: https://img.shields.io/github/issues/luismayta/emacs.d.svg
-    url: https://github.com/luismayta/emacs.d/readme
+    url: https://github.com/luismayta/emacs.d/issues
   - name: Latest Release
     image: https://img.shields.io/github/release/luismayta/emacs.d.svg
     url: https://github.com/luismayta/emacs.d/releases
   - name: Beacon
     image: https://ga-beacon.appspot.com/G-1S43HTH1W0/emacs.d/readme
-    url: https://ga-beacon.appspot.com/G-1S43HTH1W0/emacs.d/readme
+    url: https://github.com/luismayta/emacs.d
 
 # Short description of this project
 description: |-
