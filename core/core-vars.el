@@ -26,6 +26,10 @@
   (format "%s/cache" private-directory)
   "Hostname-based elisp temp directories.")
 
+(defconst var-directory
+  (expand-file-name (concat start-directory "var/"))
+  "Var directory.")
+
 (defconst core-directory
   (expand-file-name (concat start-directory "core/"))
   "Core directory.")
@@ -42,25 +46,29 @@
   (expand-file-name (concat start-directory "config/"))
   "Config directory.")
 
-(defconst core-vars/lib-directory
+(defconst lib-directory
   (expand-file-name (concat start-directory "lib/"))
   "core lib directory.")
-
-(defconst elisp-directory
-  (expand-file-name (concat core-vars/lib-directory "elisp/"))
-  "Elisp directory.")
-
-(defconst themes-directory
-  (expand-file-name (concat core-vars/lib-directory "color-themes/"))
-  "Themes directory.")
 
 (defconst test-directory
   (expand-file-name (concat start-directory "tests/"))
   "Tests directory.")
 
+(defconst elisp-directory
+  (expand-file-name (concat lib-directory "elisp/"))
+  "Elisp directory.")
+
+(defconst themes-directory
+  (expand-file-name (concat lib-directory "color-themes/"))
+  "Themes directory.")
+
 (defconst cache-directory
-  (expand-file-name (concat start-directory "var/cache/"))
-  "Cache directory.")
+  (expand-file-name (concat var-directory "cache/"))
+  "Var directory.")
+
+(defconst backup-directory
+  (expand-file-name (concat var-directory "backups/"))
+  "Var directory.")
 
 (defconst IS-LINUX   (eq system-type 'gnu/linux))
 (defconst IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
