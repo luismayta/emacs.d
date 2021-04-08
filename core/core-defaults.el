@@ -59,17 +59,15 @@
 ;; Automatically scroll compilation window.
 (setq compilation-scroll-output 1)
 
-(core-mkdir-p (core-emacs.d "var/cache"))
+(core-mkdir-p cache-directory)
 
-(core-mkdir-p (core-cache-for "backups"))
+(core-mkdir-p backup-directory)
 
 ;; Keep backups in a separate directory.
-(defun make-backup-file-name (file)
-  (concat (core-cache-for "backups/") (file-name-nondirectory file) "~"))
 
 ;; Keep autosave files in /tmp.
 (setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
+      `((".*" , temporary-file-directory t)))
 
 ;; Change auto-save-list directory.
 (setq auto-save-list-file-prefix (core-cache-for "auto-save-list/.saves-"))
