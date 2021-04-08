@@ -32,13 +32,13 @@ badges:
     url: https://github.com/luismayta/emacs.d
   - name: Issues
     image: https://img.shields.io/github/issues/luismayta/emacs.d.svg
-    url: https://github.com/hadenlabs/dockerfiles/readme
+    url: https://github.com/luismayta/emacs.d/readme
   - name: Latest Release
     image: https://img.shields.io/github/release/luismayta/emacs.d.svg
     url: https://github.com/luismayta/emacs.d/releases
   - name: Beacon
-    image: https://ga-beacon.appspot.com/G-MZEK48EGE8/zsh-issues/readme
-    url: https://github.com/luismayta/emacs.d
+    image: https://ga-beacon.appspot.com/G-1S43HTH1W0/emacs.d/readme
+    url: https://ga-beacon.appspot.com/G-1S43HTH1W0/emacs.d/readme
 
 # Short description of this project
 description: |-
@@ -52,7 +52,7 @@ requirements: |-
   - [Git](http://git-scm.com/)
   - [editorconfig](http://editorconfig.org)
   - [ctags](http://ctags.sourceforge.net)
-  - [graphviz](http://www.graphviz.or)
+  - [graphviz](http://www.graphviz.org)
   - [silver-searcher](https://github.com/ggreer/the_silver_searcher)
 
 installation:
