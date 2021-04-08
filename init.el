@@ -10,7 +10,6 @@
 (require 'core-load)
 (require 'core-defaults)
 (require 'config-default)
-(require 'config-backup)
 
 (setq package-archives '(
                          ("gnu"   . "https://elpa.gnu.org/packages/")
