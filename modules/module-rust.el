@@ -2,44 +2,16 @@
 ;;; code:
 
 (use-package rust-mode
-  :hook (rust-mode . lsp))
-
-(use-package rust-mode
-  :mode ("\\.rs\\'" . rust-mode)
-  :hook electric-pair
+  :hook (rust-mode . lsp)
+  :ensure t
+  :mode "\\.rs\\'"
   :config
-  (setq rust-format-on-save t)
-  )
-
-(use-package lsp-rust
-  :disabled
-  :after lsp-mode
-  :config
-  (progn
-    (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls"))
-    (add-hook 'rust-mode-hook #'lsp)
-    ))
-
-(use-package company-racer
-  :quelpa (company-racer :fetcher github
-		   :repo "emacsattic/company-racer")
-  :requires company
-  :bind ("M-TAB" . company-complete)
-  :config
-  (setq company-tooltip-align-annotations t))
-
-(use-package flycheck-rust
-  :hook ((rust-mode . flycheck-mode)
-	        (flycheck-mode . flycheck-rust-setup)))
+  (add-hook 'rust-mode-hook (lambda ()
+                              (local-set-key (kbd "C-c <tab>") #'rust-format-buffer))))
 
 (use-package cargo
-  :hook ((rust-mode . cargo-minor-mode)))
-
-(use-package racer
-  :hook ((racer-mode . eldoc-mode)
-	        (racer-mode . company-mode)
-	        (rust-mode . racer-mode))
-  :bind (("M-." . racer-find-definition)))
+  :ensure t
+  :hook (rust-mode . cargo-minor-mode))
 
 (provide 'module-rust)
 ;;; module-rust.el ends here

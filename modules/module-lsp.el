@@ -1,31 +1,11 @@
 ;;; module-lsp.el --- lsp config.
 ;;; code:
 
-;; Set up before-save hooks to format buffer and add/delete imports.
-;; Make sure you don't have other gofmt/goimports hooks enabled.
-(defun lsp-go-install-save-hooks ()
-  (add-hook 'before-save-hook #'lsp-format-buffer t t)
-  (add-hook 'before-save-hook #'lsp-organize-imports t t))
-; (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
-
-;; Optional - provides fancier overlays.
-(use-package lsp-ui
-  :ensure t
-  :commands lsp-ui-mode)
-
 ;; Optional - provides snippet support.
 (use-package yasnippet
   :ensure t
   :commands yas-minor-mode
   :hook (go-mode . yas-minor-mode))
-
-;; if you are helm user
-; (use-package helm-lsp :commands helm-lsp-workspace-symbol)
-
-;; if you are ivy user
-(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
-
-; (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
 ;; optionally if you want to use debugger
 (use-package dap-mode)
@@ -39,11 +19,12 @@
 (use-package lsp-mode
 	:ensure nil
   :commands (lsp lsp-deferred)
-  :init
-  ;; https://emacs-lsp.github.io/lsp-mode/page/performance/
-  ;; NOTE: Only take effects after Emacs 27
-  (when (boundp 'read-process-output-max)
-    (setq read-process-output-max (* 2 1024 1024)))
+  :config (progn
+	          (setq gc-cons-threshold 100000000)
+	          (setq read-process-output-max (* 2 1024 1024)) ;; 1mb
+	          (setq company-minimum-prefix-length 1
+		          company-idle-delay 0.0) ;; default is 0.2
+            (setq lsp-prefer-flymake nil))
   :hook ((lsp-mode . lsp-enable-which-key-integration)
           (python-mode . lsp-deferred)
           (lua-mode . lsp-deferred)
@@ -54,6 +35,7 @@
           (js-mode . lsp-deferred)
           (web-mode . lsp-deferred)
           (terraform-mode	. lsp-deferred)
+          (rust-mode . lsp-deferred)
           (html-mode . lsp-deferred))
   :custom
   (
@@ -65,14 +47,12 @@
 		lsp-eldoc-render-all t
 		lsp-enable-file-watchers nil
 		lsp-highlight-symbol-at-point nil
-    )
-  :config
-  ;; avoid visual interference
-  (setq lsp-enable-symbol-highlighting nil))
+    ))
 
 (use-package lsp-ui
 	:after lsp-mode
 	:ensure t
+  :commands lsp-ui-mode
 	:config
 	(setq lsp-ui-sideline-enable nil
 		lsp-ui-doc-enable nil
@@ -80,6 +60,9 @@
 		lsp-prefer-flymake nil
 		lsp-ui-imenu-enable t
 		lsp-ui-sideline-ignore-duplicate t))
+
+(use-package helm-lsp :ensure t :commands helm-lsp-workspace-symbol)
+(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 
 (provide 'module-lsp)
 ;;; module-lsp.el ends here
