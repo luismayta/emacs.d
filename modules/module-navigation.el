@@ -40,7 +40,7 @@
   (evil-define-key 'normal neotree-mode-map (kbd "H") 'neotree-hidden-file-toggle))
 
 ;; saveplace
-;; Remebers your location in a file when saving files.
+;; Remembers your location in a file when saving files.
 (use-package saveplace
   :init
   (setq save-place-file (core-cache-for "saveplace"))
