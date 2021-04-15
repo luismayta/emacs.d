@@ -95,7 +95,7 @@ repos:
     hooks:
       - id: docker-compose-check
   - repo: https://github.com/hadenlabs/pre-commit-hooks
-    rev: 104e7b2376a8745a8871f31115f83364877044ad
+    rev: ce064d4a3d54464a68ba268a530975cf9378f487
     hooks:
       - id: do-not-commit
       - id: markdown-link-check
