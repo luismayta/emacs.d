@@ -4,7 +4,7 @@
   "description": "emacs.d for hadenlabs",
   "repository": "ssh://git@github.com/luismayta/emacs.d.git",
   "author": "Luis Mayta <slovacus@gmail.com>",
-  "license": "LGPLv3",
+  "license": "LGPL-3.0",
   "engines": {
     "node": ">=14"
   },
