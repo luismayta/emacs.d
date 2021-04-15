@@ -14,7 +14,7 @@ email:
 #logo: docs/logo.png
 
 # License of this project
-license: 'LGPLV3'
+license: 'LGPL-3.0'
 
 # Canonical GitHub repo
 github_repo: luismayta/emacs.d
