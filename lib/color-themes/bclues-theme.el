@@ -13,7 +13,7 @@
 ;;
 ;; 20130906.1159: Fix commentary block
 ;;
-;; 20130906.0211: Fix Magit item hightlight
+;; 20130906.0211: Fix Magit item highlight
 ;;
 ;; 20130905.2230: Updated header and minor changes
 ;;
@@ -30,7 +30,7 @@
 ;; for better visibility, reduced garish-icity ... That, is not a word.
 ;;
 ;; 20130714.2351: Background color normalised, based on pull by
-;; Kaustav Das Modak (Github: kaustavdm) Added Rainbow delimeters
+;; Kaustav Das Modak (Github: kaustavdm) Added Rainbow delimiters
 ;;
 ;; 0.1.0: Basic start, the theme is really a note to myself -> Make
 ;; theme editor
@@ -137,7 +137,7 @@
   ;; flymake-mode
  `(flymake-errline                     ((t (:underline "#AA0000" :background nil :inherit nil ))))
  `(flymake-warnline                    ((t (:underline "#009945" :background nil :inherit nil ))))
- ;; Magit hightlight
+ ;; Magit highlight
  `(magit-item-highlight                ((t (:foreground "white" :background "#0a335d" :inherit nil ))))
  ;;git-gutter
  '(git-gutter:added                    ((t (:foreground "#609f60" :bold t))))
