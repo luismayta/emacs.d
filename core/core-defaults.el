@@ -54,7 +54,7 @@
 (setq echo-keystrokes 0.001)
 
 ;; Enable y/n answers.
-(fset 'yes-or-no-p 'y-or-n-p)
+; (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Automatically scroll compilation window.
 (setq compilation-scroll-output 1)
@@ -67,7 +67,7 @@
 
 ;; Keep autosave files in /tmp.
 (setq auto-save-file-name-transforms
-      `((".*" , temporary-file-directory t)))
+      `((".*" ,temporary-file-directory t)))
 
 ;; Change auto-save-list directory.
 (setq auto-save-list-file-prefix (core-cache-for "auto-save-list/.saves-"))

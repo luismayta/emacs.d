@@ -87,13 +87,6 @@
   ;; bind evil-jump-out-args
   (define-key evil-normal-state-map "K" 'evil-jump-out-args))
 
-(use-package evil-search-highlight-persist
-  :after evil
-  :ensure t
-  :diminish ""
-  :config
-  (global-evil-search-highlight-persist t)
-  (setq evil-search-highlight-string-min-len 3))
 
 (use-package evil-easymotion
   :after evil
