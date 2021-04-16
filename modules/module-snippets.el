@@ -6,10 +6,6 @@
   :hook ((prog-mode LaTeX-mode) . yas-minor-mode)
   :diminish (yas-minor-mode . "y")
   :init
-  (core-mkdir-p snippets-directory)
-  ;; Replace default custom dir with our own.
-  (setq yas-snippet-dirs '(snippets-directory
-                            yas-installed-snippets-dir))
   (push 'company-yasnippet core-company-global-backends)
   (define-key evil-insert-state-map (kbd "C-SPC") 'yas-expand)
   (core-leader ("ty" 'yas-minor-mode "Toggle yasnippet"))
@@ -26,15 +22,6 @@
 
 (use-package react-snippets
   :ensure t)
-
-(use-package auto-yasnippet
-  :ensure t
-  :after yasnippet
-  :commands
-  (aya-create
-    aya-expand
-    aya-open-line)
-  )
 
 (use-package company-yasnippet
   :ensure company
