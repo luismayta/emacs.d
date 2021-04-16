@@ -9,8 +9,17 @@
 (defvar core-var-font-name "FiraCode Nerd Font Mono")
 (defvar core-font-height 190)
 
+(defvar core-leader-key ",")
+
 ;; vars for terminals.
 (defvar core-term-shell "/usr/local/bin/zsh")
+
+(defvar core--after-display-functions nil
+  "List of functions to be run (in reverse order) after the
+display system is initialized.")
+
+(defvar core-company-global-backends nil
+  "List of backends to enable everywhere.")
 
 ;; paths
 (defvar start-directory
@@ -40,6 +49,10 @@
 
 (defconst module-directory
   (expand-file-name (concat start-directory "modules/"))
+  "Modules directory.")
+
+(defconst snippets-directory
+  (expand-file-name (concat start-directory "snippets/"))
   "Modules directory.")
 
 (defconst config-directory
