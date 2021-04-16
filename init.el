@@ -9,6 +9,7 @@
 (require 'core-vars)
 (require 'core-load)
 (require 'core-defaults)
+(require 'core-macros)
 (require 'config-default)
 
 (setq package-archives '(
