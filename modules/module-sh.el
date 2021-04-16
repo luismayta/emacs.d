@@ -7,6 +7,10 @@
           ("/bspwmrc\\'" . sh-mode)
           ("\\.customrc\\'" . sh-mode)
           )
+  :ensure-system-package
+  (
+    (bash-language-server . "yarn global add bash-language-server")
+    )
   )
 
 (use-package company-shell
