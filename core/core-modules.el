@@ -29,7 +29,6 @@
                                         ; module-java
      module-js
      module-web
-     module-typescript
      module-lua
      module-clojure
                                         ; module-php
