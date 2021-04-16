@@ -2,6 +2,10 @@
 
 (use-package web-mode
   :ensure t
+  :ensure-system-package
+  (
+   (html-languageserver . "yarn global add vscode-html-languageserver-bin")
+    )
   :init
   (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.hbs\\'" . web-mode))
