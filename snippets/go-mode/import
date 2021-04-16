@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: import
-# key: import
-# contributor : @slovacus
-# --
-import (
-	"$0"
-)
