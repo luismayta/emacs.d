@@ -1,47 +1,20 @@
 ;; yasnippet configuration.
 ;; code:
+
 (use-package yasnippet
-  :ensure t
+  :commands yas-reload-all
+  :hook ((prog-mode LaTeX-mode) . yas-minor-mode)
+  :diminish (yas-minor-mode . "y")
   :init
-  ;; Ensure custom snippets dir exists.
-  (defvar custom-snippets-dir (core-emacs.d "snippets/"))
-  (core-mkdir-p custom-snippets-dir)
+  (core-mkdir-p snippets-directory)
   ;; Replace default custom dir with our own.
-  (setq yas-snippet-dirs '(custom-snippets-dir
+  (setq yas-snippet-dirs '(snippets-directory
                             yas-installed-snippets-dir))
-  ;; Suppress excessive log messages
-  (setq yas-verbosity 1)
-  :bind
-  (:map yas-minor-mode-map
-    ("<tab>" . nil)
-    ("TAB" . nil)
-    )
+  (push 'company-yasnippet core-company-global-backends)
+  (define-key evil-insert-state-map (kbd "C-SPC") 'yas-expand)
+  (core-leader ("ty" 'yas-minor-mode "Toggle yasnippet"))
   :config
-  (yas-global-mode)
-  (define-key yas-minor-mode-map (kbd "C-<tab>") 'yas-expand)
-  (define-key yas-minor-mode-map (kbd "<tab>") nil)
-  (define-key yas-minor-mode-map (kbd "TAB") nil)
-  ;; Disable yasnippet in some modes.
-  (defun yas-disable-hook ()
-    (setq yas-dont-activate 1))
-
-  (add-hook 'term-mode-hook #'yas-disable-hook)
-  (add-hook 'comint-mode-hook #'yas-disable-hook)
-  (add-hook 'erc-mode-hook #'yas-disable-hook)
-
-  (defun expand-for-web-mode ()
-    (when (equal mode-name "Web")
-      (make-local-variable 'yas-extra-modes)
-      (setq yas-extra-modes
-        (let ((web-lang (web-mode-language-at-pos)))
-          (cond
-            ((equal web-lang "html")       '(html-mode))
-            ((equal web-lang "css")        '(css-mode))
-            ((equal web-lang "javascript") '(javascript-mode))
-            )))))
-
-  (add-hook 'yas-before-expand-snippet-hook 'expand-for-web-mode)
-  )
+  (yas-reload-all))
 
 (use-package yasnippet-snippets
   :ensure t

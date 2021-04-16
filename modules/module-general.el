@@ -80,5 +80,10 @@
   :config
   (dashboard-setup-startup-hook))
 
+(use-package general
+  :config
+  (setq general-override-states '(normal visual motion))
+  (general-override-mode))
+
 (provide 'module-general)
 ;;; module-general.el ends here

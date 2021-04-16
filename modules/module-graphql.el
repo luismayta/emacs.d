@@ -3,7 +3,9 @@
 
 (use-package graphql-mode
   :quelpa (graphql-mode :fetcher github
-		   :repo "davazp/graphql-mode")
+		        :repo "davazp/graphql-mode")
+	:ensure-system-package
+	(graphql-lsp . "yarn global add graphql-language-service-cli graphql")
   :mode (
           ("\\.graphql$" . graphql-mode)
           ("\\.graphqls$" . graphql-mode)
