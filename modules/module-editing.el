@@ -45,30 +45,24 @@
           ("C-<" . mc/mark-previous-like-this)
           ("C-c C->" . mc/mark-all-like-this)))
 
-;; keeps our parentheses balanced and allows for easy manipulation
 (use-package smartparens
-  :requires (evil)
+  :ensure ;
   :diminish smartparens-mode
-  :init
-  (use-package evil-smartparens
-    :requires (evil)
-    :ensure t
-    :diminish evil-smartparens-mode
-    :config
-    (add-hook 'clojure-mode-hook #'evil-smartparens-mode)
-    (add-hook 'lisp-mode-hook #'evil-smartparens-mode)
-    (add-hook 'scheme-mode-hook #'evil-smartparens-mode)
-    (add-hook 'emacs-lisp-mode-hook #'evil-smartparens-mode))
   :config
-  (require 'smartparens-config)
-  (add-hook 'after-init-hook 'smartparens-global-mode))
+  (add-hook 'prog-mode-hook 'smartparens-mode)
+  )
+
+(use-package rainbow-delimiters
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+  )
 
 ;; undo-tree
 ;; Treat undo history as a tree.
 (use-package undo-tree
   :requires (evil-leader)
-  :quelpa (undo-tree :fetcher github
-		   :repo "tarsiiformes/undo-tree")
+  :straight (undo-tree :type git :host github :repo "tarsiiformes/undo-tree")
   :diminish undo-tree-mode
   :bind ("C-x u" . undo-tree-visualize)
   :init

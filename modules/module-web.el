@@ -36,9 +36,6 @@
 
 (use-package sass-mode :mode "\\.sass\\'")
 
-(use-package helm-css-scss
-  :ensure t)
-
 (use-package css-eldoc
   :ensure t
   :init (autoload 'turn-on-css-eldoc "css-eldoc")

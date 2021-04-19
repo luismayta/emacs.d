@@ -11,6 +11,8 @@
   (
     (bash-language-server . "yarn global add bash-language-server")
     )
+  :hook
+  (sh-mode . lsp-deferred)
   )
 
 (use-package company-shell

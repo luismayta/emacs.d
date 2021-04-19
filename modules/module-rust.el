@@ -7,7 +7,10 @@
   :mode "\\.rs\\'"
   :config
   (add-hook 'rust-mode-hook (lambda ()
-                              (local-set-key (kbd "C-c <tab>") #'rust-format-buffer))))
+                              (local-set-key (kbd "C-c <tab>") #'rust-format-buffer)))
+  :hook
+  (rust-mode . lsp-deferred)
+  )
 
 (use-package cargo
   :ensure t
