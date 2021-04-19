@@ -4,6 +4,7 @@
 ;;; code:
 
 (require 'core-vars)
+(require 'core-functions)
 
 (use-package evil-leader
   :ensure t
@@ -14,7 +15,7 @@
   (evil-leader/set-leader core-leader-key)
   (evil-leader/set-key
     "s" 'save-buffer
-    "e" 'find-file
+    "e" 'ido-find-file
     "b" 'switch-to-buffer
     "k" 'kill-buffer
     )
@@ -40,7 +41,6 @@
 
 (with-eval-after-load 'evil
   (defalias #'forward-evil-word #'forward-evil-symbol))
-
 
 (use-package evil-ex-fasd
   :after evil

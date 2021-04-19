@@ -4,7 +4,7 @@
 
 ;; Save buffer when file is modified
 ;; Used when switching buffers, exiting evil-insert-state
-(defun core-save-if-bufferfilename ()
+(defun core/save-if-bufferfilename ()
   (if (buffer-file-name)
     (progn
       (save-buffer)
@@ -20,30 +20,16 @@
   (interactive)
   (string-equal system-type "gnu/linux"))
 
-(defun make-plugin-path (plugin)
-  (expand-file-name
-   (concat plugin-path plugin)))
-
-(defun include-plugin (plugin)
-  (add-to-list 'load-path (make-plugin-path plugin)))
-
-(defun make-elget-path (plugin)
-  (expand-file-name
-   (concat elget-path plugin)))
-
-(defun include-elget-plugin (plugin)
-  (add-to-list 'load-path (make-elget-path plugin)))
-
 ;; Function for determining emacs dir paths.
 (defun core-emacs.d (path)
   "Return path inside user's `.emacs.d'."
   (expand-file-name path user-emacs-directory))
 
-(defun core-cache-for (identifier)
+(defun core/cache-for (identifier)
   "Return cache directory for given identifier."
   (expand-file-name identifier cache-directory))
 
-(defun core-mkdir-p (dir-path)
+(defun core/mkdir-p (dir-path)
   "Make directory if it doesn't exist."
   (unless (file-exists-p dir-path)
     (make-directory dir-path t)))
@@ -61,49 +47,33 @@
        ((and (eq isdir nil) (string= (substring path -3) ".el"))
         (load (file-name-sans-extension fullpath)))))))
 
-(defun create-new-buffer ()
+(defun core/create-new-buffer ()
   "Create a new buffer named *new*."
   (interactive)
   (switch-to-buffer (generate-new-buffer-name "*new*")))
 
-(defun lm/smart-find-file ()
+(defun core/smart-find-file ()
   "Find files using projectile if within a project, or fall-back to ido."
   (interactive)
   (if (projectile-project-p)
-    (projectile-find-file)
+    (counsel-projectile-find-file)
     (ido-find-file)))
 
-(defun lm/kill-default-buffer ()
+(defun core/kill-default-buffer ()
   "Kill the currently active buffer."
   (interactive)
   (let (kill-buffer-query-functions) (kill-buffer)))
 
-(defun lm/create-non-existent-directory ()
+(defun core/create-non-existent-directory ()
   "Prompt to automagically create parent directories."
   (let ((parent-directory (file-name-directory buffer-file-name)))
     (when (and (not (file-exists-p parent-directory))
             (y-or-n-p (format "Directory `%s' does not exist! Create it?" parent-directory)))
       (make-directory parent-directory t))))
-(add-to-list 'find-file-not-found-functions #'lm/create-non-existent-directory)
 
-(defmacro def (name &rest body)
-  (declare (indent 1) (debug t))
-  `(defun ,name (&optional _arg)
-     ,(if (stringp (car body)) (car body))
-     (interactive "p")
-     ,@(if (stringp (car body)) (cdr `,body) body)))
+(add-to-list 'find-file-not-found-functions #'core/create-non-existent-directory)
 
-(defmacro λ (&rest body)
-  (declare (indent 1) (debug t))
-  `(lambda ()
-     (interactive)
-     ,@body))
-
-(defmacro add-λ (hook &rest body)
-  (declare (indent 1) (debug t))
-  `(add-hook ,hook (lambda () ,@body)))
-
-(def lm/prettyfy-change-symbols
+(def core/prettyfy-change-symbols
   lambda  ()
   (mapc (lambda (pair) (push pair prettify-symbols-alist))
     '(;; Syntax
