@@ -10,6 +10,8 @@
     (fillstruct . "go get -u github.com/davidrjenni/reftools/cmd/fillstruct")
     )
   :mode "\\.go\\'"
+  :hook
+  (go-mode . lsp-deferred)
   )
 
 (use-package go-eldoc

@@ -2,32 +2,14 @@
 ;; code:
 
 (use-package yasnippet
-  :commands yas-reload-all
-  :hook ((prog-mode LaTeX-mode) . yas-minor-mode)
-  :diminish (yas-minor-mode . "y")
-  :init
-  (push 'company-yasnippet core-company-global-backends)
-  (define-key evil-insert-state-map (kbd "C-SPC") 'yas-expand)
-  (core-leader ("ty" 'yas-minor-mode "Toggle yasnippet"))
+  :ensure t
+  :delight (yas-minor-mode  "Ⓨ")
   :config
-  (yas-reload-all))
+  (yas-global-mode 1))
 
 (use-package yasnippet-snippets
   :ensure t
-  :after yasnipet
-  )
-
-(use-package js-react-redux-yasnippets
-  :ensure t)
-
-(use-package react-snippets
-  :ensure t)
-
-(use-package company-yasnippet
-  :ensure company
-  :after yasnippet
-  :commands company-yasnippet
-  )
+  :after yasnippet)
 
 ;; Integrate yasnippet
 (use-package ivy-yasnippet
