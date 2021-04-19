@@ -4,6 +4,7 @@ git.help:
 	@echo '    git:'
 	@echo ''
 	@echo '        git                 show help'
+	@echo '        git.hooks           install hooks script to git'
 	@echo '        git.setup           install dependences to application'
 	@echo '        git.ignore          ignore dependences to application'
 	@echo '        git.reviews         add revieweers to git config'
@@ -23,6 +24,13 @@ git.setup:
 	@echo "==> setup git..."
 	make git.ignore
 	make git.reviews
+
+## Setup git hooks files.
+.PHONY: git.hooks
+git.hooks:
+	@echo "==> git setup hooks..."
+	@rsync -vhP  provision/git/hooks/ .git/hooks/
+	@echo ${MESSAGE_HAPPY}
 
 ## Generate git ignore of files.
 .PHONY: git.ignore
