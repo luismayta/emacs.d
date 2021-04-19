@@ -16,8 +16,7 @@
   )
 
 (use-package flutter
-  :quelpa (flutter :fetcher github
-		   :repo "amake/flutter.el")
+  :straight (flutter :type git :host github :repo "amake/flutter.el")
   :ensure t
   :after dart-mode
   :bind (:map dart-mode-map

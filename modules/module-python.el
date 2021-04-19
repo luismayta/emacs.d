@@ -18,16 +18,14 @@
   (pyenv-mode))
 
 (use-package pyenv-mode-auto
-  :quelpa (pyenv-mode-auto :fetcher github
-		   :repo "ssbb/pyenv-mode-auto")
+  :straight (pyenv-mode-auto :type git :host github :repo "ssbb/pyenv-mode-auto")
   :config
   (add-hook 'pyenv-mode-auto-hook
     (lambda () (shell-command "pip install mypy autopep8 flake8 elpy jedi rope isort epc importmagic yapf pylint")))
   )
 
 (use-package pipenv
-  :quelpa (pipenv :fetcher github
-		        :repo "pwalsh/pipenv.el")
+  :straight (pipenv :type git :host github :repo "pwalsh/pipenv.el")
   :ensure-system-package
   (
     (pyls . "pip install pipenv")
@@ -48,9 +46,8 @@
   )
 
 (use-package flycheck-mypy
-  :quelpa (flycheck-mypy :fetcher github
-		   :repo "lbolla/emacs-flycheck-mypy")
-             )
+  :straight (flycheck-mypy :type git :host github :repo "lbolla/emacs-flycheck-mypy")
+  )
 
 (use-package flycheck
   :init
@@ -80,8 +77,8 @@
   (
     (pyls . "pip install python-language-server")
     )
-  :init
-  (add-hook 'python-mode-hook 'lsp-deferred))
+  :hook
+  (python-mode . lsp-deferred))
 
 (provide 'module-python)
 ;;; module-python.el ends here

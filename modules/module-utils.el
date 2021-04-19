@@ -4,12 +4,6 @@
 (use-package gnu-elpa-keyring-update
              )
 
-(use-package async
-  :ensure t)
-
-(use-package direx
-  :ensure t)
-
 (use-package rings
   :ensure t)
 

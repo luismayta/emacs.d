@@ -18,9 +18,6 @@
 (use-package feature-mode
   :mode (("\\.feature$" . feature-mode)))
 
-(use-package fixmee
-  )
-
 (use-package goto-last-change)
 
 ;; flycheck
@@ -38,8 +35,7 @@
 
 ;; toml
 (use-package toml-mode
-  :quelpa (toml-mode :fetcher github
-		   :repo "dryman/toml-mode.el")
+  :straight (toml-mode :type git :host github :repo "dryman/toml-mode.el")
   :mode ("\\.toml\\'" "Pipfile\\'" "\\Cargo.lock\\'" "\\.cargo/config\\'"))
 
 (use-package emmet-mode
