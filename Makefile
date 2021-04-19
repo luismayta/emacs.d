@@ -93,7 +93,6 @@ setup:
 	@echo "==> install packages..."
 	make python.setup
 	make python.precommit
-	@cp -rf provision/git/hooks/prepare-commit-msg .git/hooks/
 	@[ -e ".env" ] || cp -rf .env.example .env
 	make yarn.setup
 	make git.setup
