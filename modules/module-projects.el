@@ -20,7 +20,6 @@
     (setq projectile-git-submodule-command nil
       projectile-enable-caching nil)))
 
-
 (use-package counsel-projectile
   :after projectile
   :requires (evil-leader)

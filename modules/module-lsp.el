@@ -1,5 +1,6 @@
 ;;; module-lsp.el --- lsp config.
 ;;; code:
+(require 'core-vars)
 
 ;; optionally if you want to use debugger
 (use-package dap-mode)
@@ -16,9 +17,9 @@
   :config
   (progn
     (setq lsp-auto-configure t)
-    (setq lsp-auto-guess-root t )
-	  (setq gc-cons-threshold 100000000)
-	  (setq read-process-output-max (* 2 1024 1024)) ;; 1mb
+    (setq lsp-auto-guess-root t)
+	  (setq gc-cons-threshold core-gc-cons-threshold)
+	  (setq read-process-output-max core-read-process-output-max) ;; 1mb
 	  (setq company-minimum-prefix-length 1
 		  company-idle-delay 0.0) ;; default is 0.2
     (setq lsp-prefer-flymake nil)
@@ -30,30 +31,25 @@
     "jb"  #'xref-pop-marker-stack)  ; (j)ump (b)ack to marker
   :hook (
           (lsp-mode . lsp-enable-which-key-integration)
-          (python-mode . lsp-deferred) ;; https://github.com/palantir/python-language-server
-          (sh-mode . lsp-deferred) ;; npm i -g bash-language-server
-          (lua-mode . lsp-deferred)
-          (c-mode . lsp-deferred)
-          (go-mode . lsp-deferred)
-          (ruby-mode . lsp-deferred)
-          (java-mode . lsp-deferred)
+          ;; (sh-mode . lsp-deferred) ;; npm i -g bash-language-server
+          ;; (c-mode . lsp-deferred)
+          ;; (java-mode . lsp-deferred)
           (json-mode . lsp-deferred) ;; yarn global add vscode-json-languageserver
           ((js2-mode rjsx-mode typescript-mode) . lsp-deferred) ;; https://www.chadstovern.com/javascript-in-emacs-revisited/
           (web-mode . lsp-deferred) ;; yarn global add hmtl-ls
-          (terraform-mode	. lsp-deferred)
-          (rust-mode . lsp-deferred)
+          ;; (rust-mode . lsp-deferred)
           (html-mode . lsp-deferred)
           )
   :custom
   (
     setq lsp-enable-indentation nil
-    lsp-log-io nil
+    lsp-log-io t
     lsp-prefer-flymake nil
     lsp-trace nil
 		lsp-inhibit-message t
 		lsp-eldoc-render-all t
 		lsp-enable-file-watchers nil
-		lsp-highlight-symbol-at-point nil
+		lsp-highlight-symbol-at-point t
     )
   )
 

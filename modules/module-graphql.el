@@ -2,8 +2,7 @@
 ;;; code:
 
 (use-package graphql-mode
-  :quelpa (graphql-mode :fetcher github
-		        :repo "davazp/graphql-mode")
+  :straight (graphql-mode :type git :host github :repo "davazp/graphql-mode")
 	:ensure-system-package
 	(graphql-lsp . "yarn global add graphql-language-service-cli graphql")
   :mode (

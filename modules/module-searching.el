@@ -36,10 +36,18 @@
 
 ;; Counsel (same as Ivy above)
 (use-package counsel
-  :ensure t
+  :custom
+  (ivy-mode 1)
+  (counsel-mode 1)
   :requires (evil-leader)
+  :hook
+  ;; invoke counsel-mode to remaps built-ins to counsel counterparts
+  (ivy-mode . counsel-mode)
   :init
   (evil-leader/set-key "/" 'counsel-grep)
+  :config
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t)
   :commands          ; Load counsel when any of these commands are invoked
   (counsel-M-x       ; M-x use counsel
     counsel-find-file ; C-x C-f use counsel-find-file
@@ -49,6 +57,24 @@
     counsel-ag        ; search for regexp in git repo using ag
     counsel-locate)   ; search for files or else using locate
   )
+
+(use-package all-the-icons-ivy
+  :after (ivy all-the-icons)
+  :init (add-hook 'after-init-hook 'all-the-icons-ivy-setup)
+  :config
+  (setq all-the-icons-ivy-icon-args (list :height 0.8 :v-adjust -0.4))
+  (setq all-the-icons-ivy-file-commands
+    '(counsel-find-file counsel-file-jump counsel-recentf counsel-projectile-find-file counsel-projectile-find-dir)))
+
+(use-package all-the-icons-ivy-rich
+  :hook
+  (ivy-mode . all-the-icons-ivy-rich-mode)
+  :custom
+  (all-the-icons-ivy-rich-icon-size 0.8))
+
+(use-package ivy-rich
+  :hook
+  (ivy-mode . ivy-rich-mode))
 
 (provide 'module-searching)
 ;;; module-searching.el ends here
