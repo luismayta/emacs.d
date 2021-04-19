@@ -86,5 +86,15 @@ display system is initialized.")
 (defconst IS-LINUX   (eq system-type 'gnu/linux))
 (defconst IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
 
+(defvar core-gc-cons-threshold (* 2 1024 1024) ; 1mb
+  "The default value to use for `gc-cons-threshold'. If you experience freezing,
+decrease this. If you experience stuttering, increase this.")
+
+(defvar core-gc-cons-upper-limit 536870912 ; 512mb
+  "The temporary value for `gc-cons-threshold' to defer it.")
+
+(defvar core-read-process-output-max (* 2 1024 1024) ;; 1mb
+  "The temporary value for `read-process-output-max' to defer it.")
+
 (provide 'core-vars)
 ;;; core-vars.el ends here
