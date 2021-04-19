@@ -43,7 +43,7 @@
 ;; Remembers your location in a file when saving files.
 (use-package saveplace
   :init
-  (setq save-place-file (core-cache-for "saveplace"))
+  (setq save-place-file (core/cache-for "saveplace"))
   (setq-default save-place t))
 
 (provide 'module-navigation)
