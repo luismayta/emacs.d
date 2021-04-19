@@ -6,7 +6,7 @@
 (require 'core-functions)
 
 ;; Ignore customisation by putting it in the cache dir.
-(setq custom-file (core-cache-for "custom.el"))
+(setq custom-file (core/cache-for "custom.el"))
 (setq debug-on-error t)
 (setq inhibit-compacting-font-caches t)
 
@@ -52,27 +52,27 @@
 ;; Automatically scroll compilation window.
 (setq compilation-scroll-output 1)
 
-(core-mkdir-p cache-directory)
-(core-mkdir-p backup-directory)
+(core/mkdir-p cache-directory)
+(core/mkdir-p backup-directory)
 
 ;; Keep autosave files in /tmp.
 (setq auto-save-file-name-transforms
   `((".*" , temporary-file-directory t)))
 
 ;; Change auto-save-list directory.
-(setq auto-save-list-file-prefix (core-cache-for "auto-save-list/.saves-"))
+(setq auto-save-list-file-prefix (core/cache-for "auto-save-list/.saves-"))
 
 ;; Change eshell directory.
-(setq eshell-directory-name (core-cache-for "eshell"))
+(setq eshell-directory-name (core/cache-for "eshell"))
 
 ;; Change bookmarks file location.
-(setq bookmark-file (core-cache-for "bookmarks"))
+(setq bookmark-file (core/cache-for "bookmarks"))
 
 ;; Change save-places file location.
-(setq save-place-file (core-cache-for "places"))
+(setq save-place-file (core/cache-for "places"))
 
 ;; Ido history.
-(setq ido-save-directory-list-file (core-cache-for "ido.last"))
+(setq ido-save-directory-list-file (core/cache-for "ido.last"))
 
 ;; Allow pasting selection outside of Emacs.
 (setq select-enable-clipboard 1)
