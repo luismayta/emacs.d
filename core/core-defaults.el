@@ -25,13 +25,6 @@
 
 (setq-default truncate-lines 1) ;; no wordwrap
 
-;; Character encodings default to utf-8.
-(prefer-coding-system 'utf-8)
-(set-language-environment 'utf-8)
-(set-default-coding-systems 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
-
 ;; Show column numbers in mode line.
 (setq column-number-mode t)
 
@@ -60,23 +53,17 @@
 (setq compilation-scroll-output 1)
 
 (core-mkdir-p cache-directory)
-
 (core-mkdir-p backup-directory)
-
-;; Keep backups in a separate directory.
 
 ;; Keep autosave files in /tmp.
 (setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
+  `((".*" , temporary-file-directory t)))
 
 ;; Change auto-save-list directory.
 (setq auto-save-list-file-prefix (core-cache-for "auto-save-list/.saves-"))
 
 ;; Change eshell directory.
 (setq eshell-directory-name (core-cache-for "eshell"))
-
-;; Disable annoying lock files.
-(setq create-lockfiles nil)
 
 ;; Change bookmarks file location.
 (setq bookmark-file (core-cache-for "bookmarks"))
@@ -90,7 +77,6 @@
 ;; Allow pasting selection outside of Emacs.
 (setq select-enable-clipboard 1)
 (setq select-active-regions t)
-(setq save-interprogram-paste-before-kill 1)
 (setq yank-pop-change-selection t)
 (fset 'evil-visual-update-x-selection 'ignore)
 

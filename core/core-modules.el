@@ -10,6 +10,7 @@
      module-editing
      module-fonts
      module-ui
+     module-modeline
      module-searching
      module-projects
      module-navigation

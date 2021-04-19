@@ -5,8 +5,6 @@
 ;;; Code:
 
 (require 'core-vars)
-(require 'hierarchy)
-(require 'seq)
 
 ;;; Convenience functions for leader bindings
 
