@@ -26,7 +26,11 @@ display system is initialized.")
   user-emacs-directory
   "Start directory.")
 
-; paths
+(defvar fd-command
+  (format "%s . --color=never --type f -0 -H -E .git"
+    "fd")
+  )
+
 (defconst private-directory
   (expand-file-name (concat start-directory "private/"))
   "Core directory.")
