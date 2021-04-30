@@ -24,7 +24,7 @@ repos:
     hooks:
       - id: python-safety-dependencies-check
   - repo: https://github.com/Lucas-C/pre-commit-hooks-bandit
-    rev: v1.0.4
+    rev: v1.0.5
     hooks:
       - id: python-bandit-vulnerability-check
         args: []
@@ -81,8 +81,6 @@ repos:
       - id: file-contents-sorter
       - id: fix-encoding-pragma
       - id: sort-simple-yaml
-      - id: mixed-line-ending
-        fix: lr
       - id: check-executables-have-shebangs
   - repo: https://github.com/asottile/blacken-docs
     rev: v1.10.0
@@ -90,21 +88,26 @@ repos:
       - id: blacken-docs
         additional_dependencies:
           - black
-  - repo: https://github.com/IamTheFij/docker-pre-commit
-    rev: v2.0.0
-    hooks:
-      - id: docker-compose-check
   - repo: https://github.com/hadenlabs/pre-commit-hooks
-    rev: e87875c92d9579ae9eff16f0994dfba42912ce0e
+    rev: ab7a684f0ab65a90038ea540eaa2afbed1b246be
     hooks:
       - id: do-not-commit
       - id: markdown-link-check
         exclude: \.tpl.md$
       - id: shellcheck
-        exclude: (^provision/script/wait-for-it.sh$|^provision/git/hooks/prepare-commit-msg$)
+        exclude: >
+          (?x)^(
+            .+\.provision/git/hooks/prepare-commit-msg$|
+            .+\.tpl.sh$|
+          )$
         args:
           - --exclude=SC1072,SC1073,SC2068
       - id: todocheck
+      - id: gitleaks
+        args:
+          - --path=.
+          - --repo-config-path=.github/linters/.gitleaks.toml
+          - --verbose
       - id: hadolint
         args:
           - --ignore=SC2001
@@ -123,19 +126,21 @@ repos:
         entry: ./node_modules/prettier/bin-prettier.js
         args:
           - '--write=true'
-          - '--list-different'
           - '--config=.github/linters/prettier.config.js'
           - '--ignore-path=.github/linters/.prettierignore'
         files: \.(js|jsx|json|ts|tsx|mjs|d.ts|md|yml|yaml|gql|graphql|mjml)$
         exclude: node_modules
       - id: eslint
         name: eslint
-        language: system
-        pass_filenames: true
-        entry: node_modules/eslint/bin/eslint.js --config=.github/linters/.eslintrc.js --ignore-path=.github/linters/.eslintignore --color
+        language: node
+        entry: node_modules/eslint/bin/eslint.js
         args:
           - '--fix'
+          - '--color'
+          - '--config=.github/linters/.eslintrc.js'
+          - '--ignore-path=.github/linters/.eslintignore'
         files: \.(js|jsx|ts|tsx|mjs|d.ts)$
+        exclude: node_modules
       - id: stylint
         name: stylint
         language: system
