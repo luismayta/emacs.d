@@ -4,7 +4,7 @@
   :ensure t
   :ensure-system-package
   (
-   (html-languageserver . "yarn global add vscode-html-languageserver-bin")
+    (html-languageserver . "yarn global add vscode-html-languageserver-bin")
     )
   :init
   (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
@@ -17,6 +17,8 @@
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.ts[x]\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+  :hook
+  (web-mode . lsp-deferred)
   :config
   (setq web-mode-enable-current-element-highlight t))
 

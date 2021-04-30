@@ -9,7 +9,22 @@
     (vscode-json-languageserver . "yarn global add vscode-json-languageserver")
     )
   :mode ("\\.json\\'" ".eslintrc\\'" ".prettierrc\\'" "Pipfile.lock\\'")
-  )
+  :hook
+  (json-mode . lsp-deferred))
+
+(use-package add-node-modules-path
+  :ensure t
+  :defer t
+  :hook (((js2-mode rjsx-mode) . add-node-modules-path)))
+
+(use-package prettier-js
+  :defer t
+  :ensure-system-package
+  (
+    (prettier . "yarn global add prettier")
+    )
+  :diminish prettier-js-mode
+  :hook (((js2-mode rjsx-mode) . prettier-js-mode)))
 
 (use-package jade-mode
   :mode ("\\.jade\\'" "\\.pug\\'"))
@@ -38,26 +53,13 @@
           ("\\.tsx\\'" . typescript-mode))
   :ensure-system-package
   (
-    (tsserver . "yarn global add typescript-language-server")
-    )
+    (tsserver . "yarn global add typescript-language-server"))
   :config
   (setq-default typescript-indent-level 2)
   ;; (add-hook 'typescript-mode-hook #'lsp-format-onsave-hook)
-  )
+  :hook
+  (typescript-mode . lsp-deferred))
 
-(use-package add-node-modules-path
-  :ensure t
-  :defer t
-  :hook (((js2-mode rjsx-mode) . add-node-modules-path)))
-
-(use-package prettier-js
-  :defer t
-  :ensure-system-package
-  (
-    (prettier . "yarn global add prettier")
-    )
-  :diminish prettier-js-mode
-  :hook (((js2-mode rjsx-mode) . prettier-js-mode)))
 
 (provide 'module-js)
 ;;; module-js.el ends here

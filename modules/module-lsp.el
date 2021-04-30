@@ -2,6 +2,8 @@
 ;;; code:
 (require 'core-vars)
 
+(use-package hydra)
+
 ;; optionally if you want to use debugger
 (use-package dap-mode)
 ;; (use-package dap-LANGUAGE) to load the dap adapter for your language
@@ -12,6 +14,7 @@
   (which-key-mode))
 
 (use-package lsp-mode
+  :requires hydra helm helm-lsp
 	:ensure nil
   :commands (lsp lsp-deferred)
   :config
@@ -22,7 +25,8 @@
 	  (setq read-process-output-max core-read-process-output-max) ;; 1mb
 	  (setq company-minimum-prefix-length 1
 		  company-idle-delay 0.0) ;; default is 0.2
-    (setq lsp-prefer-flymake nil)
+    (setq lsp-prefer-flymake nil) ;; Prefer using lsp-ui (flycheck) over flymake.
+
     ;; don't set flymake or lsp-ui so the default linter doesn't get trampled
     (setq lsp-diagnostic-package :none)
     )
@@ -31,13 +35,7 @@
     "jb"  #'xref-pop-marker-stack)  ; (j)ump (b)ack to marker
   :hook (
           (lsp-mode . lsp-enable-which-key-integration)
-          ;; (sh-mode . lsp-deferred) ;; npm i -g bash-language-server
-          ;; (c-mode . lsp-deferred)
-          ;; (java-mode . lsp-deferred)
-          (json-mode . lsp-deferred) ;; yarn global add vscode-json-languageserver
           ((js2-mode rjsx-mode typescript-mode) . lsp-deferred) ;; https://www.chadstovern.com/javascript-in-emacs-revisited/
-          (web-mode . lsp-deferred) ;; yarn global add hmtl-ls
-          ;; (rust-mode . lsp-deferred)
           (html-mode . lsp-deferred)
           )
   :custom
@@ -53,21 +51,40 @@
     )
   )
 
+;; (use-package lsp-ui
+;;   :defer t
+;;   :config
+;;   (setq lsp-ui-sideline-enable t
+;;     ;; disable flycheck setup so default linter isn't trampled
+;;     lsp-ui-flycheck-enable nil
+;;     lsp-ui-sideline-show-symbol nil
+;;     lsp-ui-sideline-show-hover nil
+;;     lsp-ui-sideline-show-code-actions nil
+;;     lsp-ui-peek-enable nil
+;;     lsp-ui-imenu-enable nil
+;;     lsp-ui-doc-enable nil)
+;;   )
+
 (use-package lsp-ui
-  :defer t
+  :requires lsp-mode flycheck
   :config
-  (setq lsp-ui-sideline-enable t
-    ;; disable flycheck setup so default linter isn't trampled
-    lsp-ui-flycheck-enable nil
-    lsp-ui-sideline-show-symbol nil
-    lsp-ui-sideline-show-hover nil
-    lsp-ui-sideline-show-code-actions nil
-    lsp-ui-peek-enable nil
+  (setq lsp-ui-doc-enable t
     lsp-ui-imenu-enable nil
-    lsp-ui-doc-enable nil)
+    ;; lsp-ui-doc-include-signature t
+    lsp-ui-doc-position 'top
+    lsp-ui-doc-use-childframe t
+    lsp-ui-flycheck-enable t
+    lsp-ui-flycheck-list-position 'right
+    lsp-ui-flycheck-live-reporting t
+    lsp-ui-peek-enable t
+    lsp-ui-peek-list-width 60
+    lsp-ui-sideline-enable t
+    lsp-ui-sideline-enable nil
+    lsp-ui-peek-peek-height 25)
   )
 
 (use-package helm-lsp :ensure t :commands helm-lsp-workspace-symbol)
+
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 
 (provide 'module-lsp)
