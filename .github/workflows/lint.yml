@@ -1,14 +1,14 @@
-name: lint code
+name: lint-code
 
 on:
   schedule:
     - cron: '0 0 * * *' # every day at midnight
 
-  pull_request:
+  push:
     branches:
       - develop
 
-  push:
+  pull_request:
     branches:
       - develop
 
@@ -72,4 +72,6 @@ jobs:
         run: pipenv install --dev --deploy --skip-lock --python="$(which python)"
 
       - name: execute pre-commit
-        run: pipenv run pre-commit run --all-files
+        run: |
+          [ -e ".env" ] || cp -rf .env.example .env
+          pipenv run pre-commit run --all-files
