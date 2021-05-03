@@ -24,15 +24,21 @@ badges:
   - name: GitHub tag (latest SemVer)
     image: https://img.shields.io/github/v/tag/luismayta/emacs.d?label=latest&sort=semver
     url: https://github.com/luismayta/emacs.d/releases
+  - name: Latest Release
+    image: https://img.shields.io/github/release/luismayta/emacs.d
+    url: https://github.com/luismayta/emacs.d/releases
   - name: Lint
     image: https://img.shields.io/github/workflow/status/luismayta/emacs.d/lint-code
     url: https://github.com/luismayta/emacs.d/actions
   - name: Issues
     image: https://img.shields.io/github/issues/luismayta/emacs.d
     url: https://github.com/luismayta/emacs.d/issues
-  - name: Latest Release
-    image: https://img.shields.io/github/release/luismayta/emacs.d
-    url: https://github.com/luismayta/emacs.d/releases
+  - name: Conventional Commits
+    image: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow
+    url: https://conventionalcommits.org
+  - name: KeepAChangelog
+    image: https://img.shields.io/badge/Keep%20A%20Changelog-1.0.0-%23E05735
+    url: https://keepachangelog.com
   - name: Beacon
     image: https://ga-beacon.appspot.com/G-1S43HTH1W0/emacs.d/readme
     url: https://github.com/luismayta/emacs.d
