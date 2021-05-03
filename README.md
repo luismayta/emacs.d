@@ -14,7 +14,7 @@
 
 # emacs.d
 
-[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/luismayta/emacs.d?label=latest&sort=semver)](https://github.com/luismayta/emacs.d/releases) [![Lint](https://img.shields.io/github/workflow/status/luismayta/emacs.d/lint-code)](https://github.com/luismayta/emacs.d/actions) [![Issues](https://img.shields.io/github/issues/luismayta/emacs.d)](https://github.com/luismayta/emacs.d/issues) [![Latest Release](https://img.shields.io/github/release/luismayta/emacs.d)](https://github.com/luismayta/emacs.d/releases) [![Beacon](https://ga-beacon.appspot.com/G-1S43HTH1W0/emacs.d/readme)](https://github.com/luismayta/emacs.d)
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/luismayta/emacs.d?label=latest&sort=semver)](https://github.com/luismayta/emacs.d/releases) [![Latest Release](https://img.shields.io/github/release/luismayta/emacs.d)](https://github.com/luismayta/emacs.d/releases) [![Lint](https://img.shields.io/github/workflow/status/luismayta/emacs.d/lint-code)](https://github.com/luismayta/emacs.d/actions) [![Issues](https://img.shields.io/github/issues/luismayta/emacs.d)](https://github.com/luismayta/emacs.d/issues) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow)](https://conventionalcommits.org) [![KeepAChangelog](https://img.shields.io/badge/Keep%20A%20Changelog-1.0.0-%23E05735)](https://keepachangelog.com) [![Beacon](https://ga-beacon.appspot.com/G-1S43HTH1W0/emacs.d/readme)](https://github.com/luismayta/emacs.d)
 
 emacs.d is installed by running one of the following commands in your terminal. You can install this via the command-line with either `curl` or `wget`.
 
