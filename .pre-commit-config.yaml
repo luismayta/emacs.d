@@ -30,7 +30,7 @@ repos:
         args: []
         files: .py$
   - repo: https://github.com/pre-commit/mirrors-pylint
-    rev: v3.0.0a1
+    rev: v3.0.0a3
     hooks:
       - id: pylint
         exclude: __pycache__|migrations|conf.py|_build|.tox|pootle/static|pootle/translations|pootle/locale|pootle/assets|templates
@@ -39,7 +39,7 @@ repos:
           - --disable=no-name-in-module,import-error,ungrouped-imports
           - --ignore=settings_test, migrations
   - repo: https://github.com/ambv/black
-    rev: 20.8b1
+    rev: 21.4b2
     hooks:
       - id: black
   - repo: https://gitlab.com/pycqa/flake8
