@@ -1,42 +1,25 @@
 ;;; module-modeline.el --- modeline niceties.
 
-;; (use-package doom-modeline
-;;   :hook
-;;   (after-init . doom-modeline-mode)
-;;   :config
-;;   (setq doom-modeline-icon t)
-;;   (setq doom-modeline-height 20))
-
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode)
+  :init
+  (display-battery-mode t)
   :config
   ;; How tall the mode-line should be (only respected in GUI Emacs).
-  (setq doom-modeline-height 17)
+  (setq doom-modeline-height 40)
+  (setq doom-modeline-buffer-state-icon t)
+  (setq doom-modeline-buffer-modification-icon t)
+  (setq doom-modeline-modal-icon t)
+  (setq doom-modeline-buffer-encoding nil)
 
   ;; How wide the mode-line bar should be (only respected in GUI Emacs).
   (setq doom-modeline-bar-width 3)
 
-  ;; Determines the style used by `doom-modeline-buffer-file-name'.
-  ;;
-  ;; Given ~/Projects/FOSS/emacs/lisp/comint.el
-  ;;   truncate-upto-project => ~/P/F/emacs/lisp/comint.el
-  ;;   truncate-from-project => ~/Projects/FOSS/emacs/l/comint.el
-  ;;   truncate-with-project => emacs/l/comint.el
-  ;;   truncate-except-project => ~/P/F/emacs/l/comint.el
-  ;;   truncate-upto-root => ~/P/F/e/lisp/comint.el
-  ;;   truncate-all => ~/P/F/e/l/comint.el
-  ;;   relative-from-project => emacs/lisp/comint.el
-  ;;   relative-to-project => lisp/comint.el
-  ;;   file-name => comint.el
-  ;;   buffer-name => comint.el<2> (uniquify buffer name)
-  ;;
-  ;; If you are expereicing the laggy issue, especially while editing remote files
-  ;; with tramp, please try `file-name' style.
   ;; Please refer to https://github.com/bbatsov/projectile/issues/657.
   (setq doom-modeline-buffer-file-name-style 'truncate-with-project)
 
   ;; Whether show `all-the-icons' or not (if nil nothing will be showed).
-  (setq doom-modeline-icon t)
+  (setq doom-modeline-icon (display-graphic-p))
 
   ;; Whether show the icon for major mode. It respects `doom-modeline-icon'.
   (setq doom-modeline-major-mode-icon t)
@@ -94,6 +77,15 @@
 
   (line-number-mode 0)
   (column-number-mode 0)
+  )
+
+;; setup nyan-mode cat
+(use-package nyan-mode
+  :after (doom-modeline)
+  :hook (doom-modeline-mode . nyan-mode)
+  :config
+  (nyan-mode 1)
+  (setq nyan-animate-nyancat t)
   )
 
 (provide 'module-modeline)
