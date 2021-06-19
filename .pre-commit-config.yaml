@@ -57,6 +57,7 @@ repos:
         args:
           - --path=.
           - --repo-config-path=.github/linters/.gitleaks.toml
+          - --commit-since=2021-06-01T15:04:05-0700
           - --verbose
       - id: hadolint
         args:
