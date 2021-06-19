@@ -15,10 +15,6 @@
 (use-package ivy-yasnippet
   :after yasnippet
   :commands ivy-yasnippet--preview
-  :bind (
-          ("C-c C-y" . ivy-yasnippet)
-          ("C-<tab>" . ivy-yasnippet)
-          )
   :config (advice-add #'ivy-yasnippet--preview :override #'ignore))
 
 
