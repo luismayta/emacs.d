@@ -6,6 +6,7 @@
     (bundler . "gem install bundler")
     (ruby-lint   . "gem install ruby-lint")
     (ripper-tags . "gem install ripper-tags")
+    (rubocop . "gem install rubocop")
     (pry         . "gem install pry"))
   :mode (("Fastfile$" . ruby-mode)
           ("Appfile$" . ruby-mode))
