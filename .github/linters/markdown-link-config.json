@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://github.com/hadenlabs/emacs.d",
+  "baseUrl": "https://github.com/luismayta/emacs.d",
   "ignorePatterns": [
     {
       "pattern": "^https://hadenlabs.com"
