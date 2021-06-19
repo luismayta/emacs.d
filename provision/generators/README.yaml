@@ -22,14 +22,14 @@ github_repo: luismayta/emacs.d
 # Badges to display
 badges:
   - name: GitHub release
-    image: https://img.shields.io/github/release/hadenlabs/emacs.d?style=flat-square
-    url: https://github.com/hadenlabs/emacs.d/releases/latest
+    image: https://img.shields.io/github/release/luismayta/emacs.d?style=flat-square
+    url: https://github.com/luismayta/emacs.d/releases/latest
   - name: Lint
-    image: https://img.shields.io/github/workflow/status/hadenlabs/emacs.d/lint-code
-    url: https://github.com/hadenlabs/emacs.d/actions?workflow=lint-code
+    image: https://img.shields.io/github/workflow/status/luismayta/emacs.d/lint-code
+    url: https://github.com/luismayta/emacs.d/actions?workflow=lint-code
   - name: CI
-    image: https://img.shields.io/github/workflow/status/hadenlabs/emacs.d/ci
-    url: https://github.com/hadenlabs/emacs.d/actions?workflow=ci
+    image: https://img.shields.io/github/workflow/status/luismayta/emacs.d/ci
+    url: https://github.com/luismayta/emacs.d/actions?workflow=ci
   - name: Conventional Commits
     image: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow
     url: https://conventionalcommits.org
