@@ -43,6 +43,8 @@ repos:
     hooks:
       - id: do-not-commit
       - id: markdown-link-check
+        args:
+          - --config=.github/linters/markdown-link-config.json
         exclude: \.tpl.md$
       - id: shellcheck
         exclude: >
