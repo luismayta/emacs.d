@@ -32,7 +32,7 @@
      module-web
      module-lua
      module-clojure
-                                        ; module-php
+     module-php
      module-python
      module-ruby
      module-swift
