@@ -1,15 +1,6 @@
-exclude: 'provision/ansible/prod/roles/contrib|provision/ansible/dev/roles/contrib|vendor|docs|.serverless|.serveless_nextjs|node_modules|migrations|.git|.tox|.gen'
-default_language_version:
-  # force all unspecified python hooks to run python3
-  python: python3.8.0
-
 repos:
-  - repo: https://github.com/pre-commit/pre-commit
-    rev: v2.12.1
-    hooks:
-      - id: validate_manifest
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.0.0
+    rev: v2.1.0
     hooks:
       - id: codespell
         args: [--ignore-words=.codespell-ignores]
@@ -19,50 +10,16 @@ repos:
             .+\.node_modules\/.*$|
             .+\.lock$|
           )$
-  - repo: https://github.com/Lucas-C/pre-commit-hooks-safety
-    rev: v1.2.1
-    hooks:
-      - id: python-safety-dependencies-check
-  - repo: https://github.com/Lucas-C/pre-commit-hooks-bandit
-    rev: v1.0.5
-    hooks:
-      - id: python-bandit-vulnerability-check
-        args: []
-        files: .py$
-  - repo: https://github.com/pre-commit/mirrors-pylint
-    rev: v3.0.0a3
-    hooks:
-      - id: pylint
-        exclude: __pycache__|migrations|conf.py|_build|.tox|pootle/static|pootle/translations|pootle/locale|pootle/assets|templates
-        args:
-          - --rcfile=.github/linters/.pylintrc
-          - --disable=no-name-in-module,import-error,ungrouped-imports
-          - --ignore=settings_test, migrations
-  - repo: https://github.com/ambv/black
-    rev: 21.4b2
-    hooks:
-      - id: black
-  - repo: https://gitlab.com/pycqa/flake8
-    rev: 3.9.1
-    hooks:
-      - id: flake8
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v0.812
-    hooks:
-      - id: mypy
-        args:
-          - --ignore-missing-imports
-        exclude: migrations|conf.py|_build|.tox|pootle/static|pootle/translations|pootle/locale|pootle/assets|templates
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.4.0
+    rev: v4.0.1
     hooks:
       - id: detect-private-key
         files: ^(?!\.?git-crypt)
+        exclude: >
+          (?x)^(
+            .+\.gitleaks.toml$|
+          )$
       - id: check-merge-conflict
-      - id: trailing-whitespace
-        files: ^tf|-|\.(py|tfvars|tf|tfenv|env|yml|yaml|pem|key|mock)$
-      - id: end-of-file-fixer
-        files: ^tf|-|\.(py|env|yml|yaml|pem|key|mock)$
       - id: check-added-large-files
         files: ^tf|-|\.(py|env|yml|yaml)$
       - id: check-case-conflict
@@ -81,15 +38,8 @@ repos:
       - id: file-contents-sorter
       - id: fix-encoding-pragma
       - id: sort-simple-yaml
-      - id: check-executables-have-shebangs
-  - repo: https://github.com/asottile/blacken-docs
-    rev: v1.10.0
-    hooks:
-      - id: blacken-docs
-        additional_dependencies:
-          - black
   - repo: https://github.com/hadenlabs/pre-commit-hooks
-    rev: ab7a684f0ab65a90038ea540eaa2afbed1b246be
+    rev: 5a1cf2bd39307f6ea1ae8c3fa708a399ae74f6eb
     hooks:
       - id: do-not-commit
       - id: markdown-link-check
@@ -141,10 +91,3 @@ repos:
           - '--ignore-path=.github/linters/.eslintignore'
         files: \.(js|jsx|ts|tsx|mjs|d.ts)$
         exclude: node_modules
-      - id: stylint
-        name: stylint
-        language: system
-        pass_filenames: true
-        entry: node_modules/stylelint/bin/stylelint.js --config=.github/linters/.stylintrc --syntax less **/*.less
-        args: [--fix]
-        files: \.(css|scss|sass|less)$

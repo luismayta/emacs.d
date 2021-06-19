@@ -5,26 +5,25 @@ verify_ssl = true
 
 [dev-packages]
 docker-compose = "*"
+bridgecrew = "*"
+bumpversion = "*"
+doc8 = "*"
+grip = "*"
 isort = "*"
+mkdocs = "*"
+mkdocs-material = "*"
 mypy = "*"
+parso = "*"
+pre-commit = "*"
 pycodestyle = "*"
 pydocstyle = "*"
-pylint = "*"
-parso = "*"
-bumpversion = "*"
-pre-commit = "*"
-doc8 = "*"
-bridgecrew = "*"
-mkdocs = "*"
 pygments = "*"
+pylint = "*"
 pymdown-extensions = "*"
-mkdocs-material = "*"
-grip = "*"
 
 [packages]
 
 [scripts]
-test = "pytest"
 update = "pre-commit autoupdate"
 
 [requires]
