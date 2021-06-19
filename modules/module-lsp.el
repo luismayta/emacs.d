@@ -51,20 +51,6 @@
     )
   )
 
-;; (use-package lsp-ui
-;;   :defer t
-;;   :config
-;;   (setq lsp-ui-sideline-enable t
-;;     ;; disable flycheck setup so default linter isn't trampled
-;;     lsp-ui-flycheck-enable nil
-;;     lsp-ui-sideline-show-symbol nil
-;;     lsp-ui-sideline-show-hover nil
-;;     lsp-ui-sideline-show-code-actions nil
-;;     lsp-ui-peek-enable nil
-;;     lsp-ui-imenu-enable nil
-;;     lsp-ui-doc-enable nil)
-;;   )
-
 (use-package lsp-ui
   :requires lsp-mode flycheck
   :config
