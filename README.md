@@ -12,13 +12,27 @@
 
   -->
 
-[![GitHub release](https://img.shields.io/github/release/luismayta/emacs.d?style=flat-square)](https://github.com/luismayta/emacs.d/releases/latest) [![Lint](https://img.shields.io/github/workflow/status/luismayta/emacs.d/lint-code)](https://github.com/luismayta/emacs.d/actions?workflow=lint-code) [![CI](https://img.shields.io/github/workflow/status/luismayta/emacs.d/ci)](https://github.com/luismayta/emacs.d/actions?workflow=ci) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow)](https://conventionalcommits.org) [![KeepAChangelog](https://img.shields.io/badge/Keep%20A%20Changelog-1.0.0-%23E05735)](https://keepachangelog.com) [![Beacon](https://ga-beacon.appspot.com/G-1S43HTH1W0/emacs.d/readme)](https://github.com/luismayta/emacs.d)
+ 
+
+ [![Latest Release](https://img.shields.io/github/release/luismayta/emacs.d)](https://github.com/luismayta/emacs.d/releases) [![Lint](https://img.shields.io/github/workflow/status/luismayta/emacs.d/lint-code)](https://github.com/luismayta/emacs.d/actions?workflow=lint-code) [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow)](https://conventionalcommits.org) [![KeepAChangelog](https://img.shields.io/badge/Keep%20A%20Changelog-1.0.0-%23E05735)](https://keepachangelog.com)
 
 # emacs.d
 
-emacs.d is installed by running one of the following commands in your terminal. You can install this via the command-line with either `curl` or `wget`.
+ emacs.d is installed by running one of the following commands in your terminal. You can install this via the command-line with either `curl` or `wget`. 
+
+
+
+
+
+
+
+
+
+
+
 
 ## Requirements
+
 
 This is a list of applications that need to be installed previously to enjoy all the goodies of this configuration.
 
@@ -28,15 +42,18 @@ This is a list of applications that need to be installed previously to enjoy all
 - [graphviz](http://www.graphviz.org)
 - [silver-searcher](https://github.com/ggreer/the_silver_searcher)
 
-## Installation
 
+
+## Installation
 ### via curl
 
 `bash -c "$(curl -fsSL https://rebrand.ly/github-6c1dc)"`
-
 ### via wget
 
 `bash -c "$(wget https://rebrand.ly/github-6c1dc -O -)"`
+
+
+
 
 ## Usage
 
@@ -44,9 +61,22 @@ This is a list of applications that need to be installed previously to enjoy all
 make setup
 ```
 
+
+
+
+
+
 ## Examples
 
 ### common
+
+
+
+
+
+
+
+
 
 ## Help
 
@@ -84,20 +114,34 @@ Using the given version number of `MAJOR.MINOR.PATCH`, we apply the following co
 
 ### Backwards compatibility in `0.0.z` and `0.y.z` version
 
-- In the context of initial development, backwards compatibility in versions `0.0.z` is **not guaranteed** when `z` is increased. (Initial development)
-- In the context of pre-release, backwards compatibility in versions `0.y.z` is **not guaranteed** when `y` is increased. (Pre-release)
+- In the context of initial development, backwards compatibility in versions `0.0.z` is **not guaranteed** when `z` is
+  increased. (Initial development)
+- In the context of pre-release, backwards compatibility in versions `0.y.z` is **not guaranteed** when `y` is
+  increased. (Pre-release)
+
+
+
 
 ## Copyright
 
 Copyright © 2018-2021 [Hadenlabs](https://hadenlabs.com)
 
+
+
 ## Trademarks
 
 All other trademarks referenced herein are the property of their respective owners.
 
+
+
+
+
+
 ## License
 
 The code and styles are licensed under the LGPL-3.0 license [See project license.](LICENSE).
+
+
 
 ## Don't forget to 🌟 Star 🌟 the repo if you like emacs.d
 
