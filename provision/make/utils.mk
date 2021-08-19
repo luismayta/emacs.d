@@ -1,9 +1,8 @@
 #
 # See ./docs/contributing.md
 #
-
-## Show list commands of utils
 .PHONY: utils.help
+
 utils.help:
 	@echo '    utils:'
 	@echo ''
@@ -11,13 +10,9 @@ utils.help:
 	@echo '        utils.generate             generate key ssh by stage'
 	@echo ''
 
-## Show list commands of utils
-.PHONY: utils
 utils:
 	make utils.help
 
-## Generate key rsa pem
-.PHONY: utils.generate
 utils.generate:
 	mkdir -p ${KEYBASE_PROJECT_PATH}/${stage}/{pem,pub,private,openssl}
 	mkdir -p ${KEYBASE_PROJECT_PATH}/${stage}/pub

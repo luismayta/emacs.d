@@ -94,7 +94,6 @@ setup:
 	make python.setup
 	make python.precommit
 	@[ -e ".env" ] || cp -rf .env.example .env
-	make yarn.setup
 	make git.setup
 	@echo ${MESSAGE_HAPPY}
 
