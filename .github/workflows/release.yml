@@ -2,7 +2,8 @@ name: create-release
 
 on:
   workflow_run:
-    workflows: ['lint-code']
+    workflows:
+      - lint-code
     types:
       - completed
 
@@ -17,7 +18,7 @@ on:
 jobs:
   release:
     runs-on: ubuntu-20.04
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && startsWith(github.ref, 'refs/tags/') }}
     container:
       image: golang:1.16
     steps:
@@ -26,10 +27,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: show tag
-        id: tag
-        run: |
-          echo ::set-output name=TAG::${GITHUB_REF##*/}
+      - id: get_version
+        uses: battila7/get-version-action@v2
+
+      -  name: set vars to github
+         run: |
+          echo "APP_TAG=${{ steps.get_version.outputs.version-without-v }}" >> $GITHUB_ENV
 
       - name: install
         run: |
@@ -41,7 +44,7 @@ jobs:
           $(go env GOPATH)/bin/git-chglog \
             -c .chglog/config.yml \
             -o RELEASE_CHANGELOG.md \
-            ${{ steps.tag.outputs.TAG }}
+            ${{ env.APP_TAG }}
 
       - name: Create Release
         id: create_release
@@ -49,8 +52,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
-          tag_name: ${{ steps.tag.outputs.TAG }}
-          release_name: ${{ steps.tag.outputs.TAG }}
+          tag_name: ${{ env.APP_TAG }}
+          release_name: ${{ env.APP_TAG }}
           draft: true
           prerelease: false
           body_path: RELEASE_CHANGELOG.md

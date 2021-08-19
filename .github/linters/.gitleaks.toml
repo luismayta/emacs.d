@@ -170,10 +170,13 @@ title = "gitleaks config"
         description = "ignore emails"
         regexes = [
             '''[a-zA-Z0-9._%+-]+@users.noreply.github.com''',
+            '''[a-zA-Z0-9._%+-]+@yopmail.com''',
             '''git@github.com''',
             '''git@gitlab.com''',
             '''slovacus@gmail.com''',
+            '''luis@hadenlabs.com''',
             '''hola@hadenlabs.com''',
+            '''hello@hadenlabs.com''',
             '''support@hadenlbas.com''',
             '''support@hadenlabs.com''',
             '''dum-u@hadenlabs.com''',
