@@ -13,21 +13,21 @@ EMACS_ROOT_PATH="${HOME}/.emacs.d"
 EMACS_APP_NAME='emacs.d'
 EMASC_MESSAGES_BREW_NOT_FOUND="Install brew for next also use github.com/luismayta/zsh-brew"
 
-message_error() {
+function message_error {
     printf "${RED}%s${NORMAL}\n" "[ERROR]: ${1}"
     exit 1
 }
 
-message_info() {
+function message_info {
     printf "${BLUE}%s${NORMAL}\n" "[INFO]: ${1}"
 }
 
-message_warning() {
+function message_warning {
     printf "${YELLOW}%s${NORMAL}\n" "[WARNING]: ${1}"
 }
 
-message_success() {
-    printf "${GREEN}%s${NORMAL}\n" "🍺️ [SUCCESS]: ${1}"
+function message_success {
+    printf "${GREEN}%s${NORMAL}\n" "🧉 [SUCCESS]: ${1}"
 }
 
 emacs::lua::install() {
@@ -123,7 +123,7 @@ emacs::install::dependences() {
     emacs::luarocks::install
 }
 
-emmacs::greeting::thanks() {
+function emacs::greeting::thanks {
     cat <<EOF
 
 ---------------------------
