@@ -154,7 +154,7 @@ title = "gitleaks config"
 
 [[rules]]
     description = "Env Var"
-    regex = '''(?i)(apikey|secret|key|api|password|pass|pw|host)=[0-9a-zA-Z-_.{}]{4,120}'''
+    regex = '''(?i)(apikey|secret|key|api|password|pass)=[0-9a-zA-Z-_.{}]{4,120}'''
     tags = ["env"]
     [rules.allowlist]
         description = "ignore value fake"
@@ -231,14 +231,22 @@ title = "gitleaks config"
 # Global allowlist
 [allowlist]
   description = "Whitelisted files"
-    files = [
-      '''(.*?)(jpg|gif|png|doc|pdf|bin|mp3|mp4|mov|ttf|woff|woff2|eot|lock)$''',
-      '''^\.gitignore$''',
-      '''^\.gitleaks.toml$''',
-      '''^yarn.lock$''',
-      '''^vendor/(.*?)$''',
-      '''^node_modules/(.*?)$''',
-    ]
+  paths = [
+    '''^vendor/''',
+    '''^bower_components/''',
+    '''^public/''',
+    '''^node_modules/''',
+    '''^theme/''',
+  ]
+  files = [
+    '''(.*?)(jpg|gif|png|doc|pdf|bin|mp3|mp4|mov|ttf|woff|woff2|eot|lock)$''',
+    '''^\.gitignore$''',
+    '''^\.gitleaks.toml$''',
+    '''^yarn.lock$''',
+    '''^vendor/(.*?)$''',
+    '''^sonar-project.properties$''',
+    '''^node_modules/(.*?)$''',
+  ]
     commits = [
       '''67644917b60992941cb0f922674e39d2f4863d3d''',
       '''0d05c1f4093a4473068675c2b8412f89df910acc''',
@@ -271,12 +279,17 @@ title = "gitleaks config"
       '''bd9033b97f803151066eadc6813c10e9ae7535a6''',
     ]
 
-
 [whitelist]
   description = "image and html allowlists"
-	files = [
+  files = [
     '''(.*?)(jpg|gif|png|doc|pdf|bin|mp3|mp4|mov|ttf|woff|woff2|eot|lock)$''',
+    '''^\.gitignore$''',
     '''^\.gitleaks.toml$''',
     '''^\.gitignore$''',
     '''^yarn.lock$''',
+    '''^sonar-project.properties$''',
+  ]
+  paths = [
+    '''^vendor/(.*?)$''',
+    '''^node_modules/(.*?)$''',
   ]
