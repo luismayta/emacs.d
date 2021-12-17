@@ -28,7 +28,7 @@
   :straight (pipenv :type git :host github :repo "pwalsh/pipenv.el")
   :ensure-system-package
   (
-    (pyls . "pip install pipenv")
+    (pipenv . "pip install pipenv")
     )
   :hook (python-mode . pipenv-mode)
   :init
@@ -75,7 +75,7 @@
 (use-package python
   :ensure-system-package
   (
-    (pyls . "pip install python-language-server")
+    (pylsp . "pip install python-lsp-server")
     )
   :hook
   (python-mode . lsp-deferred))
