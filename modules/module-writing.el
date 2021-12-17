@@ -12,6 +12,7 @@
 (use-package markdown-mode
   :mode (("\\.md$" . markdown-mode)
           ("\\.text$" . markdown-mode)
+          ("\\.mdx" . markdown-mode)
           ("\\.markdown$" . markdown-mode)))
 
 ;; rst-mode
