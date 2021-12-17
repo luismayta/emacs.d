@@ -2,11 +2,11 @@
 
 ;;; code:
 
-(defvar core-fixed-font-name "FiraCode Nerd Font Mono")
-(defvar core-frame-font "FiraCode Nerd Font Mono-19")
-(defvar core-default-font "FiraCode Nerd Font Mono-19")
+(defvar core-fixed-font-name "Fira Code")
+(defvar core-frame-font "Fira Code Retina-19")
+(defvar core-default-font "Fira Code Medium-19")
 (defvar core-fixed-font-weight "retina")
-(defvar core-var-font-name "FiraCode Nerd Font Mono")
+(defvar core-var-font-name "Fira Code Retina")
 (defvar core-font-height 190)
 
 (defvar core-leader-key ",")
