@@ -1,9 +1,11 @@
 <!-- Space: Emacs -->
 <!-- Parent: Project -->
-<!-- Title: Support -->
+<!-- Title: Commands -->
 
-<!-- Label: Support and Contact -->
+<!-- Label: Emacs -->
+<!-- Label: Project -->
+<!-- Label: Commands -->
 <!-- Include: docs/disclaimer.md -->
 <!-- Include: ac:toc -->
 
-# Support & Contact
+## Commands
