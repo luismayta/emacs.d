@@ -1,9 +1,6 @@
 ;; Module-utils --- Utils
 ;;; code:
 
-(use-package gnu-elpa-keyring-update
-             )
-
 (use-package rings
   :ensure t)
 

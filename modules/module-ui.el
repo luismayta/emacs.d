@@ -117,11 +117,12 @@
 
 (add-hook 'emacs-startup-hook #'setup-windows-hook)
 
+;; Install fonts with `fira-code-mode-install-fonts'
 (use-package fira-code-mode
   :straight (fira-code-mode :type git :host github :repo "jming422/fira-code-mode")
-  ;; Requires installing Fira Code Symbol font first
-  :custom (fira-code-mode-disabled-ligatures '("www" "[]" "#{" "#(" "#_" "#_(" "x"))
-  :hook prog-mode)
+  :custom
+  (fira-code-mode-disabled-ligatures '("[]" "#{" "#(" "#_" "#_(" "x" ".." "..."))
+  :hook prog-mode) ;; Enables fira-code-mode automatically for programming major modes
 
 (provide 'module-ui)
 ;;; module-ui.el ends here
