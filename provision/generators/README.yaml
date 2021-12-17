@@ -10,6 +10,10 @@ name: emacs.d
 email:
   support: support@hadenlabs.com
 
+confluence:
+  space: Emacs
+  title: Project
+
 # Logo for this project
 #logo: docs/logo.png
 
@@ -33,9 +37,6 @@ badges:
   - name: Conventional Commits
     image: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow
     url: https://conventionalcommits.org
-  - name: KeepAChangelog
-    image: https://img.shields.io/badge/Keep%20A%20Changelog-1.0.0-%23E05735
-    url: https://keepachangelog.com
 
 # Short description of this project
 description: |-
@@ -47,6 +48,7 @@ requirements: |-
 
   - [Git](http://git-scm.com/)
   - [editorconfig](http://editorconfig.org)
+  - [gomplate](https://github.com/hairyhenderson/gomplate)
   - [ctags](http://ctags.sourceforge.net)
   - [graphviz](http://www.graphviz.org)
   - [silver-searcher](https://github.com/ggreer/the_silver_searcher)
@@ -57,8 +59,9 @@ installation:
 
 # How to use this project
 usage: |-
+
   ```bash
-  make setup
+  yarn start
   ```
 
 examples:
