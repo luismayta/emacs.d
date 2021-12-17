@@ -13,26 +13,26 @@ EMACS_ROOT_PATH="${HOME}/.emacs.d"
 EMACS_APP_NAME='emacs.d'
 EMASC_MESSAGES_BREW_NOT_FOUND="Install brew for next also use github.com/luismayta/zsh-brew"
 
-function message_error {
+function message::error {
     printf "${RED}%s${NORMAL}\n" "[ERROR]: ${1}"
     exit 1
 }
 
-function message_info {
+function message::info {
     printf "${BLUE}%s${NORMAL}\n" "[INFO]: ${1}"
 }
 
-function message_warning {
+function message::warning {
     printf "${YELLOW}%s${NORMAL}\n" "[WARNING]: ${1}"
 }
 
-function message_success {
+function message::success {
     printf "${GREEN}%s${NORMAL}\n" "🧉 [SUCCESS]: ${1}"
 }
 
 emacs::lua::install() {
     if ! type -p brew > /dev/null; then
-        message_warning "${EMASC_MESSAGES_BREW_NOT_FOUND}"
+        message::warning "${EMASC_MESSAGES_BREW_NOT_FOUND}"
         return
     fi
 
@@ -41,7 +41,7 @@ emacs::lua::install() {
 
 emacs::luarocks::install() {
     if ! type -p brew > /dev/null; then
-        message_warning "${EMASC_MESSAGES_BREW_NOT_FOUND}"
+        message::warning "${EMASC_MESSAGES_BREW_NOT_FOUND}"
         return
     fi
 
@@ -59,7 +59,7 @@ emacs::luarocks::dependences::install() {
 
 emacs::repository::clone() {
     if [ -d "${EMACS_ROOT_PATH}/.git" ]; then
-        message_info "The application is installed, please remove the directory ${EMACS_APP_NAME}"
+        message::info "The application is installed, please remove the directory ${EMACS_APP_NAME}"
         return 1
     fi
     git clone --recursive -b "${EMACS_REPO_BRANCH}" "${EMACS_REPO_HTTPS}" "${EMACS_ROOT_PATH}"
@@ -68,7 +68,7 @@ emacs::repository::clone() {
 
 emacs::install::dependences() {
     if ! type -p brew > /dev/null; then
-        message_warning "${EMASC_MESSAGES_BREW_NOT_FOUND}"
+        message::warning "${EMASC_MESSAGES_BREW_NOT_FOUND}"
         return
     fi
 
@@ -97,7 +97,7 @@ emacs::install::dependences() {
     }
 
     hash aspell >/dev/null 2>&1 || {
-        brew install aspell --with-lang-en
+        brew install aspell
     }
 
     hash ispell >/dev/null 2>&1 || {
@@ -132,7 +132,7 @@ Thanks for installing Emacs
 
 EOF
 
-    msg "© $(date +%Y) ${EMACS_APP_NAME}"
+  message::info "© $(date +%Y) ${EMACS_APP_NAME}"
 }
 
 initialize() {
