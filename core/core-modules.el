@@ -43,7 +43,7 @@
      module-hashicorp
      module-dart
      module-term
-                                        ; module-org
+     module-org
                                         ; module-google
      )
   )
