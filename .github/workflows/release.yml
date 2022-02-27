@@ -3,7 +3,7 @@ name: create-release
 on:
   workflow_run:
     workflows:
-      - lint-code
+      - sonar-scan
     types:
       - completed
 
