@@ -2,7 +2,7 @@
 ;;; code:
 
 (use-package solidity-mode
-  :ensure-system-package
+:ensure-system-package
   (
     (solcjs . "yarn global add solc")
     (solium . "yarn global add ethlint")
