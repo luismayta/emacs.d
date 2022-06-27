@@ -4,7 +4,6 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-docker-compose = "*"
 bridgecrew = "*"
 bumpversion = "*"
 doc8 = "*"
@@ -20,11 +19,9 @@ pydocstyle = "*"
 pygments = "*"
 pylint = "*"
 pymdown-extensions = "*"
+black = "*"
 
 [packages]
 
 [scripts]
 update = "pre-commit autoupdate"
-
-[requires]
-python_version = "3.9.2"
