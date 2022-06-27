@@ -13,6 +13,18 @@
   :config
   (which-key-mode))
 
+(use-package eglot
+  :hook ((sh-mode js-mode rust-mode
+                  svelte-mode typescript-mode python-mode) . eglot-ensure)
+  :config
+  (add-to-list 'eglot-server-programs '(rust-mode . ("rust-analyzer")))
+
+  ;; cd ~/.nodebin
+  ;; npm install typescript-language-server svelte-language-server
+  (add-to-list 'eglot-server-programs '(typescript-mode . ("typescript-language-server" "--stdio")))
+  ;;(add-to-list 'eglot-server-programs '(svelte-mode . ("svelteserver")))
+  (add-to-list 'eglot-server-programs '(python-mode . ("pyls"))))
+
 (use-package lsp-mode
   :requires hydra helm helm-lsp
 	:ensure nil
